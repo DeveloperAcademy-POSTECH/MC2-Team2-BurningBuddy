@@ -19,6 +19,7 @@
 		C914443F2A0149E300E6202D /* 본고딕-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C91444382A0149E200E6202D /* 본고딕-Light.otf */; };
 		C91444402A0149E300E6202D /* 본고딕-Normal.otf in Resources */ = {isa = PBXBuildFile; fileRef = C91444392A0149E200E6202D /* 본고딕-Normal.otf */; };
 		C91444412A0149E300E6202D /* 본고딕-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C914443A2A0149E300E6202D /* 본고딕-Medium.otf */; };
+		C91444432A0167C500E6202D /* cookie.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C91444422A0167C500E6202D /* cookie.jpeg */; };
 		C91BB6E92A00BDC0009FAA86 /* BurningBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6E82A00BDC0009FAA86 /* BurningBuddyApp.swift */; };
 		C91BB6EB2A00BDC0009FAA86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6EA2A00BDC0009FAA86 /* ContentView.swift */; };
 		C91BB6ED2A00BDC1009FAA86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C91BB6EC2A00BDC1009FAA86 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		C91444382A0149E200E6202D /* 본고딕-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "본고딕-Light.otf"; sourceTree = "<group>"; };
 		C91444392A0149E200E6202D /* 본고딕-Normal.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "본고딕-Normal.otf"; sourceTree = "<group>"; };
 		C914443A2A0149E300E6202D /* 본고딕-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "본고딕-Medium.otf"; sourceTree = "<group>"; };
+		C91444422A0167C500E6202D /* cookie.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cookie.jpeg; sourceTree = "<group>"; };
 		C91BB6E52A00BDC0009FAA86 /* BurningBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BurningBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91BB6E82A00BDC0009FAA86 /* BurningBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurningBuddyApp.swift; sourceTree = "<group>"; };
 		C91BB6EA2A00BDC0009FAA86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		C91BB6F82A00BE27009FAA86 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C91444422A0167C500E6202D /* cookie.jpeg */,
 				C91BB6EC2A00BDC1009FAA86 /* Assets.xcassets */,
 			);
 			path = Utils;
@@ -209,6 +212,7 @@
 				C914443D2A0149E300E6202D /* 본고딕-Heavy.otf in Resources */,
 				C91BB6F02A00BDC1009FAA86 /* Preview Assets.xcassets in Resources */,
 				C91444402A0149E300E6202D /* 본고딕-Normal.otf in Resources */,
+				C91444432A0167C500E6202D /* cookie.jpeg in Resources */,
 				C91444412A0149E300E6202D /* 본고딕-Medium.otf in Resources */,
 				C91BB6ED2A00BDC1009FAA86 /* Assets.xcassets in Resources */,
 			);
