@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct NicknameSettingView: View {
-//    @Binding var isMember: Bool
+    //    @Binding var isMember: Bool
     @State var nickname: String = ""
     
     var body: some View {
@@ -20,31 +20,42 @@ struct NicknameSettingView: View {
                 .foregroundColor(.white)
                 .font(.custom("본고딕-Bold", size: 30))
             Spacer()
-            
-            TextField("닉네임을 입력해주세요!", text: $nickname, prompt: Text("닉네임을 입력해주세요!")
+            Spacer()
+            TextField("", text: $nickname, prompt: Text("닉네임을 입력해주세요!")
                 .foregroundColor(.white))
-                .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
-                .foregroundColor(.white)
+            .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
+            .foregroundColor(.white)
             Divider()
                 .overlay(Color.white)
                 .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
             Spacer()
-            Button(action: {
+            Spacer()
+            Button("다음", action: {
                 print("다음버튼 클릭")
-            }) {
-                Text("다음")
-                    .foregroundColor(.white)
-                
-            }
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
-            .frame(height: 50)
-            .cornerRadius(30)
-            .background(Color(red: 255/255, green: 45/255, blue: 75/255))
-            
+            })
+            .buttonStyle(NextButtonStyle(colorRed: 255, colorGreen: 45, colorBlue: 85, fontSize: 17))
             Spacer()
         }
         .background(.black)
     }
+}
+
+struct NextButtonStyle: ButtonStyle {
+    @State var colorRed: Double
+    @State var colorGreen: Double
+    @State var colorBlue: Double
+    @State var fontSize: CGFloat
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(.custom("본고딕-Medium", size: fontSize))
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .foregroundColor(.white)
+            .background(RoundedRectangle(cornerRadius: 15.0).fill(Color(red: colorRed / 255, green: colorGreen / 255, blue: colorBlue / 255))
+            )
+    }
+    
 }
 
 struct NicknameSettingView_Previews: PreviewProvider {
