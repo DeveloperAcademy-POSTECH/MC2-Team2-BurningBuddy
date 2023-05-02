@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CharacterSettingView: View {
     @ObservedObject var characterName = TextLimiter(limit: 8)
+    @EnvironmentObject var settings: UserSettings
     
     var body: some View {
         VStack {
@@ -33,8 +34,8 @@ struct CharacterSettingView: View {
                 .frame(width: 400, height: 400)
             
             Button("캐릭터 만들기", action: {
-                // saveCharacterName()
-                
+                saveCharacterName()
+                print(settings.pageNum)
             })
             .buttonStyle(NextButtonStyle(colorRed: 255, colorGreen: 45, colorBlue: 85, fontSize: 17))
             Spacer()
@@ -43,7 +44,11 @@ struct CharacterSettingView: View {
     }
     
     func saveCharacterName() {
-        // UserDefault에 캐릭터 이름 저장
+        settings.characterName = characterName.value
+        withAnimation(.easeIn(duration: 0.9)){
+            settings.pageNum += 1
+        }
+        
     }
 }
 

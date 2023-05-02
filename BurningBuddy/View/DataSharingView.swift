@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DataSharingView: View {
     var body: some View {
-        Text("Hello world")
+        Text("데이터 공유 뷰")
     }
 }
 

@@ -10,7 +10,8 @@ import SwiftUI
 
 struct NicknameSettingView: View {
     //    @Binding var isMember: Bool
-    @ObservedObject var nickname = TextLimiter(limit: 8)
+    @ObservedObject var nicknameLimiter = TextLimiter(limit: 8)
+    @EnvironmentObject var settings: UserSettings
     
     var body: some View {
         VStack {
@@ -21,7 +22,7 @@ struct NicknameSettingView: View {
                 .font(.custom("본고딕-Bold", size: 30))
             Spacer()
             Spacer()
-            TextField("", text: $nickname.value, prompt: Text("닉네임은 한글 2~8자로 설정할 수 있어요!")
+            TextField("", text: $nicknameLimiter.value, prompt: Text("닉네임은 한글 2~8자로 설정할 수 있어요!")
                 .foregroundColor(.white))
             .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
             .foregroundColor(.white)
@@ -31,9 +32,7 @@ struct NicknameSettingView: View {
             Spacer()
             Spacer()
             Button("다음", action: {
-                // saveNickname()
-                
-                CharacterSettingView()
+                saveNickname()
             })
             .buttonStyle(NextButtonStyle(colorRed: 255, colorGreen: 45, colorBlue: 85, fontSize: 17))
             Spacer()
@@ -42,6 +41,12 @@ struct NicknameSettingView: View {
     }
     
     func saveNickname() {
+        settings.nickName = nicknameLimiter.value
+        withAnimation(.easeInOut(duration: 0.4)){
+            settings.pageNum += 1
+        }
+        
+        
         // UserDefault에 닉네임 저장
         // 닉네임과 동시에 특별 ID 부여해야 할 듯. 중복처리가 불가능한 구조여서...
     }

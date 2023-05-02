@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SearchPartnerView: View {
     var body: some View {
-        Text("Hello world")
+        Text("파트너 찾기 뷰")
     }
 }
 

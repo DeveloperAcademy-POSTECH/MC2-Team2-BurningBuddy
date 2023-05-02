@@ -7,18 +7,29 @@
 
 import SwiftUI
 
+
+class UserSettings: ObservableObject {
+    @Published var pageNum = 0
+    @Published var nickName = "admin"
+    @Published var characterName = "DDolDDoli"
+}
+
 struct ContentView: View {
-    @State private var nickname: String = String()
-    @State var isMember: Bool = false
+    @ObservedObject var settings = UserSettings()
     
     var body: some View {
-        
-        ZStack {
-            if isMember {
-                MainView()
-            } else {
-                NicknameSettingView()
-            }
+        if settings.pageNum == 0 {
+            NicknameSettingView()
+                .environmentObject(settings)
+                .background(.black) // 고급진 까만것이 필요할 듯
+        } else if settings.pageNum == 1 {
+            CharacterSettingView()
+                .environmentObject(settings)
+                .background(.black)
+        } else {
+            MainView()
+                .environmentObject(settings)
+                .background(.black)
         }
     }
 }
