@@ -17,7 +17,7 @@ struct ContentView: View {
             if isMember {
                 MainView()
             } else {
-//                NicknameSettingView(isMember: $isMember)
+                NicknameSettingView()
             }
         }
     }

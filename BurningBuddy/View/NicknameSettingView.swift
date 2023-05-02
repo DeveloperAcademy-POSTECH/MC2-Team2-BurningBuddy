@@ -10,7 +10,7 @@ import SwiftUI
 
 struct NicknameSettingView: View {
     //    @Binding var isMember: Bool
-    @State var nickname: String = ""
+    @ObservedObject var nickname = TextLimiter(limit: 8)
     
     var body: some View {
         VStack {
@@ -21,7 +21,7 @@ struct NicknameSettingView: View {
                 .font(.custom("본고딕-Bold", size: 30))
             Spacer()
             Spacer()
-            TextField("", text: $nickname, prompt: Text("닉네임을 입력해주세요!")
+            TextField("", text: $nickname.value, prompt: Text("닉네임은 한글 2~8자로 설정할 수 있어요!")
                 .foregroundColor(.white))
             .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
             .foregroundColor(.white)
@@ -57,6 +57,26 @@ struct NextButtonStyle: ButtonStyle {
     }
     
 }
+
+class TextLimiter: ObservableObject {
+    private let limit: Int
+    init(limit: Int) {
+        self.limit = limit
+    }
+    
+    @Published var value = "" {
+        didSet {
+            if value.count > self.limit {
+                value = String(value.prefix(self.limit))
+                self.hasReachedLimit = true
+            } else {
+                self.hasReachedLimit = false
+            }
+        }
+    }
+    @Published var hasReachedLimit = false
+}
+
 
 struct NicknameSettingView_Previews: PreviewProvider {
     @State var isMember: Bool = true
