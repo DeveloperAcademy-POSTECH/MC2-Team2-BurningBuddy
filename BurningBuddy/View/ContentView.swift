@@ -21,7 +21,7 @@ struct ContentView: View {
         if settings.pageNum == 0 {
             NicknameSettingView()
                 .environmentObject(settings)
-                .background(.black) // 고급진 까만것이 필요할 듯
+                .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
         } else if settings.pageNum == 1 {
             CharacterSettingView()
                 .environmentObject(settings)

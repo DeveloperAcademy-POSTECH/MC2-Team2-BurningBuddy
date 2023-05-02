@@ -43,6 +43,7 @@
 		C91444392A0149E200E6202D /* 본고딕-Normal.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "본고딕-Normal.otf"; sourceTree = "<group>"; };
 		C914443A2A0149E300E6202D /* 본고딕-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "본고딕-Medium.otf"; sourceTree = "<group>"; };
 		C91444422A0167C500E6202D /* cookie.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cookie.jpeg; sourceTree = "<group>"; };
+		C91444442A01799700E6202D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C91BB6E52A00BDC0009FAA86 /* BurningBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BurningBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91BB6E82A00BDC0009FAA86 /* BurningBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurningBuddyApp.swift; sourceTree = "<group>"; };
 		C91BB6EA2A00BDC0009FAA86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 		C91BB6E72A00BDC0009FAA86 /* BurningBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				C91444442A01799700E6202D /* Info.plist */,
 				C91BB6F82A00BE27009FAA86 /* Utils */,
 				C91BB6F72A00BE23009FAA86 /* View */,
 				C91BB6F62A00BE1C009FAA86 /* Model */,
@@ -292,7 +294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -347,7 +349,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -368,10 +370,13 @@
 				DEVELOPMENT_TEAM = UULN4L9KLP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BurningBuddy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -397,10 +402,13 @@
 				DEVELOPMENT_TEAM = UULN4L9KLP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BurningBuddy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

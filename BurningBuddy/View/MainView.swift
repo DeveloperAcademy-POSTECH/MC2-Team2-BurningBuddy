@@ -9,8 +9,6 @@ import Foundation
 import SwiftUI
 
 struct MainView: View {
-    @State var nickname: String = "테스트중"
-    @State var characterName: String = "테스트캐릭터이름"
     @EnvironmentObject var settings: UserSettings
     
     var body: some View {
@@ -25,36 +23,36 @@ struct MainView: View {
                 }
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(EdgeInsets(top: 25, leading: 30, bottom: 0, trailing: 0))
+                
                 Text(settings.characterName)
                     .foregroundColor(.white)
                     .font(.system(size: 30, weight: .bold, design: .default))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(EdgeInsets(top: 0 , leading: 30, bottom: 0, trailing: 0))
+
             }
+
+            ProgressView(value: 50, total: 100)
+                .scaleEffect(x: 1, y: 4, anchor: .center)
+                .progressViewStyle(LinearProgressViewStyle(tint: Color(red: 255/255, green: 45/255, blue: 85/255)))
+                .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
+
+            Spacer()
             
-            
-            Spacer()
-            Spacer()
-            Divider()
-                .overlay(Color.white)
-                .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
-            Spacer()
-            Spacer()
             Button("다음", action: {
                 // saveNickname()
                 
             })
             .buttonStyle(NextButtonStyle(colorRed: 255, colorGreen: 45, colorBlue: 85, fontSize: 17))
-            Spacer()
         }
-        .background(.black)
+        .padding(EdgeInsets(top: 50, leading: 30, bottom: 30, trailing: 30))
+        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+        
     }
 }
 
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView().environmentObject(UserSettings())
     }
 }

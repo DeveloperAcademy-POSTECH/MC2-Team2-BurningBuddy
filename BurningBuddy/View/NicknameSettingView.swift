@@ -37,7 +37,7 @@ struct NicknameSettingView: View {
             .buttonStyle(NextButtonStyle(colorRed: 255, colorGreen: 45, colorBlue: 85, fontSize: 17))
             Spacer()
         }
-        .background(.black)
+        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
     }
     
     func saveNickname() {
