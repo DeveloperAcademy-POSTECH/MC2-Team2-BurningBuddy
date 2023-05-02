@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CharacterSettingView: View {
     var body: some View {
-        Text("Hello world")
+        Text("캐릭터 생성뷰")
     }
 }
 

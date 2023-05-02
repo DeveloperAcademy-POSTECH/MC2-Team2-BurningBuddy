@@ -31,12 +31,19 @@ struct NicknameSettingView: View {
             Spacer()
             Spacer()
             Button("다음", action: {
-                print("다음버튼 클릭")
+                // saveNickname()
+                
+                CharacterSettingView()
             })
             .buttonStyle(NextButtonStyle(colorRed: 255, colorGreen: 45, colorBlue: 85, fontSize: 17))
             Spacer()
         }
         .background(.black)
+    }
+    
+    func saveNickname() {
+        // UserDefault에 닉네임 저장
+        // 닉네임과 동시에 특별 ID 부여해야 할 듯. 중복처리가 불가능한 구조여서...
     }
 }
 
@@ -45,6 +52,7 @@ struct NextButtonStyle: ButtonStyle {
     @State var colorGreen: Double
     @State var colorBlue: Double
     @State var fontSize: CGFloat
+    @State private var pressed = false
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
