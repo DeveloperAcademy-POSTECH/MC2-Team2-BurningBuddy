@@ -72,7 +72,7 @@ struct MainView: View {
                         Text("소모 칼로리")
                             .font(.system(size: 20, design: .default))
                         Spacer()
-                        Text("342kcal")
+                        Text(settings.isDoneWorkout ? "342kcal" : "오늘 안함")
                             .font(.system(size: 25, weight: .bold, design: .default))
                         Spacer()
                     }
@@ -88,7 +88,7 @@ struct MainView: View {
                         Text("운동 시간")
                             .font(.system(size: 20, design: .default))
                         Spacer()
-                        Text("2 Hours")
+                        Text(settings.isDoneWorkout ? "2 Hours" : "오늘 안함")
                             .font(.system(size: 25, weight: .bold, design: .default))
                         Spacer()
                     }
@@ -100,13 +100,13 @@ struct MainView: View {
                 Spacer()
                 
                 NavigationLink(destination: {
-                    if !settings.hasPartner {
+                    if settings.hasPartner {
                         SearchPartnerView().environmentObject(settings)
                     } else {
                         WorkoutView().environmentObject(settings)
                     }
                 } ) {
-                    Text(settings.hasPartner ? "운동 시작하기" : "파트너 찾기")
+                    Text(settings.hasPartner ? "운동 시작하기" : "운동 종료하기")
                 }
                 .buttonStyle(NextButtonStyle(colorRed: 255, colorGreen: 45, colorBlue: 85, fontSize: 17))
             }

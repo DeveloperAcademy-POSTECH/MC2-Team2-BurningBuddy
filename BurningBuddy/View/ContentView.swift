@@ -12,7 +12,9 @@ class UserSettings: ObservableObject {
     @Published var pageNum = 0
     @Published var nickName = "admin"
     @Published var characterName = "DDolDDoli"
-    @Published var hasPartner = false
+    @Published var hasPartner = true
+    @Published var isWorkouting = false
+    @Published var isDoneWorkout = false
 }
 
 struct ContentView: View {
