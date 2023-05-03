@@ -55,7 +55,7 @@ struct MainView: View {
                             .background(Color(red: 216/255, green: 216/255, blue: 216/255))
                             .foregroundColor(.black)
                             .cornerRadius(14)
-                            
+                        
                         Spacer()
                         Button("다음 진화", action: {
                             self.showEvolution = true
@@ -130,12 +130,15 @@ struct MainView: View {
             .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
             
         }
+        
     }
+    
 }
 
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView().environmentObject(UserSettings())
+            .preferredColorScheme(.dark)
     }
 }
