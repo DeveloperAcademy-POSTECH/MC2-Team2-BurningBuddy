@@ -12,13 +12,6 @@
 		C914440A2A01459D00E6202D /* EvolutionModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91444092A01459D00E6202D /* EvolutionModalView.swift */; };
 		C914440C2A01460F00E6202D /* CharacterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914440B2A01460F00E6202D /* CharacterSettingView.swift */; };
 		C914440E2A01462500E6202D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914440D2A01462500E6202D /* SettingView.swift */; };
-		C914443B2A0149E300E6202D /* 본고딕-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C91444342A0149E000E6202D /* 본고딕-Bold.otf */; };
-		C914443C2A0149E300E6202D /* 본고딕-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C91444352A0149E100E6202D /* 본고딕-ExtraLight.otf */; };
-		C914443D2A0149E300E6202D /* 본고딕-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = C91444362A0149E100E6202D /* 본고딕-Heavy.otf */; };
-		C914443E2A0149E300E6202D /* 본고딕-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C91444372A0149E100E6202D /* 본고딕-Regular.otf */; };
-		C914443F2A0149E300E6202D /* 본고딕-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C91444382A0149E200E6202D /* 본고딕-Light.otf */; };
-		C91444402A0149E300E6202D /* 본고딕-Normal.otf in Resources */ = {isa = PBXBuildFile; fileRef = C91444392A0149E200E6202D /* 본고딕-Normal.otf */; };
-		C91444412A0149E300E6202D /* 본고딕-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C914443A2A0149E300E6202D /* 본고딕-Medium.otf */; };
 		C91444432A0167C500E6202D /* cookie.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C91444422A0167C500E6202D /* cookie.jpeg */; };
 		C91BB6E92A00BDC0009FAA86 /* BurningBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6E82A00BDC0009FAA86 /* BurningBuddyApp.swift */; };
 		C91BB6EB2A00BDC0009FAA86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6EA2A00BDC0009FAA86 /* ContentView.swift */; };
@@ -35,13 +28,6 @@
 		C91444092A01459D00E6202D /* EvolutionModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionModalView.swift; sourceTree = "<group>"; };
 		C914440B2A01460F00E6202D /* CharacterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSettingView.swift; sourceTree = "<group>"; };
 		C914440D2A01462500E6202D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		C91444342A0149E000E6202D /* 본고딕-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "본고딕-Bold.otf"; sourceTree = "<group>"; };
-		C91444352A0149E100E6202D /* 본고딕-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "본고딕-ExtraLight.otf"; sourceTree = "<group>"; };
-		C91444362A0149E100E6202D /* 본고딕-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "본고딕-Heavy.otf"; sourceTree = "<group>"; };
-		C91444372A0149E100E6202D /* 본고딕-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "본고딕-Regular.otf"; sourceTree = "<group>"; };
-		C91444382A0149E200E6202D /* 본고딕-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "본고딕-Light.otf"; sourceTree = "<group>"; };
-		C91444392A0149E200E6202D /* 본고딕-Normal.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "본고딕-Normal.otf"; sourceTree = "<group>"; };
-		C914443A2A0149E300E6202D /* 본고딕-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "본고딕-Medium.otf"; sourceTree = "<group>"; };
 		C91444422A0167C500E6202D /* cookie.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cookie.jpeg; sourceTree = "<group>"; };
 		C91444442A01799700E6202D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C91BB6E52A00BDC0009FAA86 /* BurningBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BurningBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,20 +51,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C914440F2A01489B00E6202D /* Font */ = {
-			isa = PBXGroup;
-			children = (
-				C91444342A0149E000E6202D /* 본고딕-Bold.otf */,
-				C91444352A0149E100E6202D /* 본고딕-ExtraLight.otf */,
-				C91444362A0149E100E6202D /* 본고딕-Heavy.otf */,
-				C91444382A0149E200E6202D /* 본고딕-Light.otf */,
-				C914443A2A0149E300E6202D /* 본고딕-Medium.otf */,
-				C91444392A0149E200E6202D /* 본고딕-Normal.otf */,
-				C91444372A0149E100E6202D /* 본고딕-Regular.otf */,
-			);
-			path = Font;
-			sourceTree = "<group>";
-		};
 		C91BB6DC2A00BDC0009FAA86 = {
 			isa = PBXGroup;
 			children = (
@@ -104,7 +76,6 @@
 				C91BB6F62A00BE1C009FAA86 /* Model */,
 				C91BB6E82A00BDC0009FAA86 /* BurningBuddyApp.swift */,
 				C91BB6EE2A00BDC1009FAA86 /* Preview Content */,
-				C914440F2A01489B00E6202D /* Font */,
 			);
 			path = BurningBuddy;
 			sourceTree = "<group>";
@@ -207,15 +178,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C914443B2A0149E300E6202D /* 본고딕-Bold.otf in Resources */,
-				C914443F2A0149E300E6202D /* 본고딕-Light.otf in Resources */,
-				C914443C2A0149E300E6202D /* 본고딕-ExtraLight.otf in Resources */,
-				C914443E2A0149E300E6202D /* 본고딕-Regular.otf in Resources */,
-				C914443D2A0149E300E6202D /* 본고딕-Heavy.otf in Resources */,
 				C91BB6F02A00BDC1009FAA86 /* Preview Assets.xcassets in Resources */,
-				C91444402A0149E300E6202D /* 본고딕-Normal.otf in Resources */,
 				C91444432A0167C500E6202D /* cookie.jpeg in Resources */,
-				C91444412A0149E300E6202D /* 본고딕-Medium.otf in Resources */,
 				C91BB6ED2A00BDC1009FAA86 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
