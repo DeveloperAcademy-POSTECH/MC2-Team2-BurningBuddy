@@ -27,7 +27,7 @@ struct ContentView: View {
             CharacterSettingView()
                 .environmentObject(settings)
                 .background(.black)
-        } else {
+        } else if settings.pageNum == 2 {
             MainView()
                 .environmentObject(settings)
                 .background(.black)
