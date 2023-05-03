@@ -103,7 +103,7 @@ struct MainView: View {
                     if !settings.hasPartner {
                         SearchPartnerView().environmentObject(settings)
                     } else {
-                        DataSharingView().environmentObject(settings)
+                        WorkoutView().environmentObject(settings)
                     }
                 } ) {
                     Text(settings.hasPartner ? "운동 시작하기" : "파트너 찾기")
