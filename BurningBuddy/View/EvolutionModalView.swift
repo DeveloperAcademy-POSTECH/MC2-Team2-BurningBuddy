@@ -10,7 +10,7 @@ import SwiftUI
 
 struct EvolutionModalView: View {
     var body: some View {
-        Text("버니가 진화하는 과정을 담은 뷰")
+        Text("진화과정")
     }
 }
 

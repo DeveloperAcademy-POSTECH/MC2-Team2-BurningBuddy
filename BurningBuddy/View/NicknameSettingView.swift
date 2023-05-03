@@ -57,11 +57,13 @@ struct NextButtonStyle: ButtonStyle {
     @State var colorGreen: Double
     @State var colorBlue: Double
     @State var fontSize: CGFloat
+    @State var fontColor: Color = .white
     @State private var pressed = false
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.custom("본고딕-Medium", size: fontSize))
+            .foregroundColor(fontColor)
             .padding()
             .frame(minWidth: 0, maxWidth: .infinity)
             .foregroundColor(.white)
