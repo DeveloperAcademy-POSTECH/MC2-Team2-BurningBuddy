@@ -28,12 +28,14 @@ struct ContentView: View {
         } else if settings.pageNum == 1 {
             CharacterSettingView()
                 .environmentObject(settings)
-                .background(.black)
+                .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
         } else if settings.pageNum == 2 {
             MainView()
                 .environmentObject(settings)
-                .background(.black)
+                .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
         }
+//        self.background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+        
     }
 }
 

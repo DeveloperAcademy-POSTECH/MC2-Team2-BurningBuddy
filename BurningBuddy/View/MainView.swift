@@ -11,6 +11,8 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var settings: UserSettings
     @State var daysleft: Int = 0
+    @State var showEvolution = false // 진화과정 모달에 관련된 상태
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -49,8 +51,22 @@ struct MainView: View {
                 VStack {
                     HStack {
                         Text("1일 째")
+                            .frame(width: 65, height: 28)
+                            .background(Color(red: 216/255, green: 216/255, blue: 216/255))
+                            .foregroundColor(.black)
+                            .cornerRadius(14)
+                            
                         Spacer()
-                        Text("당근 당근")
+                        Button("다음 진화", action: {
+                            self.showEvolution = true
+                        })
+                        .frame(width: 65, height: 28)
+                        .background(Color(red: 216/255, green: 216/255, blue: 216/255))
+                        .foregroundColor(.black)
+                        .cornerRadius(14)
+                        .sheet(isPresented: self.$showEvolution) {
+                            EvolutionModalView()
+                        }
                     }
                     .padding(EdgeInsets(top: 20, leading: 20, bottom: -35, trailing: 20))
                     Circle()
