@@ -12,24 +12,38 @@ struct NicknameSettingView: View {
     //    @Binding var isMember: Bool
     @ObservedObject var nicknameLimiter = TextLimiter(limit: 8)
     @EnvironmentObject var settings: UserSettings
+    @State private var firstSliderDrag: Bool = false
+    @State private var sliderValue: Double = 200
+    @State private var sliderMessage: String = "목표 칼로리를 설정해주세요!"
     
     var body: some View {
         VStack {
-            Text("반갑습니다! \n닉네임을 설정해봐요!")
+            Text("반갑습니다! \n간단한 설정을 해봐요!")
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(EdgeInsets(top: 50, leading: 30, bottom: 0, trailing: 0))
                 .foregroundColor(.white)
-                .font(.custom("본고딕-Bold", size: 30))
-            Spacer()
+                .font(.system(size: 30, weight: .bold))
+            
             Spacer()
             TextField("", text: $nicknameLimiter.value, prompt: Text("닉네임은 한글 2~8자로 설정할 수 있어요!")
                 .foregroundColor(.white))
-            .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
             .foregroundColor(.white)
             Divider()
                 .overlay(Color.white)
-                .padding(EdgeInsets(top: 0, leading: 30, bottom: 0, trailing: 30))
             Spacer()
+            VStack {
+                Text(sliderMessage)
+                
+                Slider(value: $sliderValue, in: 150...800, step: 1, onEditingChanged: { _ in
+                    if sliderValue >= 150 && sliderValue <= 300 {
+                        sliderMessage = "초보자 이시군요! \(sliderValue) 칼로리를 설정합니다."
+                    } else if sliderValue > 300 && sliderValue <= 500 {
+                        sliderMessage = "중급자 이시군요! \(sliderValue) 칼로리를 설정합니다."
+                    } else {
+                        sliderMessage = "헬창 이시군요! \(sliderValue) 칼로리를 설정합니다."
+                    }
+                })
+                .padding()
+            }
             Spacer()
             Button("다음", action: {
                 saveNickname()
@@ -37,6 +51,8 @@ struct NicknameSettingView: View {
             .buttonStyle(NextButtonStyle(colorRed: 255, colorGreen: 45, colorBlue: 85, fontSize: 17))
             Spacer()
         }
+        
+        .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
         .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
     }
     

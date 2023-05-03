@@ -9,12 +9,13 @@ import SwiftUI
 
 
 class UserSettings: ObservableObject {
-    @Published var pageNum = 0
-    @Published var nickName = "admin"
-    @Published var characterName = "DDolDDoli"
-    @Published var hasPartner = true
-    @Published var isWorkouting = false
-    @Published var isDoneWorkout = false
+    @Published var pageNum: Int = 0
+    @Published var nickName: String = "admin"
+    @Published var characterName: String = "DDolDDoli"
+    @Published var targetCalorie: Int = 0
+    @Published var hasPartner: Bool = true
+    @Published var isWorkouting: Bool = false
+    @Published var isDoneWorkout: Bool = false
 }
 
 struct ContentView: View {
