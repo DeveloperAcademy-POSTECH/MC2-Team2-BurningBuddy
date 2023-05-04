@@ -13,7 +13,7 @@ struct WorkoutDoneView: View {
     
     var body: some View {
         VStack {
-            Text("내 파트너를 \n찾는 중이에요")
+            Text("오늘도\n수고하셨어요!")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)
                 .font(.system(size: 30, weight: .bold, design: .default))
