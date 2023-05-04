@@ -31,16 +31,17 @@ struct NicknameSettingView: View {
                 .overlay(Color.white)
             Spacer()
             VStack {
-                Text(sliderMessage)
+                if sliderValue >= 150 && sliderValue <= 300 {
+                    Text("초보자 아잉교 \(sliderValue, specifier: "%.0f")칼로리를 태우시네예")
+                } else if sliderValue > 300 && sliderValue <= 500 {
+                    Text("중급자 아잉교 \(sliderValue, specifier: "%.0f")칼로리를 태우시네예")
+                } else {
+                    Text("헬창이시네예 \(sliderValue, specifier: "%.0f")칼로리를 태우시네예")
+                }
+                
                 
                 Slider(value: $sliderValue, in: 150...800, step: 1, onEditingChanged: { _ in
-                    if sliderValue >= 150 && sliderValue <= 300 {
-                        sliderMessage = "초보자 이시군요! \(sliderValue) 칼로리를 설정합니다."
-                    } else if sliderValue > 300 && sliderValue <= 500 {
-                        sliderMessage = "중급자 이시군요! \(sliderValue) 칼로리를 설정합니다."
-                    } else {
-                        sliderMessage = "헬창 이시군요! \(sliderValue) 칼로리를 설정합니다."
-                    }
+                    
                 })
                 .padding()
             }
