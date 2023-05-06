@@ -33,12 +33,12 @@ struct CalorieSettingView: View {
                     Text("헬창이시네예 \(sliderValue, specifier: "%.0f")칼로리를 태우시네예")
                 }
                 
-                
                 Slider(value: $sliderValue, in: 150...800, step: 1, onEditingChanged: { _ in
                     
                 })
                 .padding()
             }
+            Spacer()
             Spacer()
             Button("다음", action: {
                 saveCalorie()
@@ -50,7 +50,7 @@ struct CalorieSettingView: View {
     }
     
     func saveCalorie() {
-        withAnimation(.easeInOut(duration: 0.4)){
+        withAnimation(.easeInOut(duration: 0.5)){
             settings.pageNum += 1
         }
     }

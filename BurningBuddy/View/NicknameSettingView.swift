@@ -22,7 +22,6 @@ struct NicknameSettingView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)
                 .font(.system(size: 30, weight: .bold))
-            
             Spacer()
             Spacer()
             TextField("", text: $nicknameLimiter.value, prompt: Text("닉네임은 한글 2~8자로 설정할 수 있어요!")
@@ -44,7 +43,7 @@ struct NicknameSettingView: View {
     
     func saveNickname() {
         settings.nickName = nicknameLimiter.value
-        withAnimation(.easeInOut(duration: 0.4)){
+        withAnimation(.easeInOut(duration: 0.5)){
             settings.pageNum += 1
         }
         
