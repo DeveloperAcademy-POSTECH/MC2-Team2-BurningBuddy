@@ -44,6 +44,8 @@ struct CharacterSettingView: View {
 }
 
 
+
+
 struct CharacterSettingView_Previews: PreviewProvider {
     static var previews: some View {
         CharacterSettingView()

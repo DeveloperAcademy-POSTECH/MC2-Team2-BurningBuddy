@@ -22,6 +22,8 @@ struct CalorieSettingView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)
                 .padding(EdgeInsets(top: 1, leading: 0, bottom: 90, trailing: 0))
+                .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
+                
             Spacer()
 
             VStack {
@@ -37,6 +39,8 @@ struct CalorieSettingView: View {
                     
                 })
                 .padding()
+                .tint(Color(red: 255 / 255, green: 0 / 255, blue: 82 / 255))
+                
             }
             Spacer()
             Spacer()
@@ -55,6 +59,16 @@ struct CalorieSettingView: View {
         }
     }
 }
+
+struct TextUtil {
+    func calculateLineSpacing(_ fontsize: Int, _ percent: Double) -> CGFloat { // 수정된 부분
+        //(17 * (1425 / 1000) - 17)
+        print(CGFloat(Double(fontsize) * (percent / Double(100)) - Double(fontsize)))
+        return CGFloat(Double(fontsize) * (percent / Double(100)) - Double(fontsize))
+    }
+}
+
+
 
 struct CalorieSettingView_Previews: PreviewProvider {
     @State var isMember: Bool = true
