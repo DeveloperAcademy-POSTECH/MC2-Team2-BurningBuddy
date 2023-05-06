@@ -11,6 +11,7 @@ struct CalorieSettingView: View {
     @State private var firstSliderDrag: Bool = false
     @State private var sliderValue: Double = 200
     @State private var sliderMessage: String = "목표 칼로리를 설정해주세요!"
+    @State private var userLevel = "초급자"
     
     var body: some View {
         VStack {
@@ -26,23 +27,26 @@ struct CalorieSettingView: View {
                 
             Spacer()
 
+            Spacer()
             VStack {
-                if sliderValue >= 150 && sliderValue <= 300 {
-                    Text("초보자 아잉교 \(sliderValue, specifier: "%.0f")칼로리를 태우시네예")
-                } else if sliderValue > 300 && sliderValue <= 500 {
-                    Text("중급자 아잉교 \(sliderValue, specifier: "%.0f")칼로리를 태우시네예")
-                } else {
-                    Text("헬창이시네예 \(sliderValue, specifier: "%.0f")칼로리를 태우시네예")
-                }
                 
-                Slider(value: $sliderValue, in: 150...800, step: 1, onEditingChanged: { _ in
-                    
-                })
+                Text(sliderValue >= 150 && sliderValue <= 300 ? "초급자" : sliderValue > 300 && sliderValue <= 500 ? "중급자" : "상급자")
+                    .font(.system(size: 24, weight: .bold))
+                
+                Slider(value: $sliderValue, in: 150...800, step: 1)
                 .padding()
                 .tint(Color(red: 255 / 255, green: 0 / 255, blue: 82 / 255))
                 
+                Text("\(sliderValue, specifier: "%.0f")Kcal")
+                    .font(.system(size: 28, weight: .bold))
+                Spacer()
+                
+                Text(sliderValue >= 150 && sliderValue <= 300 ? "부담없이 운동하고 싶어요" : sliderValue > 300 && sliderValue <= 500 ? "어느 정도는 움직이고 싶어요" : "빡세게 운동해볼래요")
+                    .font(.system(size: 17, weight: .medium))
+                    .foregroundColor(Color(red: 1, green: 1, blue: 1, opacity: 0.6))
+                Spacer()
             }
-            Spacer()
+   
             Spacer()
             Button("다음", action: {
                 saveCalorie()
