@@ -27,7 +27,7 @@ struct GrayButtonStyle: ButtonStyle {
     @State var fontSize: CGFloat = 17
     @State private var pressed = false
     
-    func makeBody(configuration: Configuration) -> some View {
+    func makeBody(configuration: Configuration) -> some View {	
         configuration.label
             .font(.system(size: fontSize, weight: .bold))
             .foregroundColor(Color(red: 28 / 255, green: 28 / 255, blue: 30 / 255))
