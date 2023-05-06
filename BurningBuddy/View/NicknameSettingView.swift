@@ -35,7 +35,7 @@ struct NicknameSettingView: View {
             Button("다음", action: {
                 saveNickname()
             })
-            .buttonStyle(NextButtonStyle(colorRed: 255, colorGreen: 45, colorBlue: 85, fontSize: 17))
+            .buttonStyle(RedButtonStyle())
         }
         .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
         .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
@@ -53,26 +53,7 @@ struct NicknameSettingView: View {
     }
 }
 
-struct NextButtonStyle: ButtonStyle {
-    @State var colorRed: Double
-    @State var colorGreen: Double
-    @State var colorBlue: Double
-    @State var fontSize: CGFloat
-    @State var fontColor: Color = .white
-    @State private var pressed = false
-    
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .font(.custom("본고딕-Medium", size: fontSize))
-            .foregroundColor(fontColor)
-            .padding()
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .foregroundColor(.white)
-            .background(RoundedRectangle(cornerRadius: 15.0).fill(Color(red: colorRed / 255, green: colorGreen / 255, blue: colorBlue / 255))
-            )
-    }
-    
-}
+
 
 class TextLimiter: ObservableObject {
     private let limit: Int

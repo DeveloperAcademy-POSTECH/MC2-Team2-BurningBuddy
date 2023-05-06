@@ -66,12 +66,12 @@ struct SearchPartnerView: View {
                     Button("다시 연결할래요", action: {
                         
                     })
-                    .buttonStyle(NextButtonStyle(colorRed: 199, colorGreen: 199, colorBlue: 204, fontSize: 17, fontColor: Color(red: 28/255, green: 28/255, blue: 30/255)))
+                    .buttonStyle(GrayButtonStyle())
                     
                     Button("연결하기", action: {
                         
                     })
-                    .buttonStyle(NextButtonStyle(colorRed: 255, colorGreen: 45, colorBlue: 85, fontSize: 17))
+                    .buttonStyle(RedButtonStyle())
                 }
             }
             
