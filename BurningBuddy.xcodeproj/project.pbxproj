@@ -22,6 +22,7 @@
 		C91BB6FE2A00E794009FAA86 /* NicknameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6FD2A00E794009FAA86 /* NicknameSettingView.swift */; };
 		C967C2082A0332C3007EE7EE /* WorkoutDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C2072A0332C3007EE7EE /* WorkoutDoneView.swift */; };
 		C967C20A2A068FEA007EE7EE /* CalorieSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C2092A068FEA007EE7EE /* CalorieSettingView.swift */; };
+		C967C20C2A0694DE007EE7EE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C20B2A0694DE007EE7EE /* OnboardingView.swift */; };
 		C9CC8F382A0232D400C16FA5 /* Image.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CC8F372A0232D400C16FA5 /* Image.png */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		C91BB6FD2A00E794009FAA86 /* NicknameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSettingView.swift; sourceTree = "<group>"; };
 		C967C2072A0332C3007EE7EE /* WorkoutDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDoneView.swift; sourceTree = "<group>"; };
 		C967C2092A068FEA007EE7EE /* CalorieSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieSettingView.swift; sourceTree = "<group>"; };
+		C967C20B2A0694DE007EE7EE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C9CC8F372A0232D400C16FA5 /* Image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 				C967C2072A0332C3007EE7EE /* WorkoutDoneView.swift */,
 				C91444092A01459D00E6202D /* EvolutionModalView.swift */,
 				C914440D2A01462500E6202D /* SettingView.swift */,
+				C967C20B2A0694DE007EE7EE /* OnboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				C91BB6FA2A00BE79009FAA86 /* Data.swift in Sources */,
 				C914440A2A01459D00E6202D /* EvolutionModalView.swift in Sources */,
 				C91BB6E92A00BDC0009FAA86 /* BurningBuddyApp.swift in Sources */,
+				C967C20C2A0694DE007EE7EE /* OnboardingView.swift in Sources */,
 				C967C20A2A068FEA007EE7EE /* CalorieSettingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
