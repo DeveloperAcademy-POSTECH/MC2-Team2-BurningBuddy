@@ -19,7 +19,7 @@ struct CalorieSettingView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)
                 .font(.system(size: 30, weight: .bold))
-            Text("운동 목표량을 설정해주세요\n나중에도 변경가능해요")
+            Text(settings.pageNum == 4 ? "본인의 운동 수행 능력에 맞게\n 조절해주세요!" : "운동 목표량을 설정해주세요\n나중에도 변경가능해요")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)
                 .padding(EdgeInsets(top: 1, leading: 0, bottom: 90, trailing: 0))

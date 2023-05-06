@@ -23,6 +23,15 @@ struct MainView: View {
                         Text("님의")
                             .font(.system(size: 25, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        Spacer()
+                        NavigationLink(destination: {
+                            SettingView()
+                                .environmentObject(settings)
+                        }) {
+                            Text("🐶")
+                        }
+                        
+                        
                     }
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, alignment: .leading)
