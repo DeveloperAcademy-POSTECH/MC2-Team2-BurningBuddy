@@ -9,6 +9,8 @@ import SwiftUI
 import UIKit
 
 struct OnboardingView: View {
+    @EnvironmentObject var settings: UserSettings
+    
     var body: some View {
         VStack {
             TabView {
@@ -21,8 +23,8 @@ struct OnboardingView: View {
             .onAppear {
                 setupAppearance()
             }
-            Button("운동 시작하기") {
-                
+            Button("설명 넘어가기") {
+                skipAction()
             }
             .buttonStyle(RedButtonStyle())
         }
@@ -34,6 +36,16 @@ struct OnboardingView: View {
     }
     func setupAppearance() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(red: 255 / 255, green: 0 / 255, blue: 82 / 255, alpha: 1)
+    }
+    
+    func skipAction() {
+        withAnimation(.easeInOut(duration: 0.5)){
+            settings.pageNum += 1
+        }
+        
+        
+        // UserDefault에 닉네임 저장
+        // 닉네임과 동시에 특별 ID 부여해야 할 듯. 중복처리가 불가능한 구조여서...
     }
 }
 

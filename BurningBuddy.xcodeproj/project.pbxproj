@@ -119,6 +119,7 @@
 			children = (
 				C91BB6EA2A00BDC0009FAA86 /* ContentView.swift */,
 				C91BB6FB2A00E772009FAA86 /* MainView.swift */,
+				C967C20B2A0694DE007EE7EE /* OnboardingView.swift */,
 				C91444052A01453800E6202D /* SearchPartnerView.swift */,
 				C91BB6FD2A00E794009FAA86 /* NicknameSettingView.swift */,
 				C914440B2A01460F00E6202D /* CharacterSettingView.swift */,
@@ -127,7 +128,6 @@
 				C967C2072A0332C3007EE7EE /* WorkoutDoneView.swift */,
 				C91444092A01459D00E6202D /* EvolutionModalView.swift */,
 				C914440D2A01462500E6202D /* SettingView.swift */,
-				C967C20B2A0694DE007EE7EE /* OnboardingView.swift */,
 				C967C20D2A0699A1007EE7EE /* ButtonComponent.swift */,
 			);
 			path = View;
