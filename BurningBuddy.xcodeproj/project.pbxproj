@@ -135,10 +135,10 @@
 				C91444072A01454F00E6202D /* WorkoutView.swift */,
 				C967C2072A0332C3007EE7EE /* WorkoutDoneView.swift */,
 				C91444092A01459D00E6202D /* EvolutionModalView.swift */,
+				C967C2192A078733007EE7EE /* EvolutionView.swift */,
 				C914440D2A01462500E6202D /* SettingView.swift */,
 				C967C20D2A0699A1007EE7EE /* ButtonComponent.swift */,
 				C967C2172A07870A007EE7EE /* NotFoundPartnerView.swift */,
-				C967C2192A078733007EE7EE /* EvolutionView.swift */,
 				C967C21B2A078754007EE7EE /* MissionResultModalView.swift */,
 				C967C21D2A07882D007EE7EE /* MissionCongratsView.swift */,
 			);
