@@ -10,6 +10,7 @@ import SwiftUI
 
 struct WorkoutDoneView: View {
     @EnvironmentObject var settings: UserSettings
+    @State var isNotDoneWorkout = true
     
     var body: some View {
         VStack {
@@ -38,6 +39,17 @@ struct WorkoutDoneView: View {
         }
         .padding(EdgeInsets(top: 20, leading: 25, bottom: 10, trailing: 25)) // 전체 아웃라인
         .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+        .sheet(isPresented: self.$isNotDoneWorkout) {
+            if #available(iOS 16.0, *) {
+                MissionResultView()
+                    .presentationDetents([.fraction(0.4)])
+                    .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+            } else {
+                // Fallback on earlier versions
+                MissionResultView()
+                    .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+            }
+        }
     }
 }
 
