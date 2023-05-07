@@ -42,7 +42,6 @@ struct WorkoutView: View {
                 
             }
             Spacer()
-            
             Button("운동 완료하기", action: {
                 // Alert창. 파트너의 운동기록이 없거나 내 운동 종료 기록이 없으면 Alert 창이 다르게 떠야 함.
             })

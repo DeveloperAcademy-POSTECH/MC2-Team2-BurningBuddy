@@ -24,12 +24,9 @@ struct CalorieSettingView: View {
                 .foregroundColor(.white)
                 .padding(EdgeInsets(top: 1, leading: 0, bottom: 90, trailing: 0))
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
-                
             Spacer()
-
             Spacer()
             VStack {
-                
                 Text(sliderValue >= 150 && sliderValue <= 300 ? "초급자" : sliderValue > 300 && sliderValue <= 500 ? "중급자" : "상급자")
                     .font(.system(size: 24, weight: .bold))
                 
@@ -79,6 +76,7 @@ struct CalorieSettingView_Previews: PreviewProvider {
     
     static var previews: some View {
         CalorieSettingView()
+            .environmentObject(UserSettings())
     }
 }
 

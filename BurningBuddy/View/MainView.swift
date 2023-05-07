@@ -30,8 +30,6 @@ struct MainView: View {
                         }) {
                             Text("🐶")
                         }
-                        
-                        
                     }
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, alignment: .leading)

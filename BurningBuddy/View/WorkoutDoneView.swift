@@ -31,7 +31,6 @@ struct WorkoutDoneView: View {
                 
             }
             Spacer()
-            
             Button("메인으로 가기", action: {
                 
             })
