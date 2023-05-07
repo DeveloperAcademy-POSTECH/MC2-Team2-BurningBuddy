@@ -10,7 +10,7 @@ import SwiftUI
 
 struct WorkoutDoneView: View {
     @EnvironmentObject var settings: UserSettings
-    @State var isNotDoneWorkout = true
+    @State var isNotDoneWorkout = false
     
     var body: some View {
         VStack {
@@ -32,8 +32,8 @@ struct WorkoutDoneView: View {
                 
             }
             Spacer()
-            Button("메인으로 가기", action: {
-                
+            Button("목표달성 확인하기", action: {
+                isNotDoneWorkout = !isNotDoneWorkout
             })
             .buttonStyle(RedButtonStyle())
         }
@@ -41,12 +41,12 @@ struct WorkoutDoneView: View {
         .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
         .sheet(isPresented: self.$isNotDoneWorkout) {
             if #available(iOS 16.0, *) {
-                MissionResultView()
+                MissionResultModalView()
                     .presentationDetents([.fraction(0.4)])
                     .background(Color(red: 30/255, green: 28/255, blue: 29/255))
             } else {
                 // Fallback on earlier versions
-                MissionResultView()
+                MissionResultModalView()
                     .background(Color(red: 30/255, green: 28/255, blue: 29/255))
             }
         }

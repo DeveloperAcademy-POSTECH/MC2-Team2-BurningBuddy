@@ -1,5 +1,5 @@
 //
-//  MissionResultView.swift
+//  MissionResultModalView.swift
 //  BurningBuddy
 //
 //  Created by 김동현 on 2023/05/07.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct MissionResultView: View {
+struct MissionResultModalView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -44,6 +44,6 @@ struct MissionResultView: View {
 
 struct MissionResultView_Previews: PreviewProvider {
     static var previews: some View {
-        MissionResultView()
+        MissionResultModalView()
     }
 }
