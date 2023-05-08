@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  BurningBuddy
 //
-//  Created by 박의서 on 2023/05/08.
+//  Created by Bokyung on 2023/05/08.
 //
 //
 
@@ -17,6 +17,10 @@ extension User {
     }
 
     @NSManaged public var userName: String?
+    @NSManaged public var todayCalories: Int16
+    @NSManaged public var todayWorkoutHours: Int16
+    @NSManaged public var totalDumbbell: Int16
+    @NSManaged public var goalCalories: Int16
 
 }
 

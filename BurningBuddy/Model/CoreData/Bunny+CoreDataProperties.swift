@@ -2,12 +2,13 @@
 //  Bunny+CoreDataProperties.swift
 //  BurningBuddy
 //
-//  Created by 박의서 on 2023/05/08.
+//  Created by Bokyung on 2023/05/08.
 //
 //
 
 import Foundation
 import CoreData
+
 
 extension Bunny {
 
@@ -16,6 +17,7 @@ extension Bunny {
     }
 
     @NSManaged public var characterName: String?
+    @NSManaged public var level: Int16
 
 }
 
