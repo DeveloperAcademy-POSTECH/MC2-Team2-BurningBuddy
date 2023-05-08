@@ -8,15 +8,15 @@
 import Foundation
 import SwiftUI
 
-struct EvolutionModalView: View {
+struct LevelUpModalView: View {
     var body: some View {
         Text("진화과정")
     }
 }
 
 
-struct EvolutionModalView_Previews: PreviewProvider {
+struct LevelUpModalView_Previews: PreviewProvider {
     static var previews: some View {
-        EvolutionModalView()
+        LevelUpModalView()
     }
 }

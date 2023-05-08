@@ -23,6 +23,13 @@ struct MainView: View {
                         Text("님의")
                             .font(.system(size: 25, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        Spacer()
+                        NavigationLink(destination: {
+                            SettingView()
+                                .environmentObject(settings)
+                        }) {
+                            Text("🐶")
+                        }
                     }
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -65,7 +72,7 @@ struct MainView: View {
                         .foregroundColor(.black)
                         .cornerRadius(14)
                         .sheet(isPresented: self.$showEvolution) {
-                            EvolutionModalView()
+                            LevelUpModalView()
                         }
                     }
                     .padding(EdgeInsets(top: 20, leading: 20, bottom: -35, trailing: 20))
@@ -124,7 +131,7 @@ struct MainView: View {
                 } ) {
                     Text(settings.hasPartner ? "운동 시작하기" : "운동 종료하기")
                 }
-                .buttonStyle(NextButtonStyle(colorRed: 255, colorGreen: 45, colorBlue: 85, fontSize: 17))
+                .buttonStyle(RedButtonStyle())
             }
             .padding(EdgeInsets(top: 50, leading: 30, bottom: 30, trailing: 30))
             .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯

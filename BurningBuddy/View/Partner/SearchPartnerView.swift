@@ -13,19 +13,12 @@ import SwiftUI
 struct SearchPartnerView: View {
     @EnvironmentObject var settings: UserSettings
     @State var isSearchedPartner: Bool = false
+    @State var notFoundPartner: Bool = true
     @State var partnerData: String = "상대방 닉네임" // 데이터 타입 지정 필요
     var body: some View {
+        
         VStack {
             if isSearchedPartner {
-                Text("내 파트너를 \n찾는 중이에요")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(.white)
-                    .font(.system(size: 30, weight: .bold, design: .default))
-                Text("서로의 휴대폰을 가까이 붙여주세요")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(.white)
-                    .padding(EdgeInsets(top: 1, leading: 0, bottom: 90, trailing: 0))
-            } else {
                 Text("내 주변 파트너를 \n발견했어요")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.white)
@@ -34,6 +27,16 @@ struct SearchPartnerView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.white)
                     .padding(EdgeInsets(top: 1, leading: 0, bottom: 90, trailing: 0))
+            } else {
+                Text("내 파트너를 \n찾는 중이에요")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(.white)
+                    .font(.system(size: 30, weight: .bold, design: .default))
+                Text("서로의 휴대폰을 가까이 붙여주세요")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(.white)
+                    .padding(EdgeInsets(top: 1, leading: 0, bottom: 90, trailing: 0))
+               
             }
             ZStack {
                 Circle()
@@ -47,11 +50,13 @@ struct SearchPartnerView: View {
                     .padding(EdgeInsets(top: 54, leading: 54, bottom: 54, trailing: 54))
                 VStack {
                     if isSearchedPartner {
-                        Text("이미지가 들어갈 것이다.")
-                        Text("검색중...")
-                    } else {
                         Image("Image")
                         Text(partnerData)
+                        
+                    } else {
+                        Text("이미지가 들어갈 것이다.")
+                        Text("검색중...")
+                        
                     }
                 }
                 .padding(EdgeInsets(top: 106, leading: 106, bottom: 106, trailing: 106))
@@ -59,28 +64,42 @@ struct SearchPartnerView: View {
             }
             Spacer()
             if isSearchedPartner {
-                
-            } else {
-                
                 HStack {
                     Button("다시 연결할래요", action: {
                         
                     })
-                    .buttonStyle(NextButtonStyle(colorRed: 199, colorGreen: 199, colorBlue: 204, fontSize: 17, fontColor: Color(red: 28/255, green: 28/255, blue: 30/255)))
+                    .buttonStyle(GrayButtonStyle())
                     
                     Button("연결하기", action: {
                         
                     })
-                    .buttonStyle(NextButtonStyle(colorRed: 255, colorGreen: 45, colorBlue: 85, fontSize: 17))
+                    .buttonStyle(RedButtonStyle())
                 }
+            } else {
+                
+                
             }
+            
             
         }
         .padding(EdgeInsets(top: 20, leading: 25, bottom: 10, trailing: 25))
         .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+        .sheet(isPresented: self.$notFoundPartner) {
+            if #available(iOS 16.0, *) {
+                NotFoundPartnerView()
+                    .presentationDetents([.fraction(0.4)])
+                    .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+            } else {
+                // Fallback on earlier versions
+                NotFoundPartnerView()
+                    .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+            }
+        }
     }
     
 }
+
+
 
 
 struct SearchPartnerView_Previews: PreviewProvider {

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SettingView: View {
     var body: some View {
-        Text("Hello world")
+        Text("세팅화면")
     }
 }
 

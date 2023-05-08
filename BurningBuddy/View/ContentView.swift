@@ -23,20 +23,25 @@ struct ContentView: View {
     
     var body: some View {
         if settings.pageNum == 0 {
+            OnboardingView()
+                .environmentObject(settings)
+        } else if settings.pageNum == 1 {
             NicknameSettingView()
                 .environmentObject(settings)
                 .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
-        } else if settings.pageNum == 1 {
+        } else if settings.pageNum == 2 {
             CharacterSettingView()
                 .environmentObject(settings)
                 .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
-        } else if settings.pageNum == 2 {
+        } else if settings.pageNum == 3 {
+            CalorieSettingView()
+                .environmentObject(settings)
+                .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+        } else if settings.pageNum == 4 {
             MainView()
                 .environmentObject(settings)
                 .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
         }
-//        self.background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
-        
     }
 }
 

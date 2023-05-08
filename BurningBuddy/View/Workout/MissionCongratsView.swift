@@ -1,27 +1,30 @@
 //
-//  WorkoutDoneView.swift
+//  MissionCongratsView.swift
 //  BurningBuddy
 //
-//  Created by 김동현 on 2023/05/04.
+//  Created by 김동현 on 2023/05/07.
 //
 
 import Foundation
 import SwiftUI
 
-struct WorkoutDoneView: View {
+struct MissionCongratsView: View {
     @EnvironmentObject var settings: UserSettings
-    
+    /**
+     운동을 성공적으로 종료한 것을 감지하는 변수 필요
+     */
     var body: some View {
         VStack {
-            Text("오늘도\n수고하셨어요!")
+            Text("이렇게 나약해서야...\n어디서 힘이나 쓰겠나!")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)
                 .font(.system(size: 30, weight: .bold, design: .default))
             
-            Text("오늘 함께 운동한 파트너도\n운동이 끝났는지 확인해주세요!")
+            Text("다음엔 열심히\n운동좀 하쇼!")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                 .font(.system(size: 17, weight: .regular, design: .default))
+                .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
             
             Spacer()
             ZStack {
@@ -31,11 +34,9 @@ struct WorkoutDoneView: View {
                 
             }
             Spacer()
-            
             Button("메인으로 가기", action: {
-                
             })
-            .buttonStyle(NextButtonStyle(colorRed: 255, colorGreen: 45, colorBlue: 85, fontSize: 17))
+            .buttonStyle(RedButtonStyle())
         }
         .padding(EdgeInsets(top: 20, leading: 25, bottom: 10, trailing: 25)) // 전체 아웃라인
         .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
@@ -43,9 +44,9 @@ struct WorkoutDoneView: View {
 }
 
 
-struct WorkoutDoneView_Previews: PreviewProvider {
+struct MissionCongratsView_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutDoneView()
+        MissionCongratsView()
     }
 }
 
