@@ -1,10 +1,10 @@
 # MC2-Team2-BurningBuddy
 
-회오나팀의 🐰🔥Burning Buddy🔥🐰
-<img src = "https://user-images.githubusercontent.com/97583162/236709653-cb82ed73-d5cd-4d3d-b3e8-56080229a656.png" width="352px">  
-
-
+회오나팀의 🐰🔥Burning Buddy🔥🐰  
 나의 소중한 사람들을 위한 앱❤️
+
+
+<img src = "https://user-images.githubusercontent.com/97583162/236709653-cb82ed73-d5cd-4d3d-b3e8-56080229a656.png" width="352px">  
 
 
 ### 팀명
