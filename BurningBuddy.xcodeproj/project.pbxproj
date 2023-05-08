@@ -158,12 +158,12 @@
 		C91BB6E72A00BDC0009FAA86 /* BurningBuddy */ = {
 			isa = PBXGroup;
 			children = (
-				B80518DF2A088B3A00D12915 /* Resources */,
 				C91444442A01799700E6202D /* Info.plist */,
+				C91BB6E82A00BDC0009FAA86 /* BurningBuddyApp.swift */,
+				B80518DF2A088B3A00D12915 /* Resources */,
 				C91BB6F82A00BE27009FAA86 /* Utils */,
 				C91BB6F72A00BE23009FAA86 /* View */,
 				C91BB6F62A00BE1C009FAA86 /* Model */,
-				C91BB6E82A00BDC0009FAA86 /* BurningBuddyApp.swift */,
 				C91BB6EE2A00BDC1009FAA86 /* Preview Content */,
 			);
 			path = BurningBuddy;

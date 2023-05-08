@@ -56,7 +56,6 @@ class NISessionManager: NSObject, ObservableObject {
     var peerTokensMapping = [NIDiscoveryToken:MCPeerID]()
     
     let nearbyDistanceThreshold: Float = 0.08 // 범프 한계 거리
-//    let hapticManager = HapticManager()
     
     // 나의 정보
     @Published var myNickname : String = ""
@@ -81,14 +80,9 @@ class NISessionManager: NSObject, ObservableObject {
         startup()
         
         myNickname = "웨스트"
-      myKeywords = [1]
-      myPicture = UIImage(named: "")
-      myNickname = CoreDataManager.coreDM.readAllUser()[0].userName ?? "예시닉네임"
-//      myCharacterName = CoreDataManager.coreDM.readAllBuddy()[0].characterName ?? "버디이름"
-
-//        myNickname = CoreDataManager.coreDM.readAllProfile()[0].nickname ?? ""
-//        myKeywords = CoreDataManager.coreDM.readKeyword()[0].favorite
-//        myPicture = CoreDataManager.coreDM.readAllPicture()[0].content
+        myKeywords = [1]
+        myPicture = UIImage(named: "")
+        myNickname = CoreDataManager.coreDM.readAllUser()[0].userName ?? "예시닉네임"
     }
     
     func stop() {
@@ -100,7 +94,6 @@ class NISessionManager: NSObject, ObservableObject {
         peerTokensMapping.removeAll()
         matchedObject = nil
         peersCnt = 0
-//        hapticManager.endHaptic()
         if(!isBumped) {
             mpc?.invalidate()
             mpc = nil
@@ -173,7 +166,6 @@ class NISessionManager: NSObject, ObservableObject {
         guard let matchedToken = matchedObject?.token else { return }
         if peerTokensMapping[matchedToken] == peer {
             matchedObject = nil
-//            hapticManager.endHaptic()
             if !isBumped {
                 findingPartnerState = .finding
             }
@@ -211,7 +203,6 @@ class NISessionManager: NSObject, ObservableObject {
                 DispatchQueue.global(qos: .userInitiated).async {
                     self.compareForCheckMatchedObject(receivedData)
                 }
-//                hapticManager.startHaptic()
             }
         }
     }
@@ -255,7 +246,6 @@ class NISessionManager: NSObject, ObservableObject {
             // 그 피어가 매치 상대일 경우 매치 상대 초기화
             if matchedObject?.token == token {
                 matchedObject = nil
-//                hapticManager.endHaptic()
                 if !isBumped {
                     findingPartnerState = .finding
                 }
