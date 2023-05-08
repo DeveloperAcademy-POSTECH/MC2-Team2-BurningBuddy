@@ -4,15 +4,15 @@
 <img src = "https://user-images.githubusercontent.com/97583162/236709653-cb82ed73-d5cd-4d3d-b3e8-56080229a656.png" width="352px">  
 
 <br>
-<h2><strong>회오나팀의 🐰🔥Burning Buddy🔥🐰</strong></h2>
-<h2>나의 소중한 사람들을 위한 앱❤️</h2>
+<h3><strong>회오나팀의 🐰🔥Burning Buddy🔥🐰</strong></h3>
+<p>나의 소중한 사람들을 위한 앱❤️</p>
 </center>
 
 <br><br>
 
 # Burning Buddy Preview
 
-<br>
+<br><br>
 
 # 팀명
 > 회원님 오늘 나오실거죠~? (a.k.a 회오나) 
