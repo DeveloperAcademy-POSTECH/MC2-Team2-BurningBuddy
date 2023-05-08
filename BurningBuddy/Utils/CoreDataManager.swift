@@ -40,7 +40,7 @@ class CoreDataManager {
         }
     }
     
-    func createBuddy(characterName: String) {
+    func createBunny(characterName: String) {
         
         let bunny = Bunny(context: persistentContainer.viewContext)
         bunny.characterName = characterName
@@ -65,7 +65,7 @@ class CoreDataManager {
         
     }
     
-    func readAllBuddy() -> [Bunny] {
+    func readAllBunny() -> [Bunny] {
         
         let fetchRequest: NSFetchRequest<Bunny> = Bunny.fetchRequest()
         

@@ -43,7 +43,6 @@ struct OnboardingView: View {
             settings.pageNum += 1
         }
         
-        
         // UserDefault에 닉네임 저장
         // 닉네임과 동시에 특별 ID 부여해야 할 듯. 중복처리가 불가능한 구조여서...
     }

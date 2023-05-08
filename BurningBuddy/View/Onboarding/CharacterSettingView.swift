@@ -36,13 +36,14 @@ struct CharacterSettingView: View {
     }
     
     func saveCharacterName() {
-        settings.characterName = characterName.value
+        // 코어데이터에 버니 생성
+        CoreDataManager.coreDM.createBunny(characterName: characterName.value)
+        settings.characterName = characterName.value // 임시 데이터
         withAnimation(.easeIn(duration: 0.5)){
-            settings.pageNum += 1
+            settings.pageNum += 1  
         }
     }
 }
-
 
 
 

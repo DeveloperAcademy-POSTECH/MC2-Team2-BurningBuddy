@@ -55,8 +55,11 @@ struct CalorieSettingView: View {
     }
     
     func saveCalorie() {
+      // 유저 정보 Core데이터에 생성
+      CoreDataManager.coreDM.createUser(userName: settings.nickName, goalCalories: Int16(sliderValue))
         withAnimation(.easeInOut(duration: 0.5)){
             settings.pageNum += 1
+            // TODO: - pageNum 코어데이터에 저장
         }
     }
 }
