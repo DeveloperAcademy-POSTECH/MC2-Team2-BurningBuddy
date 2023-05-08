@@ -44,7 +44,7 @@ class CoreDataManager {
         
         let bunny = Bunny(context: persistentContainer.viewContext)
         bunny.characterName = characterName
-        bunny.level = 0
+        bunny.level = 0 // TODO: - level 0 or 1 Start????
         
         do {
             try persistentContainer.viewContext.save()
