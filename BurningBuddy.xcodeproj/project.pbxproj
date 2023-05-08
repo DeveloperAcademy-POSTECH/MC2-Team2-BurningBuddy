@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B80518E22A088CAC00D12915 /* NISessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518E12A088CAC00D12915 /* NISessionManager.swift */; };
 		B80518E52A088CDE00D12915 /* MPCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518E42A088CDE00D12915 /* MPCSession.swift */; };
+		B80518E72A088D2300D12915 /* LocalNetworkAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518E62A088D2300D12915 /* LocalNetworkAuthorization.swift */; };
 		C91444062A01453800E6202D /* SearchPartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91444052A01453800E6202D /* SearchPartnerView.swift */; };
 		C91444082A01454F00E6202D /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91444072A01454F00E6202D /* WorkoutView.swift */; };
 		C914440A2A01459D00E6202D /* LevelUpModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91444092A01459D00E6202D /* LevelUpModalView.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		B80518E12A088CAC00D12915 /* NISessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NISessionManager.swift; sourceTree = "<group>"; };
 		B80518E42A088CDE00D12915 /* MPCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSession.swift; sourceTree = "<group>"; };
+		B80518E62A088D2300D12915 /* LocalNetworkAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkAuthorization.swift; sourceTree = "<group>"; };
 		C91444052A01453800E6202D /* SearchPartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPartnerView.swift; sourceTree = "<group>"; };
 		C91444072A01454F00E6202D /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		C91444092A01459D00E6202D /* LevelUpModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpModalView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				B80518E12A088CAC00D12915 /* NISessionManager.swift */,
+				B80518E62A088D2300D12915 /* LocalNetworkAuthorization.swift */,
 				B80518E32A088CCF00D12915 /* MPCUtils */,
 			);
 			path = NIUtils;
@@ -315,6 +318,7 @@
 			files = (
 				C967C21E2A07882D007EE7EE /* MissionCongratsView.swift in Sources */,
 				C91BB6EB2A00BDC0009FAA86 /* ContentView.swift in Sources */,
+				B80518E72A088D2300D12915 /* LocalNetworkAuthorization.swift in Sources */,
 				C914440E2A01462500E6202D /* SettingView.swift in Sources */,
 				C914440C2A01460F00E6202D /* CharacterSettingView.swift in Sources */,
 				C91BB6FC2A00E772009FAA86 /* MainView.swift in Sources */,
