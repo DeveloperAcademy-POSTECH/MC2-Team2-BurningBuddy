@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B80518E22A088CAC00D12915 /* NISessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518E12A088CAC00D12915 /* NISessionManager.swift */; };
 		C91444062A01453800E6202D /* SearchPartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91444052A01453800E6202D /* SearchPartnerView.swift */; };
 		C91444082A01454F00E6202D /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91444072A01454F00E6202D /* WorkoutView.swift */; };
 		C914440A2A01459D00E6202D /* LevelUpModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91444092A01459D00E6202D /* LevelUpModalView.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B80518E12A088CAC00D12915 /* NISessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NISessionManager.swift; sourceTree = "<group>"; };
 		C91444052A01453800E6202D /* SearchPartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPartnerView.swift; sourceTree = "<group>"; };
 		C91444072A01454F00E6202D /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		C91444092A01459D00E6202D /* LevelUpModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpModalView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 				C967C2152A069D19007EE7EE /* OnboardingTest4.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B80518E02A088C8B00D12915 /* NIUtils */ = {
+			isa = PBXGroup;
+			children = (
+				B80518E12A088CAC00D12915 /* NISessionManager.swift */,
+			);
+			path = NIUtils;
 			sourceTree = "<group>";
 		};
 		C91BB6DC2A00BDC0009FAA86 = {
@@ -154,6 +164,7 @@
 		C91BB6F82A00BE27009FAA86 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B80518E02A088C8B00D12915 /* NIUtils */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -307,6 +318,7 @@
 				C967C20E2A0699A1007EE7EE /* ButtonComponent.swift in Sources */,
 				C967C20C2A0694DE007EE7EE /* OnboardingView.swift in Sources */,
 				C967C20A2A068FEA007EE7EE /* CalorieSettingView.swift in Sources */,
+				B80518E22A088CAC00D12915 /* NISessionManager.swift in Sources */,
 				C967C21A2A078733007EE7EE /* LevelUpView.swift in Sources */,
 				C967C2182A07870A007EE7EE /* NotFoundPartnerView.swift in Sources */,
 			);
