@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct EvolutionView: View {
+struct LevelUpView: View {
     var body: some View {
         VStack {
             Text("버니가\n진화했어요!")
@@ -41,8 +41,8 @@ struct EvolutionView: View {
 }
 
 
-struct EvolutionView_Previews: PreviewProvider {
+struct LevelUpView_Previews: PreviewProvider {
     static var previews: some View {
-        EvolutionView()
+        LevelUpView()
     }
 }

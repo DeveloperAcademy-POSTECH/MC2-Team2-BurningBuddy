@@ -72,7 +72,7 @@ struct MainView: View {
                         .foregroundColor(.black)
                         .cornerRadius(14)
                         .sheet(isPresented: self.$showEvolution) {
-                            EvolutionModalView()
+                            LevelUpModalView()
                         }
                     }
                     .padding(EdgeInsets(top: 20, leading: 20, bottom: -35, trailing: 20))
