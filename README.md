@@ -1,37 +1,55 @@
 # MC2-Team2-BurningBuddy
 
-<center>
-<img src = "https://user-images.githubusercontent.com/97583162/236709653-cb82ed73-d5cd-4d3d-b3e8-56080229a656.png" width="352px">  
-
+<div align="center">
+이미지 추가 예정
 <br>
-<h3><strong>회오나팀의 🐰🔥Burning Buddy🔥🐰</strong></h3>
-<p>나의 소중한 사람들을 위한 앱❤️</p>
+
+### _**🐰🔥 Burning Buddy 🔥🐰**_ <br/><br/>
+ _**회오나 팀의 소중한 사람들을 위한 앱 ❤️**_ 
+
 </center>
-
+</div>
 <br><br>
 
-# Burning Buddy Preview
-
+### 📱 Screenshots
+이미지 추가 예정
 <br><br>
 
-# 팀명
-> 회원님 오늘 나오실거죠~? (a.k.a 회오나) 
-
+### 🛠 Development Environment
+<img width="80" src="https://img.shields.io/badge/IOS-16%2B-silver"> <img width="95" src="https://img.shields.io/badge/Xcode-14.3-blue">
 <br><br>
+
+### :sparkles: Skills & Tech Stack
+* SwiftUI
+* Code base
+* Core Data
+* Nearby Interaction
+* Multipeer Connectivity
+* HealthKit
+
+### 🎁 Library
+
+### 🔀 Git branch & [Git Flow]
+
+### 🗂 Folder Structure
+
+### 🧑‍💻 Authors
+
+### :lock_with_ink_pen: License
+<img width="100" src="https://img.shields.io/badge/MIT License-2.0-yellow">
 
 # 🏋🏻‍♀️ 팀소개 🏋🏻‍♀️
-
+> 회원님 오늘 나오실거죠~? (a.k.a 회오나) 
 <br>
 
 |[<img src="https://github.com/kpk0616.png" width="100px">](https://github.com/kpk0616)|[<img src="https://github.com/jay1261.png" width="100px">](https://github.com/jay1261)|[<img src="https://github.com/bokoo14.png" width="100px">](https://github.com/bokoo14)|[<img src="https://github.com/DhKimy.png" width="100px">](https://github.com/DhKimy)|[<img src="https://github.com/yeeun223.png" width="100px">](https://github.com/yeeun223)|[<img src="https://github.com/Hanyeonggyun.png" width="100px">](https://github.com/Hanyeonggyun)|  
 |:----:|:----:|:----:|:----:|:----:|:----:|
-|[West](https://github.com/kpk0616)|[Jay](https://github.com/jay1261)|[Luna](https://github.com/bokoo14)|[Bazzi](https://github.com/DhKimy)|[Yena](https://github.com/yeeun223)|[Muho](https://github.com/Hanyeonggyun)|  
+|[West](https://github.com/kpk0616)|[Jay](https://github.com/jay1261)|[Luna](https://github.com/bokoo14)|[Bazzi](https://github.com/DhKimy)|[Yena](https://github.com/yeeun223)|[Muho](https://github.com/Hanyeonggyun)|
 
 <br><br>
 
 # 📅 프로젝트 기간
 2023.04.10 - 2023.05.19
-
 <br><br>
 
 # 🤷 Burning Buddy 소개
@@ -47,13 +65,3 @@ Core Data<br>
 Network
 
 <br><br>
-
-<h1>Devlopment Environment</h2>
-
-<img width="100" src="https://img.shields.io/badge/IOS-16%2B-silver"> <img width="125" src="https://img.shields.io/badge/Xcode-14.3-blue">
-
-<br><br>
-
-<h1>License</h2>
-
-<img width="170" src="https://img.shields.io/badge/MIT License-2.0-yellow">
