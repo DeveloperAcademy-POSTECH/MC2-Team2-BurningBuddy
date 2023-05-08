@@ -39,11 +39,13 @@ class TranData: NSObject, NSCoding {
     }
 }
 
-class NISessionManager: NSObject, ObservableObject {
+class NISessionManager: NSObject, ObservableObject, MultipeerConnectivityManagerDelegate {
+    func connectedDevicesChanged(devices: [String]) {
+        // 딜리게이트 채택을 위한 함수. 필요하면 작성
+    }
 
     @Published var connectedPeers = [MCPeerID]()
     @Published var matchedObject: TranData? // 매치된 오브젝트
-    @Published var peersCnt: Int = 0
     @Published var findingPartnerState : FindingPartnerState = .ready
     @Published var isBumped: Bool = false
     @Published var isPermissionDenied = false
@@ -51,7 +53,6 @@ class NISessionManager: NSObject, ObservableObject {
     var mpc: MPCSession?
     var sessions = [MCPeerID:NISession]()
     var peerTokensMapping = [NIDiscoveryToken:MCPeerID]()
-    
     let nearbyDistanceThreshold: Float = 0.08 // 범프 한계 거리
     
     // 나의 정보
@@ -73,9 +74,7 @@ class NISessionManager: NSObject, ObservableObject {
     
     func start() {
         startup()
-        
-        myNickname = "웨스트"
-        myNickname = CoreDataManager.coreDM.readAllUser()[0].userName ?? "예시닉네임"
+        myNickname = CoreDataManager.coreDM.readAllUser()[0].userName ?? "nil이다!"
     }
     
     func stop() {
@@ -86,7 +85,6 @@ class NISessionManager: NSObject, ObservableObject {
         sessions.removeAll()
         peerTokensMapping.removeAll()
         matchedObject = nil
-        peersCnt = 0
         if(!isBumped) {
             mpc?.invalidate()
             mpc = nil
@@ -132,7 +130,7 @@ class NISessionManager: NSObject, ObservableObject {
         sessions[peer]?.delegate = self
         
         guard let myToken = sessions[peer]?.discoveryToken else {
-            //            fatalError("Unexpectedly failed to initialize nearby interaction session.")
+            // fatalError("Unexpectedly failed to initialize nearby interaction session.")
             return
         }
         
@@ -168,7 +166,7 @@ class NISessionManager: NSObject, ObservableObject {
     // MPC peerDataHandler에 의해 데이터 리시빙
     // 5. 상대 데이터 수신
     func dataReceivedHandler(data: Data, peer: MCPeerID) {
-        guard let receivedData = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? TranData else {
+        guard let receivedData = try? NSKeyedUnarchiver.unarchivedObject(ofClass: TranData.self, from: data) else {
             //            fatalError("Unexpectedly failed to decode discovery token.")
             return
         }
@@ -319,13 +317,6 @@ extension NISessionManager: NISessionDelegate {
         }
         // Recreate a valid session in other failure cases.
         startup()
-    }
-}
-
-// MARK: - `MultipeerConnectivityManagerDelegate`.
-extension NISessionManager: MultipeerConnectivityManagerDelegate {
-    func connectedDevicesChanged(devices: [String]) {
-        peersCnt = devices.count
     }
 }
 
