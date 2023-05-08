@@ -53,6 +53,7 @@ class NISessionManager: NSObject, ObservableObject, MultipeerConnectivityManager
     var mpc: MPCSession?
     var sessions = [MCPeerID:NISession]()
     var peerTokensMapping = [NIDiscoveryToken:MCPeerID]()
+    // TODO: - 거리 조정
     let nearbyDistanceThreshold: Float = 0.08 // 범프 한계 거리
     
     // 나의 정보
@@ -107,7 +108,7 @@ class NISessionManager: NSObject, ObservableObject, MultipeerConnectivityManager
         if mpc == nil {
             // Prevent Simulator from finding devices.
             #if targetEnvironment(simulator)
-          mpc = MPCSession(service: "nearcatch", identity: "com.2pm.NearCatch") // TODO: - Change service, iendity
+          mpc = MPCSession(service: "nearcatch", identity: "com.2pm.NearCatch") // TODO: - Change service, iendity -> UI 연결 후 확인하기
             #else
             mpc = MPCSession(service: "nearcatch", identity: "com.2pm.NearCatch")
             #endif
@@ -187,7 +188,7 @@ class NISessionManager: NSObject, ObservableObject, MultipeerConnectivityManager
             
             peerDidShareDiscoveryToken(peer: peer, token: discoveryToken)
             
-            if (true) { // TODO: - Bumped Buddy Match Logic
+            if (receivedData.isDoneTargetCalories) { // Bumped Buddy Match Logic - 상대방의 운동여부가 true일때만
                 DispatchQueue.global(qos: .userInitiated).async {
                     self.compareForCheckMatchedObject(receivedData)
                 }
@@ -329,13 +330,14 @@ extension NISessionManager {
         return distance < nearbyDistanceThreshold
     }
     
-    // 매칭 상대 업데이트 - 거리가 더 가까운 사람으로 매칭?? 고민
+    // 매칭 상대 업데이트 - 언제 이 업데이트 함수를 써야할까?
     private func compareForCheckMatchedObject(_ data: TranData) {
         
         guard self.matchedObject != data else { return }
         
+        
         if let nowTranData = self.matchedObject {
-            if (true) { // TODO: - 거리가 더 가까운 사람을 매칭해줌?? 고민
+            if (true) { // TODO: - 업데이트하는 로직인데..
                 self.matchedObject = data
             }
         } else {

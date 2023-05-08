@@ -21,6 +21,7 @@ class LocalNetworkAuthorization: NSObject { // mpc를 위한 클래스: 네트�
         let parameters = NWParameters()
         parameters.includePeerToPeer = true
         
+        // TODO: - nearcatch tcp 수정
         // Browse for a custom service type.
         let browser = NWBrowser(for: .bonjour(type: "_nearcatch._tcp", domain: nil), using: parameters)
         self.browser = browser
@@ -38,7 +39,7 @@ class LocalNetworkAuthorization: NSObject { // mpc를 위한 클래스: 네트�
                 break
             }
         }
-        
+        // TODO: - nearcatch tcp 수정
         self.netService = NetService(domain: "local.", type:"_nearcatch._tcp.", name: "LocalNetworkPrivacy", port: 1100)
         self.netService?.delegate = self
         

@@ -44,7 +44,7 @@ class CoreDataManager {
         
         let bunny = Bunny(context: persistentContainer.viewContext)
         bunny.characterName = characterName
-        bunny.level = 0 // TODO: - level 0 or 1 Start????
+        bunny.level = 1
         
         do {
             try persistentContainer.viewContext.save()
@@ -77,12 +77,12 @@ class CoreDataManager {
         
     }
     
-    func updateUser() {
+    func update() {
         
         do{
             try persistentContainer.viewContext.save()
         } catch {
-            persistentContainer.viewContext.rollback()
+            persistentContainer.viewContext.rollback() // 오류나면 오류난 걸 지워버린다. 오류나지 않은 가장 최신의 것을 불러온다.
         }
     }
     
