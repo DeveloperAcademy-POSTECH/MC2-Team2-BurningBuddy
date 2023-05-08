@@ -16,7 +16,7 @@ extension Page {
         return NSFetchRequest<Page>(entityName: "Page")
     }
 
-    @NSManaged public var pageNum: Int16
+    @NSManaged public var showOnboarding: Bool
 
 }
 

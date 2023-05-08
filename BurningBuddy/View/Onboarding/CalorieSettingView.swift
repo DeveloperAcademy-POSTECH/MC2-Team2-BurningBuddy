@@ -46,7 +46,7 @@ struct CalorieSettingView: View {
    
             Spacer()
             Button("다음", action: {
-                saveCalorie()
+              saveCalorie()
             })
             .buttonStyle(RedButtonStyle())
         }
@@ -57,11 +57,12 @@ struct CalorieSettingView: View {
     func saveCalorie() {
       // 유저 정보 Core데이터에 생성
       CoreDataManager.coreDM.createUser(userName: settings.nickName, goalCalories: Int16(sliderValue))
-        withAnimation(.easeInOut(duration: 0.5)){
-            settings.pageNum += 1
             // TODO: - pageNum 코어데이터에 저장
-        }
     }
+  
+  func toggleShowOnboarding() {
+    settings.showOnboarding = false
+  }
 }
 
 struct TextUtil {

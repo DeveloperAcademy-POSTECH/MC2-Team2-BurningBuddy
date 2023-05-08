@@ -53,10 +53,10 @@ class CoreDataManager {
         }
     }
   
-  func createPage(pageNum: Int16) {
+  func createPage(showOnboarding: Bool) {
       
       let page = Page(context: persistentContainer.viewContext)
-      page.pageNum = pageNum
+      page.showOnboarding = showOnboarding
       
       do {
           try persistentContainer.viewContext.save()

@@ -137,9 +137,7 @@ struct MainView: View {
             .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
             
         }
-        
-    }
-    
+    } // body End
 }
 
 
@@ -149,3 +147,6 @@ struct MainView_Previews: PreviewProvider {
             .preferredColorScheme(.dark)
     }
 }
+
+// 코어데이터에 있는 불값.. 불값을 저장하고 메인 화면이 onAppear될 때 값을 바꿔준다.
+// 칼로리 버튼 누를 때 불값 토글해준다. -> 메인화면에서 read하면 될 듯.

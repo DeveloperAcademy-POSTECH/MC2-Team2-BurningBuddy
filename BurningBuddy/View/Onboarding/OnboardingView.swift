@@ -30,9 +30,6 @@ struct OnboardingView: View {
         }
         .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
         .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
-        
-        
-
     }
     func setupAppearance() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(red: 255 / 255, green: 0 / 255, blue: 82 / 255, alpha: 1)
