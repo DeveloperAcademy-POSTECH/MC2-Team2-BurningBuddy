@@ -20,6 +20,7 @@ extension User {
     @NSManaged public var todayCalories: Int16
     @NSManaged public var todayWorkoutHours: Int16
     @NSManaged public var totalDumbbell: Int16
+    @NSManaged public var goalCalories: Int16
 
 }
 
