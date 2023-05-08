@@ -11,6 +11,7 @@
 		3E6C34D42A08C6EE00F1CBFF /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C34D22A08C6EE00F1CBFF /* User+CoreDataProperties.swift */; };
 		3E6C34D72A08C8D100F1CBFF /* Bunny+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C34D52A08C8D100F1CBFF /* Bunny+CoreDataClass.swift */; };
 		3E6C34D82A08C8D100F1CBFF /* Bunny+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C34D62A08C8D100F1CBFF /* Bunny+CoreDataProperties.swift */; };
+		69AB2F4E2A08A42100C1FAA0 /* WorkoutData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AB2F4D2A08A42100C1FAA0 /* WorkoutData.swift */; };
 		B80518E22A088CAC00D12915 /* NISessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518E12A088CAC00D12915 /* NISessionManager.swift */; };
 		B80518E52A088CDE00D12915 /* MPCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518E42A088CDE00D12915 /* MPCSession.swift */; };
 		B80518E72A088D2300D12915 /* LocalNetworkAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518E62A088D2300D12915 /* LocalNetworkAuthorization.swift */; };
@@ -49,6 +50,7 @@
 		3E6C34D22A08C6EE00F1CBFF /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3E6C34D52A08C8D100F1CBFF /* Bunny+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bunny+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3E6C34D62A08C8D100F1CBFF /* Bunny+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bunny+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		69AB2F4D2A08A42100C1FAA0 /* WorkoutData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutData.swift; sourceTree = "<group>"; };
 		B80518E12A088CAC00D12915 /* NISessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NISessionManager.swift; sourceTree = "<group>"; };
 		B80518E42A088CDE00D12915 /* MPCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSession.swift; sourceTree = "<group>"; };
 		B80518E62A088D2300D12915 /* LocalNetworkAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkAuthorization.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				B80518EC2A088E9300D12915 /* CoreData */,
 				B80518EA2A088E4100D12915 /* FindingPartnerState.swift */,
+				69AB2F4D2A08A42100C1FAA0 /* WorkoutData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				C967C20C2A0694DE007EE7EE /* OnboardingView.swift in Sources */,
 				C967C20A2A068FEA007EE7EE /* CalorieSettingView.swift in Sources */,
 				B80518E22A088CAC00D12915 /* NISessionManager.swift in Sources */,
+				69AB2F4E2A08A42100C1FAA0 /* WorkoutData.swift in Sources */,
 				C967C21A2A078733007EE7EE /* LevelUpView.swift in Sources */,
 				C967C2182A07870A007EE7EE /* NotFoundPartnerView.swift in Sources */,
 			);
