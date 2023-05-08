@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B80518E22A088CAC00D12915 /* NISessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518E12A088CAC00D12915 /* NISessionManager.swift */; };
+		B80518E52A088CDE00D12915 /* MPCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518E42A088CDE00D12915 /* MPCSession.swift */; };
+		B80518E72A088D2300D12915 /* LocalNetworkAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518E62A088D2300D12915 /* LocalNetworkAuthorization.swift */; };
+		B80518EB2A088E4100D12915 /* FindingPartnerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518EA2A088E4100D12915 /* FindingPartnerState.swift */; };
+		B80518EF2A088EA600D12915 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B80518ED2A088EA600D12915 /* UserDataModel.xcdatamodeld */; };
+		B80518F42A088EFF00D12915 /* Bunny+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518F02A088EFF00D12915 /* Bunny+CoreDataClass.swift */; };
+		B80518F52A088EFF00D12915 /* Bunny+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518F12A088EFF00D12915 /* Bunny+CoreDataProperties.swift */; };
+		B80518F62A088EFF00D12915 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518F22A088EFF00D12915 /* User+CoreDataClass.swift */; };
+		B80518F72A088EFF00D12915 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518F32A088EFF00D12915 /* User+CoreDataProperties.swift */; };
+		B80518F92A08901200D12915 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518F82A08901200D12915 /* CoreDataManager.swift */; };
 		C91444062A01453800E6202D /* SearchPartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91444052A01453800E6202D /* SearchPartnerView.swift */; };
 		C91444082A01454F00E6202D /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91444072A01454F00E6202D /* WorkoutView.swift */; };
 		C914440A2A01459D00E6202D /* LevelUpModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91444092A01459D00E6202D /* LevelUpModalView.swift */; };
@@ -17,7 +27,6 @@
 		C91BB6EB2A00BDC0009FAA86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6EA2A00BDC0009FAA86 /* ContentView.swift */; };
 		C91BB6ED2A00BDC1009FAA86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C91BB6EC2A00BDC1009FAA86 /* Assets.xcassets */; };
 		C91BB6F02A00BDC1009FAA86 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C91BB6EF2A00BDC1009FAA86 /* Preview Assets.xcassets */; };
-		C91BB6FA2A00BE79009FAA86 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6F92A00BE79009FAA86 /* Data.swift */; };
 		C91BB6FC2A00E772009FAA86 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6FB2A00E772009FAA86 /* MainView.swift */; };
 		C91BB6FE2A00E794009FAA86 /* NicknameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6FD2A00E794009FAA86 /* NicknameSettingView.swift */; };
 		C967C2082A0332C3007EE7EE /* WorkoutDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C2072A0332C3007EE7EE /* WorkoutDoneView.swift */; };
@@ -36,6 +45,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B80518E12A088CAC00D12915 /* NISessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NISessionManager.swift; sourceTree = "<group>"; };
+		B80518E42A088CDE00D12915 /* MPCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSession.swift; sourceTree = "<group>"; };
+		B80518E62A088D2300D12915 /* LocalNetworkAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkAuthorization.swift; sourceTree = "<group>"; };
+		B80518EA2A088E4100D12915 /* FindingPartnerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingPartnerState.swift; sourceTree = "<group>"; };
+		B80518EE2A088EA600D12915 /* UserDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserDataModel.xcdatamodel; sourceTree = "<group>"; };
+		B80518F02A088EFF00D12915 /* Bunny+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bunny+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B80518F12A088EFF00D12915 /* Bunny+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bunny+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B80518F22A088EFF00D12915 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B80518F32A088EFF00D12915 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B80518F82A08901200D12915 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C91444052A01453800E6202D /* SearchPartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPartnerView.swift; sourceTree = "<group>"; };
 		C91444072A01454F00E6202D /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		C91444092A01459D00E6202D /* LevelUpModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpModalView.swift; sourceTree = "<group>"; };
@@ -48,7 +67,6 @@
 		C91BB6EA2A00BDC0009FAA86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C91BB6EC2A00BDC1009FAA86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C91BB6EF2A00BDC1009FAA86 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C91BB6F92A00BE79009FAA86 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		C91BB6FB2A00E772009FAA86 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C91BB6FD2A00E794009FAA86 /* NicknameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSettingView.swift; sourceTree = "<group>"; };
 		C967C2072A0332C3007EE7EE /* WorkoutDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDoneView.swift; sourceTree = "<group>"; };
@@ -77,6 +95,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B80518DF2A088B3A00D12915 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C91444422A0167C500E6202D /* cookie.jpeg */,
+				C91BB6EC2A00BDC1009FAA86 /* Assets.xcassets */,
+				C9CC8F372A0232D400C16FA5 /* Image.png */,
+				C967C2112A069D15007EE7EE /* OnboardingTest1.png */,
+				C967C2102A069D15007EE7EE /* OnboardingTest2.png */,
+				C967C20F2A069D15007EE7EE /* OnboardingTest3.png */,
+				C967C2152A069D19007EE7EE /* OnboardingTest4.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B80518E02A088C8B00D12915 /* NIUtils */ = {
+			isa = PBXGroup;
+			children = (
+				B80518E12A088CAC00D12915 /* NISessionManager.swift */,
+				B80518E62A088D2300D12915 /* LocalNetworkAuthorization.swift */,
+				B80518E32A088CCF00D12915 /* MPCUtils */,
+			);
+			path = NIUtils;
+			sourceTree = "<group>";
+		};
+		B80518E32A088CCF00D12915 /* MPCUtils */ = {
+			isa = PBXGroup;
+			children = (
+				B80518E42A088CDE00D12915 /* MPCSession.swift */,
+			);
+			path = MPCUtils;
+			sourceTree = "<group>";
+		};
+		B80518EC2A088E9300D12915 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B80518F02A088EFF00D12915 /* Bunny+CoreDataClass.swift */,
+				B80518F12A088EFF00D12915 /* Bunny+CoreDataProperties.swift */,
+				B80518F22A088EFF00D12915 /* User+CoreDataClass.swift */,
+				B80518F32A088EFF00D12915 /* User+CoreDataProperties.swift */,
+				B80518ED2A088EA600D12915 /* UserDataModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		C91BB6DC2A00BDC0009FAA86 = {
 			isa = PBXGroup;
 			children = (
@@ -97,10 +159,11 @@
 			isa = PBXGroup;
 			children = (
 				C91444442A01799700E6202D /* Info.plist */,
+				C91BB6E82A00BDC0009FAA86 /* BurningBuddyApp.swift */,
+				B80518DF2A088B3A00D12915 /* Resources */,
 				C91BB6F82A00BE27009FAA86 /* Utils */,
 				C91BB6F72A00BE23009FAA86 /* View */,
 				C91BB6F62A00BE1C009FAA86 /* Model */,
-				C91BB6E82A00BDC0009FAA86 /* BurningBuddyApp.swift */,
 				C91BB6EE2A00BDC1009FAA86 /* Preview Content */,
 			);
 			path = BurningBuddy;
@@ -117,7 +180,8 @@
 		C91BB6F62A00BE1C009FAA86 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C91BB6F92A00BE79009FAA86 /* Data.swift */,
+				B80518EC2A088E9300D12915 /* CoreData */,
+				B80518EA2A088E4100D12915 /* FindingPartnerState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,13 +203,8 @@
 		C91BB6F82A00BE27009FAA86 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				C91444422A0167C500E6202D /* cookie.jpeg */,
-				C91BB6EC2A00BDC1009FAA86 /* Assets.xcassets */,
-				C9CC8F372A0232D400C16FA5 /* Image.png */,
-				C967C2112A069D15007EE7EE /* OnboardingTest1.png */,
-				C967C2102A069D15007EE7EE /* OnboardingTest2.png */,
-				C967C20F2A069D15007EE7EE /* OnboardingTest3.png */,
-				C967C2152A069D19007EE7EE /* OnboardingTest4.png */,
+				B80518F82A08901200D12915 /* CoreDataManager.swift */,
+				B80518E02A088C8B00D12915 /* NIUtils */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -285,20 +344,29 @@
 			files = (
 				C967C21E2A07882D007EE7EE /* MissionCongratsView.swift in Sources */,
 				C91BB6EB2A00BDC0009FAA86 /* ContentView.swift in Sources */,
+				B80518E72A088D2300D12915 /* LocalNetworkAuthorization.swift in Sources */,
 				C914440E2A01462500E6202D /* SettingView.swift in Sources */,
+				B80518F52A088EFF00D12915 /* Bunny+CoreDataProperties.swift in Sources */,
+				B80518F42A088EFF00D12915 /* Bunny+CoreDataClass.swift in Sources */,
+				B80518F92A08901200D12915 /* CoreDataManager.swift in Sources */,
 				C914440C2A01460F00E6202D /* CharacterSettingView.swift in Sources */,
 				C91BB6FC2A00E772009FAA86 /* MainView.swift in Sources */,
+				B80518EB2A088E4100D12915 /* FindingPartnerState.swift in Sources */,
 				C91444082A01454F00E6202D /* WorkoutView.swift in Sources */,
+				B80518F72A088EFF00D12915 /* User+CoreDataProperties.swift in Sources */,
 				C91BB6FE2A00E794009FAA86 /* NicknameSettingView.swift in Sources */,
 				C967C2082A0332C3007EE7EE /* WorkoutDoneView.swift in Sources */,
 				C967C21C2A078754007EE7EE /* MissionResultModalView.swift in Sources */,
 				C91444062A01453800E6202D /* SearchPartnerView.swift in Sources */,
-				C91BB6FA2A00BE79009FAA86 /* Data.swift in Sources */,
+				B80518E52A088CDE00D12915 /* MPCSession.swift in Sources */,
 				C914440A2A01459D00E6202D /* LevelUpModalView.swift in Sources */,
 				C91BB6E92A00BDC0009FAA86 /* BurningBuddyApp.swift in Sources */,
 				C967C20E2A0699A1007EE7EE /* ButtonComponent.swift in Sources */,
+				B80518EF2A088EA600D12915 /* UserDataModel.xcdatamodeld in Sources */,
+				B80518F62A088EFF00D12915 /* User+CoreDataClass.swift in Sources */,
 				C967C20C2A0694DE007EE7EE /* OnboardingView.swift in Sources */,
 				C967C20A2A068FEA007EE7EE /* CalorieSettingView.swift in Sources */,
+				B80518E22A088CAC00D12915 /* NISessionManager.swift in Sources */,
 				C967C21A2A078733007EE7EE /* LevelUpView.swift in Sources */,
 				C967C2182A07870A007EE7EE /* NotFoundPartnerView.swift in Sources */,
 			);
@@ -441,7 +509,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,7 +541,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,6 +577,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B80518ED2A088EA600D12915 /* UserDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B80518EE2A088EA600D12915 /* UserDataModel.xcdatamodel */,
+			);
+			currentVersion = B80518EE2A088EA600D12915 /* UserDataModel.xcdatamodel */;
+			path = UserDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C91BB6DD2A00BDC0009FAA86 /* Project object */;
 }
