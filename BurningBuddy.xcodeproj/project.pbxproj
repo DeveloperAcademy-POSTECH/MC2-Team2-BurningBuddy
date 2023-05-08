@@ -77,6 +77,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B80518DF2A088B3A00D12915 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C91444422A0167C500E6202D /* cookie.jpeg */,
+				C91BB6EC2A00BDC1009FAA86 /* Assets.xcassets */,
+				C9CC8F372A0232D400C16FA5 /* Image.png */,
+				C967C2112A069D15007EE7EE /* OnboardingTest1.png */,
+				C967C2102A069D15007EE7EE /* OnboardingTest2.png */,
+				C967C20F2A069D15007EE7EE /* OnboardingTest3.png */,
+				C967C2152A069D19007EE7EE /* OnboardingTest4.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C91BB6DC2A00BDC0009FAA86 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +110,7 @@
 		C91BB6E72A00BDC0009FAA86 /* BurningBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				B80518DF2A088B3A00D12915 /* Resources */,
 				C91444442A01799700E6202D /* Info.plist */,
 				C91BB6F82A00BE27009FAA86 /* Utils */,
 				C91BB6F72A00BE23009FAA86 /* View */,
@@ -139,13 +154,6 @@
 		C91BB6F82A00BE27009FAA86 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				C91444422A0167C500E6202D /* cookie.jpeg */,
-				C91BB6EC2A00BDC1009FAA86 /* Assets.xcassets */,
-				C9CC8F372A0232D400C16FA5 /* Image.png */,
-				C967C2112A069D15007EE7EE /* OnboardingTest1.png */,
-				C967C2102A069D15007EE7EE /* OnboardingTest2.png */,
-				C967C20F2A069D15007EE7EE /* OnboardingTest3.png */,
-				C967C2152A069D19007EE7EE /* OnboardingTest4.png */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
