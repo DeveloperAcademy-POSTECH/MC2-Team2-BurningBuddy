@@ -52,7 +52,19 @@ class CoreDataManager {
             print("Failed to save profile \(error)")
         }
     }
-    
+  
+  func createPage(pageNum: Int16) {
+      
+      let page = Page(context: persistentContainer.viewContext)
+      page.pageNum = pageNum
+      
+      do {
+          try persistentContainer.viewContext.save()
+      } catch {
+          print("Failed to save profile \(error)")
+      }
+  }
+
     func readAllUser() -> [User] {
         
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
@@ -62,7 +74,6 @@ class CoreDataManager {
         } catch {
             return []
         }
-        
     }
     
     func readAllBunny() -> [Bunny] {
@@ -74,8 +85,18 @@ class CoreDataManager {
         } catch {
             return []
         }
-        
     }
+  
+  func readAllPage() -> [Page] {
+      
+      let fetchRequest: NSFetchRequest<Page> = Page.fetchRequest()
+      
+      do{
+          return try persistentContainer.viewContext.fetch(fetchRequest)
+      } catch {
+          return []
+      }
+  }
     
     func update() {
         
