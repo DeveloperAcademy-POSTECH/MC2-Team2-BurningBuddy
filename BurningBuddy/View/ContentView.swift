@@ -20,7 +20,7 @@ class UserSettings: ObservableObject {
 }
 
 struct ContentView: View {
-  @ObservedObject var settings = UserSettings()
+    @ObservedObject var settings = UserSettings()
   
   var body: some View {
     ZStack {
@@ -53,6 +53,17 @@ struct ContentView: View {
           .environmentObject(settings)
           .background(Color(red: 30/255, green: 28/255, blue: 29/255))
       }
+    }.onAppear {
+        /**
+         1. UserDefalut 또는 CoreData에 데이터가 있는지 없는지 확인
+         1-1) 있다면
+         settings를 초기화 시킨다. 기존 데이터 값으로
+         1-2) 없다면
+         settings 객체를 생성한다. (그냥 냅둔다)
+         
+         2. 단, 여기에서 첫 진입인지 판단하는 불리언값은 CoreData(또는 UserDefalut)처음에도 존재하여야 한다.
+         임의로 true 값을 집어넣어 놓아야 한다. 그것을 첫 변수로 감지하여 첫 번째에 메인뷰로 들어갈지, 온보딩으로 들어갈 지를 정해야 한다.
+         */
     }
     
   }
@@ -62,6 +73,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
+      ContentView(settings: UserSettings())
   }
 }

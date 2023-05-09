@@ -8,6 +8,11 @@
 import Foundation
 import SwiftUI
 
+/**
+ 특별한 로직은 필요 없을 것 같다.
+ 왜냐하면, 특정한 조건에 나오는 뷰이기 때문이다.
+ 단순히 진화하는 캐릭터만 보여주면 족하다.
+ */
 struct LevelUpView: View {
     var body: some View {
         VStack {

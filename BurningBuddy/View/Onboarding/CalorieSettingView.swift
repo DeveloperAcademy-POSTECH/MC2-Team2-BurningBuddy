@@ -5,7 +5,9 @@
 //  Created by 김동현 on 2023/05/06.
 //
 import SwiftUI
-
+/**
+ 초기 값 설정시 여기에서 한 번 CoreData(or UserDefalut)에 저장해야 한다.
+ */
 struct CalorieSettingView: View {
     @EnvironmentObject var settings: UserSettings
     @State private var firstSliderDrag: Bool = false
@@ -58,6 +60,10 @@ struct CalorieSettingView: View {
       // 유저 정보 Core데이터에 생성
       CoreDataManager.coreDM.createUser(userName: settings.nickName, goalCalories: Int16(sliderValue))
             // TODO: - pageNum 코어데이터에 저장
+        /**
+         변수를 가지고 있는 settings 자체를 저장하고, 계속 불러오고 업데이트를 하면 안되는겅가?
+         */
+        
     }
   
   func toggleShowOnboarding() {

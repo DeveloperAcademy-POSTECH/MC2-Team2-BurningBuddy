@@ -7,7 +7,12 @@
 
 import Foundation
 import SwiftUI
-
+/**
+ settings에 있는 것을 그대로 보여주기만 하면 된다.
+ progress 바 안의 변수를 조금 수정해주긴 해야 한다.
+ Color asset 처리가 필요.
+ 중복되는 Text 컴포넌트, 메서드 처리할까?
+ */
 struct MainView: View {
     @EnvironmentObject var settings: UserSettings
     @State var daysleft: Int = 0

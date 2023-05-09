@@ -8,12 +8,15 @@
 import Foundation
 import SwiftUI
 /**
- 화면 분할하여 파일 재생성 하기
+ 화면 분할하여 파일 재생성 하기..
+ 통신에 많은 시간을 써야 할 것 같다....
+ 연결하기를 누를 때, 파트너의 이름을 저장하는 것이 필요하다.
+ 토큰이 계속 남아있을 수 있는가?의 문제도 있다. 다시 연결되어 데이터를 전송할 때, 문제가 되지 않을까? 하는 궁금함이 있다. 
  */
 struct SearchPartnerView: View {
     @EnvironmentObject var settings: UserSettings
-    @State var isSearchedPartner: Bool = false
-    @State var notFoundPartner: Bool = true
+    @State var isSearchedPartner: Bool = true
+    @State var notFoundPartner: Bool = false
     @State var partnerData: String = "상대방 닉네임" // 데이터 타입 지정 필요
     var body: some View {
         
