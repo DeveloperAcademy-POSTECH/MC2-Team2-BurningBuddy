@@ -31,6 +31,7 @@
 		C91BB6FC2A00E772009FAA86 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6FB2A00E772009FAA86 /* MainView.swift */; };
 		C91BB6FE2A00E794009FAA86 /* NicknameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6FD2A00E794009FAA86 /* NicknameSettingView.swift */; };
 		C9363F1E2A0AB10300038ADF /* WorkoutSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9363F1D2A0AB10300038ADF /* WorkoutSuccessView.swift */; };
+		C9363F202A0AB21500038ADF /* WorkoutFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9363F1F2A0AB21500038ADF /* WorkoutFailView.swift */; };
 		C967C2082A0332C3007EE7EE /* WorkoutDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C2072A0332C3007EE7EE /* WorkoutDoneView.swift */; };
 		C967C20A2A068FEA007EE7EE /* CalorieSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C2092A068FEA007EE7EE /* CalorieSettingView.swift */; };
 		C967C20C2A0694DE007EE7EE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C20B2A0694DE007EE7EE /* OnboardingView.swift */; };
@@ -73,6 +74,7 @@
 		C91BB6FB2A00E772009FAA86 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C91BB6FD2A00E794009FAA86 /* NicknameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSettingView.swift; sourceTree = "<group>"; };
 		C9363F1D2A0AB10300038ADF /* WorkoutSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSuccessView.swift; sourceTree = "<group>"; };
+		C9363F1F2A0AB21500038ADF /* WorkoutFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFailView.swift; sourceTree = "<group>"; };
 		C967C2072A0332C3007EE7EE /* WorkoutDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDoneView.swift; sourceTree = "<group>"; };
 		C967C2092A068FEA007EE7EE /* CalorieSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieSettingView.swift; sourceTree = "<group>"; };
 		C967C20B2A0694DE007EE7EE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				C967C21B2A078754007EE7EE /* MissionResultModalView.swift */,
 				C967C21D2A07882D007EE7EE /* MissionCongratsComponent.swift */,
 				C9363F1D2A0AB10300038ADF /* WorkoutSuccessView.swift */,
+				C9363F1F2A0AB21500038ADF /* WorkoutFailView.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				B80518EF2A088EA600D12915 /* UserDataModel.xcdatamodeld in Sources */,
 				3E6C34D42A08C6EE00F1CBFF /* User+CoreDataProperties.swift in Sources */,
 				C967C20C2A0694DE007EE7EE /* OnboardingView.swift in Sources */,
+				C9363F202A0AB21500038ADF /* WorkoutFailView.swift in Sources */,
 				C967C20A2A068FEA007EE7EE /* CalorieSettingView.swift in Sources */,
 				B80518E22A088CAC00D12915 /* NISessionManager.swift in Sources */,
 				69AB2F4E2A08A42100C1FAA0 /* WorkoutData.swift in Sources */,
