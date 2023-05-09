@@ -30,7 +30,7 @@ class CoreDataManager {
         user.userName = userName
         user.goalCalories = goalCalories
         user.todayCalories = 0
-        user.todayWorkoutHours = 0
+        user.todayWorkoutHours = "00:00"
         user.totalDumbbell = 0
         
         do {
