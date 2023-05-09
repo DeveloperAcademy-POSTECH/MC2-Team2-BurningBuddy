@@ -153,5 +153,5 @@ struct MainView_Previews: PreviewProvider {
     }
 }
 
-// 코어데이터에 있는 불값.. 불값을 저장하고 메인 화면이 onAppear될 때 값을 바꿔준다.
+// 코어데이터에 있는 불값.. 불값을 저장하고 메인 화면이 onAppear될 때 값을 바꿔준다. -> CalorieSettingView 에서 
 // 칼로리 버튼 누를 때 불값 토글해준다. -> 메인화면에서 read하면 될 듯.

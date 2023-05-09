@@ -33,8 +33,8 @@ struct CalorieSettingView: View {
                     .font(.system(size: 24, weight: .bold))
                 
                 Slider(value: $sliderValue, in: 150...800, step: 1)
-                .padding()
-                .tint(Color(red: 255 / 255, green: 0 / 255, blue: 82 / 255))
+                    .padding()
+                    .tint(Color(red: 255 / 255, green: 0 / 255, blue: 82 / 255))
                 
                 Text("\(sliderValue, specifier: "%.0f")Kcal")
                     .font(.system(size: 28, weight: .bold))
@@ -45,10 +45,11 @@ struct CalorieSettingView: View {
                     .foregroundColor(Color(red: 1, green: 1, blue: 1, opacity: 0.6))
                 Spacer()
             }
-   
+            
             Spacer()
             Button("다음", action: {
-              saveCalorie()
+                saveCalorie()
+                toggleShowOnboarding()
             })
             .buttonStyle(RedButtonStyle())
         }
@@ -57,18 +58,23 @@ struct CalorieSettingView: View {
     }
     
     func saveCalorie() {
-      // 유저 정보 Core데이터에 생성
-      CoreDataManager.coreDM.createUser(userName: settings.nickName, goalCalories: Int16(sliderValue))
-            // TODO: - pageNum 코어데이터에 저장
+        // 유저 정보 Core데이터에 생성
+        settings.pageNum += 1
+        CoreDataManager.coreDM.createUser(userName: settings.nickName, goalCalories: Int16(sliderValue))
+        toggleShowOnboarding()
+        // TODO: - pageNum 코어데이터에 저장
         /**
          변수를 가지고 있는 settings 자체를 저장하고, 계속 불러오고 업데이트를 하면 안되는겅가?
          */
         
     }
-  
-  func toggleShowOnboarding() {
-    settings.showOnboarding = false
-  }
+    
+    func toggleShowOnboarding() {
+        // CoreData의 showOnboarding을 true로 바꿔준다.
+        
+        UserDefaults.standard.set(true, forKey: "showOnboarding")
+        //    settings.showOnboarding = false
+    }
 }
 
 struct TextUtil {

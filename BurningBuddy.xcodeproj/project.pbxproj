@@ -18,8 +18,6 @@
 		B80518EB2A088E4100D12915 /* FindingPartnerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518EA2A088E4100D12915 /* FindingPartnerState.swift */; };
 		B80518EF2A088EA600D12915 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B80518ED2A088EA600D12915 /* UserDataModel.xcdatamodeld */; };
 		B80518F92A08901200D12915 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518F82A08901200D12915 /* CoreDataManager.swift */; };
-		B80518FC2A090C4800D12915 /* Page+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518FA2A090C4800D12915 /* Page+CoreDataClass.swift */; };
-		B80518FD2A090C4800D12915 /* Page+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518FB2A090C4800D12915 /* Page+CoreDataProperties.swift */; };
 		C91444062A01453800E6202D /* SearchPartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91444052A01453800E6202D /* SearchPartnerView.swift */; };
 		C91444082A01454F00E6202D /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91444072A01454F00E6202D /* WorkoutView.swift */; };
 		C914440A2A01459D00E6202D /* LevelUpModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91444092A01459D00E6202D /* LevelUpModalView.swift */; };
@@ -59,8 +57,6 @@
 		B80518EA2A088E4100D12915 /* FindingPartnerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingPartnerState.swift; sourceTree = "<group>"; };
 		B80518EE2A088EA600D12915 /* UserDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserDataModel.xcdatamodel; sourceTree = "<group>"; };
 		B80518F82A08901200D12915 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		B80518FA2A090C4800D12915 /* Page+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B80518FB2A090C4800D12915 /* Page+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C91444052A01453800E6202D /* SearchPartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPartnerView.swift; sourceTree = "<group>"; };
 		C91444072A01454F00E6202D /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		C91444092A01459D00E6202D /* LevelUpModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpModalView.swift; sourceTree = "<group>"; };
@@ -139,18 +135,8 @@
 				B80518ED2A088EA600D12915 /* UserDataModel.xcdatamodeld */,
 				B80519012A090CAC00D12915 /* Bunny */,
 				B80519002A090CA100D12915 /* User */,
-				B80518FF2A090C9600D12915 /* Page */,
 			);
 			path = CoreData;
-			sourceTree = "<group>";
-		};
-		B80518FF2A090C9600D12915 /* Page */ = {
-			isa = PBXGroup;
-			children = (
-				B80518FA2A090C4800D12915 /* Page+CoreDataClass.swift */,
-				B80518FB2A090C4800D12915 /* Page+CoreDataProperties.swift */,
-			);
-			path = Page;
 			sourceTree = "<group>";
 		};
 		B80519002A090CA100D12915 /* User */ = {
@@ -381,13 +367,11 @@
 				C914440E2A01462500E6202D /* SettingView.swift in Sources */,
 				3E6C34D32A08C6EE00F1CBFF /* User+CoreDataClass.swift in Sources */,
 				B80518F92A08901200D12915 /* CoreDataManager.swift in Sources */,
-				B80518FD2A090C4800D12915 /* Page+CoreDataProperties.swift in Sources */,
 				C914440C2A01460F00E6202D /* CharacterSettingView.swift in Sources */,
 				C91BB6FC2A00E772009FAA86 /* MainView.swift in Sources */,
 				B80518EB2A088E4100D12915 /* FindingPartnerState.swift in Sources */,
 				C91444082A01454F00E6202D /* WorkoutView.swift in Sources */,
 				3E6C34D72A08C8D100F1CBFF /* Bunny+CoreDataClass.swift in Sources */,
-				B80518FC2A090C4800D12915 /* Page+CoreDataClass.swift in Sources */,
 				C91BB6FE2A00E794009FAA86 /* NicknameSettingView.swift in Sources */,
 				C967C2082A0332C3007EE7EE /* WorkoutDoneView.swift in Sources */,
 				C967C21C2A078754007EE7EE /* MissionResultModalView.swift in Sources */,
