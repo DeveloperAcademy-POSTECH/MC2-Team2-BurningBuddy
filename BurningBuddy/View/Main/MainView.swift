@@ -129,11 +129,13 @@ struct MainView: View {
                 
                 NavigationLink(destination: {
                     if settings.hasPartner {
-                        SearchPartnerView().environmentObject(settings)
+                        SearchPartnerView()
+                            .environmentObject(settings)
+                        
                     } else {
                         WorkoutView().environmentObject(settings)
                     }
-                } ) {
+                }) {
                     Text(settings.hasPartner ? "운동 시작하기" : "운동 종료하기")
                 }
                 .buttonStyle(RedButtonStyle())

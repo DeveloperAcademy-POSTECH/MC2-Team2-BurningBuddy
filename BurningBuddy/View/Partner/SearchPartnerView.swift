@@ -11,7 +11,7 @@ import SwiftUI
  화면 분할하여 파일 재생성 하기..
  통신에 많은 시간을 써야 할 것 같다....
  연결하기를 누를 때, 파트너의 이름을 저장하는 것이 필요하다.
- 토큰이 계속 남아있을 수 있는가?의 문제도 있다. 다시 연결되어 데이터를 전송할 때, 문제가 되지 않을까? 하는 궁금함이 있다. 
+ 토큰이 계속 남아있을 수 있는가?의 문제도 있다. 다시 연결되어 데이터를 전송할 때, 문제가 되지 않을까? 하는 궁금함이 있다.
  */
 struct SearchPartnerView: View {
     @EnvironmentObject var settings: UserSettings
@@ -20,22 +20,37 @@ struct SearchPartnerView: View {
     @State var partnerData: String = "상대방 닉네임" // TODO: - 데이터 타입 지정 필요
     // niObject 생성
     @StateObject var niObject = NISessionManager()
+    @State var isLaunched = true
+    @State var isLocalNetworkPermissionDenied = false
+    let localNetAuth = LocalNetworkAuthorization() // MPC를 위한 객체생성
+    
     var body: some View {
         
         VStack {
-          switch(niObject.findingPartnerState) {
-          case .ready, .finding:
+            switch(niObject.isBumped) {
+            case false:
                 // 파트너를 찾을때 NI를 가져오면 됩니당 ~!!
                 Text("내 파트너를 \n찾는 중이에요")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.white)
                     .font(.system(size: 30, weight: .bold, design: .default))
+                switch(niObject.findingPartnerState) {
+                case .ready:
+                    Text("ready")
+                        .foregroundColor(.white)
+                case .finding:
+                    Text("finding")
+                        .foregroundColor(.white)
+                case .found:
+                    Text("found")
+                        .foregroundColor(.white)
+                }
                 Text("서로의 휴대폰을 가까이 붙여주세요")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.white)
                     .padding(EdgeInsets(top: 1, leading: 0, bottom: 90, trailing: 0))
-
-          case .found:
+                
+            case true:
                 Text("내 주변 파트너를 \n발견했어요")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.white)
@@ -44,7 +59,7 @@ struct SearchPartnerView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.white)
                     .padding(EdgeInsets(top: 1, leading: 0, bottom: 90, trailing: 0))
-          }
+            }
             ZStack {
                 Circle()
                     .foregroundColor(Color(red: 44/255, green: 44/255, blue: 46/255))
@@ -56,34 +71,54 @@ struct SearchPartnerView: View {
                     .foregroundColor(Color(red: 124/255, green: 124/255, blue:129/255, opacity: 0.8))
                     .padding(EdgeInsets(top: 54, leading: 54, bottom: 54, trailing: 54))
                 VStack {
-                  switch(niObject.findingPartnerState) {
-                  case .found:
-                    Image("Image")
-                    Text(partnerData)
-                  case .ready, .finding:
-                    Text("이미지가 들어갈 것이다.")
-                    Text("검색중...")
-                  }
+                    switch(niObject.isBumped) {
+                    case true:
+                        Image("Image")
+                        Text(partnerData)
+                    case false:
+                        Text("이미지가 들어갈 것이다.")
+                        Text("검색중...")
+                    }
                 }
                 .padding(EdgeInsets(top: 106, leading: 106, bottom: 106, trailing: 106))
             }
             Spacer()
-          switch(niObject.findingPartnerState) {
-          case .found:
-            HStack {
-                Button("다시 연결할래요", action: {
-                    
-                })
-                .buttonStyle(GrayButtonStyle())
-                
-                Button("연결하기", action: {
-                    
-                })
-                .buttonStyle(RedButtonStyle())
+            Button("안녕") {
+                switch niObject.findingPartnerState {
+                case .ready:
+                    niObject.start()
+                    niObject.findingPartnerState = .finding
+                    // 네트워킹 코드
+//                    if isLaunched {
+//                        localNetAuth.requestAuthorization { auth in
+//                            isLocalNetworkPermissionDenied = !auth
+//                        }
+//                        isLaunched = false
+//                    }
+                case .finding:
+                    niObject.stop()
+                    niObject.findingPartnerState = .ready
+                case .found:
+                    niObject.stop()
+                    niObject.findingPartnerState = .ready
+                }
             }
-          case .ready, .finding:
-            Text("")
-          }
+            switch(niObject.isBumped) {
+            case true:
+                HStack {
+                    Button("다시 연결할래요", action: {
+                        
+                    })
+                    .buttonStyle(GrayButtonStyle())
+                    
+                    Button("연결하기", action: {
+                        
+                    })
+                    .buttonStyle(RedButtonStyle())
+                }
+            case false:
+                Text("")
+            }
             
         }
         .padding(EdgeInsets(top: 20, leading: 25, bottom: 10, trailing: 25))
@@ -99,7 +134,10 @@ struct SearchPartnerView: View {
                     .background(Color(red: 30/255, green: 28/255, blue: 29/255))
             }
         }
-    }
+        .onAppear {
+            
+        }
+    } // body End
     
 }
 

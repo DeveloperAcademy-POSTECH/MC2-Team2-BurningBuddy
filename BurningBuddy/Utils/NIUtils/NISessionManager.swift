@@ -53,7 +53,7 @@ class NISessionManager: NSObject, ObservableObject, MultipeerConnectivityManager
     var sessions = [MCPeerID:NISession]()
     var peerTokensMapping = [NIDiscoveryToken:MCPeerID]()
     // TODO: - 거리 조정
-    let nearbyDistanceThreshold: Float = 0.08 // 범프 한계 거리
+    let nearbyDistanceThreshold: Float = 0.0001 // 범프 한계 거리 (m단위 -> 8cm)
     
     // 나의 정보
     @Published var myNickname : String = ""
