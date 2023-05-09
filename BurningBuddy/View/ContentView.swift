@@ -17,7 +17,7 @@ class UserSettings: ObservableObject {
     @Published var totalWorkoutTime: String = ""
     @Published var todayCalories: Int16 = 0
     @Published var goalCalories: Int16 = 0
-    @Published var hasPartner: Bool = true
+    @Published var hasPartner: Bool = false
     @Published var isWorkouting: Bool = false
     @Published var isDoneWorkout: Bool = false
     @Published var showOnboarding: Bool = true

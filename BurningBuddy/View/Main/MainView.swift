@@ -17,6 +17,8 @@ struct MainView: View {
     @EnvironmentObject var settings: UserSettings
     @State var daysleft: Int = 0
     @State var showEvolution = false // 진화과정 모달에 관련된 상태
+  
+//  @StateObject var niObject = NISessionManager()
     
     var body: some View {
         NavigationView {
@@ -129,20 +131,23 @@ struct MainView: View {
                 
                 NavigationLink(destination: {
                     if settings.hasPartner {
-                        SearchPartnerView()
-                            .environmentObject(settings)
-                        
-                    } else {
                         WorkoutView().environmentObject(settings)
+                    } else {
+                      SearchPartnerView()
+                          .environmentObject(settings)
+//                          .environmentObject(niObject)
+                    // niObject.findingPartnerState = .ready 초기화
                     }
                 }) {
                     Text(settings.hasPartner ? "운동 시작하기" : "운동 종료하기")
                 }
                 .buttonStyle(RedButtonStyle())
+//                .simultaneousGesture(TapGesture().onEnded{
+//                  niObject.findingPartnerState = .ready
+//                })
             }
             .padding(EdgeInsets(top: 50, leading: 30, bottom: 30, trailing: 30))
             .background(Color(red: 30/255, green: 28/255, blue: 29/255))
-            
         }
     } // body End
 }

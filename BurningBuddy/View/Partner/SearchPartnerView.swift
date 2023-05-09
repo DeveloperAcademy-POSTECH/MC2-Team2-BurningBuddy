@@ -19,6 +19,7 @@ struct SearchPartnerView: View {
     @State var notFoundPartner: Bool = false // 모달용
     @State var partnerData: String = "상대방 닉네임" // TODO: - 데이터 타입 지정 필요
 
+//  @EnvironmentObject var niObject: NISessionManager
     @StateObject var niObject = NISessionManager()
     @State var isLaunched = true
     @State var isLocalNetworkPermissionDenied = false
@@ -84,7 +85,8 @@ struct SearchPartnerView: View {
             }
             Spacer()
             Button("안녕") {
-                switch niObject.findingPartnerState {
+                switch niObject.findingPartnerState { // 이 로직을 어디로 변경해야하는가? -> 메인뷰의 운동 시작하기 버튼을 눌렀을 때 실행된다.
+                  // TODO: - 중요!!! niObject .ready로 초기화, 버튼 없애고 화면 전환 시 NI 구현하기 !!!!
                 case .ready:
                     niObject.start()
                     niObject.findingPartnerState = .finding
@@ -95,7 +97,6 @@ struct SearchPartnerView: View {
                         isLaunched = false
                     }
                 case .finding:
-                  
                     niObject.stop()
                     niObject.findingPartnerState = .ready
                 case .found:
@@ -132,9 +133,6 @@ struct SearchPartnerView: View {
                 NotFoundPartnerView()
                     .background(Color(red: 30/255, green: 28/255, blue: 29/255))
             }
-        }
-        .onAppear {
-            
         }
     } // body End
     
