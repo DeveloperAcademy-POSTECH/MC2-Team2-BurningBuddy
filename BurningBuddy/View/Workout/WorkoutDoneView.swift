@@ -19,21 +19,29 @@ struct WorkoutDoneView: View {
     
     var body: some View {
         VStack {
-            Text("오늘도\n수고하셨어요!")
+            Text("\(settings.nickName)님")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)
-                .font(.system(size: 30, weight: .bold, design: .default))
-            
+                .font(.system(size: 21, weight: .bold))
+            Text("수고하셨어요!")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(.white)
+                .font(.system(size: 30, weight: .bold))
             Text("오늘 함께 운동한 파트너도\n운동이 끝났는지 확인해주세요!")
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
                 .font(.system(size: 17, weight: .regular, design: .default))
+                .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
             
             Spacer()
             ZStack {
                 Circle()
                     .foregroundColor(Color(red: 74/255, green: 74/255, blue: 77/255))
                     .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
+                Image(systemName: "hands.clap.fill")
+                    .resizable()
+                    .frame(width: 189, height: 189)
+                    .foregroundColor(.red)
                 
             }
             Spacer()
@@ -60,8 +68,10 @@ struct WorkoutDoneView: View {
 
 
 struct WorkoutDoneView_Previews: PreviewProvider {
+    
     static var previews: some View {
         WorkoutDoneView()
+            .environmentObject(UserSettings())
     }
 }
 
