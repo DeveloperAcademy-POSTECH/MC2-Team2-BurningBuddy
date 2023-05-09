@@ -18,7 +18,7 @@ struct SearchPartnerView: View {
     @State var isSearchedPartner: Bool = false // 화면 전환용
     @State var notFoundPartner: Bool = false // 모달용
     @State var partnerData: String = "상대방 닉네임" // TODO: - 데이터 타입 지정 필요
-    // niObject 생성
+
     @StateObject var niObject = NISessionManager()
     @State var isLaunched = true
     @State var isLocalNetworkPermissionDenied = false
@@ -88,14 +88,14 @@ struct SearchPartnerView: View {
                 case .ready:
                     niObject.start()
                     niObject.findingPartnerState = .finding
-                    // 네트워킹 코드
-//                    if isLaunched {
-//                        localNetAuth.requestAuthorization { auth in
-//                            isLocalNetworkPermissionDenied = !auth
-//                        }
-//                        isLaunched = false
-//                    }
+                    if isLaunched {
+                        localNetAuth.requestAuthorization { auth in
+                            isLocalNetworkPermissionDenied = !auth
+                        }
+                        isLaunched = false
+                    }
                 case .finding:
+                  
                     niObject.stop()
                     niObject.findingPartnerState = .ready
                 case .found:
@@ -119,10 +119,9 @@ struct SearchPartnerView: View {
             case false:
                 Text("")
             }
-            
         }
         .padding(EdgeInsets(top: 20, leading: 25, bottom: 10, trailing: 25))
-        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+        .background(Color(red: 30/255, green: 28/255, blue: 29/255))
         .sheet(isPresented: self.$notFoundPartner) {
             if #available(iOS 16.0, *) {
                 NotFoundPartnerView()
