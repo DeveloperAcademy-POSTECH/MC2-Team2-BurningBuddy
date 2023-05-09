@@ -11,42 +11,41 @@ import MultipeerConnectivity
 import UIKit
 
 class TranData: NSObject, NSCoding {
+    // 디바이스 주인의 데이터
     let token : NIDiscoveryToken
     let isBumped : Bool
-    let kalories : [Int]
     let nickname : String
-    let image : UIImage
+    let isDoneTargetCalories: Bool// 내가 운동을 성공했는지 여부 - 목표 칼로리를 채웠는지 여부
     
-    init(token : NIDiscoveryToken, isBumped : Bool = false, keywords : [Int], nickname : String = "", image : UIImage = .add) {
+    init(token : NIDiscoveryToken, isBumped : Bool = false, nickname : String = "", isDoneTargetCalories: Bool = false) {
         self.token = token
         self.isBumped = isBumped
-        self.kalories = keywords
         self.nickname = nickname
-        self.image = image
+        self.isDoneTargetCalories = isDoneTargetCalories
     }
     
     func encode(with coder: NSCoder) {
         coder.encode(self.token, forKey: "token")
         coder.encode(self.isBumped, forKey: "isMatched")
-        coder.encode(self.kalories, forKey: "keywords")
         coder.encode(self.nickname, forKey: "nickname")
-        coder.encode(self.image, forKey: "image")
+        coder.encode(self.isDoneTargetCalories, forKey: "isDoneTargetCalories")
     }
     
     required init?(coder: NSCoder) {
         self.token = coder.decodeObject(forKey: "token") as! NIDiscoveryToken
         self.isBumped = coder.decodeBool(forKey: "isMatched")
         self.nickname = coder.decodeObject(forKey: "nickname") as! String
-        self.kalories = coder.decodeObject(forKey: "keywords") as! [Int]
-        self.image = coder.decodeObject(forKey: "image") as! UIImage
+        self.isDoneTargetCalories = coder.decodeBool(forKey: "isDoneTargetCalories")
     }
 }
 
-class NISessionManager: NSObject, ObservableObject {
+class NISessionManager: NSObject, ObservableObject, MultipeerConnectivityManagerDelegate {
+    func connectedDevicesChanged(devices: [String]) {
+        // 딜리게이트 채택을 위한 함수. 필요하면 작성
+    }
 
     @Published var connectedPeers = [MCPeerID]()
     @Published var matchedObject: TranData? // 매치된 오브젝트
-    @Published var peersCnt: Int = 0
     @Published var findingPartnerState : FindingPartnerState = .ready
     @Published var isBumped: Bool = false
     @Published var isPermissionDenied = false
@@ -54,18 +53,16 @@ class NISessionManager: NSObject, ObservableObject {
     var mpc: MPCSession?
     var sessions = [MCPeerID:NISession]()
     var peerTokensMapping = [NIDiscoveryToken:MCPeerID]()
-    
+    // TODO: - 거리 조정
     let nearbyDistanceThreshold: Float = 0.08 // 범프 한계 거리
     
     // 나의 정보
     @Published var myNickname : String = ""
-    @Published var myKeywords : [Int] = []
-    @Published var myPicture : UIImage?
+    @Published var isDoneTargetCalories: Bool = false
     
-    // 범프된 상대 정보
+    // 범프된 peer의 정보
     @Published var bumpedName = ""
-    @Published var bumpedKeywords : [Int] = []
-    @Published var bumpedImage : UIImage?
+    @Published var bumpedIsDoneTargetCalories: Bool = false
     
     override init() {
         super.init()
@@ -78,11 +75,7 @@ class NISessionManager: NSObject, ObservableObject {
     
     func start() {
         startup()
-        
-        myNickname = "웨스트"
-        myKeywords = [1]
-        myPicture = UIImage(named: "")
-        myNickname = CoreDataManager.coreDM.readAllUser()[0].userName ?? "예시닉네임"
+        myNickname = CoreDataManager.coreDM.readAllUser()[0].userName ?? "nil이다!"
     }
     
     func stop() {
@@ -93,7 +86,6 @@ class NISessionManager: NSObject, ObservableObject {
         sessions.removeAll()
         peerTokensMapping.removeAll()
         matchedObject = nil
-        peersCnt = 0
         if(!isBumped) {
             mpc?.invalidate()
             mpc = nil
@@ -116,7 +108,7 @@ class NISessionManager: NSObject, ObservableObject {
         if mpc == nil {
             // Prevent Simulator from finding devices.
             #if targetEnvironment(simulator)
-          mpc = MPCSession(service: "nearcatch", identity: "com.2pm.NearCatch")
+          mpc = MPCSession(service: "nearcatch", identity: "com.2pm.NearCatch") // TODO: - Change service, iendity -> UI 연결 후 확인하기
             #else
             mpc = MPCSession(service: "nearcatch", identity: "com.2pm.NearCatch")
             #endif
@@ -139,7 +131,7 @@ class NISessionManager: NSObject, ObservableObject {
         sessions[peer]?.delegate = self
         
         guard let myToken = sessions[peer]?.discoveryToken else {
-            //            fatalError("Unexpectedly failed to initialize nearby interaction session.")
+            // fatalError("Unexpectedly failed to initialize nearby interaction session.")
             return
         }
         
@@ -175,7 +167,7 @@ class NISessionManager: NSObject, ObservableObject {
     // MPC peerDataHandler에 의해 데이터 리시빙
     // 5. 상대 데이터 수신
     func dataReceivedHandler(data: Data, peer: MCPeerID) {
-        guard let receivedData = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? TranData else {
+        guard let receivedData = try? NSKeyedUnarchiver.unarchivedObject(ofClass: TranData.self, from: data) else {
             //            fatalError("Unexpectedly failed to decode discovery token.")
             return
         }
@@ -185,8 +177,6 @@ class NISessionManager: NSObject, ObservableObject {
             if !self.isBumped {
                 self.isBumped = true
                 bumpedName = receivedData.nickname
-                bumpedKeywords = receivedData.kalories
-                bumpedImage = receivedData.image
                 DispatchQueue.global(qos: .userInitiated).async {
                     self.shareMyData(token: receivedData.token, peer: peer)
                 }
@@ -198,8 +188,7 @@ class NISessionManager: NSObject, ObservableObject {
             
             peerDidShareDiscoveryToken(peer: peer, token: discoveryToken)
             
-            // 3개 이상일 때만 매치
-            if calMatchingKeywords(myKeywords, receivedData.kalories) >= 0 {
+            if (receivedData.isDoneTargetCalories) { // Bumped Buddy Match Logic - 상대방의 운동여부가 true일때만
                 DispatchQueue.global(qos: .userInitiated).async {
                     self.compareForCheckMatchedObject(receivedData)
                 }
@@ -208,7 +197,7 @@ class NISessionManager: NSObject, ObservableObject {
     }
 
     func shareMyDiscoveryToken(token: NIDiscoveryToken, peer: MCPeerID) {
-        let tranData = TranData(token: token, keywords: myKeywords)
+        let tranData = TranData(token: token)
         
         guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: tranData, requiringSecureCoding: false) else {
             //            fatalError("Unexpectedly failed to encode discovery token.")
@@ -219,16 +208,8 @@ class NISessionManager: NSObject, ObservableObject {
     }
     
     func shareMyData(token: NIDiscoveryToken, peer: MCPeerID) {
-        var resizedImage : UIImage = .add
-        if let picture = myPicture {
-            let size = CGSize(width: 50, height: 50)
-            let renderer = UIGraphicsImageRenderer(size: size)
-            resizedImage = renderer.image { context in
-                picture.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-            }
-        }
         
-        let tranData = TranData(token: token, isBumped: true, keywords: myKeywords, nickname: myNickname, image: resizedImage)
+        let tranData = TranData(token: token, isBumped: true, nickname: myNickname, isDoneTargetCalories: isDoneTargetCalories)
         
         guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: tranData, requiringSecureCoding: false) else {
             //            fatalError("Unexpectedly failed to encode discovery token.")
@@ -282,13 +263,6 @@ extension NISessionManager: NISessionDelegate {
                 self.shareMyData(token: nearbyObjectUpdate.discoveryToken, peer: peerId)
             }
         }
-        
-        // 매칭된 사람일 경우 진동 변화
-//        guard let matchedToken = matchedObject?.token else { return }
-//        if nearbyObjectUpdate.discoveryToken == matchedToken {
-//            hapticManager.updateHaptic(dist: nearbyObjectUpdate.distance ?? 10,
-//                                       matchingPercent: calMatchingKeywords(matchedObject?.keywords ?? [], myKeywords))
-//        }
     }
     
     func session(_ session: NISession, didRemove nearbyObjects: [NINearbyObject], reason: NINearbyObject.RemovalReason) {
@@ -347,13 +321,6 @@ extension NISessionManager: NISessionDelegate {
     }
 }
 
-// MARK: - `MultipeerConnectivityManagerDelegate`.
-extension NISessionManager: MultipeerConnectivityManagerDelegate {
-    func connectedDevicesChanged(devices: [String]) {
-        peersCnt = devices.count
-    }
-}
-
 // MARK: - 거리에 따라 반응 로직
 
 extension NISessionManager {
@@ -363,20 +330,16 @@ extension NISessionManager {
         return distance < nearbyDistanceThreshold
     }
     
-    // 매칭 상대 업데이트
+    // 매칭 상대 업데이트 - 언제 이 업데이트 함수를 써야할까?
     private func compareForCheckMatchedObject(_ data: TranData) {
         
         guard self.matchedObject != data else { return }
         
+        
         if let nowTranData = self.matchedObject {
-            
-            let withCurCnt : Int = calMatchingKeywords(myKeywords, nowTranData.kalories)
-            let withNewCnt : Int = calMatchingKeywords(myKeywords, data.kalories)
-            
-            if withCurCnt < withNewCnt {
+            if (true) { // TODO: - 업데이트하는 로직인데..
                 self.matchedObject = data
             }
-            
         } else {
             self.matchedObject = data
             if !isBumped {
@@ -384,10 +347,5 @@ extension NISessionManager {
             }
         }
         
-    }
-    
-    private func calMatchingKeywords(_ first: [Int], _ second: [Int]) -> Int {
-        let cnt = Set(first).intersection(second).count
-        return cnt
     }
 }

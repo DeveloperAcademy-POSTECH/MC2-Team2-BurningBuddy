@@ -2,7 +2,7 @@
 //  Bunny+CoreDataClass.swift
 //  BurningBuddy
 //
-//  Created by 박의서 on 2023/05/08.
+//  Created by Bokyung on 2023/05/08.
 //
 //
 
