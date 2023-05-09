@@ -29,19 +29,16 @@ struct OnboardingView: View {
             .buttonStyle(RedButtonStyle())
         }
         .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
-        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+        .background(Color(red: 30/255, green: 28/255, blue: 29/255))
     }
-    func setupAppearance() {
+    private func setupAppearance() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(red: 255 / 255, green: 0 / 255, blue: 82 / 255, alpha: 1)
     }
     
-    func skipAction() {
+    private func skipAction() {
         withAnimation(.easeInOut(duration: 0.5)){
             settings.pageNum += 1
         }
-        
-        // UserDefault에 닉네임 저장
-        // 닉네임과 동시에 특별 ID 부여해야 할 듯. 중복처리가 불가능한 구조여서...
     }
 }
 

@@ -54,32 +54,23 @@ struct CalorieSettingView: View {
             .buttonStyle(RedButtonStyle())
         }
         .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
-        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+        .background(Color(red: 30/255, green: 28/255, blue: 29/255))
     }
     
-    func saveCalorie() {
+    private func saveCalorie() {
         // 유저 정보 Core데이터에 생성
         settings.pageNum += 1
         CoreDataManager.coreDM.createUser(userName: settings.nickName, goalCalories: Int16(sliderValue))
         toggleShowOnboarding()
-        // TODO: - pageNum 코어데이터에 저장
-        /**
-         변수를 가지고 있는 settings 자체를 저장하고, 계속 불러오고 업데이트를 하면 안되는겅가?
-         */
-        
     }
     
-    func toggleShowOnboarding() {
-        // CoreData의 showOnboarding을 true로 바꿔준다.
-        
+    private func toggleShowOnboarding() {
         UserDefaults.standard.set(true, forKey: "showOnboarding")
-        //    settings.showOnboarding = false
     }
 }
 
 struct TextUtil {
-    func calculateLineSpacing(_ fontsize: Int, _ percent: Double) -> CGFloat { // 수정된 부분
-        //(17 * (1425 / 1000) - 17)
+    func calculateLineSpacing(_ fontsize: Int, _ percent: Double) -> CGFloat {
         print(CGFloat(Double(fontsize) * (percent / Double(100)) - Double(fontsize)))
         return CGFloat(Double(fontsize) * (percent / Double(100)) - Double(fontsize))
     }

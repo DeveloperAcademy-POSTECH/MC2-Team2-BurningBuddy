@@ -80,11 +80,8 @@ struct SearchPartnerView: View {
                     .buttonStyle(RedButtonStyle())
                 }
             } else {
-                
-                
+
             }
-            
-            
         }
         .padding(EdgeInsets(top: 20, leading: 25, bottom: 10, trailing: 25))
         .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
