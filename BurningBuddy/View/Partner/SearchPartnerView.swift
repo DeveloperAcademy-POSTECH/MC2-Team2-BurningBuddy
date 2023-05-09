@@ -31,6 +31,7 @@ struct SearchPartnerView: View {
                     .foregroundColor(.white)
                     .padding(EdgeInsets(top: 1, leading: 0, bottom: 90, trailing: 0))
             } else {
+                // 파트너를 찾을때 NI를 가져오면 됩니당 ~!!
                 Text("내 파트너를 \n찾는 중이에요")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.white)
