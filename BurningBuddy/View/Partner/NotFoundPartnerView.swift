@@ -7,7 +7,9 @@
 
 import Foundation
 import SwiftUI
-
+/**
+ 다시 찾을래요를 클릭했을 때, SearchPartnerView에서 다시 통신 연결을 해주는 로직이 실행되어야 한다.
+ */
 struct NotFoundPartnerView: View {
     @Environment(\.presentationMode) var presentationMode
     

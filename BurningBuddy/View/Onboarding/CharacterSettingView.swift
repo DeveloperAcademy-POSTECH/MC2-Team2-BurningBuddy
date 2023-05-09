@@ -32,17 +32,18 @@ struct CharacterSettingView: View {
             .buttonStyle(RedButtonStyle())
         }
         .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
-        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+        .background(Color(red: 30/255, green: 28/255, blue: 29/255))
     }
     
-    func saveCharacterName() {
-        settings.characterName = characterName.value
+    private func saveCharacterName() {
+        // 코어데이터에 버니 생성
+        CoreDataManager.coreDM.createBunny(characterName: characterName.value)
+        settings.characterName = characterName.value // 임시 데이터
         withAnimation(.easeIn(duration: 0.5)){
-            settings.pageNum += 1
+            settings.pageNum += 1  
         }
     }
 }
-
 
 
 

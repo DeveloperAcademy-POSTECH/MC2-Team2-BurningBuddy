@@ -5,7 +5,6 @@
 //  Created by 박의서 on 2023/05/08.
 //
 
-import Foundation
 import CoreData
 import UIKit
 
@@ -30,7 +29,7 @@ class CoreDataManager {
         user.userName = userName
         user.goalCalories = goalCalories
         user.todayCalories = 0
-        user.todayWorkoutHours = 0
+        user.todayWorkoutHours = "00:00"
         user.totalDumbbell = 0
         
         do {
@@ -40,7 +39,7 @@ class CoreDataManager {
         }
     }
     
-    func createBuddy(characterName: String) {
+    func createBunny(characterName: String) {
         
         let bunny = Bunny(context: persistentContainer.viewContext)
         bunny.characterName = characterName
@@ -52,7 +51,7 @@ class CoreDataManager {
             print("Failed to save profile \(error)")
         }
     }
-    
+
     func readAllUser() -> [User] {
         
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
@@ -62,10 +61,9 @@ class CoreDataManager {
         } catch {
             return []
         }
-        
     }
     
-    func readAllBuddy() -> [Bunny] {
+    func readAllBunny() -> [Bunny] {
         
         let fetchRequest: NSFetchRequest<Bunny> = Bunny.fetchRequest()
         
@@ -74,7 +72,6 @@ class CoreDataManager {
         } catch {
             return []
         }
-        
     }
     
     func update() {

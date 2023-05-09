@@ -7,7 +7,11 @@
 
 import Foundation
 import SwiftUI
-
+/**
+ 특별한 로직은 필요 없을 것 같다.
+ 왜냐하면, 특정한 조건에 나오는 뷰이기 때문이다.
+ 실패한 캐릭터만 보여주면 족하다. 메인으로 가는 이동 액션만 잘 넣어주면 되겠다.
+ */
 struct MissionCongratsView: View {
     @EnvironmentObject var settings: UserSettings
     /**

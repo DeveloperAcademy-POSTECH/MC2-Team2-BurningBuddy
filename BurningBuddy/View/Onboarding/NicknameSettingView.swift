@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct NicknameSettingView: View {
-    //    @Binding var isMember: Bool
     @ObservedObject var nicknameLimiter = TextLimiter(limit: 8)
     @EnvironmentObject var settings: UserSettings
     @State private var firstSliderDrag: Bool = false
@@ -41,15 +40,11 @@ struct NicknameSettingView: View {
         .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
     }
     
-    func saveNickname() {
+    private func saveNickname() {
         settings.nickName = nicknameLimiter.value
         withAnimation(.easeInOut(duration: 0.5)){
             settings.pageNum += 1
         }
-        
-        
-        // UserDefault에 닉네임 저장
-        // 닉네임과 동시에 특별 ID 부여해야 할 듯. 중복처리가 불가능한 구조여서...
     }
 }
 

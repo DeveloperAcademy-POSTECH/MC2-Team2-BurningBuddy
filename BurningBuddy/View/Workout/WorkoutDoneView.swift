@@ -7,7 +7,12 @@
 
 import Foundation
 import SwiftUI
-
+/**
+ 파트너의 데이터모델을 들고 오는 것이 필요.
+ 만약 데이터가 없거나, 목표 달성을 하지 못한 것이 감지되는 경우,
+ MissionModal을 띄워줘야 한다. 이 로직은 목표달성 확인하기 button action에서 해야 한다.
+ 단, 길어질 경우, 새로운 메서드 안에서 이 과정을 실행해야 한다.
+ */
 struct WorkoutDoneView: View {
     @EnvironmentObject var settings: UserSettings
     @State var isNotDoneWorkout = false
