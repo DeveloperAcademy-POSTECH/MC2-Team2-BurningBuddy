@@ -76,15 +76,15 @@ struct MainView: View {
                         .background(Color(red: 216/255, green: 216/255, blue: 216/255))
                         .foregroundColor(.black)
                         .cornerRadius(14)
-                        .sheet(isPresented: self.$showEvolution) {
+                        .fullScreenCover(isPresented: self.$showEvolution, content: {
                             LevelUpModalView()
-                        }
+                        })
                     }
                     .padding(EdgeInsets(top: 20, leading: 20, bottom: -35, trailing: 20))
                     Circle()
                         .frame(width: 200, height: 300)
                         .scaledToFill()
-                        .padding(EdgeInsets(top: -30, leading: 0, bottom: 0, trailing: 0))
+                        .padding(EdgeInsets(top: 30, leading: 0, bottom: 0, trailing: 0))
                 }
                 .background(Color(red: 40/255, green: 48/255, blue: 49/255))
                 .cornerRadius(20)

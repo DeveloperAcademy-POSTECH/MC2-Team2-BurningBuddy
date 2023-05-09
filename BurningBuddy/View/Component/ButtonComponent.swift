@@ -38,3 +38,14 @@ struct GrayButtonStyle: ButtonStyle {
             )
     }
 }
+
+
+struct XbuttonStyle:ButtonStyle {
+    @State private var pressed = false
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            Image("Close")
+        
+    }
+}
