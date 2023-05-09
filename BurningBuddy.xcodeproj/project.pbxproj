@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		749561112A08D2B30013789E /* Dumbell.png in Resources */ = {isa = PBXBuildFile; fileRef = 749561102A08D2B30013789E /* Dumbell.png */; };
+		749561152A08DD5B0013789E /* EvolutionRoadmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 749561142A08DD5B0013789E /* EvolutionRoadmap.png */; };
+		749561192A08E1790013789E /* Close.png in Resources */ = {isa = PBXBuildFile; fileRef = 749561182A08E1790013789E /* Close.png */; };
 		B80518E22A088CAC00D12915 /* NISessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518E12A088CAC00D12915 /* NISessionManager.swift */; };
 		B80518E52A088CDE00D12915 /* MPCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518E42A088CDE00D12915 /* MPCSession.swift */; };
 		B80518E72A088D2300D12915 /* LocalNetworkAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80518E62A088D2300D12915 /* LocalNetworkAuthorization.swift */; };
@@ -45,6 +48,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		749561102A08D2B30013789E /* Dumbell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Dumbell.png; path = "../../../UI design/Dumbell.png"; sourceTree = "<group>"; };
+		749561142A08DD5B0013789E /* EvolutionRoadmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = EvolutionRoadmap.png; path = "../../../UI design/UI design/EvolutionRoadmap.png"; sourceTree = "<group>"; };
+		749561182A08E1790013789E /* Close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Close.png; path = "../../../UI design/UI design/Close.png"; sourceTree = "<group>"; };
 		B80518E12A088CAC00D12915 /* NISessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NISessionManager.swift; sourceTree = "<group>"; };
 		B80518E42A088CDE00D12915 /* MPCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSession.swift; sourceTree = "<group>"; };
 		B80518E62A088D2300D12915 /* LocalNetworkAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkAuthorization.swift; sourceTree = "<group>"; };
@@ -105,6 +111,9 @@
 				C967C2102A069D15007EE7EE /* OnboardingTest2.png */,
 				C967C20F2A069D15007EE7EE /* OnboardingTest3.png */,
 				C967C2152A069D19007EE7EE /* OnboardingTest4.png */,
+				749561102A08D2B30013789E /* Dumbell.png */,
+				749561142A08DD5B0013789E /* EvolutionRoadmap.png */,
+				749561182A08E1790013789E /* Close.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -329,7 +338,10 @@
 				C91444432A0167C500E6202D /* cookie.jpeg in Resources */,
 				C9CC8F382A0232D400C16FA5 /* Image.png in Resources */,
 				C967C2142A069D15007EE7EE /* OnboardingTest1.png in Resources */,
+				749561112A08D2B30013789E /* Dumbell.png in Resources */,
 				C967C2162A069D19007EE7EE /* OnboardingTest4.png in Resources */,
+				749561192A08E1790013789E /* Close.png in Resources */,
+				749561152A08DD5B0013789E /* EvolutionRoadmap.png in Resources */,
 				C91BB6ED2A00BDC1009FAA86 /* Assets.xcassets in Resources */,
 				C967C2132A069D15007EE7EE /* OnboardingTest2.png in Resources */,
 			);
