@@ -5,7 +5,9 @@
 //  Created by 김동현 on 2023/05/06.
 //
 import SwiftUI
-
+/**
+ 초기 값 설정시 여기에서 한 번 CoreData(or UserDefalut)에 저장해야 한다.
+ */
 struct CalorieSettingView: View {
     @EnvironmentObject var settings: UserSettings
     @State private var firstSliderDrag: Bool = false
@@ -31,8 +33,8 @@ struct CalorieSettingView: View {
                     .font(.system(size: 24, weight: .bold))
                 
                 Slider(value: $sliderValue, in: 150...800, step: 1)
-                .padding()
-                .tint(Color(red: 255 / 255, green: 0 / 255, blue: 82 / 255))
+                    .padding()
+                    .tint(Color(red: 255 / 255, green: 0 / 255, blue: 82 / 255))
                 
                 Text("\(sliderValue, specifier: "%.0f")Kcal")
                     .font(.system(size: 28, weight: .bold))
@@ -43,27 +45,32 @@ struct CalorieSettingView: View {
                     .foregroundColor(Color(red: 1, green: 1, blue: 1, opacity: 0.6))
                 Spacer()
             }
-   
+            
             Spacer()
             Button("다음", action: {
                 saveCalorie()
+                toggleShowOnboarding()
             })
             .buttonStyle(RedButtonStyle())
         }
         .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
-        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+        .background(Color(red: 30/255, green: 28/255, blue: 29/255))
     }
     
-    func saveCalorie() {
-        withAnimation(.easeInOut(duration: 0.5)){
-            settings.pageNum += 1
-        }
+    private func saveCalorie() {
+        // 유저 정보 Core데이터에 생성
+        settings.pageNum += 1
+        CoreDataManager.coreDM.createUser(userName: settings.nickName, goalCalories: Int16(sliderValue))
+        toggleShowOnboarding()
+    }
+    
+    private func toggleShowOnboarding() {
+        UserDefaults.standard.set(true, forKey: "showOnboarding")
     }
 }
 
 struct TextUtil {
-    func calculateLineSpacing(_ fontsize: Int, _ percent: Double) -> CGFloat { // 수정된 부분
-        //(17 * (1425 / 1000) - 17)
+    func calculateLineSpacing(_ fontsize: Int, _ percent: Double) -> CGFloat {
         print(CGFloat(Double(fontsize) * (percent / Double(100)) - Double(fontsize)))
         return CGFloat(Double(fontsize) * (percent / Double(100)) - Double(fontsize))
     }

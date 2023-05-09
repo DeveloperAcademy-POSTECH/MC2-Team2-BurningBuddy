@@ -141,13 +141,29 @@
 		B80518EC2A088E9300D12915 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				3E6C34D12A08C6EE00F1CBFF /* User+CoreDataClass.swift */,
-				3E6C34D22A08C6EE00F1CBFF /* User+CoreDataProperties.swift */,
-				3E6C34D52A08C8D100F1CBFF /* Bunny+CoreDataClass.swift */,
-				3E6C34D62A08C8D100F1CBFF /* Bunny+CoreDataProperties.swift */,
 				B80518ED2A088EA600D12915 /* UserDataModel.xcdatamodeld */,
+				B80519012A090CAC00D12915 /* Bunny */,
+				B80519002A090CA100D12915 /* User */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B80519002A090CA100D12915 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				3E6C34D12A08C6EE00F1CBFF /* User+CoreDataClass.swift */,
+				3E6C34D22A08C6EE00F1CBFF /* User+CoreDataProperties.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		B80519012A090CAC00D12915 /* Bunny */ = {
+			isa = PBXGroup;
+			children = (
+				3E6C34D52A08C8D100F1CBFF /* Bunny+CoreDataClass.swift */,
+				3E6C34D62A08C8D100F1CBFF /* Bunny+CoreDataProperties.swift */,
+			);
+			path = Bunny;
 			sourceTree = "<group>";
 		};
 		C91BB6DC2A00BDC0009FAA86 = {
