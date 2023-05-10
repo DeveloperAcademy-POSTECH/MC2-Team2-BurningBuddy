@@ -12,6 +12,9 @@ struct BurningBuddyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            .onAppear{
+              
+            }
         }
     }
 }

@@ -14,19 +14,20 @@ import SwiftUI
  단순히 진화하는 캐릭터만 보여주면 족하다.
  */
 struct LevelUpView: View {
+    @EnvironmentObject var settings: UserSettings
+    
     var body: some View {
         VStack {
-            Text("버니가\n진화했어요!")
-                .frame(maxWidth: .infinity, alignment: .center)
-                .multilineTextAlignment(.center)
+            Text("우와!\n버디가 진화했어요!")
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)
                 .font(.system(size: 30, weight: .bold, design: .default))
             
-            Text("핑크 덤벨을 많이 먹었더니\n버니가 **에서 **으로 진화했어요!\n더 열심히 해보슈")
-                .frame(maxWidth: .infinity, alignment: .center)
-                .multilineTextAlignment(.center)
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+            Text("핑크 덤벨 \(settings.totalDumbbell)개를 얻어\n\(settings.characterName)(이)가 진화했어요!")
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.system(size: 17, weight: .regular, design: .default))
+                .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
+                .lineSpacing(TextUtil().calculateLineSpacing(17, 142.5))
             
             Spacer()
             ZStack {
@@ -37,6 +38,7 @@ struct LevelUpView: View {
             }
             Spacer()
             Button("메인으로 가기", action: {
+                
             })
             .buttonStyle(RedButtonStyle())
         }
@@ -49,5 +51,6 @@ struct LevelUpView: View {
 struct LevelUpView_Previews: PreviewProvider {
     static var previews: some View {
         LevelUpView()
+            .environmentObject(UserSettings())
     }
 }
