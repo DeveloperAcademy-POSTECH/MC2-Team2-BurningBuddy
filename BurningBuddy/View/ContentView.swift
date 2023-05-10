@@ -59,7 +59,7 @@ struct ContentView: View {
             } else { // 온보딩 필요 없는 경우
                 MainView()
                     .environmentObject(settings)
-                    .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+                    .background(Color.backgroundColor)
             }
         }.onAppear {
             if showOnboarding {

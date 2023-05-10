@@ -33,41 +33,41 @@ struct SearchPartnerView: View {
                 // 파트너를 찾을때 NI를 가져오면 됩니당 ~!!
                 Text("내 파트너를 \n찾는 중이에요")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(.white)
-                    .font(.system(size: 30, weight: .bold, design: .default))
+                    .foregroundColor(Color.mainTextColor)
+                    .font(.system(size: 28, weight: .bold, design: .default))
                 switch(niObject.findingPartnerState) {
                 case .ready:
                     Text("ready")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color.mainTextColor)
                 case .finding:
                     Text("finding")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color.mainTextColor)
                 case .found:
                     Text("found")
-                        .foregroundColor(.white)
+                        .foregroundColor(Color.mainTextColor)
                 }
                 Text("서로의 휴대폰을 가까이 붙여주세요")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color.mainTextColor)
                     .padding(EdgeInsets(top: 1, leading: 0, bottom: 90, trailing: 0))
                 
             case true:
                 Text("내 주변 파트너를 \n발견했어요")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(.white)
-                    .font(.system(size: 30, weight: .bold, design: .default))
+                    .foregroundColor(Color.mainTextColor)
+                    .font(.system(size: 28, weight: .bold))
                 Text("연결할 파트너가 맞나요?")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(.white)
-                    .padding(EdgeInsets(top: 1, leading: 0, bottom: 90, trailing: 0))
+                    .foregroundColor(Color.mainTextColor)
+                    .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
             }
             ZStack {
-                Circle()
-                    .foregroundColor(Color(red: 44/255, green: 44/255, blue: 46/255))
-                    .padding(EdgeInsets(top: -70, leading: -70, bottom: -70, trailing: -70))
-                Circle()
-                    .foregroundColor(Color(red: 74/255, green: 74/255, blue: 77/255))
-                    .padding(EdgeInsets(top: -8, leading: -8, bottom: -8, trailing: -8))
+//                Circle()
+//                    .foregroundColor(Color(red: 44/255, green: 44/255, blue: 46/255))
+//                    .padding(EdgeInsets(top: -70, leading: -70, bottom: -70, trailing: -70))
+//                Circle()
+//                    .foregroundColor(Color(red: 74/255, green: 74/255, blue: 77/255))
+//                    .padding(EdgeInsets(top: -8, leading: -8, bottom: -8, trailing: -8))
                 Circle()
                     .foregroundColor(Color(red: 124/255, green: 124/255, blue:129/255, opacity: 0.8))
                     .padding(EdgeInsets(top: 54, leading: 54, bottom: 54, trailing: 54))
@@ -125,17 +125,17 @@ struct SearchPartnerView: View {
                 Text("")
             }
         }
-        .padding(EdgeInsets(top: 20, leading: 25, bottom: 10, trailing: 25))
-        .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+        .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
+        .background(Color.backgroundColor)
         .sheet(isPresented: self.$notFoundPartner) {
             if #available(iOS 16.0, *) {
                 NotFoundPartnerView()
                     .presentationDetents([.fraction(0.4)])
-                    .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+                    .background(Color.backgroundColor)
             } else {
                 // Fallback on earlier versions
                 NotFoundPartnerView()
-                    .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+                    .background(Color.backgroundColor)
             }
         }
     } // body End

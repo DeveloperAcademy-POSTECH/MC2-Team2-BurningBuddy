@@ -39,13 +39,14 @@ struct MainView: View {
                                 .resizable()
                                 .frame(width: 32, height: 32)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                .foregroundColor(Color.iconColor)
                         }
                     }
-                    .foregroundColor(.white)
+                    .foregroundColor(Color.mainTextColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Text(settings.characterName)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color.mainTextColor)
                         .font(.system(size: 30, weight: .bold, design: .default))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(EdgeInsets(top: -13, leading: 0, bottom: 0, trailing: 0))
@@ -55,6 +56,7 @@ struct MainView: View {
                             .resizable()
                             .frame(width: 34, height: 25)
                             .rotationEffect(Angle(degrees: -45))
+                            .foregroundColor(Color.bunnyColor)
                         Text("다음 성장까지")
                             .font(.system(size: 20, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -3))
@@ -76,17 +78,19 @@ struct MainView: View {
                 Spacer()
                 VStack {
                     HStack {
-                        Button("", action: {
+                        Button(action: {
                             
                             self.showEvolution = true
+                        }, label: {
+                            Image(systemName: "info.circle")
+                                .resizable()
+                                .foregroundColor(Color.iconColor)
+                                .frame(width: 20, height: 20)
                         })
-                        Image(systemName: "info.circle")
-                            .resizable()
-                            .frame(width: 20, height: 20)
                         .fullScreenCover(isPresented: self.$showEvolution, content: {
                             LevelUpModalView()
                         })
-                        
+                        .foregroundColor(Color.iconColor)
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(EdgeInsets(top: 20, leading: 0, bottom: -40, trailing: 20))
@@ -95,7 +99,7 @@ struct MainView: View {
                         .scaledToFill()
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 }
-                .background(Color(red: 40/255, green: 48/255, blue: 49/255))
+                .background(Color.mainSection)
                 .cornerRadius(20)
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                 
@@ -107,40 +111,48 @@ struct MainView: View {
                     HStack {
                         VStack {
                             Spacer()
+                            Spacer()
                             Text("🔥")
                                 .font(.system(size: 20, design: .default))
                             Spacer()
                             Text("소모 칼로리")
-                                .font(.system(size: 20, design: .default))
+                                .font(.system(size: 15, weight: .semibold))
+                                .foregroundColor(Color.subTextColor)
                             Spacer()
                             Text(settings.isDoneWorkout ? String(settings.todayCalories) : "오늘 안함")
-                                .font(.system(size: 25, weight: .bold, design: .default))
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                                .foregroundColor(Color.mainTextColor)
+                            Spacer()
                             Spacer()
                         }
                         .frame(maxWidth: .infinity,  maxHeight: .infinity, alignment: .center)
-                        .background(Color(red: 72/255, green: 72/255, blue: 74/255))
+                        .background(Color.mainSection2)
                         .cornerRadius(20)
                         
                         VStack {
+                            Spacer()
                             Spacer()
                             Text("⏱️")
                                 .font(.system(size: 20, design: .default))
                             Spacer()
                             Text("운동 시간")
-                                .font(.system(size: 20, design: .default))
+                                .font(.system(size: 15, weight: .semibold))
+                                .foregroundColor(Color.subTextColor)
                             Spacer()
                             Text(settings.isDoneWorkout ? settings.totalWorkoutTime : "오늘 안함")
-                                .font(.system(size: 25, weight: .bold, design: .default))
+                                .font(.system(size: 24, weight: .bold, design: .default))
+                                .foregroundColor(Color.mainTextColor)
+                            Spacer()
                             Spacer()
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                        .background(Color(red: 72/255, green: 72/255, blue: 74/255))
+                        .background(Color.mainSection2)
                         .cornerRadius(20)
                     }
                     .padding(EdgeInsets(top: 2, leading: 17, bottom: 10, trailing: 17))
                     Spacer()
                 }
-                .background(Color(red: 40/255, green: 48/255, blue: 49/255))
+                .background(Color.mainSection)
                 .cornerRadius(20)
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                 Spacer()
@@ -162,8 +174,8 @@ struct MainView: View {
 //                  niObject.findingPartnerState = .ready
 //                })
             }
-            .padding(EdgeInsets(top: 50, leading: 30, bottom: 30, trailing: 30))
-            .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+            .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
+            .background(Color.backgroundColor)
         }
     } // body End
 }

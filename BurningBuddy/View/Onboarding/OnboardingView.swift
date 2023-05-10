@@ -28,7 +28,7 @@ struct OnboardingView: View {
             }
             .buttonStyle(RedButtonStyle())
         }
-        .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
+        .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
         .background(Color.backgroundColor)
     }
     private func setupAppearance() {

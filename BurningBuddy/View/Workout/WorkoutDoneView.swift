@@ -50,7 +50,7 @@ struct WorkoutDoneView: View {
             })
             .buttonStyle(RedButtonStyle())
         }
-        .padding(EdgeInsets(top: 20, leading: 25, bottom: 10, trailing: 25)) // 전체 아웃라인
+        .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
         .sheet(isPresented: self.$isNotDoneWorkout) {
             if #available(iOS 16.0, *) {

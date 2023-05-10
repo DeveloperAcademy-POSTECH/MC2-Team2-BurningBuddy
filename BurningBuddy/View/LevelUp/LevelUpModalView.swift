@@ -16,24 +16,21 @@ struct LevelUpModalView: View {
         VStack {
             HStack{
                 Text("목표달성 n일 째")
-                    .padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     .foregroundColor(.white)
-                    .font(.system(size: 30, weight: .bold))
-                Image("dumbell")
-                    .padding(EdgeInsets(top:50, leading: 0, bottom: 0, trailing: 100))
-                
-                
+                    .font(.system(size: 28, weight: .bold))
+                Image(systemName: "dumbbell.fill")
+                    .rotationEffect(Angle(degrees: -45))
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    .foregroundColor(Color.bunnyColor)
+                Spacer()
                 Button(action: {
-                         print("button pressed")
                     presentationMode.wrappedValue.dismiss()                       }) {
                            Image("Close")
                            .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
-                           
-                          
                        }
-                
             }
+            .padding(EdgeInsets(top: 30, leading: 0, bottom: 0, trailing: 0))
             
            
             
@@ -45,8 +42,7 @@ struct LevelUpModalView: View {
                 .font(.system(size: 17, weight: .medium))
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
             Image("EvolutionRoadmap")
-                .padding(EdgeInsets(top: 60, leading: 0, bottom: 0, trailing: 0))
-                
+                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             Spacer()
             
         }
