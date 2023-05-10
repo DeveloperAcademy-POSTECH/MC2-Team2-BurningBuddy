@@ -15,4 +15,6 @@ extension Color {
     static let iconColor = Color("iconColor")
     static let primary = Color("primary")
     static let primarySub = Color("primarySub")
+    static let mainTextColor = Color("mainTextColor")
+    static let subTextColor = Color("subTextColor")
 }
