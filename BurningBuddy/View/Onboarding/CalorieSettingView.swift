@@ -71,7 +71,6 @@ struct CalorieSettingView: View {
 
 struct TextUtil {
     func calculateLineSpacing(_ fontsize: Int, _ percent: Double) -> CGFloat {
-        print(CGFloat(Double(fontsize) * (percent / Double(100)) - Double(fontsize)))
         return CGFloat(Double(fontsize) * (percent / Double(100)) - Double(fontsize))
     }
 }
