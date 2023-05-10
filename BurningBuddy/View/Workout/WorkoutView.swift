@@ -14,6 +14,7 @@ import SwiftUI
  */
 struct WorkoutView: View {
     @EnvironmentObject var settings: UserSettings
+    @State private var tag: Int? = nil
     
     var body: some View {
         VStack {
@@ -48,10 +49,20 @@ struct WorkoutView: View {
                 
             }
             Spacer()
-            Button("운동 완료하기", action: {
-                // Alert창. 파트너의 운동기록이 없거나 내 운동 종료 기록이 없으면 Alert 창이 다르게 떠야 함.
-            })
+//            Button("운동 완료하기", action: {
+//                // Alert창. 파트너의 운동기록이 없거나 내 운동 종료 기록이 없으면 Alert 창이 다르게 떠야 함.
+//            })
+//            .buttonStyle(RedButtonStyle())
+//
+            NavigationLink(destination: WorkoutDoneView(), tag: 1, selection: self.$tag) {
+                Text("운동 완료하기")
+            }
             .buttonStyle(RedButtonStyle())
+            Button(action: {
+                self.tag = 1
+            }) {
+                EmptyView()
+            }
         }
         .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
