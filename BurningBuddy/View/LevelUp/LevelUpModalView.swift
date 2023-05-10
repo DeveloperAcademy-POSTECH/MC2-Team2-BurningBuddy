@@ -48,6 +48,7 @@ struct LevelUpModalView: View {
         }
         .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
         .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+        
     }
   
     struct LevelUpModalView_Previews: PreviewProvider {

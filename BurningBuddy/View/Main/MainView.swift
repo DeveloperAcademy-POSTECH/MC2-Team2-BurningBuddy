@@ -17,8 +17,8 @@ struct MainView: View {
     @EnvironmentObject var settings: UserSettings
     @State var daysleft: Int = 0
     @State var showEvolution = false // 진화과정 모달에 관련된 상태
-  
-//  @StateObject var niObject = NISessionManager()
+    
+    //  @StateObject var niObject = NISessionManager()
     
     var body: some View {
         NavigationView {
@@ -75,20 +75,19 @@ struct MainView: View {
                     .scaleEffect(x: 1, y: 2, anchor: .center)
                     .progressViewStyle(LinearProgressViewStyle(tint: Color(red: 255/255, green: 45/255, blue: 85/255)))
                     .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
-                    
+                
                 Spacer()
                 Spacer()
                 VStack {
                     HStack {
-                        Button(action: {
-                            
+                        Button {
                             self.showEvolution = true
-                        }, label: {
+                        } label: {
                             Image(systemName: "info.circle")
                                 .resizable()
                                 .foregroundColor(Color.iconColor)
                                 .frame(width: 20, height: 20)
-                        })
+                        }
                         .fullScreenCover(isPresented: self.$showEvolution, content: {
                             LevelUpModalView()
                         })
@@ -164,18 +163,18 @@ struct MainView: View {
                     if settings.hasPartner {
                         WorkoutView().environmentObject(settings)
                     } else {
-                      SearchPartnerView()
-                          .environmentObject(settings)
-//                          .environmentObject(niObject)
-                    // niObject.findingPartnerState = .ready 초기화
+                        SearchPartnerView()
+                            .environmentObject(settings)
+                        //                          .environmentObject(niObject)
+                        // niObject.findingPartnerState = .ready 초기화
                     }
                 }) {
                     Text(settings.hasPartner ? "운동 종료하기" : "운동 시작하기")
                 }
                 .buttonStyle(RedButtonStyle())
-//                .simultaneousGesture(TapGesture().onEnded{
-//                  niObject.findingPartnerState = .ready
-//                })
+                //                .simultaneousGesture(TapGesture().onEnded{
+                //                  niObject.findingPartnerState = .ready
+                //                })
             }
             .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
             .background(Color.backgroundColor)
