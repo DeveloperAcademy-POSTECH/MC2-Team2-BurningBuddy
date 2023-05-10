@@ -61,7 +61,7 @@ struct OnboardingPageView: View {
             Text(explain)
                 .padding(EdgeInsets(top: 19, leading: 0, bottom: 0, trailing: 0))
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(Color(red: 1, green: 1, blue: 1, opacity: 0.65))
+                .foregroundColor(Color.subTextColor)
                 .font(.system(size: 17, weight: .medium))
                 .lineSpacing((17 * (1425 / 1000) - 17))
             
