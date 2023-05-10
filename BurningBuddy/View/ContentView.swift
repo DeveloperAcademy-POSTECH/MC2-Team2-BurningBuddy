@@ -10,14 +10,14 @@ import CoreData
 
 class UserSettings: ObservableObject {
     @Published var pageNum: Int = 0
-    @Published var characterName: String = "DDolDDoli"
+    @Published var characterName: String = "웨스트"
     @Published var level: Int16 = 1
-    @Published var nickName: String = "admin"
+    @Published var nickName: String = "박루나"
     @Published var totalDumbbell: Int16 = 0
     @Published var totalWorkoutTime: String = ""
     @Published var todayCalories: Int16 = 0
     @Published var goalCalories: Int16 = 0
-    @Published var hasPartner: Bool = true
+    @Published var hasPartner: Bool = false
     @Published var isWorkouting: Bool = false
     @Published var isDoneWorkout: Bool = false
     @Published var showOnboarding: Bool = true

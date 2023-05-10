@@ -30,6 +30,9 @@
 		C91BB6F02A00BDC1009FAA86 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C91BB6EF2A00BDC1009FAA86 /* Preview Assets.xcassets */; };
 		C91BB6FC2A00E772009FAA86 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6FB2A00E772009FAA86 /* MainView.swift */; };
 		C91BB6FE2A00E794009FAA86 /* NicknameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6FD2A00E794009FAA86 /* NicknameSettingView.swift */; };
+		C9363F1E2A0AB10300038ADF /* WorkoutSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9363F1D2A0AB10300038ADF /* WorkoutSuccessView.swift */; };
+		C9363F202A0AB21500038ADF /* WorkoutFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9363F1F2A0AB21500038ADF /* WorkoutFailView.swift */; };
+		C9363F222A0B2F2500038ADF /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9363F212A0B2F2500038ADF /* ColorExtension.swift */; };
 		C967C2082A0332C3007EE7EE /* WorkoutDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C2072A0332C3007EE7EE /* WorkoutDoneView.swift */; };
 		C967C20A2A068FEA007EE7EE /* CalorieSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C2092A068FEA007EE7EE /* CalorieSettingView.swift */; };
 		C967C20C2A0694DE007EE7EE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C20B2A0694DE007EE7EE /* OnboardingView.swift */; };
@@ -41,7 +44,7 @@
 		C967C2182A07870A007EE7EE /* NotFoundPartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C2172A07870A007EE7EE /* NotFoundPartnerView.swift */; };
 		C967C21A2A078733007EE7EE /* LevelUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C2192A078733007EE7EE /* LevelUpView.swift */; };
 		C967C21C2A078754007EE7EE /* MissionResultModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C21B2A078754007EE7EE /* MissionResultModalView.swift */; };
-		C967C21E2A07882D007EE7EE /* MissionCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C21D2A07882D007EE7EE /* MissionCongratsView.swift */; };
+		C967C21E2A07882D007EE7EE /* MissionCongratsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C21D2A07882D007EE7EE /* MissionCongratsComponent.swift */; };
 		C9CC8F382A0232D400C16FA5 /* Image.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CC8F372A0232D400C16FA5 /* Image.png */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +74,9 @@
 		C91BB6EF2A00BDC1009FAA86 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C91BB6FB2A00E772009FAA86 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C91BB6FD2A00E794009FAA86 /* NicknameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSettingView.swift; sourceTree = "<group>"; };
+		C9363F1D2A0AB10300038ADF /* WorkoutSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSuccessView.swift; sourceTree = "<group>"; };
+		C9363F1F2A0AB21500038ADF /* WorkoutFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFailView.swift; sourceTree = "<group>"; };
+		C9363F212A0B2F2500038ADF /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		C967C2072A0332C3007EE7EE /* WorkoutDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDoneView.swift; sourceTree = "<group>"; };
 		C967C2092A068FEA007EE7EE /* CalorieSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieSettingView.swift; sourceTree = "<group>"; };
 		C967C20B2A0694DE007EE7EE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -82,7 +88,7 @@
 		C967C2172A07870A007EE7EE /* NotFoundPartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundPartnerView.swift; sourceTree = "<group>"; };
 		C967C2192A078733007EE7EE /* LevelUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpView.swift; sourceTree = "<group>"; };
 		C967C21B2A078754007EE7EE /* MissionResultModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionResultModalView.swift; sourceTree = "<group>"; };
-		C967C21D2A07882D007EE7EE /* MissionCongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCongratsView.swift; sourceTree = "<group>"; };
+		C967C21D2A07882D007EE7EE /* MissionCongratsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCongratsComponent.swift; sourceTree = "<group>"; };
 		C9CC8F372A0232D400C16FA5 /* Image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -254,7 +260,9 @@
 				C91444072A01454F00E6202D /* WorkoutView.swift */,
 				C967C2072A0332C3007EE7EE /* WorkoutDoneView.swift */,
 				C967C21B2A078754007EE7EE /* MissionResultModalView.swift */,
-				C967C21D2A07882D007EE7EE /* MissionCongratsView.swift */,
+				C967C21D2A07882D007EE7EE /* MissionCongratsComponent.swift */,
+				C9363F1D2A0AB10300038ADF /* WorkoutSuccessView.swift */,
+				C9363F1F2A0AB21500038ADF /* WorkoutFailView.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -263,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				C967C20D2A0699A1007EE7EE /* ButtonComponent.swift */,
+				C9363F212A0B2F2500038ADF /* ColorExtension.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -361,7 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C967C21E2A07882D007EE7EE /* MissionCongratsView.swift in Sources */,
+				C967C21E2A07882D007EE7EE /* MissionCongratsComponent.swift in Sources */,
 				C91BB6EB2A00BDC0009FAA86 /* ContentView.swift in Sources */,
 				B80518E72A088D2300D12915 /* LocalNetworkAuthorization.swift in Sources */,
 				C914440E2A01462500E6202D /* SettingView.swift in Sources */,
@@ -379,11 +388,14 @@
 				3E6C34D82A08C8D100F1CBFF /* Bunny+CoreDataProperties.swift in Sources */,
 				B80518E52A088CDE00D12915 /* MPCSession.swift in Sources */,
 				C914440A2A01459D00E6202D /* LevelUpModalView.swift in Sources */,
+				C9363F1E2A0AB10300038ADF /* WorkoutSuccessView.swift in Sources */,
 				C91BB6E92A00BDC0009FAA86 /* BurningBuddyApp.swift in Sources */,
 				C967C20E2A0699A1007EE7EE /* ButtonComponent.swift in Sources */,
 				B80518EF2A088EA600D12915 /* UserDataModel.xcdatamodeld in Sources */,
 				3E6C34D42A08C6EE00F1CBFF /* User+CoreDataProperties.swift in Sources */,
 				C967C20C2A0694DE007EE7EE /* OnboardingView.swift in Sources */,
+				C9363F222A0B2F2500038ADF /* ColorExtension.swift in Sources */,
+				C9363F202A0AB21500038ADF /* WorkoutFailView.swift in Sources */,
 				C967C20A2A068FEA007EE7EE /* CalorieSettingView.swift in Sources */,
 				B80518E22A088CAC00D12915 /* NISessionManager.swift in Sources */,
 				69AB2F4E2A08A42100C1FAA0 /* WorkoutData.swift in Sources */,
@@ -519,10 +531,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BurningBuddy\"";
-				DEVELOPMENT_TEAM = GZMCL5Q7N2;
+				DEVELOPMENT_TEAM = 82Q43H4UQQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BurningBuddy/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "HealthKit 사용 권한 허용";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HealthKit 사용 권한 허용";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "네트워크 사용 권한 허용";
+				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "NI 사용 권한 허용";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -535,7 +551,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aa.BurningBuddy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.west.BurningBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -551,10 +567,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BurningBuddy\"";
-				DEVELOPMENT_TEAM = GZMCL5Q7N2;
+				DEVELOPMENT_TEAM = 82Q43H4UQQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BurningBuddy/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "HealthKit 사용 권한 허용";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HealthKit 사용 권한 허용";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "네트워크 사용 권한 허용";
+				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "NI 사용 권한 허용";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -567,7 +587,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aa.BurningBuddy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.west.BurningBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
