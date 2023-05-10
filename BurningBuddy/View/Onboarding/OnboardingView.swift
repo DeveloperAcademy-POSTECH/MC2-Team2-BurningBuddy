@@ -29,10 +29,10 @@ struct OnboardingView: View {
             .buttonStyle(RedButtonStyle())
         }
         .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
-        .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+        .background(Color.backgroundColor)
     }
     private func setupAppearance() {
-        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(red: 255 / 255, green: 0 / 255, blue: 82 / 255, alpha: 1)
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.primary)
     }
     
     private func skipAction() {
