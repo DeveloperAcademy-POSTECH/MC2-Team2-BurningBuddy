@@ -13,7 +13,17 @@ import SwiftUI
  */
 struct SettingView: View {
     var body: some View {
-        Text("세팅화면")
+        ZStack{
+            VStack{
+                Text("내 정보")
+                    .offset(y: 10)
+               Rectangle()
+                    .frame(height: 74)
+                    .padding(EdgeInsets(top: 63, leading: 15, bottom: 0, trailing: 15))
+            }
+        }
+     
+        
     }
 }
 
