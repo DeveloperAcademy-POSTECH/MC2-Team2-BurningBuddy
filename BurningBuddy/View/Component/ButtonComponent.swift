@@ -18,7 +18,8 @@ struct RedButtonStyle: ButtonStyle {
             .padding()
             .frame(minWidth: 0, maxWidth: .infinity)
             .foregroundColor(.white)
-            .background(RoundedRectangle(cornerRadius: 15.0).fill(Color.bunnyColor)
+            .background(RoundedRectangle(cornerRadius: 12.0).fill(Color.bunnyColor)
+                
             )
     }
 }
@@ -33,7 +34,7 @@ struct GrayButtonStyle: ButtonStyle {
             .padding()
             .frame(minWidth: 0, maxWidth: .infinity)
             .foregroundColor(.backgroundColor)
-            .background(RoundedRectangle(cornerRadius: 15.0).fill(Color.subGray)
+            .background(RoundedRectangle(cornerRadius: 12.0).fill(Color.subGray)
             )
     }
 }

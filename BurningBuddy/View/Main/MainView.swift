@@ -54,12 +54,13 @@ struct MainView: View {
                     HStack {
                         Image(systemName: "dumbbell.fill")
                             .resizable()
+                            .scaledToFit()
                             .frame(width: 34, height: 25)
                             .rotationEffect(Angle(degrees: -45))
                             .foregroundColor(Color.bunnyColor)
                         Text("다음 성장까지")
                             .font(.system(size: 20, design: .default))
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -3))
+                            .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: -3))
                         Text("\(daysleft)번")
                             .font(.system(size: 20, weight: .bold, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -3))
@@ -75,6 +76,7 @@ struct MainView: View {
                     .progressViewStyle(LinearProgressViewStyle(tint: Color(red: 255/255, green: 45/255, blue: 85/255)))
                     .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
                     
+                Spacer()
                 Spacer()
                 VStack {
                     HStack {
@@ -100,7 +102,7 @@ struct MainView: View {
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 }
                 .background(Color.mainSection)
-                .cornerRadius(20)
+                .cornerRadius(12)
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                 
                 VStack {
@@ -119,7 +121,7 @@ struct MainView: View {
                                 .font(.system(size: 15, weight: .semibold))
                                 .foregroundColor(Color.subTextColor)
                             Spacer()
-                            Text(settings.isDoneWorkout ? String(settings.todayCalories) : "오늘 안함")
+                            Text(settings.isDoneWorkout ? String(settings.todayCalories) : "0Kcal")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
                             Spacer()
@@ -127,7 +129,7 @@ struct MainView: View {
                         }
                         .frame(maxWidth: .infinity,  maxHeight: .infinity, alignment: .center)
                         .background(Color.mainSection2)
-                        .cornerRadius(20)
+                        .cornerRadius(12)
                         
                         VStack {
                             Spacer()
@@ -139,7 +141,7 @@ struct MainView: View {
                                 .font(.system(size: 15, weight: .semibold))
                                 .foregroundColor(Color.subTextColor)
                             Spacer()
-                            Text(settings.isDoneWorkout ? settings.totalWorkoutTime : "오늘 안함")
+                            Text(settings.isDoneWorkout ? settings.totalWorkoutTime : "00:00")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
                             Spacer()
@@ -147,14 +149,15 @@ struct MainView: View {
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                         .background(Color.mainSection2)
-                        .cornerRadius(20)
+                        .cornerRadius(12)
                     }
                     .padding(EdgeInsets(top: 2, leading: 17, bottom: 10, trailing: 17))
                     Spacer()
                 }
                 .background(Color.mainSection)
-                .cornerRadius(20)
+                .cornerRadius(12)
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                Spacer()
                 Spacer()
                 Spacer()
                 NavigationLink(destination: {
