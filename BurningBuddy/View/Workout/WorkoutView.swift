@@ -27,13 +27,13 @@ struct WorkoutView: View {
             .foregroundColor(.white)
             .frame(maxWidth: .infinity, alignment: .leading)
             
-            Text("열심히 운동중!🏃🏻‍♂️")
+            Text("열심히 운동 중!🏃🏻‍♂️")
                 .foregroundColor(.white)
                 .font(.system(size: 30, weight: .bold, design: .default))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             
-            Text("운동이 완료되면,\n워치의 운동 기록 측정을 종료하고\n운동 완료하기 버튼을 눌러주세요!")
+            Text("운동이 완료되면\n워치의 운동 기록 측정을 종료하고\n운동 완료하기 버튼을 눌러주세요!")
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))

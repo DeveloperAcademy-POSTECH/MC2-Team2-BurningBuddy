@@ -26,7 +26,7 @@ struct MissionCongratsComponent: View {
         VStack {
             Text(title)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(.white)
+                .foregroundColor(Color.mainTextColor)
                 .font(.system(size: 30, weight: .bold, design: .default))
             
             Text(article)
@@ -57,7 +57,7 @@ struct MissionCongratsComponent: View {
 
 struct MissionCongratsView_Previews: PreviewProvider {
     static var previews: some View {
-        MissionCongratsComponent(title: "축하해요!🎉\n목표달성에 성공했어요!", article: "나의 파트너가 목표 달성에\n성공해서 핑크덤벨 하나를 선물로 드려요!", imageName: "dumbbell.fill", buttonName: "메인으로 가기")
+        MissionCongratsComponent(title: "축하해요!🎉\n목표달성에 성공했어요!", article: "나의 파트너가 모두 목표 달성에\n성공해, 핑크덤벨 하나를 선물로 드려요!", imageName: "dumbbell.fill", buttonName: "메인으로 가기")
     }
 }
 
