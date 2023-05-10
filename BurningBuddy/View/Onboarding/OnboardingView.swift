@@ -32,7 +32,7 @@ struct OnboardingView: View {
         .background(Color.backgroundColor)
     }
     private func setupAppearance() {
-        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.primary)
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.bunnyColor)
     }
     
     private func skipAction() {

@@ -39,7 +39,7 @@ struct NicknameSettingView: View {
                 Text("닉네임이 입력되지 않았어요!")
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                     .frame(maxWidth: .infinity, alignment: .center)
-                    .foregroundColor(Color.primary)
+                    .foregroundColor(Color.bunnyColor)
                     .font(.system(size: 17, weight: .bold))
             }
             Spacer()

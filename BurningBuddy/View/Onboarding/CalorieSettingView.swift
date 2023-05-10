@@ -19,11 +19,11 @@ struct CalorieSettingView: View {
         VStack {
             Text("목표 칼로리를 \n설정해주세요")
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(.white)
+                .foregroundColor(Color.mainTextColor)
                 .font(.system(size: 30, weight: .bold))
             Text(settings.pageNum == 4 ? "본인의 운동 수행 능력에 맞게\n 조절해주세요!" : "운동 목표량을 설정해주세요\n나중에도 변경가능해요")
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(.white)
+                .foregroundColor(Color.subTextColor)
                 .padding(EdgeInsets(top: 1, leading: 0, bottom: 90, trailing: 0))
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
             Spacer()
@@ -34,7 +34,7 @@ struct CalorieSettingView: View {
                 
                 Slider(value: $sliderValue, in: 150...800, step: 1)
                     .padding()
-                    .tint(Color(red: 255 / 255, green: 0 / 255, blue: 82 / 255))
+                    .tint(Color.bunnyColor)
                 
                 Text("\(sliderValue, specifier: "%.0f")Kcal")
                     .font(.system(size: 28, weight: .bold))
@@ -42,7 +42,7 @@ struct CalorieSettingView: View {
                 
                 Text(sliderValue >= 150 && sliderValue <= 300 ? "부담없이 운동하고 싶어요" : sliderValue > 300 && sliderValue <= 500 ? "어느 정도는 움직이고 싶어요" : "빡세게 운동해볼래요")
                     .font(.system(size: 17, weight: .medium))
-                    .foregroundColor(Color(red: 1, green: 1, blue: 1, opacity: 0.6))
+                    .foregroundColor(Color.subTextColor)
                 Spacer()
             }
             
@@ -54,7 +54,7 @@ struct CalorieSettingView: View {
             .buttonStyle(RedButtonStyle())
         }
         .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
-        .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+        .background(Color.backgroundColor)
     }
     
     private func saveCalorie() {
