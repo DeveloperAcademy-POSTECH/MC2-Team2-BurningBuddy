@@ -43,6 +43,10 @@ struct SettingView: View {
                             Image(systemName: "checkmark.seal.fill")
                                 .background(Color(red: 255/255, green: 0/255, blue: 82/255))
                             Text("목표 칼로리")
+                            Spacer()
+                            Text(String(settings.goalCalories) + "Kcal")
+                                .foregroundColor(Color(red: 255 / 255, green: 0 / 255, blue: 82 / 255))
+                                
                             
                         }
                         
