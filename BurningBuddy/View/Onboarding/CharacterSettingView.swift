@@ -27,7 +27,9 @@ struct CharacterSettingView: View {
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
             Spacer()
             TextField("", text: $characterName.value, prompt: Text("캐릭터 이름은 한글 2~8자로 설정할 수 있어요!")
-                .foregroundColor(Color.mainTextColor))
+                .foregroundColor(Color.subTextColor)).font(.system(size: 14, weight: .regular))
+                
+            
             .foregroundColor(.mainTextColor)
             Divider()
                 .overlay(Color.mainTextColor)
