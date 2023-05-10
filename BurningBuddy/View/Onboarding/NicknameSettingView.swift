@@ -34,7 +34,7 @@ struct NicknameSettingView: View {
                 .foregroundColor(Color.mainTextColor))
             .foregroundColor(Color.mainTextColor)
             Divider()
-                .overlay(Color.white)
+                .overlay(Color.mainTextColor)
             if isInputText {
                 Text("닉네임이 입력되지 않았어요!")
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
@@ -55,7 +55,7 @@ struct NicknameSettingView: View {
     
     private func saveNickname() {
         settings.nickName = nicknameLimiter.value
-        if settings.nickName.count == 0 {
+        if settings.nickName.count == 0 || settings.nickName.count == 1{
             self.isInputText = true
         } else {
             self.isInputText = false
