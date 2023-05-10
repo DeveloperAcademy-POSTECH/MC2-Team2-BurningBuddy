@@ -14,31 +14,50 @@ import SwiftUI
  */
 struct MissionResultModalView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State var title: String = "title"
+    @State var article: String = "article"
+    @State var imageName: String = "exclamationmark.circle.fill"
+    @State var leftButtonName: String = "cancel"
+    @State var rightButtonName: String = "okay"
     
     var body: some View {
         VStack {
             // 모달 뷰의 제목
             ZStack {
-                Text("당신은 너무 약하다")
+                Text(title)
                     .font(.system(size: 17, weight: .semibold))
             }
             Spacer()
-            
+            Image(systemName: imageName)
+                .resizable()
+                .frame(width: 93, height: 91)
             // 모달 뷰의 텍스트
-            Text("아직 목표치를 채우지 못했어요!\n그래도 운동을 종료하시겠어요?")
+            Spacer()
+            Text(article)
                 .multilineTextAlignment(.center)
                 .font(.system(size: 17, weight: .medium))
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 100))
             Spacer()
             // 모달 뷰의 버튼
-            Button(action: {
-                // 버튼을 눌렀을 때 수행할 액션
-                presentationMode.wrappedValue.dismiss()
+            HStack {
+                Button(action: {
+                    // 버튼을 눌렀을 때 수행할 액션
+                    presentationMode.wrappedValue.dismiss()
+                    
+                }, label: {
+                    Text(leftButtonName)
+                })
+                .buttonStyle(GrayButtonStyle())
                 
-            }, label: {
-                Text("됐어... 난 글렀어...")
-            })
-            .buttonStyle(RedButtonStyle())
+                Button(action: {
+                    // 버튼을 눌렀을 때 수행할 액션
+                    presentationMode.wrappedValue.dismiss()
+                    
+                }, label: {
+                    Text(rightButtonName)
+                })
+                .buttonStyle(RedButtonStyle())
+            }
         }
         .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
         

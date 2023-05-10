@@ -18,7 +18,7 @@ struct SearchPartnerView: View {
     @State var isSearchedPartner: Bool = false // 화면 전환용
     @State var notFoundPartner: Bool = false // 모달용
     @State var partnerData: String = "상대방 닉네임" // TODO: - 데이터 타입 지정 필요
-
+    @State private var beforeStart: Bool = false
 //  @EnvironmentObject var niObject: NISessionManager
     @StateObject var niObject = NISessionManager()
     @State var isLaunched = true
@@ -113,7 +113,11 @@ struct SearchPartnerView: View {
                     .buttonStyle(GrayButtonStyle())
                     
                     Button("연결하기", action: {
-                        
+                        beforeStart.toggle()
+                    })
+                    .alert(isPresented: $beforeStart, content: {
+                        Alert(title: Text("애플워치를 착용하고 있나요?"), message: Text("애플워치를 착용한 후 피트니스 앱의 운동 시작하기를 눌러주세요. 운동량 측정을 통해 캐릭터를 성장시킬 수 있습니다."), primaryButton: .cancel(Text("뒤로가기")), secondaryButton: .default(Text("착용했어요"), action: { // 운동 시작하기
+                        }))
                     })
                     .buttonStyle(RedButtonStyle())
                 }
