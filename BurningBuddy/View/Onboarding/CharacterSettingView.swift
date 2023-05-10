@@ -11,47 +11,69 @@ import SwiftUI
 struct CharacterSettingView: View {
     @ObservedObject var characterName = TextLimiter(limit: 8)
     @EnvironmentObject var settings: UserSettings
+    @State private var isInputText: Bool = false
     
     var body: some View {
         VStack {
+            Button(action: {
+                settings.pageNum -= 1
+            }, label: {
+                Image(systemName: "chevron.left")
+                    .resizable()
+                    .frame(width: 10, height: 19)
+            })
+            .foregroundColor(Color.mainTextColor)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
             Text("캐릭터 이름을\n설정해주세요!")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)
-                .font(.system(size: 30, weight: .bold))
+                .font(.system(size: 28, weight: .bold))
             Text("내가 성장시키는\n버니의 이름을 지어주세요")
                 .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(Color(red: 1, green: 1, blue: 1, opacity: 0.65))
+                .foregroundColor(Color.subTextColor)
                 .font(.system(size: 17, weight: .medium))
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
             Spacer()
             TextField("", text: $characterName.value, prompt: Text("캐릭터 이름은 한글 2~8자로 설정할 수 있어요!")
-                .foregroundColor(.white))
-            .foregroundColor(.white)
+                .foregroundColor(Color.subTextColor)).font(.system(size: 17, weight: .regular))
+                
+            
+            .foregroundColor(.mainTextColor)
             Divider()
-                .overlay(Color.white)
+                .overlay(Color.mainTextColor)
+            if isInputText {
+                Text("캐릭터 이름이 입력되지 않았어요!")
+                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .foregroundColor(Color.bunnyColor)
+                    .font(.system(size: 17, weight: .bold))
+            }
             Spacer()
             Button("캐릭터 만들기", action: {
                 saveCharacterName()
-                print(settings.pageNum)
             })
             .buttonStyle(RedButtonStyle())
         }
-        .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
-        .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+        .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30))
+        .background(Color.backgroundColor)
     }
     
     private func saveCharacterName() {
-        // 코어데이터에 버니 생성
-        CoreDataManager.coreDM.createBunny(characterName: characterName.value)
-        settings.characterName = characterName.value // 임시 데이터
-        withAnimation(.easeIn(duration: 0.5)){
-            settings.pageNum += 1  
+        settings.characterName = characterName.value
+        if settings.characterName.count == 0 || settings.characterName.count == 1 {
+            self.isInputText = true
+        } else {
+            self.isInputText = false
+            CoreDataManager.coreDM.createBunny(characterName: characterName.value)
+            settings.characterName = characterName.value // 임시 데이터
+            withAnimation(.easeIn(duration: 0.5)){
+                settings.pageNum += 1
+            }
         }
     }
 }
-
-
 
 struct CharacterSettingView_Previews: PreviewProvider {
     static var previews: some View {

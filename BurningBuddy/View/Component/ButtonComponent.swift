@@ -18,7 +18,8 @@ struct RedButtonStyle: ButtonStyle {
             .padding()
             .frame(minWidth: 0, maxWidth: .infinity)
             .foregroundColor(.white)
-            .background(RoundedRectangle(cornerRadius: 15.0).fill(Color(red: 255 / 255, green: 0 / 255, blue: 82 / 255))
+            .background(RoundedRectangle(cornerRadius: 12.0).fill(Color.bunnyColor)
+                
             )
     }
 }
@@ -30,11 +31,10 @@ struct GrayButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {	
         configuration.label
             .font(.system(size: fontSize, weight: .bold))
-            .foregroundColor(Color(red: 28 / 255, green: 28 / 255, blue: 30 / 255))
             .padding()
             .frame(minWidth: 0, maxWidth: .infinity)
-            .foregroundColor(.white)
-            .background(RoundedRectangle(cornerRadius: 15.0).fill(Color(red: 199 / 255, green: 199 / 255, blue: 204 / 255))
+            .foregroundColor(.backgroundColor)
+            .background(RoundedRectangle(cornerRadius: 12.0).fill(Color.subGray)
             )
     }
 }

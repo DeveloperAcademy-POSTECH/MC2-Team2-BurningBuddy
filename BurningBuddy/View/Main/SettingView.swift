@@ -15,61 +15,49 @@ struct SettingView: View {
     @EnvironmentObject var settings: UserSettings
     
     var body: some View {
-    
-            List {
-                Section {
-                    HStack{
-                        
-                        Circle()
-                            .frame(width: 57, height: 57)
-                        VStack (alignment: .leading){
-                            
-                            Text(settings.nickName)
-                                .foregroundColor(.white)
-                                .font(.system(size: 21, weight: .bold))
-                            Text(settings.characterName)
-                            
-                        }.padding(12)
-                        
-                        
-                    }
-                    
-                }
-                Section {
-                    NavigationLink{
-                        CalorieSettingView()
-                    } label: {
-                        HStack{
-                            Image(systemName: "checkmark.seal.fill")
-                                .background(Color(red: 255/255, green: 0/255, blue: 82/255))
-                            Text("목표 칼로리")
-                            Spacer()
-                            Text(String(settings.goalCalories) + "Kcal")
-                                .foregroundColor(Color(red: 255 / 255, green: 0 / 255, blue: 82 / 255))
-                                
-                            
-                        }
-                        
-                    }
-                    HStack{
-                        Image(systemName: "checkmark.seal.fill")
-                            .background(Color(red: 255/255, green: 0/255, blue: 82/255))
-                        Text("모은 핑크 덤벨 개수")
-                        Spacer()
-                        Text(String(settings.totalDumbbell)+"개")
-                            .foregroundColor(.gray)
-                    }
-                    
-                }
-                
+        List {
+          Section {
+            HStack{
+              Circle()
+                .frame(width: 57, height: 57)
+              VStack (alignment: .leading){
+                Text(settings.nickName)
+                  .foregroundColor(.white)
+                  .font(.system(size: 21, weight: .bold))
+                Text(settings.characterName)
+              }.padding(12)
             }
-            .navigationTitle("내 정보")
-            .navigationBarTitleDisplayMode(.inline)
-        
-  
-        
-
-    }
+          }
+          .listRowBackground(Color.mainSection2)
+          Section {
+            NavigationLink{
+              CalorieSettingView()
+            } label: {
+              HStack{
+                Image(systemName: "checkmark.seal.fill")
+                  .background(Color(red: 255/255, green: 0/255, blue: 82/255))
+                Text("목표 칼로리")
+                Spacer()
+                Text(String(settings.goalCalories) + "Kcal")
+                  .foregroundColor(Color(red: 255 / 255, green: 0 / 255, blue: 82 / 255))
+              }
+            }
+            HStack{
+              Image(systemName: "checkmark.seal.fill")
+                .background(Color(red: 255/255, green: 0/255, blue: 82/255))
+              Text("모은 핑크 덤벨 개수")
+              Spacer()
+              Text(String(settings.totalDumbbell)+"개")
+                .foregroundColor(.gray)
+            }
+          }
+          .listRowBackground(Color.mainSection2)
+        }
+        .navigationTitle("내 정보")
+        .navigationBarTitleDisplayMode(.inline)
+        .background(Color.backgroundColor)
+        .scrollContentBackground(.hidden)
+    } // body End
 }
    
    
