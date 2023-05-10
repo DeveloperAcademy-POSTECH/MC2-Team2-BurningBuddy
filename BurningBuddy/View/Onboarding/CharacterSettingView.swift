@@ -15,10 +15,20 @@ struct CharacterSettingView: View {
     
     var body: some View {
         VStack {
+            Button(action: {
+                settings.pageNum -= 1
+            }, label: {
+                Image(systemName: "chevron.left")
+                    .resizable()
+                    .frame(width: 10, height: 19)
+            })
+            .foregroundColor(Color.mainTextColor)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
             Text("캐릭터 이름을\n설정해주세요!")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)
-                .font(.system(size: 30, weight: .bold))
+                .font(.system(size: 28, weight: .bold))
             Text("내가 성장시키는\n버니의 이름을 지어주세요")
                 .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -27,7 +37,7 @@ struct CharacterSettingView: View {
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
             Spacer()
             TextField("", text: $characterName.value, prompt: Text("캐릭터 이름은 한글 2~8자로 설정할 수 있어요!")
-                .foregroundColor(Color.subTextColor)).font(.system(size: 14, weight: .regular))
+                .foregroundColor(Color.subTextColor)).font(.system(size: 17, weight: .regular))
                 
             
             .foregroundColor(.mainTextColor)
@@ -46,7 +56,7 @@ struct CharacterSettingView: View {
             })
             .buttonStyle(RedButtonStyle())
         }
-        .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
+        .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30))
         .background(Color.backgroundColor)
     }
     

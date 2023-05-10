@@ -18,22 +18,34 @@ struct NicknameSettingView: View {
     
     var body: some View {
         VStack {
+            // 온보딩 페이지 크기를 맞추기 위한 히든 버튼
+            Button(action: {
+                
+            }, label: {
+                Image(systemName: "chevron.left")
+                    .resizable()
+                    .frame(width: 10, height: 19)
+            }).foregroundColor(Color.backgroundColor)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+            
             Text("닉네임을\n입력해주세요!")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(Color.mainTextColor)
-                .font(.system(size: 30, weight: .bold))
-            Text("나중에 연결된 파트너에게 보여져요")
+                .font(.system(size: 28, weight: .bold))
+            Text("나중에 연결된\n파트너에게 보여져요")
                 .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(Color.subTextColor)
                 .font(.system(size: 17, weight: .medium))
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
             Spacer()
-            Spacer()
+ 
             TextField("", text: $nicknameLimiter.value, prompt: Text("닉네임은 한글 2~8자로 설정할 수 있어요!")
                 .foregroundColor(Color.subTextColor))
-                .font(.system(size: 14, weight: .regular))
+                .font(.system(size: 17, weight: .regular))
             .foregroundColor(Color.mainTextColor)
+            
             Divider()
                 .overlay(Color.mainTextColor)
             if isInputText {
@@ -44,13 +56,12 @@ struct NicknameSettingView: View {
                     .font(.system(size: 17, weight: .bold))
             }
             Spacer()
-            Spacer()
             Button("다음", action: {
                 saveNickname()
             })
             .buttonStyle(RedButtonStyle())
         }
-        .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
+        .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30))
         .background(Color.backgroundColor) // 고급진 까만것이 필요할 듯
     }
     

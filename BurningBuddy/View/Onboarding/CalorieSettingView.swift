@@ -16,11 +16,23 @@ struct CalorieSettingView: View {
     @State private var userLevel = "초급자"
     
     var body: some View {
+        
         VStack {
+            Button(action: {
+                settings.pageNum -= 1
+            }, label: {
+                Image(systemName: "chevron.left")
+                    .resizable()
+                    .frame(width: 10, height: 19)
+            })
+            .foregroundColor(Color.mainTextColor)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+            
             Text("목표 칼로리를 \n설정해주세요")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(Color.mainTextColor)
-                .font(.system(size: 30, weight: .bold))
+                .font(.system(size: 28, weight: .bold))
             Text(settings.pageNum == 4 ? "본인의 운동 수행 능력에 맞게\n 조절해주세요!" : "운동 목표량을 설정해주세요\n나중에도 변경가능해요")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(Color.subTextColor)
@@ -53,7 +65,7 @@ struct CalorieSettingView: View {
             })
             .buttonStyle(RedButtonStyle())
         }
-        .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
+        .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30))
         .background(Color.backgroundColor)
     }
     
