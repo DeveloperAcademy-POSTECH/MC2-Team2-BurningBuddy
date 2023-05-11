@@ -13,8 +13,8 @@
 	</array>
 	<key>NSBonjourServices</key>
 	<array>
-		<string>_nearcatch._tcp</string>
-		<string>_nearcatch._udp</string>
+		<string>_burningbuddy._tcp</string>
+		<string>_burningbuddy._udp</string>
 	</array>
 </dict>
 </plist>
