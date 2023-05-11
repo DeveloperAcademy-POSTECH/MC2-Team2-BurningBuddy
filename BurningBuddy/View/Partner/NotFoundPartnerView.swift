@@ -25,7 +25,7 @@ struct NotFoundPartnerView: View {
             Image(systemName: "person.crop.circle.fill")
                 .resizable()
                 .frame(width: 93, height: 91)
-                .foregroundColor(Color(red: 255 / 255, green: 0 / 255, blue: 82 / 255))
+                .foregroundColor(Color.bunnyColor)
             Spacer()
             
             // 모달 뷰의 텍스트
@@ -44,6 +44,8 @@ struct NotFoundPartnerView: View {
             .buttonStyle(RedButtonStyle())
         }
         .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
+        
+        
     }
 }
 

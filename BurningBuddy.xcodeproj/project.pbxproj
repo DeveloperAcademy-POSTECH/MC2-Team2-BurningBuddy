@@ -46,6 +46,7 @@
 		C9CB702F2A0B6CCD0031A91B /* Onboarding3.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CB702C2A0B6CCD0031A91B /* Onboarding3.png */; };
 		C9CB70302A0B6CCD0031A91B /* Onboarding2.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CB702D2A0B6CCD0031A91B /* Onboarding2.png */; };
 		C9CC8F382A0232D400C16FA5 /* Image.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CC8F372A0232D400C16FA5 /* Image.png */; };
+		C9F9E2652A0D0DA7007EFF1E /* LoadingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F9E2642A0D0DA7007EFF1E /* LoadingAnimationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		C9CB702C2A0B6CCD0031A91B /* Onboarding3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Onboarding3.png; sourceTree = "<group>"; };
 		C9CB702D2A0B6CCD0031A91B /* Onboarding2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Onboarding2.png; sourceTree = "<group>"; };
 		C9CC8F372A0232D400C16FA5 /* Image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image.png; sourceTree = "<group>"; };
+		C9F9E2642A0D0DA7007EFF1E /* LoadingAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAnimationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				C91444052A01453800E6202D /* SearchPartnerView.swift */,
+				C9F9E2642A0D0DA7007EFF1E /* LoadingAnimationView.swift */,
 				C967C2172A07870A007EE7EE /* NotFoundPartnerView.swift */,
 			);
 			path = Partner;
@@ -384,6 +387,7 @@
 				C91BB6FE2A00E794009FAA86 /* NicknameSettingView.swift in Sources */,
 				C967C2082A0332C3007EE7EE /* WorkoutDoneView.swift in Sources */,
 				C967C21C2A078754007EE7EE /* MissionResultModalView.swift in Sources */,
+				C9F9E2652A0D0DA7007EFF1E /* LoadingAnimationView.swift in Sources */,
 				C91444062A01453800E6202D /* SearchPartnerView.swift in Sources */,
 				3E6C34D82A08C8D100F1CBFF /* Bunny+CoreDataProperties.swift in Sources */,
 				B80518E52A088CDE00D12915 /* MPCSession.swift in Sources */,

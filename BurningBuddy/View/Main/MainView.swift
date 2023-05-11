@@ -177,7 +177,10 @@ struct MainView: View {
             }
             .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
             .background(Color.backgroundColor)
-        }
+            .navigationBarTitle("")
+            
+        }.accentColor(Color.mainTextColor)
+        
     } // body End
 }
 
