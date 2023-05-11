@@ -124,7 +124,7 @@ struct SearchPartnerView: View {
                     }, label: {
                         Button("연결하기") {
                             self.beforeStart = true
-                            self.isNextButtonTapped = true
+//                            self.isNextButtonTapped = true
                         }.buttonStyle(RedButtonStyle())
                     })
 //
@@ -181,7 +181,8 @@ struct SearchPartnerView: View {
                 }
             )
         }
-    } //
+        
+    } // end body
 
 }
 
