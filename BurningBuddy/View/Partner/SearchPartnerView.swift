@@ -78,7 +78,18 @@ struct SearchPartnerView: View {
                     switch(niObject.isBumped) {
                     case true:
                         ZStack{
-
+                            Circle()
+                                .scale(1.5)
+                                .opacity(0.3)
+                                .foregroundColor(Color("iconColor"))
+                            Circle()
+                                .scale(1.0)
+                                .opacity(0.6)
+                                .foregroundColor(Color("iconColor"))
+                            Circle()
+                                .scale(0.5)
+                                .opacity(0.9)
+                                .foregroundColor(Color("iconColor"))
                             VStack{
                                 Image("Image")
                                 Text(niObject.bumpedName)
