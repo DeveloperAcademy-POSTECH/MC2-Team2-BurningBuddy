@@ -19,10 +19,13 @@ struct SearchPartnerView: View {
     @State var notFoundPartner: Bool = false // 모달용
     @State var partnerData: String = "상대방 닉네임" // TODO: - 데이터 타입 지정 필요
     @State private var beforeStart: Bool = false
-//  @EnvironmentObject var niObject: NISessionManager
+    //  @EnvironmentObject var niObject: NISessionManager
     @StateObject var niObject = NISessionManager()
     @State var isLaunched = true
     @State var isLocalNetworkPermissionDenied = false
+    @State private var startWorkout: Bool = false
+    @State private var tag:Int? = nil
+    
     let localNetAuth = LocalNetworkAuthorization() // MPC를 위한 객체생성
     
     var body: some View {
@@ -62,12 +65,12 @@ struct SearchPartnerView: View {
                     .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
             }
             ZStack {
-//                Circle()
-//                    .foregroundColor(Color(red: 44/255, green: 44/255, blue: 46/255))
-//                    .padding(EdgeInsets(top: -70, leading: -70, bottom: -70, trailing: -70))
-//                Circle()
-//                    .foregroundColor(Color(red: 74/255, green: 74/255, blue: 77/255))
-//                    .padding(EdgeInsets(top: -8, leading: -8, bottom: -8, trailing: -8))
+                //                Circle()
+                //                    .foregroundColor(Color(red: 44/255, green: 44/255, blue: 46/255))
+                //                    .padding(EdgeInsets(top: -70, leading: -70, bottom: -70, trailing: -70))
+                //                Circle()
+                //                    .foregroundColor(Color(red: 74/255, green: 74/255, blue: 77/255))
+                //                    .padding(EdgeInsets(top: -8, leading: -8, bottom: -8, trailing: -8))
                 Circle()
                     .foregroundColor(Color(red: 124/255, green: 124/255, blue:129/255, opacity: 0.8))
                     .padding(EdgeInsets(top: 54, leading: 54, bottom: 54, trailing: 54))
@@ -86,7 +89,7 @@ struct SearchPartnerView: View {
             Spacer()
             Button("안녕") {
                 switch niObject.findingPartnerState { // 이 로직을 어디로 변경해야하는가? -> 메인뷰의 운동 시작하기 버튼을 눌렀을 때 실행된다.
-                  // TODO: - 중요!!! niObject .ready로 초기화, 버튼 없애고 화면 전환 시 NI 구현하기 !!!!
+                    // TODO: - 중요!!! niObject .ready로 초기화, 버튼 없애고 화면 전환 시 NI 구현하기 !!!!
                 case .ready:
                     niObject.start()
                     niObject.findingPartnerState = .finding
@@ -112,20 +115,38 @@ struct SearchPartnerView: View {
                     })
                     .buttonStyle(GrayButtonStyle())
                     
-                    Button("연결하기", action: {
-                        beforeStart.toggle()
-                    })
-                    .alert(isPresented: $beforeStart, content: {
-                        Alert(title: Text("애플워치를 착용하고 있나요?"), message: Text("애플워치를 착용한 후 피트니스 앱의 운동 시작하기를 눌러주세요. 운동량 측정을 통해 캐릭터를 성장시킬 수 있습니다."), primaryButton: .cancel(Text("뒤로가기")), secondaryButton: .default(Text("착용했어요"), action: { // 운동 시작하기
-                        }))
-                    })
+                    NavigationLink(destination: WorkoutView(), tag: 1, selection: self.$tag) {
+                        Text("연결하기")
+                    }
                     .buttonStyle(RedButtonStyle())
+                    Button(action: {
+                        self.tag = 1
+                    }) {
+                        EmptyView()
+                    }
+                    
+                    /**
+                     NavigationLink(destination: {
+                     WorkoutView()
+                     .environmentObject(settings)
+                     }, label: {Text("연결하기")}) {
+                     
+                     }
+                     .alert(isPresented: $beforeStart, content: {
+                     Alert(title: Text("애플워치를 착용하고 있나요?"), message: Text("애플워치를 착용한 후 피트니스 앱의 운동 시작하기를 눌러주세요. 운동량 측정을 통해 캐릭터를 성장시킬 수 있습니다."), primaryButton: .cancel(Text("뒤로가기")), secondaryButton: .default(Text("착용했어요"), action: { // 운동 시작하기
+                     startWorkout.toggle()
+                     }))
+                     })
+                     .buttonStyle(RedButtonStyle())
+                     */
                 }
+                
+                
             case false:
                 Text("")
             }
         }
-        .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
+        .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 25))
         .background(Color.backgroundColor)
         .sheet(isPresented: self.$notFoundPartner) {
             if #available(iOS 16.0, *) {
@@ -138,6 +159,7 @@ struct SearchPartnerView: View {
                     .background(Color.backgroundColor)
             }
         }
+        
     } // body End
     
 }

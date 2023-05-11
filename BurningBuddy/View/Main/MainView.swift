@@ -26,9 +26,9 @@ struct MainView: View {
                 VStack {
                     HStack {
                         Text(settings.nickName)
-                            .font(.system(size: 25, weight: .bold, design: .default))
+                            .font(.system(size: 22, weight: .bold, design: .default))
                         Text("님의")
-                            .font(.system(size: 25, design: .default))
+                            .font(.system(size: 22, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         Spacer()
                         NavigationLink(destination: {
@@ -55,17 +55,17 @@ struct MainView: View {
                         Image(systemName: "dumbbell.fill")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 34, height: 25)
+                            .frame(width: 27, height: 25)
                             .rotationEffect(Angle(degrees: -45))
                             .foregroundColor(Color.bunnyColor)
                         Text("다음 성장까지")
-                            .font(.system(size: 20, design: .default))
+                            .font(.system(size: 18, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: -3))
                         Text("\(daysleft)번")
-                            .font(.system(size: 20, weight: .bold, design: .default))
+                            .font(.system(size: 18, weight: .bold, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -3))
                         Text("남았어요!")
-                            .font(.system(size: 20, design: .default))
+                            .font(.system(size: 18, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     }.frame(maxWidth: .infinity, alignment: .leading)
                         .padding(EdgeInsets(top: 5, leading: 0, bottom: -5, trailing: 0))
@@ -79,31 +79,34 @@ struct MainView: View {
                 Spacer()
                 Spacer()
                 VStack {
+                    Spacer()
                     HStack {
-                        Button {
+                        Button(action: {
+                            
                             self.showEvolution = true
-                        } label: {
+                        }, label: {
                             Image(systemName: "info.circle")
                                 .resizable()
                                 .foregroundColor(Color.iconColor)
                                 .frame(width: 20, height: 20)
-                        }
+                        })
                         .fullScreenCover(isPresented: self.$showEvolution, content: {
                             LevelUpModalView()
                         })
                         .foregroundColor(Color.iconColor)
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
-                    .padding(EdgeInsets(top: 20, leading: 0, bottom: -40, trailing: 20))
+                    .padding(EdgeInsets(top: 10, leading: 0, bottom: -40, trailing: 20))
                     Circle()
                         .frame(width: 200, height: 250)
                         .scaledToFill()
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    Spacer()
                 }
                 .background(Color.mainSection)
                 .cornerRadius(12)
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
-                
+                Spacer()
                 VStack {
                     Text("오늘의 운동량")
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -111,52 +114,48 @@ struct MainView: View {
                         .padding(EdgeInsets(top: 17, leading: 17, bottom: 0, trailing: 17))
                     HStack {
                         VStack {
-                            Spacer()
-                            Spacer()
                             Text("🔥")
                                 .font(.system(size: 20, design: .default))
-                            Spacer()
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                             Text("소모 칼로리")
+                            
                                 .font(.system(size: 15, weight: .semibold))
                                 .foregroundColor(Color.subTextColor)
-                            Spacer()
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                             Text(settings.isDoneWorkout ? String(settings.todayCalories) : "0Kcal")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
-                            Spacer()
-                            Spacer()
                         }
                         .frame(maxWidth: .infinity,  maxHeight: .infinity, alignment: .center)
                         .background(Color.mainSection2)
                         .cornerRadius(12)
                         
                         VStack {
-                            Spacer()
-                            Spacer()
                             Text("⏱️")
                                 .font(.system(size: 20, design: .default))
-                            Spacer()
+                            
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                             Text("운동 시간")
                                 .font(.system(size: 15, weight: .semibold))
                                 .foregroundColor(Color.subTextColor)
-                            Spacer()
+                            
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
+                            
                             Text(settings.isDoneWorkout ? settings.totalWorkoutTime : "00:00")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
-                            Spacer()
-                            Spacer()
+                            
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                         .background(Color.mainSection2)
                         .cornerRadius(12)
                     }
-                    .padding(EdgeInsets(top: 2, leading: 17, bottom: 10, trailing: 17))
+                    .padding(EdgeInsets(top: 2, leading: 17, bottom: 5, trailing: 17))
                     Spacer()
                 }
                 .background(Color.mainSection)
                 .cornerRadius(12)
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
-                Spacer()
+                .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                 Spacer()
                 Spacer()
                 NavigationLink(destination: {

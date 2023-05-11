@@ -21,6 +21,7 @@ class UserSettings: ObservableObject {
     @Published var isWorkouting: Bool = false
     @Published var isDoneWorkout: Bool = false
     @Published var showOnboarding: Bool = true
+    @Published var isDoneTogetherWorkout: Bool = false
 }
 
 struct ContentView: View {
