@@ -159,7 +159,7 @@ struct MainView: View {
                 Spacer()
                 Spacer()
                 NavigationLink(destination: {
-                    if settings.hasPartner {
+                    if settings.isWorkouting {
                         WorkoutView().environmentObject(settings)
                     } else {
                         SearchPartnerView()
@@ -168,7 +168,8 @@ struct MainView: View {
                         // niObject.findingPartnerState = .ready 초기화
                     }
                 }) {
-                    Text(settings.hasPartner || settings.isWorkouting ? "운동 종료하기" : "운동 시작하기")
+                    // 운동중이라면 운동화면 보기
+                    Text(settings.isWorkouting ? "운동화면 보기" : "운동 시작하기")
                 }
                 .buttonStyle(RedButtonStyle())
                 //                .simultaneousGesture(TapGesture().onEnded{
