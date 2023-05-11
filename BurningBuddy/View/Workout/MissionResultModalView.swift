@@ -19,6 +19,7 @@ struct MissionResultModalView: View {
     @State var imageName: String = "exclamationmark.circle.fill"
     @State var leftButtonName: String = "cancel"
     @State var rightButtonName: String = "okay"
+    @Binding var tag: Int?
     
     var body: some View {
         VStack {
@@ -52,21 +53,21 @@ struct MissionResultModalView: View {
                 Button(action: {
                     // 버튼을 눌렀을 때 수행할 액션
                     presentationMode.wrappedValue.dismiss()
-                    
+                    self.tag = 1
                 }, label: {
                     Text(rightButtonName)
                 })
                 .buttonStyle(RedButtonStyle())
             }
         }
-        .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
+        .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30))
         
     }
 }
 
-
-struct MissionResultView_Previews: PreviewProvider {
-    static var previews: some View {
-        MissionResultModalView()
-    }
-}
+//
+//struct MissionResultView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MissionResultModalView(tag: )
+//    }
+//}

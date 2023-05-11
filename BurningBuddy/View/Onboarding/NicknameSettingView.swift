@@ -14,7 +14,7 @@ struct NicknameSettingView: View {
     @State private var isInputText: Bool = false
     @State private var firstSliderDrag: Bool = false
     @State private var sliderValue: Double = 200
-    @State private var sliderMessage: String = "목표 칼로리를 설정해주세요!"
+    @State private var sliderMessage: String = "목표 칼로리를 설정해주세요"
     
     var body: some View {
         VStack {
@@ -29,7 +29,7 @@ struct NicknameSettingView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
             
-            Text("닉네임을\n입력해주세요!")
+            Text("닉네임을\n입력해주세요")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(Color.mainTextColor)
                 .font(.system(size: 28, weight: .bold))

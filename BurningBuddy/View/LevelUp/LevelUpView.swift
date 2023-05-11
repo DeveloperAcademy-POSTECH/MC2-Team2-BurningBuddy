@@ -20,21 +20,19 @@ struct LevelUpView: View {
         VStack {
             Text("우와!\n버디가 진화했어요!")
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(.white)
+                .foregroundColor(Color.mainTextColor)
                 .font(.system(size: 30, weight: .bold, design: .default))
             
             Text("핑크 덤벨 \(settings.totalDumbbell)개를 얻어\n\(settings.characterName)(이)가 진화했어요!")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.system(size: 17, weight: .regular, design: .default))
                 .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
+                .foregroundColor(Color.subTextColor)
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 142.5))
             
             Spacer()
             ZStack {
-                Circle()
-                    .foregroundColor(Color(red: 74/255, green: 74/255, blue: 77/255))
-                    .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
-                
+                // 캐릭터 이미지
             }
             Spacer()
             Button("메인으로 가기", action: {
@@ -43,7 +41,7 @@ struct LevelUpView: View {
             .buttonStyle(RedButtonStyle())
         }
         .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
-        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+        .background(Color.backgroundColor) // 고급진 까만것이 필요할 듯
     }
 }
 

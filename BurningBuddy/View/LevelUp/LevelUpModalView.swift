@@ -17,7 +17,7 @@ struct LevelUpModalView: View {
             HStack{
                 Text("목표달성 n일 째")
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                    .foregroundColor(.white)
+                    .foregroundColor(Color.mainTextColor)
                     .font(.system(size: 28, weight: .bold))
                 Image(systemName: "dumbbell.fill")
                     .rotationEffect(Angle(degrees: -45))
@@ -38,7 +38,7 @@ struct LevelUpModalView: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(Color(red: 1, green: 1, blue: 1, opacity: 0.65))
+                .foregroundColor(Color.subTextColor)
                 .font(.system(size: 17, weight: .medium))
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
             Image("EvolutionRoadmap")
@@ -47,7 +47,7 @@ struct LevelUpModalView: View {
             
         }
         .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
-        .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+        .background(Color.backgroundColor)
     }
   
     struct LevelUpModalView_Previews: PreviewProvider {

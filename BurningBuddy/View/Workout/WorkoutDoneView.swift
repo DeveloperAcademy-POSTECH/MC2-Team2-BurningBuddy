@@ -15,7 +15,8 @@ import SwiftUI
  */
 struct WorkoutDoneView: View {
     @EnvironmentObject var settings: UserSettings
-    @State var isNotDoneWorkout = false
+    @State var isNotDoneWorkoutPopup = false
+    @State private var tag: Int? = nil
     
     var body: some View {
         VStack {
@@ -26,7 +27,7 @@ struct WorkoutDoneView: View {
             Text("수고하셨어요!")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)
-                .font(.system(size: 30, weight: .bold))
+                .font(.system(size: 28, weight: .bold))
             Text("애플워치 운동기록을 종료하신 후\n오늘 함께 운동한 파트너와\n디바이스를 접촉해주세요!")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
@@ -35,31 +36,45 @@ struct WorkoutDoneView: View {
             
             Spacer()
             ZStack {
-                Circle()
-                    .foregroundColor(Color(red: 74/255, green: 74/255, blue: 77/255))
-                    .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
                 Image(systemName: "hands.sparkles.fill")
                     .resizable()
                     .frame(width: 189, height: 189)
-                    .foregroundColor(.red)
-                
+                    .foregroundColor(Color.bunnyColor)
             }
             Spacer()
-            Button("목표달성 확인하기", action: {
-                isNotDoneWorkout = !isNotDoneWorkout
-            })
-            .buttonStyle(RedButtonStyle())
+            if settings.isDoneTogetherWorkout {
+                NavigationLink(destination: WorkoutSuccessView(), tag: 1, selection: self.$tag) { // destination이 달라야 한다. 모달이 뜨기 전에 화면 이동이 될 수도 있다.
+                    Text("목표달성 확인하기")
+                }
+                .buttonStyle(RedButtonStyle())
+                Button(action: {
+//                    self.tag = 1
+                }) {
+                    EmptyView()
+                }
+            } else {
+                NavigationLink(destination: WorkoutFailView(), tag: 0, selection: self.$tag) { // destination이 달라야 한다. 모달이 뜨기 전에 화면 이동이 될 수도 있다.
+                    Text("목표달성 확인하기")                }
+                .buttonStyle(RedButtonStyle())
+                Button(action: {
+                    isNotDoneWorkoutPopup = true
+                }) {
+                    EmptyView()
+                }
+            }
+           
         }
-        .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
-        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
-        .sheet(isPresented: self.$isNotDoneWorkout) {
+        .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
+        .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+        .sheet(isPresented: self.$isNotDoneWorkoutPopup) {
             if #available(iOS 16.0, *) {
-                MissionResultModalView(title: "아직 목표량을 채우지 못했어요", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼께요", rightButtonName: "그만할래요")
+                MissionResultModalView(title: "아직 목표량을 채우지 못했어요", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼께요", rightButtonName: "그만할래요", tag: $tag)
+                // 하위 모달에서 상위 뷰에 값을 전달해야 한다. leftbutton, rightbutton 각각을 눌렀을 때 다른 값을 1, 2를 전달해야 한다.
                     .presentationDetents([.fraction(0.4)])
                     .background(Color(red: 30/255, green: 28/255, blue: 29/255))
             } else {
                 // Fallback on earlier versions
-                MissionResultModalView(title: "아직 목표량을 채우지 못했어요", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼께요", rightButtonName: "그만할래요")
+                MissionResultModalView(title: "아직 목표량을 채우지 못했어요", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼께요", rightButtonName: "그만할래요", tag: $tag)
                     .background(Color(red: 30/255, green: 28/255, blue: 29/255))
             }
         }

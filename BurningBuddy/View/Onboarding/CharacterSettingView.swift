@@ -25,7 +25,7 @@ struct CharacterSettingView: View {
             .foregroundColor(Color.mainTextColor)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-            Text("캐릭터 이름을\n설정해주세요!")
+            Text("캐릭터 이름을\n설정해주세요")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)
                 .font(.system(size: 28, weight: .bold))
@@ -51,7 +51,7 @@ struct CharacterSettingView: View {
                     .font(.system(size: 17, weight: .bold))
             }
             Spacer()
-            Button("캐릭터 만들기", action: {
+            Button("다음", action: {
                 saveCharacterName()
             })
             .buttonStyle(RedButtonStyle())
