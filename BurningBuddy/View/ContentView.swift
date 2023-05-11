@@ -18,14 +18,18 @@ class UserSettings: ObservableObject {
     @Published var todayCalories: Int16 = 0
     @Published var goalCalories: Int16 = 0
     @Published var hasPartner: Bool = false
+    
     @Published var isWorkouting: Bool = false
     @Published var isDoneWorkout: Bool = false
+    
     @Published var showOnboarding: Bool = true
     @Published var isDoneTogetherWorkout: Bool = false
 }
 
 struct ContentView: View {
     @State private var showOnboarding: Bool = UserDefaults.standard.bool( forKey: "showOnboarding")
+    @State var isWorkouting = UserDefaults.standard.bool(forKey: "isWorkouting")
+    @State var isDoneWorkout = UserDefaults.standard.bool(forKey: "isDoneWorkout")
     
     // @ObservedObject var settings = UserSettings()
     @ObservedObject var settings = UserSettings()

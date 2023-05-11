@@ -68,6 +68,9 @@ struct WorkoutView: View {
         }
         .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+        .onAppear{
+            
+        }
     }
 }
 

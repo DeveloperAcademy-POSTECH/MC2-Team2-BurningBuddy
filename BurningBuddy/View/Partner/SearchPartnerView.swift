@@ -121,6 +121,7 @@ struct SearchPartnerView: View {
                     .buttonStyle(RedButtonStyle())
                     Button(action: {
                         self.tag = 1
+                        UserDefaults.standard.set(true, forKey: "isWorkouting")
                     }) {
                         EmptyView()
                     }

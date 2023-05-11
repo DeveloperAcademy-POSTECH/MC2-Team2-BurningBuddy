@@ -168,7 +168,7 @@ struct MainView: View {
                         // niObject.findingPartnerState = .ready 초기화
                     }
                 }) {
-                    Text(settings.hasPartner ? "운동 종료하기" : "운동 시작하기")
+                    Text(settings.hasPartner || settings.isWorkouting ? "운동 종료하기" : "운동 시작하기")
                 }
                 .buttonStyle(RedButtonStyle())
                 //                .simultaneousGesture(TapGesture().onEnded{
