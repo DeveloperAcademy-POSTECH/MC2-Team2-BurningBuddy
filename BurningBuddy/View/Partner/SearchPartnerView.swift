@@ -15,9 +15,11 @@ import SwiftUI
  */
 struct SearchPartnerView: View {
     @EnvironmentObject var settings: UserSettings
+    @Environment(\.presentationMode) var presentationMode
     @State var isSearchedPartner: Bool = false // 화면 전환용
     @State var notFoundPartner: Bool = false // 모달용
     @State var partnerData: String = "상대방 닉네임" // TODO: - 데이터 타입 지정 필요
+    
     @State private var beforeStart: Bool = false
     //  @EnvironmentObject var niObject: NISessionManager
     @StateObject var niObject = NISessionManager()
@@ -25,6 +27,7 @@ struct SearchPartnerView: View {
     @State var isLocalNetworkPermissionDenied = false
     @State private var startWorkout: Bool = false
     @State private var tag:Int? = nil
+    @State var isNextButtonTapped = false
     
     let localNetAuth = LocalNetworkAuthorization() // MPC를 위한 객체생성
     
@@ -111,37 +114,27 @@ struct SearchPartnerView: View {
             case true:
                 HStack {
                     Button("다시 연결할래요", action: {
-                        
+                        niObject.isBumped = false
+                        niObject.findingPartnerState = .finding
                     })
                     .buttonStyle(GrayButtonStyle())
                     
-                    NavigationLink(destination: WorkoutView(), tag: 1, selection: self.$tag) {
-                        Text("연결하기")
-                    }
-                    .buttonStyle(RedButtonStyle())
-                    Button(action: {
-                        self.tag = 1
-                    }) {
-                        EmptyView()
-                    }
+                    NavigationLink(isActive: $isNextButtonTapped, destination: {
+                        WorkoutView()
+                    }, label: {
+                        Button("연결하기") {
+                            self.beforeStart = true
+                            self.isNextButtonTapped = true
+                        }.buttonStyle(RedButtonStyle())
+                    })
+//
+//                    NavigationLink(destination: WorkoutView(), tag: 0, selection: self.$tag) {
+//                        Text("연결하기")
+//                    }
+//                    .buttonStyle(RedButtonStyle())
                     
-                    /**
-                     NavigationLink(destination: {
-                     WorkoutView()
-                     .environmentObject(settings)
-                     }, label: {Text("연결하기")}) {
-                     
-                     }
-                     .alert(isPresented: $beforeStart, content: {
-                     Alert(title: Text("애플워치를 착용하고 있나요?"), message: Text("애플워치를 착용한 후 피트니스 앱의 운동 시작하기를 눌러주세요. 운동량 측정을 통해 캐릭터를 성장시킬 수 있습니다."), primaryButton: .cancel(Text("뒤로가기")), secondaryButton: .default(Text("착용했어요"), action: { // 운동 시작하기
-                     startWorkout.toggle()
-                     }))
-                     })
-                     .buttonStyle(RedButtonStyle())
-                     */
+                    
                 }
-                
-                
             case false:
                 Text("")
             }
@@ -159,11 +152,38 @@ struct SearchPartnerView: View {
                     .background(Color.backgroundColor)
             }
         }
+//        .alert(isPresented: $beforeStart, content: {
+//            Alert(title: Text("애플워치를 착용하고 있나요?"), message: Text("애플워치를 착용한 후 피트니스 앱의 운동 시작하기를 눌러주세요. 운동량 측정을 통해 캐릭터를 성장시킬 수 있습니다."), primaryButton: .cancel(Text("뒤로가기")), secondaryButton: .default(Text("착용했어요")))
+//            }
+//        })
         
-    } // body End
-    
-}
+//        .alert("애플워치를 착용하고 있나요?", isPresented: $beforeStart) {
+//          Button("OK", role: .destructive) {
+//              beforeStart = false
+//              self.tag = 1
+//              print("tap ok") }
+//          Button("cancel", role: .cancel) {
+//              presentationMode.wrappedValue.dismiss()
+//              print("tap cancel") }
+//        }
+        
+        
+        .alert(isPresented:$beforeStart) {
+            Alert(
+                title: Text("애플워치를 착용하고 있나요?"),
+                message: Text("애플워치를 착용한 후 피트니스 앱의 운동 시작하기를 눌러주세요. 운동량 측정을 통해 캐릭터를 성장시킬 수 있습니다."),
+                primaryButton: .destructive(Text("뒤로가기")) {
+                    print("tap cancel")
+                },
+                secondaryButton: .cancel(Text("착용했어요")) {
+                    self.beforeStart = false
+                    self.isNextButtonTapped = true
+                }
+            )
+        }
+    } //
 
+}
 
 
 
