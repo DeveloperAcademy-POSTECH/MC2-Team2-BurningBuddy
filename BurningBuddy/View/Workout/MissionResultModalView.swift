@@ -61,7 +61,7 @@ struct MissionResultModalView: View {
             }
         }
         .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30))
-        
+        .navigationBarHidden(true)
     }
 }
 

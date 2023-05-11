@@ -181,7 +181,7 @@ struct SearchPartnerView: View {
                 }
             )
         }
-        
+        .navigationBarTitle("")        
     } // end body
 
 }
