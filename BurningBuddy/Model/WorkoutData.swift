@@ -46,7 +46,7 @@ class WorkoutData: ObservableObject{
         // 파트너와 태그한 이후부터 운동종료 버튼을 누른 순간까지의 운동 기록을 불러오기 위함
         let predicate = HKQuery.predicateForSamples(withStart: workoutStartTime, end: now, options: .strictStartDate)
         
-        let query = HKAnchoredObjectQuery(type: type, predicate: predicate, anchor: nil, limit: HKObjectQueryNoLimit) { (quㄴery, samples, deletedObjects, anchor, error) in
+        let query = HKAnchoredObjectQuery(type: type, predicate: predicate, anchor: nil, limit: HKObjectQueryNoLimit) { (query, samples, deletedObjects, anchor, error) in
             
             if let samples = samples as? [HKWorkout], !samples.isEmpty {
                 var totalTime: TimeInterval = 0.0
