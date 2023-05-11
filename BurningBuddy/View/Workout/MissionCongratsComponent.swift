@@ -52,6 +52,7 @@ struct MissionCongratsComponent: View {
         }
         .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color.backgroundColor)
+        .navigationBarHidden(true)
     }
 }
 

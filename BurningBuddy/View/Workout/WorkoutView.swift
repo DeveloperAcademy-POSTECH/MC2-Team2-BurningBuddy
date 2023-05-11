@@ -29,13 +29,13 @@ struct WorkoutView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             
             Text("열심히 운동 중!🏃🏻‍♂️")
-                .foregroundColor(.white)
+                .foregroundColor(Color.mainTextColor)
                 .font(.system(size: 28, weight: .bold, design: .default))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             
             Text("운동이 완료되면\n워치의 운동 기록 측정을 종료하고\n운동 완료하기 버튼을 눌러주세요")
-                .foregroundColor(.white)
+                .foregroundColor(Color.mainTextColor)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
                 .font(.system(size: 17, weight: .regular, design: .default))
@@ -66,11 +66,17 @@ struct WorkoutView: View {
                 EmptyView()
             }
         }
+        .navigationBarHidden(true)
         .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
+<<<<<<< HEAD
         .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
         .onAppear{
             
         }
+=======
+        .background(Color.backgroundColor) // 고급진 까만것이 필요할 듯
+        
+>>>>>>> cb29ffa2277622d70b9c39b4d84a92cfdda76352
     }
 }
 

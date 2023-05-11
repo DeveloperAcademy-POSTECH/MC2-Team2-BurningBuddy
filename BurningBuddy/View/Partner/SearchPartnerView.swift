@@ -15,16 +15,18 @@ import SwiftUI
  */
 struct SearchPartnerView: View {
     @EnvironmentObject var settings: UserSettings
+    @Environment(\.presentationMode) var presentationMode
     @State var isSearchedPartner: Bool = false // 화면 전환용
     @State var notFoundPartner: Bool = false // 모달용
     @State var partnerData: String = "상대방 닉네임" // TODO: - 데이터 타입 지정 필요
+    
     @State private var beforeStart: Bool = false
-    //  @EnvironmentObject var niObject: NISessionManager
     @StateObject var niObject = NISessionManager()
     @State var isLaunched = true
     @State var isLocalNetworkPermissionDenied = false
     @State private var startWorkout: Bool = false
     @State private var tag:Int? = nil
+    @State var isNextButtonTapped = false
     
     let localNetAuth = LocalNetworkAuthorization() // MPC를 위한 객체생성
     
@@ -64,57 +66,43 @@ struct SearchPartnerView: View {
                     .foregroundColor(Color.mainTextColor)
                     .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
             }
-            ZStack {
-                //                Circle()
-                //                    .foregroundColor(Color(red: 44/255, green: 44/255, blue: 46/255))
-                //                    .padding(EdgeInsets(top: -70, leading: -70, bottom: -70, trailing: -70))
-                //                Circle()
-                //                    .foregroundColor(Color(red: 74/255, green: 74/255, blue: 77/255))
-                //                    .padding(EdgeInsets(top: -8, leading: -8, bottom: -8, trailing: -8))
-                Circle()
-                    .foregroundColor(Color(red: 124/255, green: 124/255, blue:129/255, opacity: 0.8))
-                    .padding(EdgeInsets(top: 54, leading: 54, bottom: 54, trailing: 54))
-                VStack {
-                    switch(niObject.isBumped) {
-                    case true:
+            
+            
+            switch(niObject.isBumped) {
+            case true:
+                ZStack{
+                    Circle()
+                        .scale(1.5)
+                        .opacity(0.3)
+                        .foregroundColor(Color("iconColor"))
+                    Circle()
+                        .scale(1.0)
+                        .opacity(0.6)
+                        .foregroundColor(Color("iconColor"))
+                    Circle()
+                        .scale(0.5)
+                        .opacity(0.9)
+                        .foregroundColor(Color("iconColor"))
+                    VStack{
                         Image("Image")
-                        Text(partnerData)
-                    case false:
-                        Text("이미지가 들어갈 것이다.")
-                        Text("검색중...")
+                        Text(niObject.bumpedName)
                     }
                 }
-                .padding(EdgeInsets(top: 106, leading: 106, bottom: 106, trailing: 106))
+                
+            case false:
+                LoadingAnimationView()
             }
             Spacer()
-            Button("안녕") {
-                switch niObject.findingPartnerState { // 이 로직을 어디로 변경해야하는가? -> 메인뷰의 운동 시작하기 버튼을 눌렀을 때 실행된다.
-                    // TODO: - 중요!!! niObject .ready로 초기화, 버튼 없애고 화면 전환 시 NI 구현하기 !!!!
-                case .ready:
-                    niObject.start()
-                    niObject.findingPartnerState = .finding
-                    if isLaunched {
-                        localNetAuth.requestAuthorization { auth in
-                            isLocalNetworkPermissionDenied = !auth
-                        }
-                        isLaunched = false
-                    }
-                case .finding:
-                    niObject.stop()
-                    niObject.findingPartnerState = .ready
-                case .found:
-                    niObject.stop()
-                    niObject.findingPartnerState = .ready
-                }
-            }
             switch(niObject.isBumped) {
             case true:
                 HStack {
                     Button("다시 연결할래요", action: {
-                        
+                        niObject.isBumped = false
+                        niObject.findingPartnerState = .finding
                     })
                     .buttonStyle(GrayButtonStyle())
                     
+<<<<<<< HEAD
                     NavigationLink(destination: WorkoutView(), tag: 1, selection: self.$tag) {
                         Text("연결하기")
                     }
@@ -140,11 +128,39 @@ struct SearchPartnerView: View {
                      })
                      .buttonStyle(RedButtonStyle())
                      */
+=======
+                    NavigationLink(isActive: $isNextButtonTapped, destination: {
+                        WorkoutView()
+                    }, label: {
+                        Button("연결하기") {
+                            self.beforeStart = true
+                            //                            self.isNextButtonTapped = true
+                        }.buttonStyle(RedButtonStyle())
+                    })
+>>>>>>> cb29ffa2277622d70b9c39b4d84a92cfdda76352
                 }
-                
-                
             case false:
                 Text("")
+            }
+        }
+        .onAppear{
+            switch niObject.findingPartnerState { // 이 로직을 어디로 변경해야하는가? -> 메인뷰의 운동 시작하기 버튼을 눌렀을 때 실행된다.
+                // TODO: - 중요!!! niObject .ready로 초기화, 버튼 없애고 화면 전환 시 NI 구현하기 !!!!
+            case .ready:
+                niObject.start()
+                niObject.findingPartnerState = .finding
+                if isLaunched {
+                    localNetAuth.requestAuthorization { auth in
+                        isLocalNetworkPermissionDenied = !auth
+                    }
+                    isLaunched = false
+                }
+            case .finding:
+                niObject.stop()
+                niObject.findingPartnerState = .ready
+            case .found:
+                niObject.stop()
+                niObject.findingPartnerState = .ready
             }
         }
         .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 25))
@@ -160,11 +176,23 @@ struct SearchPartnerView: View {
                     .background(Color.backgroundColor)
             }
         }
-        
-    } // body End
+        .alert(isPresented:$beforeStart) {
+            Alert(
+                title: Text("애플워치를 착용하고 있나요?"),
+                message: Text("애플워치를 착용한 후 피트니스 앱의 운동 시작하기를 눌러주세요. 운동량 측정을 통해 캐릭터를 성장시킬 수 있습니다."),
+                primaryButton: .destructive(Text("뒤로가기")) {
+                    print("tap cancel")
+                },
+                secondaryButton: .cancel(Text("착용했어요")) {
+                    self.beforeStart = false
+                    self.isNextButtonTapped = true
+                }
+            )
+        }
+        .navigationBarTitle("")
+    } // end body
     
 }
-
 
 
 
