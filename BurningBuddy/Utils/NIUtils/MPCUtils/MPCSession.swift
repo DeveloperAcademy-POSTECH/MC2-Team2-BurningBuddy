@@ -1,9 +1,10 @@
-/*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-A class that manages peer discovery-token exchange over the local network by using MultipeerConnectivity.
-*/
+//
+//  MPCSession.swift
+//  BurningBuddy
+//
+//  Created by 박의서 on 2023/05/08.
+//
+// inspired by https://developer.apple.com/documentation/nearbyinteraction/implementing_interactions_between_users_in_close_proximity
 
 import Foundation
 import MultipeerConnectivity
