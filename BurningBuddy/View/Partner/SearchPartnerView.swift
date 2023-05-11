@@ -21,7 +21,6 @@ struct SearchPartnerView: View {
     @State var partnerData: String = "상대방 닉네임" // TODO: - 데이터 타입 지정 필요
     
     @State private var beforeStart: Bool = false
-    //  @EnvironmentObject var niObject: NISessionManager
     @StateObject var niObject = NISessionManager()
     @State var isLaunched = true
     @State var isLocalNetworkPermissionDenied = false
@@ -67,44 +66,32 @@ struct SearchPartnerView: View {
                     .foregroundColor(Color.mainTextColor)
                     .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
             }
-//            ZStack {
-                //                Circle()
-                //                    .foregroundColor(Color(red: 44/255, green: 44/255, blue: 46/255))
-                //                    .padding(EdgeInsets(top: -70, leading: -70, bottom: -70, trailing: -70))
-                //                Circle()
-                //                    .foregroundColor(Color(red: 74/255, green: 74/255, blue: 77/255))
-                //                    .padding(EdgeInsets(top: -8, leading: -8, bottom: -8, trailing: -8))
-//                Circle()
-//                    .foregroundColor(Color(red: 124/255, green: 124/255, blue:129/255, opacity: 0.8))
-//                    .padding(EdgeInsets(top: 54, leading: 54, bottom: 54, trailing: 54))
-                
-                    switch(niObject.isBumped) {
-                    case true:
-                        ZStack{
-                            Circle()
-                                .scale(1.5)
-                                .opacity(0.3)
-                                .foregroundColor(Color("iconColor"))
-                            Circle()
-                                .scale(1.0)
-                                .opacity(0.6)
-                                .foregroundColor(Color("iconColor"))
-                            Circle()
-                                .scale(0.5)
-                                .opacity(0.9)
-                                .foregroundColor(Color("iconColor"))
-                            VStack{
-                                Image("Image")
-                                Text(niObject.bumpedName)
-                            }
-                        }
-                        
-                    case false:
-                        LoadingAnimationView()
+            
+            
+            switch(niObject.isBumped) {
+            case true:
+                ZStack{
+                    Circle()
+                        .scale(1.5)
+                        .opacity(0.3)
+                        .foregroundColor(Color("iconColor"))
+                    Circle()
+                        .scale(1.0)
+                        .opacity(0.6)
+                        .foregroundColor(Color("iconColor"))
+                    Circle()
+                        .scale(0.5)
+                        .opacity(0.9)
+                        .foregroundColor(Color("iconColor"))
+                    VStack{
+                        Image("Image")
+                        Text(niObject.bumpedName)
                     }
+                }
                 
-//                .padding(EdgeInsets(top: 106, leading: 106, bottom: 106, trailing: 106))
-//            }
+            case false:
+                LoadingAnimationView()
+            }
             Spacer()
             switch(niObject.isBumped) {
             case true:
@@ -120,16 +107,9 @@ struct SearchPartnerView: View {
                     }, label: {
                         Button("연결하기") {
                             self.beforeStart = true
-//                            self.isNextButtonTapped = true
+                            //                            self.isNextButtonTapped = true
                         }.buttonStyle(RedButtonStyle())
                     })
-//
-//                    NavigationLink(destination: WorkoutView(), tag: 0, selection: self.$tag) {
-//                        Text("연결하기")
-//                    }
-//                    .buttonStyle(RedButtonStyle())
-                    
-                    
                 }
             case false:
                 Text("")
@@ -168,22 +148,6 @@ struct SearchPartnerView: View {
                     .background(Color.backgroundColor)
             }
         }
-//        .alert(isPresented: $beforeStart, content: {
-//            Alert(title: Text("애플워치를 착용하고 있나요?"), message: Text("애플워치를 착용한 후 피트니스 앱의 운동 시작하기를 눌러주세요. 운동량 측정을 통해 캐릭터를 성장시킬 수 있습니다."), primaryButton: .cancel(Text("뒤로가기")), secondaryButton: .default(Text("착용했어요")))
-//            }
-//        })
-        
-//        .alert("애플워치를 착용하고 있나요?", isPresented: $beforeStart) {
-//          Button("OK", role: .destructive) {
-//              beforeStart = false
-//              self.tag = 1
-//              print("tap ok") }
-//          Button("cancel", role: .cancel) {
-//              presentationMode.wrappedValue.dismiss()
-//              print("tap cancel") }
-//        }
-        
-        
         .alert(isPresented:$beforeStart) {
             Alert(
                 title: Text("애플워치를 착용하고 있나요?"),
@@ -197,9 +161,9 @@ struct SearchPartnerView: View {
                 }
             )
         }
-        .navigationBarTitle("")        
+        .navigationBarTitle("")
     } // end body
-
+    
 }
 
 
