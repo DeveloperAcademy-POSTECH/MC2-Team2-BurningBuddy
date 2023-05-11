@@ -61,20 +61,24 @@ class NISessionManager: NSObject, ObservableObject {
   @Published var bumpedIsDoneTargetCalories: Bool = false
   
   override init() {
+      print("init called")
     super.init()
   }
   
   deinit {
+    print("deinit called")
     sessions.removeAll()
     mpc?.invalidate()
   }
   
   func start() {
+      print("start")
     startup()
     myNickname = CoreDataManager.coreDM.readAllUser()[0].userName ?? "예시닉네임"
   }
   
   func stop() {
+      print("stop the NISession")
     for (_, session) in sessions {
       session.invalidate()
     }
@@ -104,9 +108,9 @@ class NISessionManager: NSObject, ObservableObject {
     if mpc == nil {
       // Prevent Simulator from finding devices.
 #if targetEnvironment(simulator)
-      mpc = MPCSession(service: "nearcatch", identity: "com.2pm.NearCatch")
+      mpc = MPCSession(service: "burningbuddy", identity: "com.hon.BurningBuddy", maxPeers: 1)
 #else
-      mpc = MPCSession(service: "nearcatch", identity: "com.2pm.NearCatch")
+      mpc = MPCSession(service: "burningbuddy", identity: "com.hon.BurningBuddy", maxPeers: 1)
 #endif
       mpc?.delegate = self
       mpc?.peerConnectedHandler = connectedToPeer
@@ -162,6 +166,7 @@ class NISessionManager: NSObject, ObservableObject {
   // MPC peerDataHandler에 의해 데이터 리시빙
   // 5. 상대 데이터 수신
   func dataReceivedHandler(data: Data, peer: MCPeerID) {
+      print("data received Handler start")
     guard let receivedData = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? TranData else {
       return
     }
@@ -177,11 +182,14 @@ class NISessionManager: NSObject, ObservableObject {
       }
       stop()
       findingPartnerState = .ready
+        
+        
     } else { // 일반 전송
       let discoveryToken = receivedData.token
       
+        print("data received Handler peerDidShareDiscoveryToken start")
       peerDidShareDiscoveryToken(peer: peer, token: discoveryToken)
-      
+        print("data received Handler peerDidShareDiscoveryToken ended")
       DispatchQueue.global(qos: .userInitiated).async {
         self.compareForCheckMatchedObject(receivedData)
       }
@@ -210,9 +218,12 @@ class NISessionManager: NSObject, ObservableObject {
   
   func peerDidShareDiscoveryToken(peer: MCPeerID, token: NIDiscoveryToken) {
     // 기존에 토큰을 가지고 있는 상대인데 재연결로 다시 수신받은 경우 session 종료 후 다시 시작
+      
     if let ownedPeer = peerTokensMapping[token] {
+     
       self.sessions[ownedPeer]?.invalidate()
       self.sessions[ownedPeer] = nil
+
       // 그 피어가 매치 상대일 경우 매치 상대 초기화
       if matchedObject?.token == token {
         matchedObject = nil
@@ -327,7 +338,6 @@ extension NISessionManager {
   
   // 매칭 상대 업데이트 - 언제 이 업데이트 함수를 써야할까?
   private func compareForCheckMatchedObject(_ data: TranData) {
-    
     guard self.matchedObject != data else { return }
     
     if self.matchedObject != nil {
