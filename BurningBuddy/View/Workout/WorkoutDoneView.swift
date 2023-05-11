@@ -18,6 +18,12 @@ struct WorkoutDoneView: View {
     @State var isNotDoneWorkoutPopup = false
     @State private var tag: Int? = nil
     
+    @StateObject private var niObject = NISessionManager()
+    @State private var isLaunched = true
+    @State var isLocalNetworkPermissionDenied = false
+    
+    private let localNetAuth = LocalNetworkAuthorization()
+    
     var body: some View {
         VStack {
             Text("\(settings.nickName)님")
@@ -49,6 +55,8 @@ struct WorkoutDoneView: View {
                 .buttonStyle(RedButtonStyle())
                 Button(action: {
 //                    self.tag = 1
+                    
+                    // TODO: - 루나웨스트 NISession 연결 후, 연결된 peer의 uuid가 저장되어있는 settings.partnerID와 일치하는지 확인
                 }) {
                     EmptyView()
                 }
@@ -57,6 +65,8 @@ struct WorkoutDoneView: View {
                     Text("목표달성 확인하기")                }
                 .buttonStyle(RedButtonStyle())
                 Button(action: {
+                    // TODO: - 루나웨스트 NISession 연결 후, peer의 uuid가 저장되어있는 settings.partnerID와 일치하는지 확인
+                    // 일치하면 
                     isNotDoneWorkoutPopup = true
                 }) {
                     EmptyView()
@@ -79,6 +89,26 @@ struct WorkoutDoneView: View {
             }
         }
         .navigationBarHidden(true)
+    }
+    
+    private func startNI() {
+        switch niObject.findingPartnerState {
+        case .ready:
+            niObject.start()
+            niObject.findingPartnerState = .finding
+            if isLaunched {
+                localNetAuth.requestAuthorization { auth in
+                    isLocalNetworkPermissionDenied = !auth
+                }
+                isLaunched = false
+            }
+        case .finding:
+            niObject.stop()
+            niObject.findingPartnerState = .ready
+        case .found:
+            niObject.stop()
+            niObject.findingPartnerState = .ready
+        }
     }
 }
 

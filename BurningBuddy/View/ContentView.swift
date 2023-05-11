@@ -18,6 +18,7 @@ class UserSettings: ObservableObject {
     @Published var todayCalories: Int16 = 0
     @Published var goalCalories: Int16 = 0
     @Published var hasPartner: Bool = false
+    @Published var partnerID: UUID?
     
     @Published var isWorkouting: Bool = false
     @Published var isDoneWorkout: Bool = false

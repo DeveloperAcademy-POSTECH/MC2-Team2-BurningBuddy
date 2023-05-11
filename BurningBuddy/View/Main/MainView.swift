@@ -18,8 +18,6 @@ struct MainView: View {
     @State var daysleft: Int = 0
     @State var showEvolution = false // 진화과정 모달에 관련된 상태
     
-    //  @StateObject var niObject = NISessionManager()
-    
     var body: some View {
         NavigationView {
             VStack {
@@ -164,17 +162,12 @@ struct MainView: View {
                     } else {
                         SearchPartnerView()
                             .environmentObject(settings)
-                        //                          .environmentObject(niObject)
-                        // niObject.findingPartnerState = .ready 초기화
                     }
                 }) {
                     // 운동중이라면 운동화면 보기
                     Text(settings.isWorkouting ? "운동화면 보기" : "운동 시작하기")
                 }
                 .buttonStyle(RedButtonStyle())
-                //                .simultaneousGesture(TapGesture().onEnded{
-                //                  niObject.findingPartnerState = .ready
-                //                })
             }
             .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
             .background(Color.backgroundColor)
