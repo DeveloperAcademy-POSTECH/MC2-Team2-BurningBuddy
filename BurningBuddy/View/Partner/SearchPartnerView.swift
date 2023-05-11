@@ -101,43 +101,14 @@ struct SearchPartnerView: View {
                         niObject.findingPartnerState = .finding
                     })
                     .buttonStyle(GrayButtonStyle())
-                    
-<<<<<<< HEAD
-                    NavigationLink(destination: WorkoutView(), tag: 1, selection: self.$tag) {
-                        Text("연결하기")
-                    }
-                    .buttonStyle(RedButtonStyle())
-                    Button(action: {
-                        self.tag = 1
-                        UserDefaults.standard.set(true, forKey: "isWorkouting")
-                    }) {
-                        EmptyView()
-                    }
-                    
-                    /**
-                     NavigationLink(destination: {
-                     WorkoutView()
-                     .environmentObject(settings)
-                     }, label: {Text("연결하기")}) {
-                     
-                     }
-                     .alert(isPresented: $beforeStart, content: {
-                     Alert(title: Text("애플워치를 착용하고 있나요?"), message: Text("애플워치를 착용한 후 피트니스 앱의 운동 시작하기를 눌러주세요. 운동량 측정을 통해 캐릭터를 성장시킬 수 있습니다."), primaryButton: .cancel(Text("뒤로가기")), secondaryButton: .default(Text("착용했어요"), action: { // 운동 시작하기
-                     startWorkout.toggle()
-                     }))
-                     })
-                     .buttonStyle(RedButtonStyle())
-                     */
-=======
                     NavigationLink(isActive: $isNextButtonTapped, destination: {
                         WorkoutView()
                     }, label: {
                         Button("연결하기") {
                             self.beforeStart = true
-                            //                            self.isNextButtonTapped = true
+                            UserDefaults.standard.set(true, forKey: "isWorkouting")
                         }.buttonStyle(RedButtonStyle())
                     })
->>>>>>> cb29ffa2277622d70b9c39b4d84a92cfdda76352
                 }
             case false:
                 Text("")

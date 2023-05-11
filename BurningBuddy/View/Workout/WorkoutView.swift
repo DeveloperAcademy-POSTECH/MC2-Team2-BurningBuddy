@@ -68,15 +68,7 @@ struct WorkoutView: View {
         }
         .navigationBarHidden(true)
         .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
-<<<<<<< HEAD
-        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
-        .onAppear{
-            
-        }
-=======
         .background(Color.backgroundColor) // 고급진 까만것이 필요할 듯
-        
->>>>>>> cb29ffa2277622d70b9c39b4d84a92cfdda76352
     }
 }
 
