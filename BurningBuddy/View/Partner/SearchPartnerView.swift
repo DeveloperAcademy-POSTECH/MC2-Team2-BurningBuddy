@@ -27,6 +27,7 @@ struct SearchPartnerView: View {
     @State private var startWorkout: Bool = false
     @State private var tag:Int? = nil
     @State var isNextButtonTapped = false
+    @Binding var mainViewNavLinkActive: Bool
     
     let localNetAuth = LocalNetworkAuthorization() // MPC를 위한 객체생성
     
@@ -103,11 +104,11 @@ struct SearchPartnerView: View {
                     .buttonStyle(GrayButtonStyle())
                     
                     NavigationLink(isActive: $isNextButtonTapped, destination: {
-                        WorkoutView()
+                        WorkoutView(mainViewNavLinkActive: $mainViewNavLinkActive)
                     }, label: {
                         Button("연결하기") {
                             self.beforeStart = true
-                            //                            self.isNextButtonTapped = true
+                            print("Navi link 안")
                         }.buttonStyle(RedButtonStyle())
                     })
                 }
@@ -142,10 +143,6 @@ struct SearchPartnerView: View {
                 NotFoundPartnerView()
                     .presentationDetents([.fraction(0.4)])
                     .background(Color.backgroundColor)
-            } else {
-                // Fallback on earlier versions
-                NotFoundPartnerView()
-                    .background(Color.backgroundColor)
             }
         }
         .alert(isPresented:$beforeStart) {
@@ -167,9 +164,9 @@ struct SearchPartnerView: View {
 }
 
 
-
-struct SearchPartnerView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchPartnerView()
-    }
-}
+//
+//struct SearchPartnerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchPartnerView()
+//    }
+//}
