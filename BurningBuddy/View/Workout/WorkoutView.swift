@@ -67,10 +67,10 @@ struct WorkoutView: View {
                         settings.todayCalories = Int16(settings.workoutData.workoutCalorie)
                         settings.totalWorkoutTime = settings.workoutData.workoutDuration
                         print("workoutData 테스트 칼로리 : \(settings.todayCalories)")
-                        print("workoutData 테스트 칼로리 : \(settings.totalWorkoutTime)")
+                        print("workoutData 테스트 시간 : \(settings.totalWorkoutTime)")
                          
 // TODO: - 목표치 채웠는지 확인하고, 채웠으면 연결, 못 채웠으면 모달창 뜨게 하기
-                        settings.todayCalories += 150
+//                        settings.todayCalories += 150
                         // 운동한 칼로리가 목표치를 넘었는지
                         print("목표 칼로리 = \(settings.goalCalories)")
                         if settings.goalCalories < settings.todayCalories {
