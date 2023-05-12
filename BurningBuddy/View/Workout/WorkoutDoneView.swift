@@ -16,7 +16,10 @@ import SwiftUI
 struct WorkoutDoneView: View {
     @EnvironmentObject var settings: UserSettings
     @State var isNotDoneWorkoutPopup = false
-    @State private var tag: Int? = nil
+    @State private var isFailWorkout: Bool = false
+    @State private var isSuccessWorkout: Bool = false
+    @State private var isSuccessNext: Bool = false
+    @State private var isFailNext: Bool = false
     
     var body: some View {
         VStack {
@@ -43,24 +46,25 @@ struct WorkoutDoneView: View {
             }
             Spacer()
             if settings.isDoneTogetherWorkout {
-                NavigationLink(destination: WorkoutSuccessView(), tag: 1, selection: self.$tag) { // destination이 달라야 한다. 모달이 뜨기 전에 화면 이동이 될 수도 있다.
-                    Text("목표달성 확인하기")
-                }
-                .buttonStyle(RedButtonStyle())
-                Button(action: {
-//                    self.tag = 1
-                }) {
-                    EmptyView()
-                }
+                NavigationLink(isActive: $isSuccessNext, destination: {
+                    WorkoutSuccessView()
+                }, label: {
+                    Button("연결하기") {
+                        // 목표량 달성 여부 확인 메서드 필요한 곳
+                        print("Navi link 안")
+                        self.isSuccessNext = true
+                    }.buttonStyle(RedButtonStyle())
+                })
             } else {
-                NavigationLink(destination: WorkoutFailView(), tag: 0, selection: self.$tag) { // destination이 달라야 한다. 모달이 뜨기 전에 화면 이동이 될 수도 있다.
-                    Text("목표달성 확인하기")                }
-                .buttonStyle(RedButtonStyle())
-                Button(action: {
-                    isNotDoneWorkoutPopup = true
-                }) {
-                    EmptyView()
-                }
+                NavigationLink(isActive: $isFailNext, destination: {
+                    WorkoutFailView()
+                }, label: {
+                    Button("연결하기") {
+                        // 목표량 달성 여부 확인 메서드 필요한 곳
+                        self.isFailNext = true
+                        print("Navi link 안")
+                    }.buttonStyle(RedButtonStyle())
+                })
             }
            
         }
@@ -68,13 +72,8 @@ struct WorkoutDoneView: View {
         .background(Color(red: 30/255, green: 28/255, blue: 29/255))
         .sheet(isPresented: self.$isNotDoneWorkoutPopup) {
             if #available(iOS 16.0, *) {
-                MissionResultModalView(title: "아직 목표량을 채우지 못했어요", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼께요", rightButtonName: "그만할래요", tag: $tag)
-                // 하위 모달에서 상위 뷰에 값을 전달해야 한다. leftbutton, rightbutton 각각을 눌렀을 때 다른 값을 1, 2를 전달해야 한다.
+                MissionResultModalView(title: "아직 목표량을 채우지 못했어요", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼께요", rightButtonName: "그만할래요", wantQuitWorkout: $isFailWorkout)
                     .presentationDetents([.fraction(0.4)])
-                    .background(Color(red: 30/255, green: 28/255, blue: 29/255))
-            } else {
-                // Fallback on earlier versions
-                MissionResultModalView(title: "아직 목표량을 채우지 못했어요", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼께요", rightButtonName: "그만할래요", tag: $tag)
                     .background(Color(red: 30/255, green: 28/255, blue: 29/255))
             }
         }

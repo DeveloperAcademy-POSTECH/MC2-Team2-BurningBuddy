@@ -19,7 +19,7 @@ struct MissionResultModalView: View {
     @State var imageName: String = "exclamationmark.circle.fill"
     @State var leftButtonName: String = "cancel"
     @State var rightButtonName: String = "okay"
-    @Binding var tag: Int?
+    @Binding var wantQuitWorkout: Bool
     
     var body: some View {
         VStack {
@@ -32,6 +32,7 @@ struct MissionResultModalView: View {
             Image(systemName: imageName)
                 .resizable()
                 .frame(width: 93, height: 91)
+                .foregroundColor(Color.bunnyColor)
             // 모달 뷰의 텍스트
             Spacer()
             Text(article)
@@ -52,15 +53,15 @@ struct MissionResultModalView: View {
                 
                 Button(action: {
                     // 버튼을 눌렀을 때 수행할 액션
+                    wantQuitWorkout = true
                     presentationMode.wrappedValue.dismiss()
-                    self.tag = 1
                 }, label: {
                     Text(rightButtonName)
                 })
                 .buttonStyle(RedButtonStyle())
             }
         }
-        .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30))
+        .padding(EdgeInsets(top: 30, leading: 30, bottom: 15, trailing: 30))
         .navigationBarHidden(true)
     }
 }

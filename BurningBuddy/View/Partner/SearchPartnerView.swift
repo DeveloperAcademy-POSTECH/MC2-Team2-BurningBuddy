@@ -107,7 +107,7 @@ struct SearchPartnerView: View {
                     }, label: {
                         Button("연결하기") {
                             self.beforeStart = true
-                            //                            self.isNextButtonTapped = true
+                            print("Navi link 안")
                         }.buttonStyle(RedButtonStyle())
                     })
                 }
@@ -141,10 +141,6 @@ struct SearchPartnerView: View {
             if #available(iOS 16.0, *) {
                 NotFoundPartnerView()
                     .presentationDetents([.fraction(0.4)])
-                    .background(Color.backgroundColor)
-            } else {
-                // Fallback on earlier versions
-                NotFoundPartnerView()
                     .background(Color.backgroundColor)
             }
         }
