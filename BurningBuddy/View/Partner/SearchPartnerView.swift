@@ -35,7 +35,6 @@ struct SearchPartnerView: View {
         VStack {
             switch(niObject.isBumped) {
             case false:
-                // 파트너를 찾을때 NI를 가져오면 됩니당 ~!!
                 Text("내 파트너를 \n찾는 중이에요")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(Color.mainTextColor)
@@ -155,9 +154,7 @@ struct SearchPartnerView: View {
                 },
                 secondaryButton: .cancel(Text("착용했어요")) {
                     settings.partnerID = niObject.bumpedID // 상대방의 uuid 저장
-                    self.beforeStart = false
-                    self.isNextButtonTapped = true
-                    self.startWorkout = true // TODO: - 쓰이는 곳이 아직 없는데..?
+                      self.isNextButtonTapped = true // 이걸로 다음 페이지로 이동을 하는데, 이게 문제이긴 함
                 }
             )
         }
