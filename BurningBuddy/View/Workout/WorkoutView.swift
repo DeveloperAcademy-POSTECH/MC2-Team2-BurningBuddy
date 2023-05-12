@@ -14,7 +14,8 @@ import SwiftUI
  */
 struct WorkoutView: View {
     @EnvironmentObject var settings: UserSettings
-    @State private var tag: Int? = nil
+//    @State private var tag: Int? = nil
+    @State private var isWorkoutDonePressed = false
     
     var body: some View {
         VStack {
@@ -51,20 +52,21 @@ struct WorkoutView: View {
                     .foregroundColor(Color.bunnyColor)
             }
             Spacer()
-//            Button("운동 완료하기", action: {
-//                // Alert창. 파트너의 운동기록이 없거나 내 운동 종료 기록이 없으면 Alert 창이 다르게 떠야 함.
-//            })
-//            .buttonStyle(RedButtonStyle())
-//
-            NavigationLink(destination: WorkoutDoneView(), tag: 1, selection: self.$tag) {
-                Text("운동 완료하기")
-            }
-            .buttonStyle(RedButtonStyle())
-            Button(action: {
-                self.tag = 1
-            }) {
-                EmptyView()
-            }
+
+            NavigationLink(isActive: $isWorkoutDonePressed, destination: {
+                WorkoutDoneView()
+            }, label: {
+                Button("운동 완료하기") {
+                    settings.workoutData.fetchAfterWorkoutTime()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        settings.todayCalories = Int16(settings.workoutData.workoutCalorie)
+                        settings.totalWorkoutTime = settings.workoutData.workoutDuration
+                        isWorkoutDonePressed = true
+                    }
+                }
+                .buttonStyle(RedButtonStyle())
+            })
+
         }
         .navigationBarHidden(true)
         .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
