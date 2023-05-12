@@ -62,6 +62,8 @@ struct WorkoutView: View {
             .buttonStyle(RedButtonStyle())
             Button(action: {
                 self.tag = 1
+                // TODO: - 운동 종료 시 내 기록 Coredata 저장 - settings.isDoneWorkout (userdefault)값 변경, 운동 기록 Coredata에 저장
+                settings.isDoneWorkout = true // 운동 종료 시
             }) {
                 EmptyView()
             }
