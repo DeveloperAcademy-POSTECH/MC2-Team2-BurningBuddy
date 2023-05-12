@@ -22,6 +22,7 @@ class UserSettings: ObservableObject {
     @Published var isDoneWorkout: Bool = false
     @Published var showOnboarding: Bool = true
     @Published var isDoneTogetherWorkout: Bool = false
+    var workoutData = WorkoutData() // published로 해야될 수도 있음
 }
 
 struct ContentView: View {

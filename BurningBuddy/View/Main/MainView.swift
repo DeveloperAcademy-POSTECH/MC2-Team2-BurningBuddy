@@ -181,7 +181,11 @@ struct MainView: View {
             .background(Color.backgroundColor)
             .navigationBarTitle("")
             
-        }.accentColor(Color.mainTextColor)
+        }
+        .onAppear{
+            settings.workoutData.requestAuthorization()
+        }
+        .accentColor(Color.mainTextColor)
         
     } // body End
 }
