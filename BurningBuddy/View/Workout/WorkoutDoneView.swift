@@ -48,8 +48,8 @@ struct WorkoutDoneView: View {
                     .foregroundColor(Color.bunnyColor)
             }
             Spacer()
-            if settings.isDoneTogetherWorkout {
-                NavigationLink(destination: WorkoutSuccessView(), tag: 1, selection: self.$tag) { // destination이 달라야 한다. 모달이 뜨기 전에 화면 이동이 될 수도 있다.
+//            if settings.isDoneTogetherWorkout {
+                NavigationLink(destination: getDestination()) { // destination이 달라야 한다. 모달이 뜨기 전에 화면 이동이 될 수도 있다.
                     Text("목표달성 확인하기")
                 }
                 .buttonStyle(RedButtonStyle())
@@ -60,18 +60,18 @@ struct WorkoutDoneView: View {
                 }) {
                     EmptyView()
                 }
-            } else {
-                NavigationLink(destination: WorkoutFailView(), tag: 0, selection: self.$tag) { // destination이 달라야 한다. 모달이 뜨기 전에 화면 이동이 될 수도 있다.
-                    Text("목표달성 확인하기")                }
-                .buttonStyle(RedButtonStyle())
-                Button(action: {
-                    // TODO: - 루나웨스트 NISession 연결 후, peer의 uuid가 저장되어있는 settings.partnerID와 일치하는지 확인
-                    // 일치하면 
-                    isNotDoneWorkoutPopup = true
-                }) {
-                    EmptyView()
-                }
-            }
+//            } else {
+//                NavigationLink(destination: WorkoutFailView(), tag: 0, selection: self.$tag) { // destination이 달라야 한다. 모달이 뜨기 전에 화면 이동이 될 수도 있다.
+//                    Text("목표달성 확인하기")                }
+//                .buttonStyle(RedButtonStyle())
+//                Button(action: {
+//                    // TODO: - 루나웨스트 NISession 연결 후, peer의 uuid가 저장되어있는 settings.partnerID와 일치하는지 확인
+//                    // 일치하면 isDoneTogetherWorkout을 true로 변경
+//                    isNotDoneWorkoutPopup = true
+//                }) {
+//                    EmptyView()
+//                }
+//            }
            
         }
         .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
@@ -106,10 +106,26 @@ struct WorkoutDoneView: View {
             niObject.stop()
             niObject.findingPartnerState = .ready
         case .found:
+          if niObject.bumpedID == settings.partnerID {
+            settings.isDoneTogetherWorkout = true
+          } else {
+            settings.isDoneTogetherWorkout = false
+          }
             niObject.stop()
             niObject.findingPartnerState = .ready
         }
     }
+  
+  private func getDestination() -> AnyView {
+    startNI()
+    // peer의 uuid가 저장되어있는 settings.partnerID와 일치하는지 확인
+    if settings.isDoneTogetherWorkout {
+      return AnyView(WorkoutSuccessView())
+    }
+    else {
+      return AnyView(WorkoutFailView())
+    }
+  }
 }
 
 

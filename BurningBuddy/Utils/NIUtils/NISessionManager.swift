@@ -17,11 +17,12 @@ class TranData: NSObject, NSCoding {
     let isDoneTargetCalories: Bool// 내가 운동을 성공했는지 여부 - 목표 칼로리를 채웠는지 여부
     let uuid: UUID
     
-    init(token : NIDiscoveryToken, isBumped : Bool = false, nickname : String = "", isDoneTargetCalories: Bool = false) {
+  init(token : NIDiscoveryToken, isBumped : Bool = false, nickname : String = "", isDoneTargetCalories: Bool = false, uuid: UUID) {
         self.token = token
         self.isBumped = isBumped
         self.nickname = nickname
         self.isDoneTargetCalories = isDoneTargetCalories
+        self.uuid = uuid
     }
     
     func encode(with coder: NSCoder) {
@@ -58,7 +59,7 @@ class NISessionManager: NSObject, ObservableObject {
     // 나의 정보
     @Published var myNickname : String = ""
     @Published var isDoneTargetCalories: Bool = false
-    @Published var myUUID: UUID = CoreDataManager.coreDM.readAllUser()[0].userID
+    @Published var myUUID: UUID = UUID()
     
     // 범프된 상대 정보
     @Published var bumpedName = ""
@@ -78,6 +79,7 @@ class NISessionManager: NSObject, ObservableObject {
     
     func start() {
         print("start")
+        myUUID = CoreDataManager.coreDM.readAllUser()[0].userID
         myNickname = CoreDataManager.coreDM.readAllUser()[0].userName ?? "예시닉네임"
         startup()
     }
@@ -201,7 +203,7 @@ class NISessionManager: NSObject, ObservableObject {
     }
     
     func shareMyDiscoveryToken(token: NIDiscoveryToken, peer: MCPeerID) {
-        let tranData = TranData(token: token)
+      let tranData = TranData(token: token, uuid: myUUID) // TODO: - uuid 들어가야하는 거 맞나?
         
         guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: tranData, requiringSecureCoding: false) else {
             return
@@ -211,7 +213,7 @@ class NISessionManager: NSObject, ObservableObject {
     }
     
     func shareMyData(token: NIDiscoveryToken, peer: MCPeerID) {
-        let tranData = TranData(token: token, isBumped: true, nickname: myNickname)
+      let tranData = TranData(token: token, isBumped: true, nickname: myNickname, uuid: myUUID)
         
         guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: tranData, requiringSecureCoding: false) else {
             return

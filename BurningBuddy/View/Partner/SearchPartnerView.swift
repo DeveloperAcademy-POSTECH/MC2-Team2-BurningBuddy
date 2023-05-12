@@ -157,6 +157,7 @@ struct SearchPartnerView: View {
                     settings.partnerID = niObject.bumpedID // 상대방의 uuid 저장
                     self.beforeStart = false
                     self.isNextButtonTapped = true
+                    self.startWorkout = true // TODO: - 쓰이는 곳이 아직 없는데..?
                 }
             )
         }
