@@ -57,9 +57,18 @@ struct WorkoutView: View {
             NavigationLink(isActive: $isNextButtonTapped, destination: {
                 WorkoutDoneView(mainViewNavLinkActive: $mainViewNavLinkActive)
             }, label: {
-                Button("연결하기") {
+                Button("운동 종료하기") {
                     // 목표량 달성 여부 확인 메서드 필요한 곳
+                    
                     print("Navi link 안")
+                    // 운동 데이터 가져오기
+                    settings.workoutData.fetchAfterWorkoutTime()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        settings.todayCalories = Int16(settings.workoutData.workoutCalorie)
+                        settings.totalWorkoutTime = settings.workoutData.workoutDuration
+                    }
+// TODO: - 목표치 채웠는지 확인하고, 채웠으면 연결, 못 채웠으면 모달창 뜨게 하기
+                    
                     self.isNotDoneWorkout = true
                 }.buttonStyle(RedButtonStyle())
             })
