@@ -14,8 +14,8 @@ class UserSettings: ObservableObject {
     @Published var level: Int16 = 1
     @Published var nickName: String = "박루나"
     @Published var totalDumbbell: Int16 = 0
-    @Published var totalWorkoutTime: String = ""
-    @Published var todayCalories: Int16 = 0
+    var totalWorkoutTime: String = ""
+    var todayCalories: Int16 = 0
     @Published var goalCalories: Int16 = 0
     @Published var hasPartner: Bool = false
     @Published var isWorkouting: Bool = false

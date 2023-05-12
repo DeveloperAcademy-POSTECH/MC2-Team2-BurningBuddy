@@ -66,10 +66,13 @@ struct WorkoutView: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         settings.todayCalories = Int16(settings.workoutData.workoutCalorie)
                         settings.totalWorkoutTime = settings.workoutData.workoutDuration
+                        print("workoutData 테스트 칼로리 : \(settings.todayCalories)")
+                        print("workoutData 테스트 칼로리 : \(settings.totalWorkoutTime)")
+                        self.isNotDoneWorkout = true
                     }
 // TODO: - 목표치 채웠는지 확인하고, 채웠으면 연결, 못 채웠으면 모달창 뜨게 하기
                     
-                    self.isNotDoneWorkout = true
+                    
                 }.buttonStyle(RedButtonStyle())
             })
         }
