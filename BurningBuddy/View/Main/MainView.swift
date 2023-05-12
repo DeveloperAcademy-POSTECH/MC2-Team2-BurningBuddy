@@ -17,6 +17,7 @@ struct MainView: View {
     @EnvironmentObject var settings: UserSettings
     @State var daysleft: Int = 0
     @State var showEvolution = false // 진화과정 모달에 관련된 상태
+    @State var mainViewNavLinkActive: Bool = false
     
     //  @StateObject var niObject = NISessionManager()
     
@@ -158,22 +159,23 @@ struct MainView: View {
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                 Spacer()
                 Spacer()
-                NavigationLink(destination: {
-                    if settings.hasPartner {
-                        WorkoutView().environmentObject(settings)
-                    } else {
-                        SearchPartnerView()
-                            .environmentObject(settings)
-                        //                          .environmentObject(niObject)
-                        // niObject.findingPartnerState = .ready 초기화
-                    }
-                }) {
-                    Text(settings.hasPartner ? "운동 종료하기" : "운동 시작하기")
+                if settings.hasPartner {
+                    NavigationLink(
+                        destination: WorkoutView(mainViewNavLinkActive: $mainViewNavLinkActive).environmentObject(settings),
+                        isActive: $mainViewNavLinkActive,
+                        label: {
+                            Text(settings.hasPartner ? "운동 종료하기" : "운동 시작하기")
+                        })
+                    .buttonStyle(RedButtonStyle())
+                } else {
+                    NavigationLink(
+                        destination: SearchPartnerView(mainViewNavLinkActive: $mainViewNavLinkActive).environmentObject(settings),
+                        isActive: $mainViewNavLinkActive,
+                        label: {
+                            Text(settings.hasPartner ? "운동 종료하기" : "운동 시작하기")
+                        })
+                    .buttonStyle(RedButtonStyle())
                 }
-                .buttonStyle(RedButtonStyle())
-                //                .simultaneousGesture(TapGesture().onEnded{
-                //                  niObject.findingPartnerState = .ready
-                //                })
             }
             .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
             .background(Color.backgroundColor)

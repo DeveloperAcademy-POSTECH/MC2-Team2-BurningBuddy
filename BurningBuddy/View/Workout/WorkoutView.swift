@@ -14,8 +14,10 @@ import SwiftUI
  */
 struct WorkoutView: View {
     @EnvironmentObject var settings: UserSettings
-//    @State private var tag: Int? = nil
-    @State private var isWorkoutDonePressed = false
+
+    @State private var isNotDoneWorkout: Bool = false
+    @State private var isNextButtonTapped: Bool = false
+    @Binding var mainViewNavLinkActive: Bool
     
     var body: some View {
         VStack {
@@ -52,32 +54,35 @@ struct WorkoutView: View {
                     .foregroundColor(Color.bunnyColor)
             }
             Spacer()
-
-            NavigationLink(isActive: $isWorkoutDonePressed, destination: {
-                WorkoutDoneView()
+            NavigationLink(isActive: $isNextButtonTapped, destination: {
+                WorkoutDoneView(mainViewNavLinkActive: $mainViewNavLinkActive)
             }, label: {
-                Button("운동 완료하기") {
-                    settings.workoutData.fetchAfterWorkoutTime()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        settings.todayCalories = Int16(settings.workoutData.workoutCalorie)
-                        settings.totalWorkoutTime = settings.workoutData.workoutDuration
-                        isWorkoutDonePressed = true
-                    }
-                }
-                .buttonStyle(RedButtonStyle())
+                Button("연결하기") {
+                    // 목표량 달성 여부 확인 메서드 필요한 곳
+                    print("Navi link 안")
+                    self.isNotDoneWorkout = true
+                }.buttonStyle(RedButtonStyle())
             })
-
         }
         .navigationBarHidden(true)
-        .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
+        .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color.backgroundColor) // 고급진 까만것이 필요할 듯
+        .sheet(isPresented: self.$isNotDoneWorkout) {
+            if #available(iOS 16.0, *) {
+                MissionResultModalView(title: "아직 목표량을 채우지 못했어요!", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼게요", rightButtonName: "그만할래요", wantQuitWorkout: $isNextButtonTapped)
+                    .presentationDetents([.fraction(0.4)])
+                    .background(Color.backgroundColor)
+                    
+            }
+        }
         
     }
 }
 
 
 struct WorkoutView_Previews: PreviewProvider {
+    @State static var value: Bool = true
     static var previews: some View {
-        WorkoutView().environmentObject(UserSettings())
+        WorkoutView(mainViewNavLinkActive: $value).environmentObject(UserSettings())
     }
 }
