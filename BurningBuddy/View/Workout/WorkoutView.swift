@@ -17,6 +17,8 @@ struct WorkoutView: View {
     @State private var tag: Int? = nil
     @State private var isNotDoneWorkout: Bool = false
     @State private var isNextButtonTapped: Bool = false
+    @Binding var mainViewNavLinkActive: Bool
+    
     var body: some View {
         VStack {
             HStack {
@@ -53,7 +55,7 @@ struct WorkoutView: View {
             }
             Spacer()
             NavigationLink(isActive: $isNextButtonTapped, destination: {
-                WorkoutDoneView()
+                WorkoutDoneView(mainViewNavLinkActive: $mainViewNavLinkActive)
             }, label: {
                 Button("연결하기") {
                     // 목표량 달성 여부 확인 메서드 필요한 곳
@@ -63,7 +65,7 @@ struct WorkoutView: View {
             })
         }
         .navigationBarHidden(true)
-        .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
+        .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color.backgroundColor) // 고급진 까만것이 필요할 듯
         .sheet(isPresented: self.$isNotDoneWorkout) {
             if #available(iOS 16.0, *) {
@@ -79,7 +81,8 @@ struct WorkoutView: View {
 
 
 struct WorkoutView_Previews: PreviewProvider {
+    @State static var value: Bool = true
     static var previews: some View {
-        WorkoutView().environmentObject(UserSettings())
+        WorkoutView(mainViewNavLinkActive: $value).environmentObject(UserSettings())
     }
 }

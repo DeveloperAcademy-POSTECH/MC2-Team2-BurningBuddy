@@ -12,6 +12,9 @@ import SwiftUI
  만약 데이터가 없거나, 목표 달성을 하지 못한 것이 감지되는 경우,
  MissionModal을 띄워줘야 한다. 이 로직은 목표달성 확인하기 button action에서 해야 한다.
  단, 길어질 경우, 새로운 메서드 안에서 이 과정을 실행해야 한다.
+ 
+ isDoneTogetherWorkout 변수를 settings에서 달성 여부를 판단해서 가지고 있어야 한다.
+
  */
 struct WorkoutDoneView: View {
     @EnvironmentObject var settings: UserSettings
@@ -20,6 +23,7 @@ struct WorkoutDoneView: View {
     @State private var isSuccessWorkout: Bool = false
     @State private var isSuccessNext: Bool = false
     @State private var isFailNext: Bool = false
+    @Binding var mainViewNavLinkActive: Bool
     
     var body: some View {
         VStack {
@@ -47,32 +51,31 @@ struct WorkoutDoneView: View {
             Spacer()
             if settings.isDoneTogetherWorkout {
                 NavigationLink(isActive: $isSuccessNext, destination: {
-                    WorkoutSuccessView()
+                    WorkoutSuccessView(mainViewNavLinkActive: $mainViewNavLinkActive)
                 }, label: {
-                    Button("연결하기") {
-                        // 목표량 달성 여부 확인 메서드 필요한 곳
+                    Button("목표달성 확인하기") {
                         print("Navi link 안")
                         self.isSuccessNext = true
                     }.buttonStyle(RedButtonStyle())
                 })
             } else {
                 NavigationLink(isActive: $isFailNext, destination: {
-                    WorkoutFailView()
+                    WorkoutFailView(mainViewNavLinkActive: $mainViewNavLinkActive)
                 }, label: {
-                    Button("연결하기") {
+                    Button("목표달성 확인하기") {
                         // 목표량 달성 여부 확인 메서드 필요한 곳
-                        self.isFailNext = true
+                        self.isNotDoneWorkoutPopup = true
                         print("Navi link 안")
                     }.buttonStyle(RedButtonStyle())
                 })
             }
            
         }
-        .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
+        .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color(red: 30/255, green: 28/255, blue: 29/255))
         .sheet(isPresented: self.$isNotDoneWorkoutPopup) {
             if #available(iOS 16.0, *) {
-                MissionResultModalView(title: "아직 목표량을 채우지 못했어요", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼께요", rightButtonName: "그만할래요", wantQuitWorkout: $isFailWorkout)
+                MissionResultModalView(title: "아직 목표량을 채우지 못했어요", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼께요", rightButtonName: "그만할래요", wantQuitWorkout: $isFailNext )
                     .presentationDetents([.fraction(0.4)])
                     .background(Color(red: 30/255, green: 28/255, blue: 29/255))
             }
@@ -81,12 +84,12 @@ struct WorkoutDoneView: View {
     }
 }
 
-
-struct WorkoutDoneView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        WorkoutDoneView()
-            .environmentObject(UserSettings())
-    }
-}
+//
+//struct WorkoutDoneView_Previews: PreviewProvider {
+//    
+//    static var previews: some View {
+//        WorkoutDoneView()
+//            .environmentObject(UserSettings())
+//    }
+//}
 
