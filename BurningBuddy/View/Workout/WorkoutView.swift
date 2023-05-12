@@ -68,9 +68,21 @@ struct WorkoutView: View {
                         settings.totalWorkoutTime = settings.workoutData.workoutDuration
                         print("workoutData 테스트 칼로리 : \(settings.todayCalories)")
                         print("workoutData 테스트 칼로리 : \(settings.totalWorkoutTime)")
-                        self.isNotDoneWorkout = true
-                    }
+                         
 // TODO: - 목표치 채웠는지 확인하고, 채웠으면 연결, 못 채웠으면 모달창 뜨게 하기
+                        settings.todayCalories += 150
+                        // 운동한 칼로리가 목표치를 넘었는지
+                        print("목표 칼로리 = \(settings.goalCalories)")
+                        if settings.goalCalories < settings.todayCalories {
+                        // 넘었다면 불값 변경해주고, 칼로리 기록(코어데이터?)?하고 파트너와 재연결(수고하셨어요) 뷰로 넘어가기
+                            settings.isDoneWorkout = true
+                            isNextButtonTapped = true
+                        }
+                        else {
+                        // 넘지 못하면 모달 뷰 띄우기
+                            self.isNotDoneWorkout = true
+                        }
+                    }
                     
                     
                 }.buttonStyle(RedButtonStyle())

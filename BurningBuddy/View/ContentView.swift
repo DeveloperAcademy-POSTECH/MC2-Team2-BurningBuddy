@@ -19,7 +19,7 @@ class UserSettings: ObservableObject {
     @Published var goalCalories: Int16 = 0
     @Published var hasPartner: Bool = false
     @Published var isWorkouting: Bool = false
-    @Published var isDoneWorkout: Bool = false
+    var isDoneWorkout: Bool = false
     @Published var showOnboarding: Bool = true
     @Published var isDoneTogetherWorkout: Bool = false
     var workoutData = WorkoutData() // published로 해야될 수도 있음
