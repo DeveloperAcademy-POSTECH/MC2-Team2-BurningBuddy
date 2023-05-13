@@ -31,20 +31,20 @@ struct SettingView: View {
           .listRowBackground(Color.mainSection2)
           Section {
             NavigationLink{
-              CalorieSettingView()
+                CalorieSettingView(sliderValue: Double(settings.goalCalories), isTopButtonHidden: true)
             } label: {
               HStack{
                 Image(systemName: "checkmark.seal.fill")
-                  .background(Color(red: 255/255, green: 0/255, blue: 82/255))
+                      .background(Color.bunnyColor)
                 Text("목표 칼로리")
                 Spacer()
                 Text(String(settings.goalCalories) + "Kcal")
-                  .foregroundColor(Color(red: 255 / 255, green: 0 / 255, blue: 82 / 255))
+                      .foregroundColor(Color.bunnyColor)
               }
             }
             HStack{
               Image(systemName: "checkmark.seal.fill")
-                .background(Color(red: 255/255, green: 0/255, blue: 82/255))
+                    .background(Color.bunnyColor)
               Text("모은 핑크 덤벨 개수")
               Spacer()
               Text(String(settings.totalDumbbell)+"개")

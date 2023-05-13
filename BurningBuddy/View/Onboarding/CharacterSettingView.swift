@@ -15,6 +15,7 @@ struct CharacterSettingView: View {
     
     var body: some View {
         VStack {
+            
             Button(action: {
                 settings.pageNum -= 1
             }, label: {
@@ -25,6 +26,7 @@ struct CharacterSettingView: View {
             .foregroundColor(Color.mainTextColor)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+            
             Text("캐릭터 이름을\n설정해주세요")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)
@@ -38,9 +40,9 @@ struct CharacterSettingView: View {
             Spacer()
             TextField("", text: $characterName.value, prompt: Text("캐릭터 이름은 한글 2~8자로 설정할 수 있어요!")
                 .foregroundColor(Color.subTextColor)).font(.system(size: 17, weight: .regular))
-                
             
-            .foregroundColor(.mainTextColor)
+            
+                .foregroundColor(.mainTextColor)
             Divider()
                 .overlay(Color.mainTextColor)
             if isInputText {
