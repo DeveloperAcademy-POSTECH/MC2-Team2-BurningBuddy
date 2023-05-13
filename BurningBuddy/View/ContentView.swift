@@ -75,15 +75,24 @@ struct ContentView: View {
                 self.settings.todayCalories = CoreDataManager.coreDM.readAllUser()[0].todayCalories
                 self.settings.goalCalories = CoreDataManager.coreDM.readAllUser()[0].goalCalories
             }
-            // 현재 시각을 출력, 현재 시각이 "00시 00분 00초"이면 userdefault의 값 초기화하기
+            // 현재 시각을 출력, 현재 시각이 "00시 00분 00초"이면 userdefault의 값 초기화하기 & CoreData의 todayWorkoutHours, todayWorkoutHours 초기화
             formatter.dateFormat = "HH시 mm분 ss초"
             let result = formatter.string(from: Date())
             print(result)
-            // 새로운 하루가 시작된다면 user default에 저장된 partner의 정보 초기화
+            // 새로운 하루가 시작된다면 user default에 저장된 partner의 정보 초기화 & coreData의 
             if result == "00시 00분 00초" {
                 UserDefaults.standard.set(false, forKey: "isWorkouting")
                 UserDefaults.standard.set(false, forKey: "isDoneWorkout")
                 UserDefaults.standard.set("", forKey: "partnerID")
+                settings.isDoneTogetherWorkout = false
+                
+                if (CoreDataManager.coreDM.readAllUser()[0].todayCalories != 0)  {
+                    
+                }
+                if (CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours != "00:00") {
+                    
+                }
+                
             }
         } // onAppear
         
