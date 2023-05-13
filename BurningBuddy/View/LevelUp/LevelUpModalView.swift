@@ -11,11 +11,12 @@ import SwiftUI
 
 struct LevelUpModalView: View {
     @Environment(\.presentationMode) var presentationMode
-
+    @EnvironmentObject var settings: UserSettings
+    
     var body: some View {
         VStack {
             HStack{
-                Text("목표달성 n일 째")
+                Text("목표달성 \(settings.totalDumbbell)일 째")
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     .foregroundColor(Color.mainTextColor)
                     .font(.system(size: 28, weight: .bold))
@@ -32,8 +33,6 @@ struct LevelUpModalView: View {
             }
             .padding(EdgeInsets(top: 30, leading: 0, bottom: 0, trailing: 0))
             
-           
-            
             Text("핑크 덤벨 개수는 \n운동목표 달성일과 동일해요")
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
@@ -41,7 +40,7 @@ struct LevelUpModalView: View {
                 .foregroundColor(Color.subTextColor)
                 .font(.system(size: 17, weight: .medium))
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
-            Image("EvolutionRoadmap")
+            Image("EvolutionRoadmap\(settings.level)")
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             Spacer()
             
@@ -53,6 +52,7 @@ struct LevelUpModalView: View {
     struct LevelUpModalView_Previews: PreviewProvider {
         static var previews: some View {
             LevelUpModalView()
+                .environmentObject(UserSettings())
         }
     }
 }

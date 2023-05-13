@@ -93,6 +93,7 @@ struct MainView: View {
                         })
                         .fullScreenCover(isPresented: self.$showEvolution, content: {
                             LevelUpModalView()
+                                .environmentObject(settings)
                         })
                         .foregroundColor(Color.iconColor)
                     }
