@@ -74,8 +74,8 @@ struct WorkoutDoneView: View {
                     self.isSuccessNext = true
                 }
                 .fullScreenCover(isPresented: self.$checkPartner, content: {
-                    DataReceiveView(isNextButtonTapped: $isDataReceived)
-                        .environmentObject(settings)
+                    //DataReceiveView(isNextButtonTapped: $isDataReceived)
+                        //.environmentObject(settings)
                 })
                 .buttonStyle(RedButtonStyle())
             })

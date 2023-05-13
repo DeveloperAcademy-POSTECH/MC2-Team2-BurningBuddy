@@ -73,7 +73,7 @@ struct DataReceiveView: View {
                         self.settings.isDoneTogetherWorkout = true
                     }
                     self.isNextButtonTapped = true
-
+                    
                     print("상대방 ID : \(UserDefaults.standard.string(forKey: "partnerID") ?? "no partnerID")")
                     print("StartNI 내부 메서드 isDoneTogetherWorkout 값 : \(self.settings.isDoneTogetherWorkout)")
                     
@@ -123,8 +123,8 @@ struct DataReceiveView: View {
                 } else {
                     self.settings.isDoneTogetherWorkout = true
                 }
-                self.isSuccessNext = true
-
+                //self.isSuccessNext = true
+                
                 print("상대방 ID : \(UserDefaults.standard.string(forKey: "partnerID") ?? "no partnerID")")
                 print("StartNI 내부 메서드 isDoneTogetherWorkout 값 : \(self.settings.isDoneTogetherWorkout)")
                 
@@ -135,15 +135,15 @@ struct DataReceiveView: View {
             niObject.stop()
             niObject.findingPartnerState = .ready
         }
-}
-
-
-
-struct DataReceiveView_Previews: PreviewProvider {
-    @State static var value: Bool = true
-    static var previews: some View {
-        DataReceiveView(mainViewNavLinkActive: $value)
-            .environmentObject(UserSettings())
     }
+    
+    
 }
+//struct DataReceiveView_Previews: PreviewProvider {
+//    @State static var value: Bool = true
+//    static var previews: some View {
+//        DataReceiveView(mainViewNavLinkActive: $value, isDataReceived: <#Binding<Bool>#>)
+//            .environmentObject(UserSettings())
+//    }
+//}
 

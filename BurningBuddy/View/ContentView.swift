@@ -27,6 +27,7 @@ struct ContentView: View {
     @State private var showOnboarding: Bool = UserDefaults.standard.bool(forKey: "showOnboarding")
 //    @State var isWorkouting = UserDefaults.standard.bool(forKey: "isWorkouting") // 내가 운동 중인지
 //    @State var isDoneWorkout = UserDefaults.standard.bool(forKey: "isDoneWorkout") // 내가 운동 목표 달성했는지
+    let formatter = DateFormatter()
     
     
     // @ObservedObject var settings = UserSettings()
@@ -73,6 +74,16 @@ struct ContentView: View {
                 self.settings.totalWorkoutTime = CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours
                 self.settings.todayCalories = CoreDataManager.coreDM.readAllUser()[0].todayCalories
                 self.settings.goalCalories = CoreDataManager.coreDM.readAllUser()[0].goalCalories
+            }
+            // 현재 시각을 출력, 현재 시각이 "00시 00분 00초"이면 userdefault의 값 초기화하기
+            formatter.dateFormat = "HH시 mm분 ss초"
+            let result = formatter.string(from: Date())
+            print(result)
+            // 새로운 하루가 시작된다면 user default에 저장된 partner의 정보 초기화
+            if result == "00시 00분 00초" {
+                UserDefaults.standard.set(false, forKey: "isWorkouting")
+                UserDefaults.standard.set(false, forKey: "isDoneWorkout")
+                UserDefaults.standard.set("", forKey: "partnerID")
             }
         } // onAppear
         
