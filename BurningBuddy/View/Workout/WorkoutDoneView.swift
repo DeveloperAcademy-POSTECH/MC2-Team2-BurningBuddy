@@ -108,7 +108,7 @@ struct WorkoutDoneView: View {
         .background(Color(red: 30/255, green: 28/255, blue: 29/255))
         .sheet(isPresented: self.$isNotDoneWorkoutPopup) {
             if #available(iOS 16.0, *) {
-                MissionResultModalView(title: "파트너가 아직 운동 중이에요!", article: "운동을 마칠 때까지 응원해주세요!", leftButtonName: "", rightButtonName: "알겠어요", wantQuitWorkout: $isFailNext )
+              MissionResultModalView(title: "파트너가 아직 운동 중이에요!", article: "운동을 마칠 때까지 응원해주세요!", leftButtonName: "", rightButtonName: "알겠어요", wantQuitWorkout: $isFailNext )
                     .presentationDetents([.fraction(0.4)])
                     .background(Color(red: 30/255, green: 28/255, blue: 29/255))
                     .environmentObject(settings)
