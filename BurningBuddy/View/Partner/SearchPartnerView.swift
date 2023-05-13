@@ -112,7 +112,7 @@ struct SearchPartnerView: View {
                     NavigationLink(isActive: $isNextButtonTapped, destination: {
                         WorkoutView(mainViewNavLinkActive: $mainViewNavLinkActive)
                     }, label: {
-                        Button("연결하기") {
+                        Button("운동 시작하기") {
                             self.beforeStart = true
                             print("Navi link 안")
                         }.buttonStyle(RedButtonStyle())
