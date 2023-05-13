@@ -74,8 +74,9 @@ struct WorkoutView: View {
                         print("목표 칼로리 = \(settings.goalCalories)")
                         if settings.goalCalories < settings.todayCalories {
                             // 넘었다면 불값 변경해주고, 칼로리 기록(코어데이터?)?하고 파트너와 재연결(수고하셨어요) 뷰로 넘어가기
-                            UserDefaults.standard.set(false, forKey: "isWorkouting")
                             UserDefaults.standard.set(true, forKey: "isDoneWorkout")
+                            UserDefaults.standard.set(false, forKey: "isWorkouting")
+                            
                             isNextButtonTapped = true
                         }
                         else {

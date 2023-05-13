@@ -19,18 +19,14 @@ class UserSettings: ObservableObject {
     
     var totalWorkoutTime: String = ""
     var todayCalories: Int16 = 0
-//    var isWorkouting: Bool = false // 운동 중인지 check
-//    var isDoneWorkout: Bool = false // 운동을 완료했는지 check
     var isDoneTogetherWorkout: Bool = false // 둘 다 운동을 했는지 check
     var workoutData = WorkoutData() // published로 해야될 수도 있음
-    
-    var partnerID: String = ""
 }
 
 struct ContentView: View {
     @State private var showOnboarding: Bool = UserDefaults.standard.bool(forKey: "showOnboarding")
-    @State var isWorkouting = UserDefaults.standard.bool(forKey: "isWorkouting")
-    @State var isDoneWorkout = UserDefaults.standard.bool(forKey: "isDoneWorkout")
+//    @State var isWorkouting = UserDefaults.standard.bool(forKey: "isWorkouting") // 내가 운동 중인지
+//    @State var isDoneWorkout = UserDefaults.standard.bool(forKey: "isDoneWorkout") // 내가 운동 목표 달성했는지
     
     
     // @ObservedObject var settings = UserSettings()

@@ -49,6 +49,7 @@ struct MissionCongratsComponent: View {
             Spacer()
             Button(buttonName, action: {
                 mainViewNavLinkActive = false
+                UserDefaults.standard.set("", forKey: "partnerID")
             })
             .buttonStyle(RedButtonStyle())
         }

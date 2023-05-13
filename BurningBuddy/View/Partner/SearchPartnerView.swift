@@ -158,7 +158,6 @@ struct SearchPartnerView: View {
                     print("tap cancel")
                 },
                 secondaryButton: .cancel(Text("착용했어요")) {
-//                  settings.partnerID = niObject.bumpedID
                     UserDefaults.standard.set(true, forKey: "isWorkouting") // 사용자가 운동 중인지 userdefault에 저장
                     self.beforeStart = false
                     self.isNextButtonTapped = true

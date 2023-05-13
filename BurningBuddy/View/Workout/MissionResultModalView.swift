@@ -52,10 +52,7 @@ struct MissionResultModalView: View {
                 Button(action: { // right Button
                     //settings.isWorkouting = false // 운동중 변수를 false로 만들어준다.
                     UserDefaults.standard.set(false, forKey: "isWorkouting")
-                    
-                    print("workQuitWorkout 변경 전 : \(wantQuitWorkout)")
                     wantQuitWorkout = true
-                    print("workQuitWorkout 변경 후 : \(wantQuitWorkout)")
                     presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text(rightButtonName)

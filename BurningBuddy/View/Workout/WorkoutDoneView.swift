@@ -25,7 +25,8 @@ struct WorkoutDoneView: View {
     @StateObject private var niObject = NISessionManager()
     @State private var isLaunched = true
     @State var isLocalNetworkPermissionDenied = false
-    
+    @State private var checkPartner: Bool = false
+    @State var isDataReceived: Bool = false
     private let localNetAuth = LocalNetworkAuthorization()
     
     var body: some View {
@@ -63,9 +64,20 @@ struct WorkoutDoneView: View {
                 Button("목표달성 확인하기") {
                     print("Navi link 안")
                     // 상대방이 운동을 달성했는지 확인하는 부분
-                    startNI()
-//                    self.isSuccessNext = true
-                }.buttonStyle(RedButtonStyle())
+                    // TODO: 새로운 bump View를 만들어준다 -> 
+    
+                    if !niObject.isDoneTargetCalories {
+                        self.isNotDoneWorkoutPopup = true
+                    }
+                    print("niObject에 저장된 상대방 id", niObject.bumpedID?.uuidString ?? "값 없음")
+                    print("userDefalut에 저장된 상대방 id", UserDefaults.standard.string(forKey: "partnerID") ?? "값 없음")
+                    self.isSuccessNext = true
+                }
+                .fullScreenCover(isPresented: self.$checkPartner, content: {
+                    DataReceiveView(isNextButtonTapped: $isDataReceived)
+                        .environmentObject(settings)
+                })
+                .buttonStyle(RedButtonStyle())
             })
             
         }
@@ -83,45 +95,8 @@ struct WorkoutDoneView: View {
         .navigationBarHidden(true)
     }
     
-    private func startNI() {
-        
-        switch niObject.findingPartnerState {
-        case .ready:
-            niObject.start()
-            niObject.findingPartnerState = .finding
-            if isLaunched {
-                localNetAuth.requestAuthorization { auth in
-                    isLocalNetworkPermissionDenied = !auth
-                }
-                isLaunched = false
-            }
-        case .finding:
-            niObject.stop()
-            
-            //print("상대방 ID : \(settings.partnerID!)")
-            niObject.findingPartnerState = .ready
-        case .found:
-            // 상대방이 맞으면
-            if niObject.bumpedID?.uuidString == UserDefaults.standard.string(forKey: "partnerID") {
-                // 나와 상대방 모두가 목표량을 달성했는지를 확인하는 부분
-                if !niObject.bumpedIsDoneTargetCalories || UserDefaults.standard.bool(forKey: "isDoneWorkout") {
-                    self.settings.isDoneTogetherWorkout = false
-                } else {
-                    self.settings.isDoneTogetherWorkout = true
-                }
-                self.isSuccessNext = true
-
-                print("상대방 ID : \(settings.partnerID)")
-                print("StartNI 내부 메서드 isDoneTogetherWorkout 값 : \(self.settings.isDoneTogetherWorkout)")
-                
-            } else { // 상대방이 아니면
-                niObject.findingPartnerState = .finding
-                print("상대방을 찾지 못함")
-            }
-            niObject.stop()
-            niObject.findingPartnerState = .ready
-        }
-    }
+    
+    
     
     //  private func getDestination() -> some View {
     //    startNI()
