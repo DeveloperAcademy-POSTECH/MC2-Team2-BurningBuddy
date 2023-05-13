@@ -62,7 +62,7 @@ struct MainView: View {
                         Text("다음 성장까지")
                             .font(.system(size: 18, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: -3))
-                        Text("\(daysleft)번")
+                        Text("\(countRemainDumbbell(presentLevel: settings.level))번")
                             .font(.system(size: 18, weight: .bold, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -3))
                         Text("남았어요!")
@@ -98,9 +98,10 @@ struct MainView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: -40, trailing: 20))
-                    Circle()
+                    Image("CharacterBunnyLevel\(settings.level)")
+                        .resizable()
+                        .scaledToFit()
                         .frame(width: 200, height: 250)
-                        .scaledToFill()
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     Spacer()
                 }
@@ -180,16 +181,35 @@ struct MainView: View {
             .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
             .background(Color.backgroundColor)
             .navigationBarTitle("")
-            
         }
         .onAppear{
             settings.workoutData.requestAuthorization()
         }
         .accentColor(Color.mainTextColor)
         
+        
     } // body End
+    
+    private func countRemainDumbbell(presentLevel: Int16) -> Int16 {
+        let targetLevel: Int16 = presentLevel + 1
+        var remainDumbbell: Int16 = 0
+        switch targetLevel {
+        case 2:
+            remainDumbbell = 3 - self.settings.totalDumbbell
+        case 3:
+            remainDumbbell = 7 - self.settings.totalDumbbell
+        case 4:
+            remainDumbbell = 21 - self.settings.totalDumbbell
+        case 5:
+            remainDumbbell = 30 - self.settings.totalDumbbell
+        case 6:
+            remainDumbbell = 45 - self.settings.totalDumbbell
+        default:
+            remainDumbbell = 66 - self.settings.totalDumbbell
+    }
+        return remainDumbbell
+    }
 }
-
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {

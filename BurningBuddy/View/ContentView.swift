@@ -23,7 +23,10 @@ class UserSettings: ObservableObject {
     @Published var showOnboarding: Bool = true
     @Published var isDoneTogetherWorkout: Bool = false
     var workoutData = WorkoutData() // published로 해야될 수도 있음
+    
+    
 }
+
 
 struct ContentView: View {
     @State private var showOnboarding: Bool = UserDefaults.standard.bool( forKey: "showOnboarding")
