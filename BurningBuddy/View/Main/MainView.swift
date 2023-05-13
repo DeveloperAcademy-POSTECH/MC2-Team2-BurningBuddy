@@ -93,6 +93,7 @@ struct MainView: View {
                         })
                         .fullScreenCover(isPresented: self.$showEvolution, content: {
                             LevelUpModalView()
+                                .environmentObject(settings)
                         })
                         .foregroundColor(Color.iconColor)
                     }
@@ -164,7 +165,7 @@ struct MainView: View {
                         destination: WorkoutView(mainViewNavLinkActive: $mainViewNavLinkActive).environmentObject(settings),
                         isActive: $mainViewNavLinkActive,
                         label: {
-                            Text(settings.hasPartner ? "운동 종료하기" : "운동 시작하기")
+                            Text("운동화면 보기")
                         })
                     .buttonStyle(RedButtonStyle())
                 } else {
@@ -172,7 +173,7 @@ struct MainView: View {
                         destination: SearchPartnerView(mainViewNavLinkActive: $mainViewNavLinkActive).environmentObject(settings),
                         isActive: $mainViewNavLinkActive,
                         label: {
-                            Text(settings.hasPartner ? "운동 종료하기" : "운동 시작하기")
+                            Text("파트너와 연결하기")
                         })
                     .buttonStyle(RedButtonStyle())
                 }

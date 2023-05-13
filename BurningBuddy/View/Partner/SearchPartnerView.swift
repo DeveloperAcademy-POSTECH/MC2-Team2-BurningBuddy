@@ -85,8 +85,14 @@ struct SearchPartnerView: View {
                         .opacity(0.9)
                         .foregroundColor(Color("iconColor"))
                     VStack{
-                        Image("Image")
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 98, height: 100)
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(Color.bunnyColorSub, Color.bunnyColor)
                         Text(niObject.bumpedName)
+                            .font(.system(size: 17, weight: .semibold))
                     }
                 }
                 
@@ -106,7 +112,7 @@ struct SearchPartnerView: View {
                     NavigationLink(isActive: $isNextButtonTapped, destination: {
                         WorkoutView(mainViewNavLinkActive: $mainViewNavLinkActive)
                     }, label: {
-                        Button("연결하기") {
+                        Button("운동 시작하기") {
                             self.beforeStart = true
                             print("Navi link 안")
                         }.buttonStyle(RedButtonStyle())
@@ -165,9 +171,11 @@ struct SearchPartnerView: View {
 }
 
 
-//
-//struct SearchPartnerView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SearchPartnerView()
-//    }
-//}
+
+struct SearchPartnerView_Previews: PreviewProvider {
+    @State static var value: Bool = true
+    static var previews: some View {
+        SearchPartnerView(mainViewNavLinkActive: $value)
+            .environmentObject(UserSettings())
+    }
+}
