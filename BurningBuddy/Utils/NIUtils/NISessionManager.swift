@@ -79,7 +79,6 @@ class NISessionManager: NSObject, ObservableObject {
     
     func start() {
         print("start")
-//        myUUID = CoreDataManager.coreDM.readAllUser()[0].userID // TODO: - 여기가 nil
         myNickname = CoreDataManager.coreDM.readAllUser()[0].userName ?? "예시닉네임"
         startup()
     }
