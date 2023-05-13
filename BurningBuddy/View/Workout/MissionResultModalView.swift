@@ -8,11 +8,10 @@
 import Foundation
 import SwiftUI
 /**
- 특별한 로직은 필요 없을 것 같다.
- 왜냐하면, 특정한 조건에 나오는 뷰이기 때문이다.
  단, 됐어,,, 난 글렀어,,,를 탭했을 때, 덤벨 수를 증가시키지 않고 운동을 종료하는 것이 필요하다.
  */
 struct MissionResultModalView: View {
+    @EnvironmentObject var settings: UserSettings
     @Environment(\.presentationMode) var presentationMode
     @State var title: String = "title"
     @State var article: String = "article"
@@ -42,8 +41,7 @@ struct MissionResultModalView: View {
             Spacer()
             // 모달 뷰의 버튼
             HStack {
-                Button(action: {
-                    // 버튼을 눌렀을 때 수행할 액션
+                Button(action: { // left Button
                     presentationMode.wrappedValue.dismiss()
                     
                 }, label: {
@@ -51,9 +49,9 @@ struct MissionResultModalView: View {
                 })
                 .buttonStyle(GrayButtonStyle())
                 
-                Button(action: {
-                    // 버튼을 눌렀을 때 수행할 액션
+                Button(action: { // right Button
                     wantQuitWorkout = true
+                    settings.isWorkouting = false // 운동중 변수를 false로 만들어준다.
                     presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text(rightButtonName)

@@ -152,6 +152,7 @@ struct SearchPartnerView: View {
                 },
                 secondaryButton: .cancel(Text("착용했어요")) {
 //                  settings.partnerID = niObject.bumpedID
+                    settings.isWorkouting = true
                     self.beforeStart = false
                     self.isNextButtonTapped = true
                     settings.workoutData.setWorkoutStartTime()

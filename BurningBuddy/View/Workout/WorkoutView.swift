@@ -93,7 +93,7 @@ struct WorkoutView: View {
                 MissionResultModalView(title: "아직 목표량을 채우지 못했어요!", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼게요", rightButtonName: "그만할래요", wantQuitWorkout: $isNextButtonTapped)
                     .presentationDetents([.fraction(0.4)])
                     .background(Color.backgroundColor)
-                    
+                    .environmentObject(settings)
             }
         }
     }

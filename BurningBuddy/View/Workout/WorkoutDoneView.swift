@@ -111,6 +111,8 @@ struct WorkoutDoneView: View {
                 MissionResultModalView(title: "아직 목표량을 채우지 못했어요", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼께요", rightButtonName: "그만할래요", wantQuitWorkout: $isFailNext )
                     .presentationDetents([.fraction(0.4)])
                     .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+                    .environmentObject(settings)
+              //  TODO: - 수정
             }
         }
         .navigationBarHidden(true)

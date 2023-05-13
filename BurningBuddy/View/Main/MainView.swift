@@ -157,12 +157,12 @@ struct MainView: View {
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                 Spacer()
                 Spacer()
-                if settings.hasPartner {
+                if settings.isWorkouting {
                     NavigationLink(
                         destination: WorkoutView(mainViewNavLinkActive: $mainViewNavLinkActive).environmentObject(settings),
                         isActive: $mainViewNavLinkActive,
                         label: {
-                            Text(settings.hasPartner ? "운동 종료하기" : "운동 시작하기")
+                            Text("운동 종료하기")
                         })
                     .buttonStyle(RedButtonStyle())
                 } else {
@@ -170,7 +170,7 @@ struct MainView: View {
                         destination: SearchPartnerView(mainViewNavLinkActive: $mainViewNavLinkActive).environmentObject(settings),
                         isActive: $mainViewNavLinkActive,
                         label: {
-                            Text(settings.hasPartner ? "운동 종료하기" : "운동 시작하기")
+                            Text("운동 시작하기")
                         })
                     .buttonStyle(RedButtonStyle())
                 }
