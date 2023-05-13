@@ -11,24 +11,26 @@ import SwiftUI
 struct CalorieSettingView: View {
     @EnvironmentObject var settings: UserSettings
     @State private var firstSliderDrag: Bool = false
-    @State private var sliderValue: Double = 200
     @State private var sliderMessage: String = "목표 칼로리를 설정해주세요!"
     @State private var userLevel = "초급자"
+    @State var sliderValue: Double = 200
+    @State var isTopButtonHidden: Bool = false
     
     var body: some View {
         
         VStack {
-            Button(action: {
-                settings.pageNum -= 1
-            }, label: {
-                Image(systemName: "chevron.left")
-                    .resizable()
-                    .frame(width: 10, height: 19)
-            })
-            .foregroundColor(Color.mainTextColor)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-            
+            if !isTopButtonHidden {
+                Button(action: {
+                    settings.pageNum -= 1
+                }, label: {
+                    Image(systemName: "chevron.left")
+                        .resizable()
+                        .frame(width: 10, height: 19)
+                })
+                .foregroundColor(Color.mainTextColor)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+            }
             Text("목표 칼로리를 \n설정해주세요")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(Color.mainTextColor)
