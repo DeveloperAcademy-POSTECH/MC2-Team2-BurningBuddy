@@ -59,7 +59,7 @@ class NISessionManager: NSObject, ObservableObject {
     // 나의 정보
     @Published var myNickname : String = ""
     @Published var isDoneTargetCalories: Bool = false
-    @Published var myUUID: UUID = UUID()
+    @Published var myUUID: UUID = CoreDataManager.coreDM.readAllUser()[0].userID
     
     // 범프된 상대 정보
     @Published var bumpedName = ""
@@ -79,7 +79,7 @@ class NISessionManager: NSObject, ObservableObject {
     
     func start() {
         print("start")
-        myUUID = CoreDataManager.coreDM.readAllUser()[0].userID
+//        myUUID = CoreDataManager.coreDM.readAllUser()[0].userID // TODO: - 여기가 nil
         myNickname = CoreDataManager.coreDM.readAllUser()[0].userName ?? "예시닉네임"
         startup()
     }
@@ -203,7 +203,7 @@ class NISessionManager: NSObject, ObservableObject {
     }
     
     func shareMyDiscoveryToken(token: NIDiscoveryToken, peer: MCPeerID) {
-      let tranData = TranData(token: token, uuid: myUUID) // TODO: - uuid 들어가야하는 거 맞나?
+      let tranData = TranData(token: token, uuid: myUUID) // TODO: - TranData의 UUID가 Nil - 후보 1. (uuid 들어가야하는 거 맞나?)
         
         guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: tranData, requiringSecureCoding: false) else {
             return
@@ -213,7 +213,7 @@ class NISessionManager: NSObject, ObservableObject {
     }
     
     func shareMyData(token: NIDiscoveryToken, peer: MCPeerID) {
-      let tranData = TranData(token: token, isBumped: true, nickname: myNickname, uuid: myUUID)
+      let tranData = TranData(token: token, isBumped: true, nickname: myNickname, uuid: myUUID) // TODO: - TranData의 UUID가 Nil - 후보 2.
         
         guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: tranData, requiringSecureCoding: false) else {
             return
