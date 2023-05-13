@@ -14,15 +14,14 @@ class UserSettings: ObservableObject {
     @Published var level: Int16 = 1
     @Published var nickName: String = "박루나"
     @Published var totalDumbbell: Int16 = 0
-    @Published var totalWorkoutTime: String = ""
-    @Published var todayCalories: Int16 = 0
+    var totalWorkoutTime: String = ""
+    var todayCalories: Int16 = 0
     @Published var goalCalories: Int16 = 0
     @Published var hasPartner: Bool = false
     @Published var partnerID: UUID?
     
     @Published var isWorkouting: Bool = false
-    @Published var isDoneWorkout: Bool = false
-    
+    var isDoneWorkout: Bool = false
     @Published var showOnboarding: Bool = true
     @Published var isDoneTogetherWorkout: Bool = false
     var workoutData = WorkoutData() // published로 해야될 수도 있음

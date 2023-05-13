@@ -55,6 +55,7 @@
 		3E6C34D52A08C8D100F1CBFF /* Bunny+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bunny+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3E6C34D62A08C8D100F1CBFF /* Bunny+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bunny+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		69AB2F4D2A08A42100C1FAA0 /* WorkoutData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutData.swift; sourceTree = "<group>"; };
+		69B3CF6C2A0E5F89006A5574 /* BurningBuddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BurningBuddy.entitlements; sourceTree = "<group>"; };
 		B80518E12A088CAC00D12915 /* NISessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NISessionManager.swift; sourceTree = "<group>"; };
 		B80518E42A088CDE00D12915 /* MPCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSession.swift; sourceTree = "<group>"; };
 		B80518E62A088D2300D12915 /* LocalNetworkAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkAuthorization.swift; sourceTree = "<group>"; };
@@ -184,6 +185,7 @@
 		C91BB6E72A00BDC0009FAA86 /* BurningBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				69B3CF6C2A0E5F89006A5574 /* BurningBuddy.entitlements */,
 				C91444442A01799700E6202D /* Info.plist */,
 				C91BB6E82A00BDC0009FAA86 /* BurningBuddyApp.swift */,
 				B80518DF2A088B3A00D12915 /* Resources */,
@@ -532,10 +534,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BurningBuddy/BurningBuddy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BurningBuddy\"";
-				DEVELOPMENT_TEAM = GZMCL5Q7N2;
+				DEVELOPMENT_TEAM = RXP67AQN3R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BurningBuddy/Info.plist;
@@ -568,10 +571,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BurningBuddy/BurningBuddy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BurningBuddy\"";
-				DEVELOPMENT_TEAM = GZMCL5Q7N2;
+				DEVELOPMENT_TEAM = RXP67AQN3R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BurningBuddy/Info.plist;
