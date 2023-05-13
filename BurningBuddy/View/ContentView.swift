@@ -93,11 +93,6 @@ struct ContentView: View {
             
             UserDefaults.standard.set(Date(), forKey: lastLaunchDateKey)
             
-            //formatter.dateFormat = "HH시 mm분 ss초"
-            //let result = formatter.string(from: Date())
-            //print(result)
-            // 새로운 하루가 시작된다면 user default에 저장된 partner의 정보 초기화 & coreData의 나의 운동 기록 초기화
-            //resetData(result: result)
         } // onAppear
         
     }
