@@ -18,8 +18,8 @@ class UserSettings: ObservableObject {
     @Published var goalCalories: Int16 = 0
     
     // TODO: totalWorkoutTime, todayCalories -> CoreData값으로 바꿔줘야 함
-    var totalWorkoutTime: String = ""
-    var todayCalories: Int16 = 0
+//    var totalWorkoutTime: String = ""
+//    var todayCalories: Int16 = 0
     
     var isDoneTogetherWorkout: Bool = false // 둘 다 운동을 했는지 check
     var workoutData = WorkoutData() // published로 해야될 수도 있음
@@ -76,8 +76,10 @@ struct ContentView: View {
                 
                 self.settings.level = CoreDataManager.coreDM.readAllBunny()[0].level
                 self.settings.nickName = CoreDataManager.coreDM.readAllUser()[0].userName ?? "Username"
-                self.settings.totalWorkoutTime = CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours
-                self.settings.todayCalories = CoreDataManager.coreDM.readAllUser()[0].todayCalories
+                CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00:00"
+                CoreDataManager.coreDM.readAllUser()[0].todayCalories = 0
+                //self.settings.totalWorkoutTime = CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours
+                //self.settings.todayCalories = CoreDataManager.coreDM.readAllUser()[0].todayCalories
                 self.settings.goalCalories = CoreDataManager.coreDM.readAllUser()[0].goalCalories
             }
             
@@ -109,10 +111,10 @@ struct ContentView: View {
         UserDefaults.standard.set(false, forKey: "isDoneWorkout")
         UserDefaults.standard.set("", forKey: "partnerID")
         
-        settings.todayCalories = 0
+        //settings.todayCalories = 0
         CoreDataManager.coreDM.readAllUser()[0].todayCalories = 0
         settings.isDoneTogetherWorkout = false
-        settings.totalWorkoutTime = "00:00"
+        //settings.totalWorkoutTime = "00:00"
         CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00:00"
         
         
