@@ -12,11 +12,18 @@ import SwiftUI
  만약 데이터가 없거나, 목표 달성을 하지 못한 것이 감지되는 경우,
  MissionModal을 띄워줘야 한다. 이 로직은 목표달성 확인하기 button action에서 해야 한다.
  단, 길어질 경우, 새로운 메서드 안에서 이 과정을 실행해야 한다.
+ 
+ isDoneTogetherWorkout 변수를 settings에서 달성 여부를 판단해서 가지고 있어야 한다.
+
  */
 struct WorkoutDoneView: View {
     @EnvironmentObject var settings: UserSettings
     @State var isNotDoneWorkoutPopup = false
-    @State private var tag: Int? = nil
+    @State private var isFailWorkout: Bool = false
+    @State private var isSuccessWorkout: Bool = false
+    @State private var isSuccessNext: Bool = false
+    @State private var isFailNext: Bool = false
+    @Binding var mainViewNavLinkActive: Bool
     
     @StateObject private var niObject = NISessionManager()
     @State private var isLaunched = true
@@ -48,43 +55,61 @@ struct WorkoutDoneView: View {
                     .foregroundColor(Color.bunnyColor)
             }
             Spacer()
-//            if settings.isDoneTogetherWorkout {
-                NavigationLink(destination: getDestination()) { // destination이 달라야 한다. 모달이 뜨기 전에 화면 이동이 될 수도 있다.
-                    Text("목표달성 확인하기")
-                }
-                .buttonStyle(RedButtonStyle())
-                Button(action: {
-//                    self.tag = 1
-                    
-                    // TODO: - 루나웨스트 NISession 연결 후, 연결된 peer의 uuid가 저장되어있는 settings.partnerID와 일치하는지 확인
-                }) {
-                    EmptyView()
-                }
-//            } else {
-//                NavigationLink(destination: WorkoutFailView(), tag: 0, selection: self.$tag) { // destination이 달라야 한다. 모달이 뜨기 전에 화면 이동이 될 수도 있다.
-//                    Text("목표달성 확인하기")                }
+//<<<<<<< HEAD
+////            if settings.isDoneTogetherWorkout {
+//                NavigationLink(destination: getDestination()) { // destination이 달라야 한다. 모달이 뜨기 전에 화면 이동이 될 수도 있다.
+//                    Text("목표달성 확인하기")
+//                }
 //                .buttonStyle(RedButtonStyle())
 //                Button(action: {
-//                    // TODO: - 루나웨스트 NISession 연결 후, peer의 uuid가 저장되어있는 settings.partnerID와 일치하는지 확인
-//                    // 일치하면 isDoneTogetherWorkout을 true로 변경
-//                    isNotDoneWorkoutPopup = true
+////                    self.tag = 1
+//
+//                    // TODO: - 루나웨스트 NISession 연결 후, 연결된 peer의 uuid가 저장되어있는 settings.partnerID와 일치하는지 확인
 //                }) {
 //                    EmptyView()
 //                }
-//            }
+////            } else {
+////                NavigationLink(destination: WorkoutFailView(), tag: 0, selection: self.$tag) { // destination이 달라야 한다. 모달이 뜨기 전에 화면 이동이 될 수도 있다.
+////                    Text("목표달성 확인하기")                }
+////                .buttonStyle(RedButtonStyle())
+////                Button(action: {
+////                    // TODO: - 루나웨스트 NISession 연결 후, peer의 uuid가 저장되어있는 settings.partnerID와 일치하는지 확인
+////                    // 일치하면 isDoneTogetherWorkout을 true로 변경
+////                    isNotDoneWorkoutPopup = true
+////                }) {
+////                    EmptyView()
+////                }
+////            }
+//=======
+            if settings.isDoneTogetherWorkout {
+                NavigationLink(isActive: $isSuccessNext, destination: {
+                  getDestination()
+                }, label: {
+                    Button("목표달성 확인하기") {
+                        print("Navi link 안")
+                        self.isSuccessNext = true
+                    }.buttonStyle(RedButtonStyle())
+                })
+            } else {
+                NavigationLink(isActive: $isFailNext, destination: {
+                  getDestination() // TODO: 중복 코드 제거
+                }, label: {
+                    Button("목표달성 확인하기") {
+                        // 목표량 달성 여부 확인 메서드 필요한 곳
+                        self.isNotDoneWorkoutPopup = true
+                        print("Navi link 안")
+                    }.buttonStyle(RedButtonStyle())
+                })
+            }
+//>>>>>>> 508c671cced6921d12b6a0a2a70fcc14aa70b4d6
            
         }
-        .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
+        .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color(red: 30/255, green: 28/255, blue: 29/255))
         .sheet(isPresented: self.$isNotDoneWorkoutPopup) {
             if #available(iOS 16.0, *) {
-                MissionResultModalView(title: "아직 목표량을 채우지 못했어요", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼께요", rightButtonName: "그만할래요", tag: $tag)
-                // 하위 모달에서 상위 뷰에 값을 전달해야 한다. leftbutton, rightbutton 각각을 눌렀을 때 다른 값을 1, 2를 전달해야 한다.
+                MissionResultModalView(title: "아직 목표량을 채우지 못했어요", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼께요", rightButtonName: "그만할래요", wantQuitWorkout: $isFailNext )
                     .presentationDetents([.fraction(0.4)])
-                    .background(Color(red: 30/255, green: 28/255, blue: 29/255))
-            } else {
-                // Fallback on earlier versions
-                MissionResultModalView(title: "아직 목표량을 채우지 못했어요", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼께요", rightButtonName: "그만할래요", tag: $tag)
                     .background(Color(red: 30/255, green: 28/255, blue: 29/255))
             }
         }
@@ -120,20 +145,20 @@ struct WorkoutDoneView: View {
     startNI()
     // peer의 uuid가 저장되어있는 settings.partnerID와 일치하는지 확인
     if settings.isDoneTogetherWorkout {
-      return AnyView(WorkoutSuccessView())
+      return AnyView(WorkoutSuccessView(mainViewNavLinkActive: $mainViewNavLinkActive))
     }
     else {
-      return AnyView(WorkoutFailView())
+      return AnyView(WorkoutFailView(mainViewNavLinkActive: $mainViewNavLinkActive))
     }
   }
 }
 
-
-struct WorkoutDoneView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        WorkoutDoneView()
-            .environmentObject(UserSettings())
-    }
-}
+//
+//struct WorkoutDoneView_Previews: PreviewProvider {
+//    
+//    static var previews: some View {
+//        WorkoutDoneView()
+//            .environmentObject(UserSettings())
+//    }
+//}
 

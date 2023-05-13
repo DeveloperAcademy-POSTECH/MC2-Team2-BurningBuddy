@@ -19,6 +19,7 @@ struct MissionCongratsComponent: View {
     @State var imageName: String
     @State var buttonName: String
     @State var imageTiltValue: Int
+    @Binding var mainViewNavLinkActive: Bool
     /**
      운동을 성공적으로 종료한 것을 감지하는 변수 필요
      */
@@ -47,19 +48,20 @@ struct MissionCongratsComponent: View {
             
             Spacer()
             Button(buttonName, action: {
+                mainViewNavLinkActive = false
             })
             .buttonStyle(RedButtonStyle())
         }
-        .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
+        .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color.backgroundColor)
         .navigationBarHidden(true)
     }
 }
 
 
-struct MissionCongratsView_Previews: PreviewProvider {
-    static var previews: some View {
-        MissionCongratsComponent(title: "축하해요!🎉\n목표달성에 성공했어요!", article: "나의 파트너가 모두 목표 달성에\n성공해, 핑크덤벨 하나를 선물로 드려요!", imageName: "dumbbell.fill", buttonName: "메인으로 가기", imageTiltValue: -45)
-    }
-}
+//struct MissionCongratsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MissionCongratsComponent(title: "축하해요!🎉\n목표달성에 성공했어요!", article: "나의 파트너가 모두 목표 달성에\n성공해, 핑크덤벨 하나를 선물로 드려요!", imageName: "dumbbell.fill", buttonName: "메인으로 가기", imageTiltValue: -45, mainViewNavLinkActive: $mainViewNavLinkActive)
+//    }
+//}
 

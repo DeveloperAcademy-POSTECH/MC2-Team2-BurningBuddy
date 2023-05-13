@@ -14,7 +14,10 @@ import SwiftUI
  */
 struct WorkoutView: View {
     @EnvironmentObject var settings: UserSettings
-    @State private var tag: Int? = nil
+
+    @State private var isNotDoneWorkout: Bool = false
+    @State private var isNextButtonTapped: Bool = false
+    @Binding var mainViewNavLinkActive: Bool
     
     var body: some View {
         VStack {
@@ -51,30 +54,44 @@ struct WorkoutView: View {
                     .foregroundColor(Color.bunnyColor)
             }
             Spacer()
-//            Button("운동 완료하기", action: {
-//                // Alert창. 파트너의 운동기록이 없거나 내 운동 종료 기록이 없으면 Alert 창이 다르게 떠야 함.
-//            })
-//            .buttonStyle(RedButtonStyle())
-//
-            NavigationLink(destination: WorkoutDoneView(), tag: 1, selection: self.$tag) {
-                Text("운동 완료하기")
-            }
-            .buttonStyle(RedButtonStyle())
-            Button(action: {
-                self.tag = 1
-            }) {
-                EmptyView()
-            }
+            NavigationLink(isActive: $isNextButtonTapped, destination: {
+                WorkoutDoneView(mainViewNavLinkActive: $mainViewNavLinkActive)
+            }, label: {
+                Button("운동 종료하기") {
+                    // 목표량 달성 여부 확인 메서드 필요한 곳
+                    
+                    print("Navi link 안")
+                    // 운동 데이터 가져오기
+                    settings.workoutData.fetchAfterWorkoutTime()
+                  DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    settings.todayCalories = Int16(settings.workoutData.workoutCalorie)
+                    settings.totalWorkoutTime = settings.workoutData.workoutDuration
+                    self.isNotDoneWorkout = true
+                  }
+// TODO: - 목표치 채웠는지 확인하고, 채웠으면 연결, 못 채웠으면 모달창 뜨게 하기
+                    
+                    
+                }.buttonStyle(RedButtonStyle())
+            })
         }
         .navigationBarHidden(true)
-        .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
+        .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color.backgroundColor) // 고급진 까만것이 필요할 듯
+        .sheet(isPresented: self.$isNotDoneWorkout) {
+            if #available(iOS 16.0, *) {
+                MissionResultModalView(title: "아직 목표량을 채우지 못했어요!", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼게요", rightButtonName: "그만할래요", wantQuitWorkout: $isNextButtonTapped)
+                    .presentationDetents([.fraction(0.4)])
+                    .background(Color.backgroundColor)
+                    
+            }
+        }
     }
 }
 
 
 struct WorkoutView_Previews: PreviewProvider {
+    @State static var value: Bool = true
     static var previews: some View {
-        WorkoutView().environmentObject(UserSettings())
+        WorkoutView(mainViewNavLinkActive: $value).environmentObject(UserSettings())
     }
 }

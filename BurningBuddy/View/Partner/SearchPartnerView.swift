@@ -27,6 +27,7 @@ struct SearchPartnerView: View {
     @State private var startWorkout: Bool = false
     @State private var tag:Int? = nil
     @State var isNextButtonTapped = false
+    @Binding var mainViewNavLinkActive: Bool
     
     private let localNetAuth = LocalNetworkAuthorization() // MPC를 위한 객체생성
     
@@ -101,11 +102,12 @@ struct SearchPartnerView: View {
                     })
                     .buttonStyle(GrayButtonStyle())
                     NavigationLink(isActive: $isNextButtonTapped, destination: {
-                        WorkoutView()
+                        WorkoutView(mainViewNavLinkActive: $mainViewNavLinkActive)
                     }, label: {
                         Button("연결하기") {
                             self.beforeStart = true
                             UserDefaults.standard.set(true, forKey: "isWorkouting")
+                            print("Navi link 안")
                         }.buttonStyle(RedButtonStyle())
                     })
                 }
@@ -139,10 +141,6 @@ struct SearchPartnerView: View {
                 NotFoundPartnerView()
                     .presentationDetents([.fraction(0.4)])
                     .background(Color.backgroundColor)
-            } else {
-                // Fallback on earlier versions
-                NotFoundPartnerView()
-                    .background(Color.backgroundColor)
             }
         }
         .alert(isPresented:$beforeStart) {
@@ -153,8 +151,10 @@ struct SearchPartnerView: View {
                     print("tap cancel")
                 },
                 secondaryButton: .cancel(Text("착용했어요")) {
-                    settings.partnerID = niObject.bumpedID // 상대방의 uuid 저장
-                      self.isNextButtonTapped = true // 이걸로 다음 페이지로 이동을 하는데, 이게 문제이긴 함
+//                  settings.partnerID = niObject.bumpedID
+                    self.beforeStart = false
+                    self.isNextButtonTapped = true
+                    settings.workoutData.setWorkoutStartTime()
                 }
             )
         }
@@ -164,9 +164,9 @@ struct SearchPartnerView: View {
 }
 
 
-
-struct SearchPartnerView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchPartnerView()
-    }
-}
+//
+//struct SearchPartnerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchPartnerView()
+//    }
+//}
