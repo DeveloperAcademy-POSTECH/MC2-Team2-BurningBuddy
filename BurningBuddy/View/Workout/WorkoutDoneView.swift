@@ -14,15 +14,12 @@ import SwiftUI
  단, 길어질 경우, 새로운 메서드 안에서 이 과정을 실행해야 한다.
  
  isDoneTogetherWorkout 변수를 settings에서 달성 여부를 판단해서 가지고 있어야 한다.
-
+ 
  */
 struct WorkoutDoneView: View {
     @EnvironmentObject var settings: UserSettings
     @State var isNotDoneWorkoutPopup = false
-    @State private var isFailWorkout: Bool = false
-    @State private var isSuccessWorkout: Bool = false
     @State private var isSuccessNext: Bool = false
-    @State private var isFailNext: Bool = false
     @Binding var mainViewNavLinkActive: Bool
     
     @StateObject private var niObject = NISessionManager()
@@ -55,70 +52,39 @@ struct WorkoutDoneView: View {
                     .foregroundColor(Color.bunnyColor)
             }
             Spacer()
-//<<<<<<< HEAD
-////            if settings.isDoneTogetherWorkout {
-//                NavigationLink(destination: getDestination()) { // destination이 달라야 한다. 모달이 뜨기 전에 화면 이동이 될 수도 있다.
-//                    Text("목표달성 확인하기")
-//                }
-//                .buttonStyle(RedButtonStyle())
-//                Button(action: {
-////                    self.tag = 1
-//
-//                    // TODO: - 루나웨스트 NISession 연결 후, 연결된 peer의 uuid가 저장되어있는 settings.partnerID와 일치하는지 확인
-//                }) {
-//                    EmptyView()
-//                }
-////            } else {
-////                NavigationLink(destination: WorkoutFailView(), tag: 0, selection: self.$tag) { // destination이 달라야 한다. 모달이 뜨기 전에 화면 이동이 될 수도 있다.
-////                    Text("목표달성 확인하기")                }
-////                .buttonStyle(RedButtonStyle())
-////                Button(action: {
-////                    // TODO: - 루나웨스트 NISession 연결 후, peer의 uuid가 저장되어있는 settings.partnerID와 일치하는지 확인
-////                    // 일치하면 isDoneTogetherWorkout을 true로 변경
-////                    isNotDoneWorkoutPopup = true
-////                }) {
-////                    EmptyView()
-////                }
-////            }
-//=======
-            if settings.isDoneTogetherWorkout {
-                NavigationLink(isActive: $isSuccessNext, destination: {
-                  getDestination()
-                }, label: {
-                    Button("목표달성 확인하기") {
-                        print("Navi link 안")
-                        self.isSuccessNext = true
-                    }.buttonStyle(RedButtonStyle())
-                })
-            } else {
-                NavigationLink(isActive: $isFailNext, destination: {
-                  getDestination() // TODO: 중복 코드 제거
-                }, label: {
-                    Button("목표달성 확인하기") {
-                        // 목표량 달성 여부 확인 메서드 필요한 곳
-                        self.isNotDoneWorkoutPopup = true
-                        print("Navi link 안")
-                    }.buttonStyle(RedButtonStyle())
-                })
-            }
-//>>>>>>> 508c671cced6921d12b6a0a2a70fcc14aa70b4d6
-           
+            NavigationLink(isActive: $isSuccessNext, destination: {
+                if settings.isDoneTogetherWorkout {
+                    WorkoutSuccessView(mainViewNavLinkActive: $mainViewNavLinkActive)
+                } else {
+                    WorkoutFailView(mainViewNavLinkActive: $mainViewNavLinkActive)
+                }
+                
+            }, label: {
+                Button("목표달성 확인하기") {
+                    print("Navi link 안")
+                    // 상대방이 운동을 달성했는지 확인하는 부분
+                    startNI()
+//                    self.isSuccessNext = true
+                }.buttonStyle(RedButtonStyle())
+            })
+            
         }
         .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color(red: 30/255, green: 28/255, blue: 29/255))
         .sheet(isPresented: self.$isNotDoneWorkoutPopup) {
             if #available(iOS 16.0, *) {
-              MissionResultModalView(title: "파트너가 아직 운동 중이에요!", article: "운동을 마칠 때까지 응원해주세요!", leftButtonName: "", rightButtonName: "알겠어요", wantQuitWorkout: $isFailNext )
+                MissionResultModalView(title: "파트너가 아직 운동 중이에요!", article: "운동을 마칠 때까지 응원해주세요!", leftButtonName: "알겠어요", rightButtonName: "그만할래요", wantQuitWorkout: $isSuccessNext )
                     .presentationDetents([.fraction(0.4)])
                     .background(Color(red: 30/255, green: 28/255, blue: 29/255))
                     .environmentObject(settings)
-              //  TODO: - 수정
+                //  TODO: - 수정
             }
         }
         .navigationBarHidden(true)
     }
     
     private func startNI() {
+        
         switch niObject.findingPartnerState {
         case .ready:
             niObject.start()
@@ -131,28 +97,42 @@ struct WorkoutDoneView: View {
             }
         case .finding:
             niObject.stop()
+            
+            //print("상대방 ID : \(settings.partnerID!)")
             niObject.findingPartnerState = .ready
         case .found:
-          if niObject.bumpedID == settings.partnerID {
-            settings.isDoneTogetherWorkout = true
-          } else {
-            settings.isDoneTogetherWorkout = false
-          }
+            // 상대방이 맞으면
+            if niObject.bumpedID?.uuidString == UserDefaults.standard.string(forKey: "partnerID") {
+                // 나와 상대방 모두가 목표량을 달성했는지를 확인하는 부분
+                if !niObject.bumpedIsDoneTargetCalories || UserDefaults.standard.bool(forKey: "isDoneWorkout") {
+                    self.settings.isDoneTogetherWorkout = false
+                } else {
+                    self.settings.isDoneTogetherWorkout = true
+                }
+                self.isSuccessNext = true
+
+                print("상대방 ID : \(settings.partnerID)")
+                print("StartNI 내부 메서드 isDoneTogetherWorkout 값 : \(self.settings.isDoneTogetherWorkout)")
+                
+            } else { // 상대방이 아니면
+                niObject.findingPartnerState = .finding
+                print("상대방을 찾지 못함")
+            }
             niObject.stop()
             niObject.findingPartnerState = .ready
         }
     }
-  
-  private func getDestination() -> AnyView {
-    startNI()
-    // peer의 uuid가 저장되어있는 settings.partnerID와 일치하는지 확인
-    if settings.isDoneTogetherWorkout {
-      return AnyView(WorkoutSuccessView(mainViewNavLinkActive: $mainViewNavLinkActive))
-    }
-    else {
-      return AnyView(WorkoutFailView(mainViewNavLinkActive: $mainViewNavLinkActive))
-    }
-  }
+    
+    //  private func getDestination() -> some View {
+    //    startNI()
+    //    // peer의 uuid가 저장되어있는 settings.partnerID와 일치하는지 확인
+    //    if settings.isDoneTogetherWorkout {
+    //      return AnyView(WorkoutSuccessView(mainViewNavLinkActive: $mainViewNavLinkActive))
+    //    }
+    //    else {
+    //      return AnyView(WorkoutFailView(mainViewNavLinkActive: $mainViewNavLinkActive))
+    //    }
+    //  }
 }
 
 //

@@ -9,26 +9,29 @@ import SwiftUI
 import CoreData
 
 class UserSettings: ObservableObject {
+    @Published var showOnboarding: Bool = true
     @Published var pageNum: Int = 0
-    @Published var characterName: String = "웨스트"
+    @Published var characterName: String = "캐릭터 이름"
     @Published var level: Int16 = 1
-    @Published var nickName: String = "박루나"
+    @Published var nickName: String = "사람 이름"
     @Published var totalDumbbell: Int16 = 0
+    @Published var goalCalories: Int16 = 0
+    
     var totalWorkoutTime: String = ""
     var todayCalories: Int16 = 0
-    @Published var goalCalories: Int16 = 0
-    @Published var partnerID: UUID?
-    @Published var isWorkouting: Bool = false
-    var isDoneWorkout: Bool = false
-    @Published var showOnboarding: Bool = true
-    @Published var isDoneTogetherWorkout: Bool = false
+//    var isWorkouting: Bool = false // 운동 중인지 check
+//    var isDoneWorkout: Bool = false // 운동을 완료했는지 check
+    var isDoneTogetherWorkout: Bool = false // 둘 다 운동을 했는지 check
     var workoutData = WorkoutData() // published로 해야될 수도 있음
+    
+    var partnerID: String = ""
 }
 
 struct ContentView: View {
-    @State private var showOnboarding: Bool = UserDefaults.standard.bool( forKey: "showOnboarding")
+    @State private var showOnboarding: Bool = UserDefaults.standard.bool(forKey: "showOnboarding")
     @State var isWorkouting = UserDefaults.standard.bool(forKey: "isWorkouting")
     @State var isDoneWorkout = UserDefaults.standard.bool(forKey: "isDoneWorkout")
+    
     
     // @ObservedObject var settings = UserSettings()
     @ObservedObject var settings = UserSettings()

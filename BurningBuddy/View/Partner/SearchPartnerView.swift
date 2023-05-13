@@ -113,6 +113,7 @@ struct SearchPartnerView: View {
                         Button("운동 시작하기") {
                             self.beforeStart = true
                             UserDefaults.standard.set(true, forKey: "isWorkouting")
+                            UserDefaults.standard.set(niObject.bumpedID?.uuidString, forKey: "partnerID") // 파트너의 UUID값을 user default에 저장
                             print("Navi link 안")
                         }.buttonStyle(RedButtonStyle())
                     })
@@ -158,7 +159,7 @@ struct SearchPartnerView: View {
                 },
                 secondaryButton: .cancel(Text("착용했어요")) {
 //                  settings.partnerID = niObject.bumpedID
-                    settings.isWorkouting = true
+                    UserDefaults.standard.set(true, forKey: "isWorkouting") // 사용자가 운동 중인지 userdefault에 저장
                     self.beforeStart = false
                     self.isNextButtonTapped = true
                     settings.workoutData.setWorkoutStartTime()
