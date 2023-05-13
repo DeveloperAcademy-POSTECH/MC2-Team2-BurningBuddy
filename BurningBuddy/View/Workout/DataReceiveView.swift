@@ -13,19 +13,20 @@ struct DataReceiveView: View {
     @State var notFoundPartner: Bool = false // 모달용
     
     @State private var beforeStart: Bool = false
-    @StateObject private var niObject = NISessionManager()
+    @StateObject var niObject: NISessionManager
     @State private var isLaunched = true
     @State var isLocalNetworkPermissionDenied = false
     @State private var startWorkout: Bool = false
     @State private var tag:Int? = nil
     @State var isNextButtonTapped = false
     @Binding var isDataReceived: Bool
+    @Binding var checkPartner: Bool
     
     private let localNetAuth = LocalNetworkAuthorization() // MPC를 위한 객체생성
     
     var body: some View {
         VStack {
-            Text("내 파트너의 데이터를 \n가져오는 중이에요")
+            Text("내 파트너의 데이터를\n가져오는 중이에요!")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(Color.mainTextColor)
                 .font(.system(size: 28, weight: .bold, design: .default))
@@ -51,40 +52,10 @@ struct DataReceiveView: View {
             Spacer()
         }
         .onAppear{
-            switch niObject.findingPartnerState {
-            case .ready:
-                niObject.start()
-                niObject.findingPartnerState = .finding
-                if isLaunched {
-                    localNetAuth.requestAuthorization { auth in
-                        isLocalNetworkPermissionDenied = !auth
-                    }
-                    isLaunched = false
-                }
-            case .finding:
-                niObject.stop()
-                niObject.findingPartnerState = .ready
-            case .found:
-                if niObject.bumpedID?.uuidString == UserDefaults.standard.string(forKey: "partnerID") {
-                    // 나와 상대방 모두가 목표량을 달성했는지를 확인하는 부분
-                    if !niObject.bumpedIsDoneTargetCalories || UserDefaults.standard.bool(forKey: "isDoneWorkout") {
-                        self.settings.isDoneTogetherWorkout = false
-                    } else {
-                        self.settings.isDoneTogetherWorkout = true
-                    }
-                    self.isNextButtonTapped = true
-
-                    print("상대방 ID : \(UserDefaults.standard.string(forKey: "partnerID") ?? "no partnerID")")
-                    print("StartNI 내부 메서드 isDoneTogetherWorkout 값 : \(self.settings.isDoneTogetherWorkout)")
-                    
-                } else { // 상대방이 아니면
-                    niObject.findingPartnerState = .finding
-                    print("상대방을 찾지 못함")
-                }
-                niObject.stop()
-                niObject.findingPartnerState = .ready
-            }
+            print("DataReceiveView OnAppear 내부")
+            self.startNI()
         }
+        
         .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 25))
         .background(Color.backgroundColor)
         .sheet(isPresented: self.$notFoundPartner) {
@@ -98,7 +69,7 @@ struct DataReceiveView: View {
     } // end body
     
     private func startNI() {
-        
+        print("findingPartnerState : \(niObject.findingPartnerState)")
         switch niObject.findingPartnerState {
         case .ready:
             niObject.start()
@@ -115,6 +86,9 @@ struct DataReceiveView: View {
             //print("상대방 ID : \(settings.partnerID!)")
             niObject.findingPartnerState = .ready
         case .found:
+            if niObject.isBumped { // 통신이 됐다.
+                // TODO: -5월 14일: 웨스트 여기서부터 해보자~
+            }
             // 상대방이 맞으면
             if niObject.bumpedID?.uuidString == UserDefaults.standard.string(forKey: "partnerID") {
                 // 나와 상대방 모두가 목표량을 달성했는지를 확인하는 부분
@@ -123,10 +97,6 @@ struct DataReceiveView: View {
                 } else {
                     self.settings.isDoneTogetherWorkout = true
                 }
-                self.isSuccessNext = true
-
-                print("상대방 ID : \(UserDefaults.standard.string(forKey: "partnerID") ?? "no partnerID")")
-                print("StartNI 내부 메서드 isDoneTogetherWorkout 값 : \(self.settings.isDoneTogetherWorkout)")
                 
             } else { // 상대방이 아니면
                 niObject.findingPartnerState = .finding
@@ -134,15 +104,21 @@ struct DataReceiveView: View {
             }
             niObject.stop()
             niObject.findingPartnerState = .ready
+            // niObject.isBumped true일 때
+            // 모달이 내려가기 위한 부분 -> 이 부분이 실행되고.
+            self.isDataReceived = true
+            self.checkPartner = false
         }
+    }
 }
 
 
 
 struct DataReceiveView_Previews: PreviewProvider {
     @State static var value: Bool = true
+    @StateObject static var niObject = NISessionManager()
     static var previews: some View {
-        DataReceiveView(mainViewNavLinkActive: $value)
+        DataReceiveView(niObject: niObject, isDataReceived: $value, checkPartner: $value)
             .environmentObject(UserSettings())
     }
 }

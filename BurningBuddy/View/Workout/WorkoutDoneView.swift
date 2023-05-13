@@ -63,24 +63,34 @@ struct WorkoutDoneView: View {
             }, label: {
                 Button("목표달성 확인하기") {
                     print("Navi link 안")
-                    // 상대방이 운동을 달성했는지 확인하는 부분
-                    // TODO: 새로운 bump View를 만들어준다 -> 
-    
-                    if !niObject.isDoneTargetCalories {
-                        self.isNotDoneWorkoutPopup = true
+                    
+                    // TODO: DataReeiveView를 만들어준다 -> 모달 뷰(DataReeiveView) 띄우기 -> 상대방 데이터 통신 -> 모달 뷰 해제
+                    
+                    self.checkPartner = true // 모달뷰 띄우기
+                    if niObject.isBumped {
+                        self.checkPartner = false
+                        if !niObject.isDoneTargetCalories || UserDefaults.standard.bool(forKey: "isDoneWorkout") { // isDoneWorkout: 목표달성 여부 체크 부울값
+                            self.isNotDoneWorkoutPopup = true
+                        } else {
+                            self.isSuccessNext = true
+                        }
                     }
-                    print("niObject에 저장된 상대방 id", niObject.bumpedID?.uuidString ?? "값 없음")
-                    print("userDefalut에 저장된 상대방 id", UserDefaults.standard.string(forKey: "partnerID") ?? "값 없음")
-                    self.isSuccessNext = true
+                    
+                    
+                    // print("niObject에 저장된 상대방 id", niObject.bumpedID?.uuidString ?? "값 없음")
+                    // print("userDefalut에 저장된 상대방 id", UserDefaults.standard.string(forKey: "partnerID") ?? "값 없음")
+                    // 다음 뷰로 넘어가는 변수
                 }
                 .fullScreenCover(isPresented: self.$checkPartner, content: {
-                    DataReceiveView(isNextButtonTapped: $isDataReceived)
+                    // 상대방이 운동을 달성했는지 확인하는 부분
+                    DataReceiveView(niObject: niObject, isDataReceived: $isSuccessNext, checkPartner: $checkPartner) // TODO: - niObject가 같은 변수를 공유하는지 확인하기 - 잘 돌아간다고 치고
                         .environmentObject(settings)
                 })
+                
                 .buttonStyle(RedButtonStyle())
             })
-            
         }
+        
         .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color(red: 30/255, green: 28/255, blue: 29/255))
         .sheet(isPresented: self.$isNotDoneWorkoutPopup) {
