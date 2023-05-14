@@ -101,10 +101,48 @@ struct MainView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: -40, trailing: 20))
-                    Circle()
-                        .frame(width: 200, height: 250)
-                        .scaledToFill()
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+//                    Circle()
+//                        .frame(width: 200, height: 250)
+//                        .scaledToFill()
+//                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    
+                    switch settings.level {
+                    case 1:
+                        Image("Bunny_Level1_정면")
+                            .resizable()
+                            .frame(width: 315, height: 261)
+                    case 2:
+                        Image("Bunny_Level2_정면")
+                            .resizable()
+                            .frame(width: 315, height: 261)
+                    case 3:
+                        Image("Bunny_Level3_정면")
+                            .resizable()
+                            .frame(width: 315, height: 261)
+                    case 4:
+                        Image("Bunny_Level4_정면")
+                            .resizable()
+                            .frame(width: 315, height: 261)
+                    case 5:
+                        Image("Bunny_Level5_정면")
+                            .resizable()
+                            .frame(width: 315, height: 261)
+                    case 6:
+                        Image("Bunny_Level6_정면")
+                            .resizable()
+                            .frame(width: 315, height: 261)
+                    case 7:
+                        Image("Bunny_Level7_정면")
+                            .resizable()
+                            .frame(width: 315, height: 261)
+
+                    default:
+                        Text("레벨이 7을 초과")
+                    }
+                    
+                    
+                        
+                        
                     Spacer()
                 }
                 .background(Color.mainSection)
