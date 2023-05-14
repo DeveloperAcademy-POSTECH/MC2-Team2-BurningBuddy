@@ -21,22 +21,21 @@ struct SearchPartnerView: View {
     @State var partnerData: String = "상대방 닉네임" // TODO: - 데이터 타입 지정 필요
     
     @State private var beforeStart: Bool = false
-    @StateObject var niObject = NISessionManager()
-    @State var isLaunched = true
+    @StateObject private var niObject = NISessionManager()
+    @State private var isLaunched = true
     @State var isLocalNetworkPermissionDenied = false
     @State private var startWorkout: Bool = false
     @State private var tag:Int? = nil
     @State var isNextButtonTapped = false
     @Binding var mainViewNavLinkActive: Bool
     
-    let localNetAuth = LocalNetworkAuthorization() // MPC를 위한 객체생성
+    private let localNetAuth = LocalNetworkAuthorization() // MPC를 위한 객체생성
     
     var body: some View {
         
         VStack {
             switch(niObject.isBumped) {
             case false:
-                // 파트너를 찾을때 NI를 가져오면 됩니당 ~!!
                 Text("내 파트너를 \n찾는 중이에요")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(Color.mainTextColor)
@@ -108,12 +107,13 @@ struct SearchPartnerView: View {
                         niObject.findingPartnerState = .finding
                     })
                     .buttonStyle(GrayButtonStyle())
-                    
                     NavigationLink(isActive: $isNextButtonTapped, destination: {
                         WorkoutView(mainViewNavLinkActive: $mainViewNavLinkActive)
                     }, label: {
                         Button("운동 시작하기") {
                             self.beforeStart = true
+                            UserDefaults.standard.set(true, forKey: "isWorkouting")
+                            UserDefaults.standard.set(niObject.bumpedID?.uuidString, forKey: "partnerID") // 파트너의 UUID값을 user default에 저장
                             print("Navi link 안")
                         }.buttonStyle(RedButtonStyle())
                     })
@@ -123,8 +123,7 @@ struct SearchPartnerView: View {
             }
         }
         .onAppear{
-            switch niObject.findingPartnerState { // 이 로직을 어디로 변경해야하는가? -> 메인뷰의 운동 시작하기 버튼을 눌렀을 때 실행된다.
-                // TODO: - 중요!!! niObject .ready로 초기화, 버튼 없애고 화면 전환 시 NI 구현하기 !!!!
+            switch niObject.findingPartnerState {
             case .ready:
                 niObject.start()
                 niObject.findingPartnerState = .finding
@@ -159,6 +158,7 @@ struct SearchPartnerView: View {
                     print("tap cancel")
                 },
                 secondaryButton: .cancel(Text("착용했어요")) {
+                    UserDefaults.standard.set(true, forKey: "isWorkouting") // 사용자가 운동 중인지 userdefault에 저장
                     self.beforeStart = false
                     self.isNextButtonTapped = true
                     settings.workoutData.setWorkoutStartTime()

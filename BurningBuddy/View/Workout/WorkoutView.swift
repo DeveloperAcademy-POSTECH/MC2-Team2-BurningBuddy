@@ -14,9 +14,9 @@ import SwiftUI
  */
 struct WorkoutView: View {
     @EnvironmentObject var settings: UserSettings
-
+    
     @State private var isNotDoneWorkout: Bool = false
-    @State private var isNextButtonTapped: Bool = false
+    @State var isNextButtonTapped: Bool = false
     @Binding var mainViewNavLinkActive: Bool
     
     var body: some View {
@@ -66,25 +66,28 @@ struct WorkoutView: View {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         settings.todayCalories = Int16(settings.workoutData.workoutCalorie)
                         settings.totalWorkoutTime = settings.workoutData.workoutDuration
+                        // 나의 데이터를 CoreData에 저장
+                        CoreDataManager.coreDM.readAllUser()[0].todayCalories = settings.todayCalories
+                        CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = settings.totalWorkoutTime
+                        
                         print("workoutData 테스트 칼로리 : \(settings.todayCalories)")
                         print("workoutData 테스트 시간 : \(settings.totalWorkoutTime)")
-                         
-// TODO: - 목표치 채웠는지 확인하고, 채웠으면 연결, 못 채웠으면 모달창 뜨게 하기
-//                        settings.todayCalories += 150
+                        // TODO: - 목표치 채웠는지 확인하고, 채웠으면 연결, 못 채웠으면 모달창 뜨게 하기
+                        //                        settings.todayCalories += 150
                         // 운동한 칼로리가 목표치를 넘었는지
                         print("목표 칼로리 = \(settings.goalCalories)")
                         if settings.goalCalories < settings.todayCalories {
-                        // 넘었다면 불값 변경해주고, 칼로리 기록(코어데이터?)?하고 파트너와 재연결(수고하셨어요) 뷰로 넘어가기
-                            settings.isDoneWorkout = true
+                            // 넘었다면 불값 변경해주고, 칼로리 기록(코어데이터?)?하고 파트너와 재연결(수고하셨어요) 뷰로 넘어가기
+                            UserDefaults.standard.set(true, forKey: "isDoneWorkout")
+                            UserDefaults.standard.set(false, forKey: "isWorkouting")
+                            
                             isNextButtonTapped = true
                         }
                         else {
-                        // 넘지 못하면 모달 뷰 띄우기
+                            // 넘지 못하면 모달 뷰 띄우기
                             self.isNotDoneWorkout = true
                         }
                     }
-                    
-                    
                 }.buttonStyle(RedButtonStyle())
             })
         }
@@ -96,10 +99,9 @@ struct WorkoutView: View {
                 MissionResultModalView(title: "아직 목표량을 채우지 못했어요!", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼게요", rightButtonName: "그만할래요", wantQuitWorkout: $isNextButtonTapped)
                     .presentationDetents([.fraction(0.4)])
                     .background(Color.backgroundColor)
-                    
+                    .environmentObject(settings)
             }
         }
-        
     }
 }
 

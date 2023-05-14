@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E4D90A72A0FCFAB00FBAB6C /* DataReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4D90A62A0FCFAB00FBAB6C /* DataReceiveView.swift */; };
 		3E6C34D32A08C6EE00F1CBFF /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C34D12A08C6EE00F1CBFF /* User+CoreDataClass.swift */; };
 		3E6C34D42A08C6EE00F1CBFF /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C34D22A08C6EE00F1CBFF /* User+CoreDataProperties.swift */; };
 		3E6C34D72A08C8D100F1CBFF /* Bunny+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C34D52A08C8D100F1CBFF /* Bunny+CoreDataClass.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E4D90A62A0FCFAB00FBAB6C /* DataReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReceiveView.swift; sourceTree = "<group>"; };
 		3E6C34D12A08C6EE00F1CBFF /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3E6C34D22A08C6EE00F1CBFF /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3E6C34D52A08C8D100F1CBFF /* Bunny+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bunny+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				C967C21D2A07882D007EE7EE /* MissionCongratsComponent.swift */,
 				C9363F1D2A0AB10300038ADF /* WorkoutSuccessView.swift */,
 				C9363F1F2A0AB21500038ADF /* WorkoutFailView.swift */,
+				3E4D90A62A0FCFAB00FBAB6C /* DataReceiveView.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				B80518E52A088CDE00D12915 /* MPCSession.swift in Sources */,
 				C914440A2A01459D00E6202D /* LevelUpModalView.swift in Sources */,
 				C9363F1E2A0AB10300038ADF /* WorkoutSuccessView.swift in Sources */,
+				3E4D90A72A0FCFAB00FBAB6C /* DataReceiveView.swift in Sources */,
 				C91BB6E92A00BDC0009FAA86 /* BurningBuddyApp.swift in Sources */,
 				C967C20E2A0699A1007EE7EE /* ButtonComponent.swift in Sources */,
 				B80518EF2A088EA600D12915 /* UserDataModel.xcdatamodeld in Sources */,

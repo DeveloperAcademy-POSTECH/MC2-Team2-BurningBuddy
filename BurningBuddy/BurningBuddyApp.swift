@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 @main
 struct BurningBuddyApp: App {
     var body: some Scene {

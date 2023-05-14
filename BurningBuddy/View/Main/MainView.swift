@@ -19,8 +19,6 @@ struct MainView: View {
     @State var showEvolution = false // 진화과정 모달에 관련된 상태
     @State var mainViewNavLinkActive: Bool = false
     
-    //  @StateObject var niObject = NISessionManager()
-    
     var body: some View {
         NavigationView {
             VStack {
@@ -124,7 +122,7 @@ struct MainView: View {
                                 .font(.system(size: 15, weight: .semibold))
                                 .foregroundColor(Color.subTextColor)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-                            Text(settings.isDoneWorkout ? String(settings.todayCalories) : "0Kcal")
+                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? String(settings.todayCalories) : "0Kcal")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
                         }
@@ -143,7 +141,7 @@ struct MainView: View {
                             
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                             
-                            Text(settings.isDoneWorkout ? settings.totalWorkoutTime : "00:00")
+                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? settings.totalWorkoutTime : "00:00")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
                             
@@ -160,7 +158,7 @@ struct MainView: View {
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                 Spacer()
                 Spacer()
-                if settings.hasPartner {
+                if UserDefaults.standard.bool(forKey: "isWorkouting") {
                     NavigationLink(
                         destination: WorkoutView(mainViewNavLinkActive: $mainViewNavLinkActive).environmentObject(settings),
                         isActive: $mainViewNavLinkActive,
