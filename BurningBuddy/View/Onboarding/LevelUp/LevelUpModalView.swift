@@ -40,7 +40,7 @@ struct LevelUpModalView: View {
                 .foregroundColor(Color.subTextColor)
                 .font(.system(size: 17, weight: .medium))
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
-            Image("EvolutionRoadmap\(settings.level)")
+            Image("roadMapLevel\(settings.level)")
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             Spacer()
             
