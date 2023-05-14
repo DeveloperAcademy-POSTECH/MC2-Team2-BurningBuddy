@@ -18,8 +18,42 @@ struct SettingView: View {
         List {
           Section {
             HStack{
-              Circle()
-                .frame(width: 57, height: 57)
+                switch settings.level {
+                case 1:
+                    Image("Bunny_Level1_반측면")
+                          .resizable()
+                          .frame(width: 94, height: 79)
+                case 2:
+                    Image("Bunny_Level2_반측면")
+                          .resizable()
+                          .frame(width: 94, height: 79)
+                case 3:
+                    Image("Bunny_Level3_반측면")
+                          .resizable()
+                          .frame(width: 94, height: 79)
+                case 4:
+                    Image("Bunny_Level4_반측면")
+                          .resizable()
+                          .frame(width: 94, height: 79)
+                case 5:
+                    Image("Bunny_Level5_반측면")
+                          .resizable()
+                          .frame(width: 94, height: 79)
+                case 6:
+                    Image("Bunny_Level6_반측면")
+                          .resizable()
+                          .frame(width: 94, height: 79)
+                case 7:
+                    Image("Bunny_Level7_반측면")
+                          .resizable()
+                          .frame(width: 94, height: 79)
+                default:
+                    Text("레벨이 7을 초과")
+                }
+            
+              
+               
+            
               VStack (alignment: .leading){
                 Text(settings.nickName)
                   .foregroundColor(.white)
