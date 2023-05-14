@@ -48,6 +48,10 @@ struct MissionCongratsComponent: View {
             
             Spacer()
             Button(buttonName, action: {
+                if settings.isDoneTogetherWorkout {
+                    settings.level += 1
+                    CoreDataManager.coreDM.readAllBunny()[0].level += 1
+                }
                 mainViewNavLinkActive = false
                 UserDefaults.standard.set("", forKey: "partnerID")
             })
