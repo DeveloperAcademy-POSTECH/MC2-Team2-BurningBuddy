@@ -131,6 +131,9 @@ struct WorkoutDoneView: View {
             .presentationDetents([.fraction(0.4)])
             .background(Color(red: 30/255, green: 28/255, blue: 29/255))
             .environmentObject(settings)
+            .onDisappear {
+              niObject.isBumped = false
+            }
         }
       }
       .navigationBarHidden(true)
