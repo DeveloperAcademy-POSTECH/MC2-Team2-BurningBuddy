@@ -183,6 +183,8 @@ class NISessionManager: NSObject, ObservableObject {
                 self.isBumped = true
                 bumpedName = receivedData.nickname
                 bumpedID = receivedData.uuid
+                bumpedIsDoneTargetCalories = receivedData.isDoneTargetCalories
+              // bumpedIsDoneTargetCalories = true
                 DispatchQueue.global(qos: .userInitiated).async {
                     self.shareMyData(token: receivedData.token, peer: peer)
                 }
