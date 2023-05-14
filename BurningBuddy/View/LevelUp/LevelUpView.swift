@@ -32,7 +32,11 @@ struct LevelUpView: View {
             
             Spacer()
             ZStack {
-                // 캐릭터 이미지
+                Image("Bunny_Level\(settings.level)_정면")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 450)
+                
             }
             Spacer()
             Button("메인으로 가기", action: {

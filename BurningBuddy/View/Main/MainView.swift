@@ -109,7 +109,8 @@ struct MainView: View {
                    
                     Image("Bunny_Level\(settings.level)_정면")
                         .resizable()
-                        .frame(width: 315, height: 261)
+                        .scaledToFit()
+                        .frame(width: 315)
                     
                     Spacer()
                 }
@@ -240,7 +241,8 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView().environmentObject(UserSettings())
+        MainView()
+            .environmentObject(UserSettings())
             .preferredColorScheme(.dark)
     }
 }
