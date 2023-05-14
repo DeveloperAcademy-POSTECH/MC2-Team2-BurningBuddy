@@ -101,10 +101,17 @@ struct MainView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: -40, trailing: 20))
-                    Circle()
-                        .frame(width: 200, height: 250)
-                        .scaledToFill()
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+//                    Circle()
+//                        .frame(width: 200, height: 250)
+//                        .scaledToFill()
+//                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    
+                   
+                    Image("Bunny_Level\(settings.level)_정면")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 315)
+                    
                     Spacer()
                 }
                 .background(Color.mainSection)
@@ -234,7 +241,8 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView().environmentObject(UserSettings())
+        MainView()
+            .environmentObject(UserSettings())
             .preferredColorScheme(.dark)
     }
 }

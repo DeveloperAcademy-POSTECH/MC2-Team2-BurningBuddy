@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Onboarding1.png",
+      "filename" : "fitness.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "fitness@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "fitness@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
