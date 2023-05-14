@@ -225,7 +225,6 @@
 				C967C2232A088580007EE7EE /* Main */,
 				C967C2202A0884F5007EE7EE /* Partner */,
 				C967C2212A088510007EE7EE /* Workout */,
-				C967C2242A0885C0007EE7EE /* LevelUp */,
 				C91BB6EA2A00BDC0009FAA86 /* ContentView.swift */,
 			);
 			path = View;
@@ -247,6 +246,7 @@
 				C91BB6FD2A00E794009FAA86 /* NicknameSettingView.swift */,
 				C914440B2A01460F00E6202D /* CharacterSettingView.swift */,
 				C967C2092A068FEA007EE7EE /* CalorieSettingView.swift */,
+				C967C2242A0885C0007EE7EE /* LevelUp */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -542,7 +542,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BurningBuddy\"";
-				DEVELOPMENT_TEAM = RXP67AQN3R;
+				DEVELOPMENT_TEAM = GZMCL5Q7N2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BurningBuddy/Info.plist;
@@ -579,7 +579,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BurningBuddy\"";
-				DEVELOPMENT_TEAM = RXP67AQN3R;
+				DEVELOPMENT_TEAM = GZMCL5Q7N2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BurningBuddy/Info.plist;
