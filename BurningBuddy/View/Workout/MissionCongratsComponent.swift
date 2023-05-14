@@ -13,7 +13,7 @@ import SwiftUI
  실패한 캐릭터만 보여주면 족하다. 메인으로 가는 이동 액션만 잘 넣어주면 되겠다.
  */
 struct MissionCongratsComponent: View {
-//    @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var settings: UserSettings
     @State var title: String
     @State var article: String
     @State var imageName: String

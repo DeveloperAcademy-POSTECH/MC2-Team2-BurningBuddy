@@ -204,6 +204,7 @@
 			children = (
 				C967C2222A08853C007EE7EE /* Component */,
 				C967C21F2A0884BC007EE7EE /* Onboarding */,
+				C967C2242A0885C0007EE7EE /* LevelUp */,
 				C967C2232A088580007EE7EE /* Main */,
 				C967C2202A0884F5007EE7EE /* Partner */,
 				C967C2212A088510007EE7EE /* Workout */,
@@ -228,7 +229,6 @@
 				C91BB6FD2A00E794009FAA86 /* NicknameSettingView.swift */,
 				C914440B2A01460F00E6202D /* CharacterSettingView.swift */,
 				C967C2092A068FEA007EE7EE /* CalorieSettingView.swift */,
-				C967C2242A0885C0007EE7EE /* LevelUp */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
