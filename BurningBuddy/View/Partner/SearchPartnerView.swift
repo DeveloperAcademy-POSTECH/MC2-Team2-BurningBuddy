@@ -40,17 +40,6 @@ struct SearchPartnerView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(Color.mainTextColor)
                     .font(.system(size: 28, weight: .bold, design: .default))
-                switch(niObject.findingPartnerState) {
-                case .ready:
-                    Text("ready")
-                        .foregroundColor(Color.mainTextColor)
-                case .finding:
-                    Text("finding")
-                        .foregroundColor(Color.mainTextColor)
-                case .found:
-                    Text("found")
-                        .foregroundColor(Color.mainTextColor)
-                }
                 Text("서로의 휴대폰을 가까이 붙여주세요")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(Color.mainTextColor)
