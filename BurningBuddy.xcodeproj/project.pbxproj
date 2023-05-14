@@ -24,7 +24,6 @@
 		C914440A2A01459D00E6202D /* LevelUpModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91444092A01459D00E6202D /* LevelUpModalView.swift */; };
 		C914440C2A01460F00E6202D /* CharacterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914440B2A01460F00E6202D /* CharacterSettingView.swift */; };
 		C914440E2A01462500E6202D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914440D2A01462500E6202D /* SettingView.swift */; };
-		C91444432A0167C500E6202D /* cookie.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C91444422A0167C500E6202D /* cookie.jpeg */; };
 		C91BB6E92A00BDC0009FAA86 /* BurningBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6E82A00BDC0009FAA86 /* BurningBuddyApp.swift */; };
 		C91BB6EB2A00BDC0009FAA86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91BB6EA2A00BDC0009FAA86 /* ContentView.swift */; };
 		C91BB6ED2A00BDC1009FAA86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C91BB6EC2A00BDC1009FAA86 /* Assets.xcassets */; };
@@ -38,15 +37,10 @@
 		C967C20A2A068FEA007EE7EE /* CalorieSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C2092A068FEA007EE7EE /* CalorieSettingView.swift */; };
 		C967C20C2A0694DE007EE7EE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C20B2A0694DE007EE7EE /* OnboardingView.swift */; };
 		C967C20E2A0699A1007EE7EE /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C20D2A0699A1007EE7EE /* ButtonComponent.swift */; };
-		C967C2162A069D19007EE7EE /* OnboardingTest4.png in Resources */ = {isa = PBXBuildFile; fileRef = C967C2152A069D19007EE7EE /* OnboardingTest4.png */; };
 		C967C2182A07870A007EE7EE /* NotFoundPartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C2172A07870A007EE7EE /* NotFoundPartnerView.swift */; };
 		C967C21A2A078733007EE7EE /* LevelUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C2192A078733007EE7EE /* LevelUpView.swift */; };
 		C967C21C2A078754007EE7EE /* MissionResultModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C21B2A078754007EE7EE /* MissionResultModalView.swift */; };
 		C967C21E2A07882D007EE7EE /* MissionCongratsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C21D2A07882D007EE7EE /* MissionCongratsComponent.swift */; };
-		C9CB702E2A0B6CCD0031A91B /* Onboarding1.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CB702B2A0B6CCD0031A91B /* Onboarding1.png */; };
-		C9CB702F2A0B6CCD0031A91B /* Onboarding3.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CB702C2A0B6CCD0031A91B /* Onboarding3.png */; };
-		C9CB70302A0B6CCD0031A91B /* Onboarding2.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CB702D2A0B6CCD0031A91B /* Onboarding2.png */; };
-		C9CC8F382A0232D400C16FA5 /* Image.png in Resources */ = {isa = PBXBuildFile; fileRef = C9CC8F372A0232D400C16FA5 /* Image.png */; };
 		C9F9E2652A0D0DA7007EFF1E /* LoadingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F9E2642A0D0DA7007EFF1E /* LoadingAnimationView.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +63,6 @@
 		C91444092A01459D00E6202D /* LevelUpModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpModalView.swift; sourceTree = "<group>"; };
 		C914440B2A01460F00E6202D /* CharacterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSettingView.swift; sourceTree = "<group>"; };
 		C914440D2A01462500E6202D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		C91444422A0167C500E6202D /* cookie.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cookie.jpeg; sourceTree = "<group>"; };
 		C91444442A01799700E6202D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C91BB6E52A00BDC0009FAA86 /* BurningBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BurningBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91BB6E82A00BDC0009FAA86 /* BurningBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurningBuddyApp.swift; sourceTree = "<group>"; };
@@ -85,15 +78,10 @@
 		C967C2092A068FEA007EE7EE /* CalorieSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieSettingView.swift; sourceTree = "<group>"; };
 		C967C20B2A0694DE007EE7EE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C967C20D2A0699A1007EE7EE /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
-		C967C2152A069D19007EE7EE /* OnboardingTest4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OnboardingTest4.png; sourceTree = "<group>"; };
 		C967C2172A07870A007EE7EE /* NotFoundPartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundPartnerView.swift; sourceTree = "<group>"; };
 		C967C2192A078733007EE7EE /* LevelUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelUpView.swift; sourceTree = "<group>"; };
 		C967C21B2A078754007EE7EE /* MissionResultModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionResultModalView.swift; sourceTree = "<group>"; };
 		C967C21D2A07882D007EE7EE /* MissionCongratsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCongratsComponent.swift; sourceTree = "<group>"; };
-		C9CB702B2A0B6CCD0031A91B /* Onboarding1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Onboarding1.png; sourceTree = "<group>"; };
-		C9CB702C2A0B6CCD0031A91B /* Onboarding3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Onboarding3.png; sourceTree = "<group>"; };
-		C9CB702D2A0B6CCD0031A91B /* Onboarding2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Onboarding2.png; sourceTree = "<group>"; };
-		C9CC8F372A0232D400C16FA5 /* Image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Image.png; sourceTree = "<group>"; };
 		C9F9E2642A0D0DA7007EFF1E /* LoadingAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAnimationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,13 +99,7 @@
 		B80518DF2A088B3A00D12915 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C91444422A0167C500E6202D /* cookie.jpeg */,
 				C91BB6EC2A00BDC1009FAA86 /* Assets.xcassets */,
-				C9CC8F372A0232D400C16FA5 /* Image.png */,
-				C967C2152A069D19007EE7EE /* OnboardingTest4.png */,
-				C9CB702B2A0B6CCD0031A91B /* Onboarding1.png */,
-				C9CB702D2A0B6CCD0031A91B /* Onboarding2.png */,
-				C9CB702C2A0B6CCD0031A91B /* Onboarding3.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -360,13 +342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9CB70302A0B6CCD0031A91B /* Onboarding2.png in Resources */,
-				C9CB702E2A0B6CCD0031A91B /* Onboarding1.png in Resources */,
 				C91BB6F02A00BDC1009FAA86 /* Preview Assets.xcassets in Resources */,
-				C91444432A0167C500E6202D /* cookie.jpeg in Resources */,
-				C9CC8F382A0232D400C16FA5 /* Image.png in Resources */,
-				C9CB702F2A0B6CCD0031A91B /* Onboarding3.png in Resources */,
-				C967C2162A069D19007EE7EE /* OnboardingTest4.png in Resources */,
 				C91BB6ED2A00BDC1009FAA86 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
