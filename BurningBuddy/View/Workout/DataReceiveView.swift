@@ -110,16 +110,14 @@ struct DataReceiveView: View {
             self.checkPartner = false
         }
     }
+    
+    
 }
-
-
-
-struct DataReceiveView_Previews: PreviewProvider {
-    @State static var value: Bool = true
-    @StateObject static var niObject = NISessionManager()
-    static var previews: some View {
-        DataReceiveView(niObject: niObject, isDataReceived: $value, checkPartner: $value)
-            .environmentObject(UserSettings())
-    }
-}
+//struct DataReceiveView_Previews: PreviewProvider {
+//    @State static var value: Bool = true
+//    static var previews: some View {
+//        DataReceiveView(mainViewNavLinkActive: $value, isDataReceived: <#Binding<Bool>#>)
+//            .environmentObject(UserSettings())
+//    }
+//}
 
