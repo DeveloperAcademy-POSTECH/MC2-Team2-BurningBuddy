@@ -31,23 +31,6 @@ struct WorkoutDoneView: View {
   
   var body: some View {
       VStack {
-        switch(niObject.findingPartnerState) {
-        case .ready:
-          Text("ready")
-            .foregroundColor(Color.mainTextColor)
-        case .finding:
-          Text("finding")
-            .foregroundColor(Color.mainTextColor)
-        case .found:
-          Text("found")
-            .foregroundColor(Color.mainTextColor)
-        }
-        switch(niObject.isBumped) {
-        case true:
-          Text("isBumped: true")
-        case false:
-          Text("isBumped: false")
-        }
         Text("\(settings.nickName)님")
           .frame(maxWidth: .infinity, alignment: .leading)
           .foregroundColor(.white)
