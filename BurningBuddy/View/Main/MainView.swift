@@ -28,7 +28,7 @@ struct MainView: View {
             VStack {
                 VStack {
                     HStack {
-                        Text(settings.nickName)
+                        Text(CoreDataManager.coreDM.readAllUser()[0].userName ?? "nil")
                             .font(.system(size: 22, weight: .bold, design: .default))
                         Text("님의")
                             .font(.system(size: 22, design: .default))

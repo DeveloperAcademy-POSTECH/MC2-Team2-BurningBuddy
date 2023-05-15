@@ -61,14 +61,14 @@ struct ContentView: View {
             }
         }.onAppear {
             // 온보딩일때 모든 데이터들을 초기화시켜줌
-            if showOnboarding {
-                self.settings.characterName = CoreDataManager.coreDM.readAllBunny()[0].characterName ?? "캐릭터 이름"
-                self.settings.level = CoreDataManager.coreDM.readAllBunny()[0].level
-                self.settings.nickName = CoreDataManager.coreDM.readAllUser()[0].userName ?? "Username"
-                CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00:00"
-                CoreDataManager.coreDM.readAllUser()[0].todayCalories = 0
-                self.settings.goalCalories = CoreDataManager.coreDM.readAllUser()[0].goalCalories
-            }
+//            if showOnboarding {
+//                self.settings.characterName = CoreDataManager.coreDM.readAllBunny()[0].characterName ?? "캐릭터 이름"
+//                self.settings.level = CoreDataManager.coreDM.readAllBunny()[0].level
+//                self.settings.nickName = CoreDataManager.coreDM.readAllUser()[0].userName ?? "Username"
+//                CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00:00"
+//                CoreDataManager.coreDM.readAllUser()[0].todayCalories = 0
+//                self.settings.goalCalories = CoreDataManager.coreDM.readAllUser()[0].goalCalories
+//            }
 
             
         } // onAppear
