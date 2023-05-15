@@ -33,6 +33,7 @@
 		C9363F1E2A0AB10300038ADF /* WorkoutSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9363F1D2A0AB10300038ADF /* WorkoutSuccessView.swift */; };
 		C9363F202A0AB21500038ADF /* WorkoutFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9363F1F2A0AB21500038ADF /* WorkoutFailView.swift */; };
 		C9363F222A0B2F2500038ADF /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9363F212A0B2F2500038ADF /* ColorExtension.swift */; };
+		C95AB1722A1223EC006C5596 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C95AB1712A1223EC006C5596 /* Launch Screen.storyboard */; };
 		C967C2082A0332C3007EE7EE /* WorkoutDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C2072A0332C3007EE7EE /* WorkoutDoneView.swift */; };
 		C967C20A2A068FEA007EE7EE /* CalorieSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C2092A068FEA007EE7EE /* CalorieSettingView.swift */; };
 		C967C20C2A0694DE007EE7EE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967C20B2A0694DE007EE7EE /* OnboardingView.swift */; };
@@ -74,6 +75,7 @@
 		C9363F1D2A0AB10300038ADF /* WorkoutSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSuccessView.swift; sourceTree = "<group>"; };
 		C9363F1F2A0AB21500038ADF /* WorkoutFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFailView.swift; sourceTree = "<group>"; };
 		C9363F212A0B2F2500038ADF /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		C95AB1712A1223EC006C5596 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C967C2072A0332C3007EE7EE /* WorkoutDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDoneView.swift; sourceTree = "<group>"; };
 		C967C2092A068FEA007EE7EE /* CalorieSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieSettingView.swift; sourceTree = "<group>"; };
 		C967C20B2A0694DE007EE7EE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				B80518EC2A088E9300D12915 /* CoreData */,
 				B80518EA2A088E4100D12915 /* FindingPartnerState.swift */,
 				69AB2F4D2A08A42100C1FAA0 /* WorkoutData.swift */,
+				C95AB1712A1223EC006C5596 /* Launch Screen.storyboard */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C95AB1722A1223EC006C5596 /* Launch Screen.storyboard in Resources */,
 				C91BB6F02A00BDC1009FAA86 /* Preview Assets.xcassets in Resources */,
 				C91BB6ED2A00BDC1009FAA86 /* Assets.xcassets in Resources */,
 			);
@@ -522,13 +526,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BurningBuddy/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "HealthKit 사용 권한 허용";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HealthKit 사용 권한 허용";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "네트워크 사용 권한 허용";
 				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "NI 사용 권한 허용";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
@@ -559,13 +563,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BurningBuddy/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "HealthKit 사용 권한 허용";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HealthKit 사용 권한 허용";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "네트워크 사용 권한 허용";
 				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "NI 사용 권한 허용";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
