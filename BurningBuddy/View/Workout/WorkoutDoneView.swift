@@ -90,14 +90,7 @@ struct WorkoutDoneView: View {
             case false:
                 switch (niObject.findingPartnerState) {
                 case .ready:
-                    //            NavigationLink(isActive: $isSuccessNext, destination: {
-                    //              if settings.isDoneTogetherWorkout { // TODO: settings.isDoneTogetherWorkout에 관한 변수를 잘 설정해야 함
-                    //                WorkoutSuccessView(mainViewNavLinkActive: $mainViewNavLinkActive)
-                    //              } else {
-                    //                WorkoutFailView(mainViewNavLinkActive: $mainViewNavLinkActive)
-                    //              }
-                    //
-                    //            }, label: {
+                    
                     Button("파트너 연결하기") {
                         // NIObject 통신 시작
                         switch niObject.findingPartnerState {
@@ -119,16 +112,8 @@ struct WorkoutDoneView: View {
                         }
                     }
                     .buttonStyle(RedButtonStyle())
-                    //            }) // Buggon end
                 case .finding, .found:
-//                    NavigationLink(isActive: $isSuccessNext, destination: {
-//                        if settings.isDoneTogetherWorkout {
-//                            WorkoutSuccessView(mainViewNavLinkActive: $mainViewNavLinkActive)
-//                        } else {
-//                            WorkoutFailView(mainViewNavLinkActive: $mainViewNavLinkActive)
-//                        }
 //
-//                    }, label: {
                         Button("파트너 연결 취소하기") {
                             // NIObject 통신 시작
                             switch niObject.findingPartnerState {
@@ -150,7 +135,7 @@ struct WorkoutDoneView: View {
                             }
                         }
                         .buttonStyle(RedButtonStyle())
-//                    }) // Button end
+
                 }
             } // switch 끝
         }

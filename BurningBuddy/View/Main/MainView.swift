@@ -129,7 +129,7 @@ struct MainView: View {
                                 .font(.system(size: 15, weight: .semibold))
                                 .foregroundColor(Color.subTextColor)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? String(settings.workoutData.workoutCalorie) : "0Kcal")
+                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? "\(settings.workoutData.workoutCalorie)kcal" : "0kcal")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
                         }
@@ -148,7 +148,7 @@ struct MainView: View {
                             
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                             
-                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ?  String(settings.workoutData.workoutDuration) : "00h 00m")
+                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? settings.workoutData.workoutDuration : "00h 00m")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
                             
