@@ -39,7 +39,6 @@ struct WorkoutDoneView: View {
             case .finding, .found:
               LoadingAnimationView()
             case .ready:
-//              Image(systemName: "hands.sparkles.fill")
               Image(systemName: "iphone.gen3.radiowaves.left.and.right")
                 .resizable()
                 .scaledToFit()
@@ -215,12 +214,3 @@ extension WorkoutDoneView {
     }
   }
 }
-//
-//struct WorkoutDoneView_Previews: PreviewProvider {
-//    
-//    static var previews: some View {
-//        WorkoutDoneView()
-//            .environmentObject(UserSettings())
-//    }
-//}
-
