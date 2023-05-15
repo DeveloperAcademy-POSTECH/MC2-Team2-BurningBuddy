@@ -116,7 +116,9 @@ struct MainView: View {
                 }
                 .background(Color.mainSection)
                 .cornerRadius(12)
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                .padding(EdgeInsets(top: 10, leading: 0, bottom: -40, trailing: 0))
+                //여기가 캐릭터 칸 크기 조절할 수 있는 코드
+                
                 Spacer()
                 VStack {
                     Text("오늘의 운동량")
@@ -166,7 +168,8 @@ struct MainView: View {
                 }
                 .background(Color.mainSection)
                 .cornerRadius(12)
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                .padding(EdgeInsets(top: 50, leading: 0, bottom: 10, trailing: 0))
+                //여기가 오늘의 운동량 크기 조절할 수 있는 코드
                 Spacer()
                 Spacer()
                 if UserDefaults.standard.bool(forKey: "isWorkouting") {

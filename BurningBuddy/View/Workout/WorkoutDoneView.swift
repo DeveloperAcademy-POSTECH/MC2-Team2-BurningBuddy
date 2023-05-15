@@ -49,6 +49,7 @@ struct WorkoutDoneView: View {
         ZStack {
           Image(systemName: "hands.sparkles.fill")
             .resizable()
+            .aspectRatio(contentMode: .fit)
             .frame(width: 189, height: 189)
             .foregroundColor(Color.bunnyColor)
         }
@@ -123,12 +124,12 @@ struct WorkoutDoneView: View {
   } // body End
 }
 
-//
-//struct WorkoutDoneView_Previews: PreviewProvider {
-//    
-//    static var previews: some View {
-//        WorkoutDoneView()
-//            .environmentObject(UserSettings())
-//    }
-//}
+
+struct WorkoutDoneView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        WorkoutDoneView( mainViewNavLinkActive: .constant(false))
+            .environmentObject(UserSettings())
+    }
+}
 
