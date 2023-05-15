@@ -30,6 +30,7 @@ struct OnboardingView: View {
         }
         .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
         .background(Color.backgroundColor)
+        
     }
     private func setupAppearance() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.bunnyColor)
@@ -74,6 +75,7 @@ struct OnboardingPageView: View {
         
         
     }
+        
 }
 
 struct OnboardingView_Preview: PreviewProvider {
