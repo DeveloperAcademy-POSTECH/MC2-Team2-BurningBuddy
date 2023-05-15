@@ -107,7 +107,7 @@ struct MainView: View {
 //                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     
                    
-                    Image("Bunny_Level\(settings.level)_정면")
+                    Image("Bunny_Level\(settings.level)_front")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 315)
