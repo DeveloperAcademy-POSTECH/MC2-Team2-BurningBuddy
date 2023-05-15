@@ -34,13 +34,24 @@ struct WorkoutDoneView: View {
         AnyView(setTitleText()) // 타이틀, 텍스트
         Spacer()
         ZStack {
-          switch(niObject.findingPartnerState) {
-          case .finding, .found:
-            LoadingAnimationView()
-          case .ready:
+          if !niObject.isBumped {
+            switch(niObject.findingPartnerState) {
+            case .finding, .found:
+              LoadingAnimationView()
+            case .ready:
+//              Image(systemName: "hands.sparkles.fill")
+              Image(systemName: "iphone.gen3.radiowaves.left.and.right")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 215)
+                .foregroundColor(Color.bunnyColor)
+            }
+          }
+          else {
             Image(systemName: "hands.sparkles.fill")
               .resizable()
-              .frame(width: 189, height: 189)
+              .scaledToFit()
+              .frame(width: 189)
               .foregroundColor(Color.bunnyColor)
           }
         }
