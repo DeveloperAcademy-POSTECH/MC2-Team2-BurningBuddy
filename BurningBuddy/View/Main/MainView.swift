@@ -18,6 +18,7 @@ struct MainView: View {
     @State var daysleft: Int = 0
     @State var showEvolution = false // 진화과정 모달에 관련된 상태
     @State var mainViewNavLinkActive: Bool = false
+    @State private var showOnboarding: Bool = UserDefaults.standard.bool(forKey: "showOnboarding")
     
     //앱이 종료될 때 현재 날짜를 기록하고, 다음에 앱이 실행될 때 해당 날짜와 비교하여 데이터를 초기화하는 방법
     private let lastLaunchDateKey = "lastLaunchDate" // 마지막으로 앱을 종료했을때의 날짜

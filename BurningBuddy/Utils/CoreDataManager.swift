@@ -21,6 +21,7 @@ class CoreDataManager {
                 fatalError("Core Data Store failed \(error.localizedDescription)")
             }
         }
+        
     }
     
     func createUser() {
