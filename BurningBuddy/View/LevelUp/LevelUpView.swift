@@ -32,10 +32,10 @@ struct LevelUpView: View {
             
             Spacer()
             ZStack {
-                Image("Bunny_Level\(settings.level)_정면")
+                Image("Bunny_Level\(settings.level)_반측면")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 450)
+                    .frame(width: 350)
                 
             }
             Spacer()
