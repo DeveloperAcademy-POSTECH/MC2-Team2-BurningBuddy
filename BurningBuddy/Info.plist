@@ -18,17 +18,9 @@
 		<string>_burningbuddy._tcp</string>
 		<string>_burningbuddy._udp</string>
 	</array>
-	<key>UILaunchScreen</key>
-	<dict>
-		<key>UIColorName</key>
-		<string>backgroundColor</string>
-		<key>UIImageName</key>
-		<string>splash-logo</string>
-		<key>UITabBar</key>
-		<dict>
-			<key>UIImageName</key>
-			<string>splash-character</string>
-		</dict>
-	</dict>
+	<key>CFBundleIdentifier</key>
+	<string></string>
+	<key>UILaunchStoryboardName</key>
+	<string>Launch Screen.storyboard</string>
 </dict>
 </plist>
