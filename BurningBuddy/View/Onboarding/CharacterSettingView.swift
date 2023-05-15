@@ -53,7 +53,7 @@ struct CharacterSettingView: View {
                     .font(.system(size: 17, weight: .bold))
             }
             Spacer()
-            Button("다음", action: {
+            Button("확인", action: {
                 saveCharacterName()
             })
             .buttonStyle(RedButtonStyle())

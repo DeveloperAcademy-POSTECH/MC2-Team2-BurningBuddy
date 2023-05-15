@@ -61,7 +61,7 @@ struct CalorieSettingView: View {
             }
             
             Spacer()
-            Button("다음", action: {
+            Button("확인", action: {
                 saveCalorie()
                 toggleShowOnboarding()
             })
