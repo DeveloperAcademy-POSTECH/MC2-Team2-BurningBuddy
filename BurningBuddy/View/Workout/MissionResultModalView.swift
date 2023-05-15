@@ -28,9 +28,9 @@ struct MissionResultModalView: View {
                     .font(.system(size: 17, weight: .semibold))
             }
             Spacer()
-            Image(systemName: imageName)
+            Image(systemName: imageName) // TODO: - 아이콘 이미지
                 .resizable()
-                .frame(width: 93, height: 91)
+                .frame(width: 89, height: 87)
                 .foregroundColor(Color.bunnyColor)
             // 모달 뷰의 텍스트
             Spacer()
@@ -40,15 +40,16 @@ struct MissionResultModalView: View {
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 100))
             Spacer()
             // 모달 뷰의 버튼
-            HStack {
+            HStack(spacing: 13) {
                 Button(action: { // left Button
                     presentationMode.wrappedValue.dismiss()
                     
                 }, label: {
                     Text(leftButtonName)
                 })
-                .buttonStyle(GrayButtonStyle())
-                
+                .buttonStyle(TwoGrayButtonStyle())
+//                Spacer()// TODO: - 버튼 간격 조정
+//                Spacer()
                 Button(action: { // right Button
                     //settings.isWorkouting = false // 운동중 변수를 false로 만들어준다.
                     UserDefaults.standard.set(false, forKey: "isWorkouting")
@@ -57,7 +58,7 @@ struct MissionResultModalView: View {
                 }, label: {
                     Text(rightButtonName)
                 })
-                .buttonStyle(RedButtonStyle())
+                .buttonStyle(TwoRedButtonStyle())
             }
         }
         .padding(EdgeInsets(top: 30, leading: 30, bottom: 15, trailing: 30))
@@ -65,9 +66,10 @@ struct MissionResultModalView: View {
     }
 }
 
-//
-//struct MissionResultView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MissionResultModalView(tag: )
-//    }
-//}
+
+struct MissionResultView_Previews: PreviewProvider {
+    @State static var value: Bool = true
+    static var previews: some View {
+        MissionResultModalView(title: "타이틀", article: "아티클", imageName: "exclamationmark.circle.fill", leftButtonName: "왼쪽버튼", rightButtonName: "오른쪽버튼", wantQuitWorkout: $value)
+    }
+}

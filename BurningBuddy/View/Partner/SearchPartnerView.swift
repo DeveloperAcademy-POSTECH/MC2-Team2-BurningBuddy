@@ -65,10 +65,13 @@ struct SearchPartnerView: View {
                         Image("person-fill")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 98, height: 100)
-                        Text(niObject.bumpedName)
-                            .font(.system(size: 17, weight: .semibold))
+                            .frame(width: 88)
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(Color.bunnyColorSub, Color.bunnyColor)
                     }
+                  Text(niObject.bumpedName)
+                      .font(.system(size: 17, weight: .semibold))
+                      .padding(EdgeInsets(top: 120, leading: 0, bottom: 0, trailing: 0))
                 }
                 
             case false:
@@ -77,12 +80,12 @@ struct SearchPartnerView: View {
             Spacer()
             switch(niObject.isBumped) {
             case true:
-                HStack {
+                HStack(spacing: 13) {
                     Button("다시 연결할래요", action: {
                         niObject.isBumped = false
                         niObject.findingPartnerState = .finding
                     })
-                    .buttonStyle(GrayButtonStyle())
+                    .buttonStyle(TwoGrayButtonStyle())
                     NavigationLink(isActive: $isNextButtonTapped, destination: {
                         WorkoutView(mainViewNavLinkActive: $mainViewNavLinkActive)
                     }, label: {
@@ -91,7 +94,7 @@ struct SearchPartnerView: View {
                             UserDefaults.standard.set(true, forKey: "isWorkouting")
                             UserDefaults.standard.set(niObject.bumpedID?.uuidString, forKey: "partnerID") // 파트너의 UUID값을 user default에 저장
                             print("Navi link 안")
-                        }.buttonStyle(RedButtonStyle())
+                        }.buttonStyle(TwoRedButtonStyle())
                     })
                 }
             case false:

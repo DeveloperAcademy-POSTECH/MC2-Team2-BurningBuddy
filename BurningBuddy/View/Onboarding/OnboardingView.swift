@@ -56,7 +56,7 @@ struct OnboardingPageView: View {
                     .scaledToFit()
                     .scaleEffect(x: 0.8, y: 0.8)
             }
-            .frame(width: UIScreen.main.bounds.width / 0.9, height: UIScreen.main.bounds.height / 2.4)
+            .frame(width: UIScreen.main.bounds.width / 1.3, height: UIScreen.main.bounds.height / 2.4)
             Text(title)
                 .padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
                 .frame(maxWidth: .infinity, alignment: .leading)
