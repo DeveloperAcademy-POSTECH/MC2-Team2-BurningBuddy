@@ -30,7 +30,7 @@ struct MissionResultModalView: View {
             Spacer()
             Image(systemName: imageName) // TODO: - 아이콘 이미지
                 .resizable()
-                .frame(width: 93, height: 91)
+                .frame(width: 89, height: 87)
                 .foregroundColor(Color.bunnyColor)
             // 모달 뷰의 텍스트
             Spacer()
@@ -70,6 +70,6 @@ struct MissionResultModalView: View {
 struct MissionResultView_Previews: PreviewProvider {
     @State static var value: Bool = true
     static var previews: some View {
-        MissionResultModalView(title: "타이틀", article: "아티클", imageName: "dumbell", leftButtonName: "왼쪽버튼", rightButtonName: "오른쪽버튼", wantQuitWorkout: $value)
+        MissionResultModalView(title: "타이틀", article: "아티클", imageName: "exclamationmark.circle.fill", leftButtonName: "왼쪽버튼", rightButtonName: "오른쪽버튼", wantQuitWorkout: $value)
     }
 }
