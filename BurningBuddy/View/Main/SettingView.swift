@@ -18,11 +18,12 @@ struct SettingView: View {
         List {
             Section {
                 HStack{
-                    
-                    Image("Bunny_Level\(settings.level)_반측면")
-                        .resizable()
-                        .frame(width: 94, height: 79)
-                    
+                    VStack {
+                        Image("Bunny_\(settings.level)_side")
+                            .resizable()
+                            .frame(width: 94, height: 79)
+                        
+                    }
                     VStack (alignment: .leading){
                         Text(settings.nickName)
                             .foregroundColor(.white)
@@ -30,6 +31,19 @@ struct SettingView: View {
                         Text(settings.characterName)
                     }.padding(12)
                 }
+            }
+            .listRowBackground(Color.mainSection2)
+            Section {
+                
+                HStack{
+                    Image(systemName: "checkmark.seal.fill")
+                        .background(Color.bunnyColor)
+                    Text("모은 핑크 덤벨 개수")
+                    Spacer()
+                    Text(String(settings.totalDumbbell)+"개")
+                        .foregroundColor(.gray)
+                }
+                
             }
             .listRowBackground(Color.mainSection2)
             Section {
@@ -45,13 +59,19 @@ struct SettingView: View {
                             .foregroundColor(Color.bunnyColor)
                     }
                 }
-                HStack{
+                NavigationLink{
+                    NicknameSettingView()
+                } label: {
                     Image(systemName: "checkmark.seal.fill")
                         .background(Color.bunnyColor)
-                    Text("모은 핑크 덤벨 개수")
-                    Spacer()
-                    Text(String(settings.totalDumbbell)+"개")
-                        .foregroundColor(.gray)
+                    Text("닉네임 변경하기")
+                }
+                NavigationLink{
+                    CharacterSettingView()
+                } label: {
+                    Image(systemName: "checkmark.seal.fill")
+                        .background(Color.bunnyColor)
+                    Text("캐릭터이름 변경하기")
                 }
             }
             .listRowBackground(Color.mainSection2)

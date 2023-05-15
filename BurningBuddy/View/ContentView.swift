@@ -8,17 +8,28 @@
 import SwiftUI
 import CoreData
 
+//class UserSettings: ObservableObject {
+//    @Published var pageNum: Int = 0
+//    @Published var characterName: String = (CoreDataManager.coreDM.readAllBunny()[0].characterName ?? "캐릭터이름")
+//    @Published var level: Int16 = CoreDataManager.coreDM.readAllBunny()[0].level
+//    @Published var nickName: String = (CoreDataManager.coreDM.readAllUser()[0].userName ?? "사람 이름")
+//    @Published var totalDumbbell: Int16 = CoreDataManager.coreDM.readAllUser()[0].totalDumbbell
+//    @Published var goalCalories: Int16 = CoreDataManager.coreDM.readAllUser()[0].goalCalories
+//    var isDoneTogetherWorkout: Bool = false // 둘 다 운동을 했는지 check
+//    var workoutData = WorkoutData() // published로 해야될 수도 있음
+//}
+
 class UserSettings: ObservableObject {
-    @Published var showOnboarding: Bool = true
     @Published var pageNum: Int = 0
-    @Published var characterName: String = "캐릭터 이름"
+    @Published var characterName: String = ""
     @Published var level: Int16 = 1
-    @Published var nickName: String = "사람 이름"
+    @Published var nickName: String = ""
     @Published var totalDumbbell: Int16 = 0
     @Published var goalCalories: Int16 = 0
-    
     var isDoneTogetherWorkout: Bool = false // 둘 다 운동을 했는지 check
     var workoutData = WorkoutData() // published로 해야될 수도 있음
+    
+     
 }
 
 struct ContentView: View {
@@ -59,25 +70,37 @@ struct ContentView: View {
                     .environmentObject(settings)
                     .background(Color.backgroundColor)
             }
-        }.onAppear {
-            // 온보딩일때 모든 데이터들을 초기화시켜줌
-            if showOnboarding {
-                self.settings.characterName = CoreDataManager.coreDM.readAllBunny()[0].characterName ?? "캐릭터 이름"
-                self.settings.level = CoreDataManager.coreDM.readAllBunny()[0].level
-                self.settings.nickName = CoreDataManager.coreDM.readAllUser()[0].userName ?? "Username"
-                CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00:00"
-                CoreDataManager.coreDM.readAllUser()[0].todayCalories = 0
-                self.settings.goalCalories = CoreDataManager.coreDM.readAllUser()[0].goalCalories
-            }
+        }
+        .onAppear {
+            if !showOnboarding {
 
+                let test2 = CoreDataManager.coreDM.readAllBunny()
+                let test = CoreDataManager.coreDM.readAllUser()
+                if test2.isEmpty {
+                    CoreDataManager.coreDM.createBunny()
+                }
+                if test.isEmpty  {
+                    CoreDataManager.coreDM.createUser()
+                }
+                
+                 // published로 해야될 수도 있음
+                
+            } else {
+                settings.characterName = CoreDataManager.coreDM.readAllBunny()[0].characterName ?? "캐릭터 이름"
+                settings.level = CoreDataManager.coreDM.readAllBunny()[0].level
+                settings.nickName = (CoreDataManager.coreDM.readAllUser()[0].userName ?? "사람 이름")
+                settings.totalDumbbell  = CoreDataManager.coreDM.readAllUser()[0].totalDumbbell
+                settings.goalCalories = CoreDataManager.coreDM.readAllUser()[0].goalCalories
+                settings.isDoneTogetherWorkout = false // 둘 다 운동을 했는지 check
+                settings.workoutData = WorkoutData()
+            }
             
-        } // onAppear
-        
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(settings: UserSettings())
     }
 }
