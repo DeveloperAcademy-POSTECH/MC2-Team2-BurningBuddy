@@ -47,10 +47,15 @@ struct WorkoutDoneView: View {
         
         Spacer()
         ZStack {
-          Image(systemName: "hands.sparkles.fill")
-            .resizable()
-            .frame(width: 189, height: 189)
-            .foregroundColor(Color.bunnyColor)
+          switch(niObject.findingPartnerState) {
+          case .finding, .found:
+            LoadingAnimationView()
+          case .ready:
+            Image(systemName: "hands.sparkles.fill")
+              .resizable()
+              .frame(width: 189, height: 189)
+              .foregroundColor(Color.bunnyColor)
+          }
         }
         Spacer()
         switch(niObject.isBumped) {
@@ -81,7 +86,7 @@ struct WorkoutDoneView: View {
             }
             
           }, label: {
-            Button("접촉하기") {
+            Button("파트너 찾기") {
               // NIObject 통신 시작
               switch niObject.findingPartnerState {
               case .ready:
@@ -101,13 +106,24 @@ struct WorkoutDoneView: View {
                 niObject.findingPartnerState = .ready
               }
             }
-            .buttonStyle(GrayButtonStyle())
+            .buttonStyle(RedButtonStyle())
           })
         } // switch 끝
       }
       
       .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
       .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+      .sheet(isPresented: self.$isNotDoneWorkoutPopup) {
+        if #available(iOS 16.0, *) {
+          MissionResultModalView(title: "파트너가 아직 운동 중이에요!", article: "운동을 마칠 때까지 응원해주세요!", leftButtonName: "알겠어요", rightButtonName: "그만할래요", wantQuitWorkout: $isSuccessNext )
+            .presentationDetents([.fraction(0.4)])
+            .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+            .environmentObject(settings)
+            .onDisappear {
+              niObject.isBumped = false
+            }
+        }
+      }
       .sheet(isPresented: self.$isNotDoneWorkoutPopup) {
         if #available(iOS 16.0, *) {
           MissionResultModalView(title: "파트너가 아직 운동 중이에요!", article: "운동을 마칠 때까지 응원해주세요!", leftButtonName: "알겠어요", rightButtonName: "그만할래요", wantQuitWorkout: $isSuccessNext )
