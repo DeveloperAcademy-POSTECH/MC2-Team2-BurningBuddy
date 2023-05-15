@@ -12,23 +12,22 @@ struct NicknameSettingView: View {
     @ObservedObject var nicknameLimiter = TextLimiter(limit: 8)
     @EnvironmentObject var settings: UserSettings
     @State private var isInputText: Bool = false
-    @State private var firstSliderDrag: Bool = false
-    @State private var sliderValue: Double = 200
-    @State private var sliderMessage: String = "목표 칼로리를 설정해주세요"
+    @State var isTopButtonHidden: Bool = false // 세팅뷰에서 상단 크기를 맞추기 위한 버튼
     
     var body: some View {
         VStack {
-            // 온보딩 페이지 크기를 맞추기 위한 히든 버튼
-            Button(action: {
-                
-            }, label: {
-                Image(systemName: "chevron.left")
-                    .resizable()
-                    .frame(width: 10, height: 19)
-            }).foregroundColor(Color.backgroundColor)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-            
+            if !isTopButtonHidden {
+                // 온보딩 페이지 크기를 맞추기 위한 히든 버튼
+                Button(action: {
+                    
+                }, label: {
+                    Image(systemName: "chevron.left")
+                        .resizable()
+                        .frame(width: 10, height: 19)
+                }).foregroundColor(Color.backgroundColor)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+            }
             Text("닉네임을\n입력해주세요")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(Color.mainTextColor)
