@@ -29,7 +29,7 @@ class CoreDataManager {
         user.userName = userName
         user.goalCalories = goalCalories
         user.todayCalories = 0
-        user.todayWorkoutHours = "00:00"
+        user.todayWorkoutHours = "00h 00m"
         user.totalDumbbell = 0
         user.userID = UUID() // 유저 통신시 같은 partner인지 확인하기 위한 UUID
         

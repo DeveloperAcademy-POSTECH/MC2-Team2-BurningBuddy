@@ -12,7 +12,7 @@ class WorkoutData: ObservableObject{
     var workoutStartTime = Date()
     // Property workoutDuration: 총 운동 시간
     // Property workoutCalorie: 운동중 소모한 칼로리
-    @Published var workoutDuration = "00:00"
+    @Published var workoutDuration = "00h 00m"
     @Published var workoutCalorie = 0
     
     // 권한 요청 함수
@@ -70,28 +70,28 @@ class WorkoutData: ObservableObject{
         healthStore.execute(query)
     }
     
-    // 운동 시간을 00:00 시간,분에 맞게 변환 해줍니다.
+    // 운동 시간을 00h 00m 시간,분에 맞게 변환 해줍니다.
     // Paramaeter second: 운동한 시간 (초 단위)
     func calculateTime(second: TimeInterval) -> String {
         let hour = Int(second / 3600)
         let minute = Int(second.truncatingRemainder(dividingBy: 3600) / 60)
         /*
-            01:01
-            01:11
-            11:01
-            11:11
+            01h 01m
+            01h 11m
+            11h 01m
+            11h 11m
          */
         if hour < 10 && minute < 10 {
-            return String("0\(hour):0\(minute)")
+            return String("0\(hour)h 0\(minute)m")
         }
         else if hour < 10 && minute > 9 {
-            return String("0\(hour):\(minute)")
+            return String("0\(hour)h \(minute)m")
         }
         else if hour > 9 && minute < 10 {
-            return String("\(hour):0\(minute)")
+            return String("\(hour)h 0\(minute)m")
         }
         else {
-            return String("\(hour):\(minute)")
+            return String("\(hour)h \(minute)m")
         }
     }
 }
