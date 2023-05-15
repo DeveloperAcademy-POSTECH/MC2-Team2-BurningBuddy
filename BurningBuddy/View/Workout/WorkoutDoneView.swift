@@ -58,6 +58,7 @@ struct WorkoutDoneView: View {
         switch(niObject.isBumped) {
         case true:
           NavigationLink(isActive: $isSuccessNext, destination: {
+              
             if settings.isDoneTogetherWorkout {
               WorkoutSuccessView(mainViewNavLinkActive: $mainViewNavLinkActive)
             } else {
@@ -66,9 +67,12 @@ struct WorkoutDoneView: View {
             
           }, label: {
             Button("목표달성 확인하기") {
+                print("상대방의 목표 달성 확인하기: \(niObject.bumpedIsDoneTargetCalories)")
               if (niObject.bumpedIsDoneTargetCalories) { // 상대 목표 달성 True
+                  print("상대방이 목표를 달성했어요!")
                 isNotDoneWorkoutPopup = false
               } else {
+                  print("상대방이 목표를 달성하지 못했어요!")
                 isNotDoneWorkoutPopup = true
               }
             }
