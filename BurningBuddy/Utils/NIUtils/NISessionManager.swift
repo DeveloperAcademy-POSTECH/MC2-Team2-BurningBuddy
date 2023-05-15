@@ -186,6 +186,7 @@ class NISessionManager: NSObject, ObservableObject {
                 bumpedName = receivedData.nickname
                 bumpedID = receivedData.uuid
                 bumpedIsDoneTargetCalories = receivedData.isDoneTargetCalories
+                
                 print("after bumped: \(bumpedIsDoneTargetCalories)")
               // bumpedIsDoneTargetCalories = true
                 DispatchQueue.global(qos: .userInitiated).async {

@@ -15,7 +15,6 @@ import SwiftUI
  */
 struct MainView: View {
     @EnvironmentObject var settings: UserSettings
-    @State var daysleft: Int = 0
     @State var showEvolution = false // 진화과정 모달에 관련된 상태
     @State var mainViewNavLinkActive: Bool = false
     @State private var showOnboarding: Bool = UserDefaults.standard.bool(forKey: "showOnboarding")
@@ -65,7 +64,7 @@ struct MainView: View {
                         Text("다음 성장까지")
                             .font(.system(size: 18, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: -3))
-                        Text("\(daysleft)번")
+                        Text("\(countRemainDumbbell(presentLevel: settings.level))번")
                             .font(.system(size: 18, weight: .bold, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -3))
                         Text("남았어요!")
@@ -101,12 +100,12 @@ struct MainView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: -40, trailing: 20))
-//                    Circle()
-//                        .frame(width: 200, height: 250)
-//                        .scaledToFill()
-//                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    //                    Circle()
+                    //                        .frame(width: 200, height: 250)
+                    //                        .scaledToFill()
+                    //                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     
-                   
+                    
                     Image("Bunny_\(settings.level)_front")
                         .resizable()
                         .scaledToFit()
@@ -135,7 +134,7 @@ struct MainView: View {
                                 .font(.system(size: 15, weight: .semibold))
                                 .foregroundColor(Color.subTextColor)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? String(settings.workoutData.workoutCalorie) : "0Kcal")
+                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? String(settings.workoutData.workoutCalorie) : "k")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
                         }
@@ -214,6 +213,25 @@ struct MainView: View {
         
     } // body End
     
+    private func countRemainDumbbell(presentLevel: Int16) -> Int16 {
+        let targetLevel: Int16 = presentLevel + 1
+        var remainDumbbell: Int16 = 0
+        switch targetLevel {
+        case 2:
+            remainDumbbell = 3 - self.settings.totalDumbbell
+        case 3:
+            remainDumbbell = 7 - self.settings.totalDumbbell
+        case 4:
+            remainDumbbell = 21 - self.settings.totalDumbbell
+        case 5:
+            remainDumbbell = 30 - self.settings.totalDumbbell
+        case 6:
+            remainDumbbell = 45 - self.settings.totalDumbbell
+        default:
+            remainDumbbell = 66 - self.settings.totalDumbbell
+        }
+        return remainDumbbell
+    }
     
     // 날짜(년, 월, 일)가 같은지 check
     private func isSameDay(date1: Date, date2: Date) -> Bool {

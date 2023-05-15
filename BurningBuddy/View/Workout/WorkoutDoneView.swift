@@ -56,11 +56,12 @@ struct WorkoutDoneView: View {
             }
             Spacer()
             switch(niObject.isBumped) {
+                
             case true:
                 NavigationLink(isActive: $isSuccessNext, destination: {
                     
                     
-                    if settings.isDoneTogetherWorkout {
+                    if niObject.bumpedIsDoneTargetCalories && UserDefaults.standard.bool(forKey: "isDoneWorkout") {
                         WorkoutSuccessView(mainViewNavLinkActive: $mainViewNavLinkActive)
                     } else {
                         WorkoutFailView(mainViewNavLinkActive: $mainViewNavLinkActive)
@@ -75,8 +76,8 @@ struct WorkoutDoneView: View {
                             isSuccessNext = true // TODO: 다음 페이지로 넘어가야 함
                             
                         } else {
-                            isNotDoneWorkoutPopup = true
                             self.settings.isDoneTogetherWorkout = false
+                            isNotDoneWorkoutPopup = true
                             
                         }
                         print("상대방의 목표 달성 확인하기: \(niObject.bumpedIsDoneTargetCalories)")
@@ -120,14 +121,14 @@ struct WorkoutDoneView: View {
                     .buttonStyle(RedButtonStyle())
                     //            }) // Buggon end
                 case .finding, .found:
-                    NavigationLink(isActive: $isSuccessNext, destination: {
-                        if settings.isDoneTogetherWorkout {
-                            WorkoutSuccessView(mainViewNavLinkActive: $mainViewNavLinkActive)
-                        } else {
-                            WorkoutFailView(mainViewNavLinkActive: $mainViewNavLinkActive)
-                        }
-                        
-                    }, label: {
+//                    NavigationLink(isActive: $isSuccessNext, destination: {
+//                        if settings.isDoneTogetherWorkout {
+//                            WorkoutSuccessView(mainViewNavLinkActive: $mainViewNavLinkActive)
+//                        } else {
+//                            WorkoutFailView(mainViewNavLinkActive: $mainViewNavLinkActive)
+//                        }
+//
+//                    }, label: {
                         Button("파트너 연결 취소하기") {
                             // NIObject 통신 시작
                             switch niObject.findingPartnerState {
@@ -149,7 +150,7 @@ struct WorkoutDoneView: View {
                             }
                         }
                         .buttonStyle(RedButtonStyle())
-                    }) // Button end
+//                    }) // Button end
                 }
             } // switch 끝
         }
