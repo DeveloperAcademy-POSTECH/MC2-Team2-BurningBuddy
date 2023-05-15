@@ -86,7 +86,6 @@ struct MainView: View {
                     Spacer()
                     HStack {
                         Button(action: {
-                            
                             self.showEvolution = true
                         }, label: {
                             Image(systemName: "info.circle")

@@ -91,11 +91,16 @@ struct DataReceiveView: View {
             }
             // 상대방이 맞으면
             if niObject.bumpedID?.uuidString == UserDefaults.standard.string(forKey: "partnerID") {
+                // ==================================================
                 // 나와 상대방 모두가 목표량을 달성했는지를 확인하는 부분
-                if !niObject.bumpedIsDoneTargetCalories || UserDefaults.standard.bool(forKey: "isDoneWorkout") {
-                    self.settings.isDoneTogetherWorkout = false
-                } else {
+                print("나와 상대방 모두 목표량을 달성했는지 확인하기")
+                print("niObject.bumpedIsDoneTargetCalories: \(niObject.bumpedIsDoneTargetCalories)")
+                print("UserDefaults.standard.bool(forKey: isDoneWorkout): \(UserDefaults.standard.bool(forKey: "isDoneWorkout"))")
+                // ==================================================
+                if niObject.bumpedIsDoneTargetCalories && UserDefaults.standard.bool(forKey: "isDoneWorkout") {
                     self.settings.isDoneTogetherWorkout = true
+                } else {
+                    self.settings.isDoneTogetherWorkout = false
                 }
                 
             } else { // 상대방이 아니면
