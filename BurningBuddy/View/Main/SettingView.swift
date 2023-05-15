@@ -19,7 +19,7 @@ struct SettingView: View {
             Section {
                 HStack{
                     
-                    Image("Bunny_Level\(settings.level)_반측면")
+                    Image("Bunny_\(settings.level)_side")
                         .resizable()
                         .frame(width: 94, height: 79)
                     
