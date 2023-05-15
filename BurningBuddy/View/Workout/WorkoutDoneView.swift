@@ -68,6 +68,8 @@ struct WorkoutDoneView: View {
           }, label: {
             Button("목표달성 확인하기") {
                 print("상대방의 목표 달성 확인하기: \(niObject.bumpedIsDoneTargetCalories)")
+                // 데이터 통신부분은 해결-> 상대방이 목표칼로리에 도달했는지 안했는지가 반영이 안되어있던거였음
+                // TODO: 목표달성 확인하기를 누르면 "상대방이 목표를 달성했어요!"는 print 잘되는데 다음 페이지로 안넘어감
               if (niObject.bumpedIsDoneTargetCalories) { // 상대 목표 달성 True
                   print("상대방이 목표를 달성했어요!")
                 isNotDoneWorkoutPopup = false
