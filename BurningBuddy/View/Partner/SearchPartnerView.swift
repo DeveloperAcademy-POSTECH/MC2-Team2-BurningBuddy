@@ -65,10 +65,13 @@ struct SearchPartnerView: View {
                         Image("person-fill")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 98, height: 100)
-                        Text(niObject.bumpedName)
-                            .font(.system(size: 17, weight: .semibold))
+                            .frame(width: 88)
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(Color.bunnyColorSub, Color.bunnyColor)
                     }
+                  Text(niObject.bumpedName)
+                      .font(.system(size: 17, weight: .semibold))
+                      .padding(EdgeInsets(top: 120, leading: 0, bottom: 0, trailing: 0))
                 }
                 
             case false:
