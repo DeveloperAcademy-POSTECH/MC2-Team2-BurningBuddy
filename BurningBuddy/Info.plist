@@ -18,9 +18,5 @@
 		<string>_burningbuddy._tcp</string>
 		<string>_burningbuddy._udp</string>
 	</array>
-	<key>CFBundleIdentifier</key>
-	<string></string>
-	<key>UILaunchStoryboardName</key>
-	<string>Launch Screen.storyboard</string>
 </dict>
 </plist>
