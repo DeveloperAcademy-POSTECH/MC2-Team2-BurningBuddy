@@ -26,7 +26,7 @@ struct LoadingAnimationView: View {
         }
         .onAppear {
             for i in 0...2 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 * Double(i)){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4 * Double(i)){
                     showLoadingIndicator[i].toggle()
                 }
             }
@@ -41,18 +41,18 @@ struct GrowingCircleIndicatorView: View {
     
     var body: some View {
         let animation = Animation
-            .easeIn(duration: 2.0)
+            .easeIn(duration: 1.6)
             .repeatForever(autoreverses: false)
         
         return Circle()
             .scaleEffect(scale)
             .opacity(opacity)
             .onAppear {
-                scale = 0.25
-                opacity = 1
+                scale = 0.35
+                opacity = 0.5
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                     withAnimation(animation) {
-                        scale = 1.2
+                        scale = 1.5
                         opacity = 0
                     }
                 }
