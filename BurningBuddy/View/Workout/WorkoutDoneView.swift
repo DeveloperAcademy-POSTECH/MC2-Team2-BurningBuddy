@@ -68,7 +68,7 @@ struct WorkoutDoneView: View {
                     
                 }, label: {
                     Button("목표달성 확인하기") {
-                        if niObject.bumpedIsDoneTargetCalories {
+                        if niObject.bumpedIsDoneTargetCalories && UserDefaults.standard.bool(forKey: "isDoneWorkout") {
                             self.settings.isDoneTogetherWorkout = true
                             print("상대방이 목표를 달성했어요!")
                             isNotDoneWorkoutPopup = false
