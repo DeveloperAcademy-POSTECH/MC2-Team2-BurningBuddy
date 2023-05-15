@@ -107,7 +107,7 @@ struct MainView: View {
 //                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     
                    
-                    Image("Bunny_Level\(settings.level)_정면")
+                    Image("Bunny_\(settings.level)_front")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 315)
@@ -152,7 +152,7 @@ struct MainView: View {
                             
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                             
-                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ?  String(CoreDataManager.coreDM.readAllUser()[0].todayCalories) : "00:00")
+                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ?  String(CoreDataManager.coreDM.readAllUser()[0].todayCalories) : "00h 00m")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
                             
@@ -228,7 +228,7 @@ struct MainView: View {
         UserDefaults.standard.set("", forKey: "partnerID")
         
         CoreDataManager.coreDM.readAllUser()[0].todayCalories = 0
-        CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00:00"
+        CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00h 00m"
         
         settings.isDoneTogetherWorkout = false
         

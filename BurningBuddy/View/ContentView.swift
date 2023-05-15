@@ -65,7 +65,7 @@ struct ContentView: View {
                 self.settings.characterName = CoreDataManager.coreDM.readAllBunny()[0].characterName ?? "캐릭터 이름"
                 self.settings.level = CoreDataManager.coreDM.readAllBunny()[0].level
                 self.settings.nickName = CoreDataManager.coreDM.readAllUser()[0].userName ?? "Username"
-                CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00:00"
+                CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00h 00m"
                 CoreDataManager.coreDM.readAllUser()[0].todayCalories = 0
                 self.settings.goalCalories = CoreDataManager.coreDM.readAllUser()[0].goalCalories
             }
