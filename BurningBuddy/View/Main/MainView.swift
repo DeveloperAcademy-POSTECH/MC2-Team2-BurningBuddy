@@ -86,6 +86,7 @@ struct MainView: View {
                     HStack {
                         Button(action: {
                             self.showEvolution = true
+                            print("showEvolution click")
                         }, label: {
                             Image(systemName: "info.circle")
                                 .resizable()
@@ -99,18 +100,12 @@ struct MainView: View {
                         .foregroundColor(Color.iconColor)
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
-                    .padding(EdgeInsets(top: 10, leading: 0, bottom: -40, trailing: 20))
-                    //                    Circle()
-                    //                        .frame(width: 200, height: 250)
-                    //                        .scaledToFill()
-                    //                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                    
+                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 20))
                     
                     Image("Bunny_\(settings.level)_front")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 315)
-                    
+                        .frame(width: 300)
                     Spacer()
                 }
                 .background(Color.mainSection)
