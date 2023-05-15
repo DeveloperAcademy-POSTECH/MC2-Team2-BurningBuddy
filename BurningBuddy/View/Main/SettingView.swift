@@ -36,8 +36,15 @@ struct SettingView: View {
             Section {
                 
                 HStack{
-                    Image(systemName: "checkmark.seal.fill")
+                    Image(systemName: "dumbbell.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 15)
+                        .padding(5)
+                        .frame(width: 23, height: 23)
                         .background(Color.bunnyColor)
+                        .cornerRadius(7)
+                        .clipped()
                     Text("모은 핑크 덤벨 개수")
                     Spacer()
                     Text(String(settings.totalDumbbell)+"개")
@@ -52,7 +59,13 @@ struct SettingView: View {
                 } label: {
                     HStack{
                         Image(systemName: "checkmark.seal.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 13)
+                            .padding(5)
                             .background(Color.bunnyColor)
+                            .cornerRadius(7)
+                            .clipped()
                         Text("목표 칼로리")
                         Spacer()
                         Text(String(settings.goalCalories) + "Kcal")
@@ -62,15 +75,27 @@ struct SettingView: View {
                 NavigationLink{
                     NicknameSettingView()
                 } label: {
-                    Image(systemName: "checkmark.seal.fill")
+                    Image(systemName: "person.crop.circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 13)
+                        .padding(5)
                         .background(Color.bunnyColor)
+                        .cornerRadius(7)
+                        .clipped()
                     Text("닉네임 변경하기")
                 }
                 NavigationLink{
                     CharacterSettingView()
                 } label: {
-                    Image(systemName: "checkmark.seal.fill")
+                    Image(systemName: "person.crop.circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 13)
+                        .padding(5)
                         .background(Color.bunnyColor)
+                        .cornerRadius(7)
+                        .clipped()
                     Text("캐릭터이름 변경하기")
                 }
             }
