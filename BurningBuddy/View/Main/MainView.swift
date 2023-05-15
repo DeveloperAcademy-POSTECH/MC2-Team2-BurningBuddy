@@ -28,7 +28,7 @@ struct MainView: View {
             VStack {
                 VStack {
                     HStack {
-                        Text(CoreDataManager.coreDM.readAllUser()[0].userName ?? "nil")
+                        Text(settings.nickName)
                             .font(.system(size: 22, weight: .bold, design: .default))
                         Text("님의")
                             .font(.system(size: 22, design: .default))
@@ -229,12 +229,8 @@ struct MainView: View {
         
         CoreDataManager.coreDM.readAllUser()[0].todayCalories = 0
         CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00:00"
-        
+        CoreDataManager.coreDM.update()
         settings.isDoneTogetherWorkout = false
-        
-        print(CoreDataManager.coreDM.readAllUser()[0].todayCalories)
-        print(CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours)
-        
     }
 }
 

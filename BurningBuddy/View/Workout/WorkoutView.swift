@@ -67,9 +67,8 @@ struct WorkoutView: View {
                         // 나의 데이터를 CoreData에 저장
                         CoreDataManager.coreDM.readAllUser()[0].todayCalories = Int16(settings.workoutData.workoutCalorie)
                         CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = settings.workoutData.workoutDuration
+                        CoreDataManager.coreDM.update()
                         
-                        print("workoutData 테스트 칼로리 : \(CoreDataManager.coreDM.readAllUser()[0].todayCalories)")
-                        print("workoutData 테스트 시간 : \(CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours)")
                         // TODO: - 목표치 채웠는지 확인하고, 채웠으면 연결, 못 채웠으면 모달창 뜨게 하기
                         //                        settings.todayCalories += 150
                         // 운동한 칼로리가 목표치를 넘었는지
