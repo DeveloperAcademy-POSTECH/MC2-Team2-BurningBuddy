@@ -152,7 +152,7 @@ struct MainView: View {
                             
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                             
-                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ?  String(CoreDataManager.coreDM.readAllUser()[0].todayCalories) : "00:00")
+                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ?  String(CoreDataManager.coreDM.readAllUser()[0].todayCalories) : "00h 00m")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
                             
@@ -228,8 +228,13 @@ struct MainView: View {
         UserDefaults.standard.set("", forKey: "partnerID")
         
         CoreDataManager.coreDM.readAllUser()[0].todayCalories = 0
+<<<<<<< HEAD
         CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00:00"
         CoreDataManager.coreDM.update()
+=======
+        CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00h 00m"
+        
+>>>>>>> 9d899d4df3775e66b26a4faca58d676c0409499e
         settings.isDoneTogetherWorkout = false
     }
 }
