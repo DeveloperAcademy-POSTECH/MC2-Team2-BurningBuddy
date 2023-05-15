@@ -11,10 +11,24 @@
 			<string>Default</string>
 		</dict>
 	</array>
+	<key>CFBundleGetInfoString</key>
+	<string></string>
 	<key>NSBonjourServices</key>
 	<array>
 		<string>_burningbuddy._tcp</string>
 		<string>_burningbuddy._udp</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>backgroundColor</string>
+		<key>UIImageName</key>
+		<string>splash-logo</string>
+		<key>UITabBar</key>
+		<dict>
+			<key>UIImageName</key>
+			<string>splash-character</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

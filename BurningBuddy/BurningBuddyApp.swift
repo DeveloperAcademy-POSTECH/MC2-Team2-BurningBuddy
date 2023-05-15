@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct BurningBuddyApp: App {
+    init () {
+        Thread.sleep(forTimeInterval: 5)
+    }
     var body: some Scene {
         WindowGroup {
             ContentView()
