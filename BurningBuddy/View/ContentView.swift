@@ -57,24 +57,7 @@ struct ContentView: View {
                     .environmentObject(settings)
                     .background(Color.backgroundColor)
             }
-<<<<<<< HEAD
         }
-=======
-        }.onAppear {
-            // 온보딩일때 모든 데이터들을 초기화시켜줌
-            if showOnboarding {
-                self.settings.characterName = CoreDataManager.coreDM.readAllBunny()[0].characterName ?? "캐릭터 이름"
-                self.settings.level = CoreDataManager.coreDM.readAllBunny()[0].level
-                self.settings.nickName = CoreDataManager.coreDM.readAllUser()[0].userName ?? "Username"
-                CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00h 00m"
-                CoreDataManager.coreDM.readAllUser()[0].todayCalories = 0
-                self.settings.goalCalories = CoreDataManager.coreDM.readAllUser()[0].goalCalories
-            }
-
-            
-        } // onAppear
-        
->>>>>>> 9d899d4df3775e66b26a4faca58d676c0409499e
     }
 }
 

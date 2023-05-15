@@ -228,13 +228,8 @@ struct MainView: View {
         UserDefaults.standard.set("", forKey: "partnerID")
         
         CoreDataManager.coreDM.readAllUser()[0].todayCalories = 0
-<<<<<<< HEAD
-        CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00:00"
-        CoreDataManager.coreDM.update()
-=======
         CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00h 00m"
-        
->>>>>>> 9d899d4df3775e66b26a4faca58d676c0409499e
+        CoreDataManager.coreDM.update()
         settings.isDoneTogetherWorkout = false
     }
 }
