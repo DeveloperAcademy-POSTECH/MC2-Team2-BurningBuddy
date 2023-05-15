@@ -22,7 +22,7 @@ import CoreData
 class UserSettings: ObservableObject {
     @Published var pageNum: Int = 0
     @Published var characterName: String = ""
-    @Published var level: Int16 = 0
+    @Published var level: Int16 = 1
     @Published var nickName: String = ""
     @Published var totalDumbbell: Int16 = 0
     @Published var goalCalories: Int16 = 0
