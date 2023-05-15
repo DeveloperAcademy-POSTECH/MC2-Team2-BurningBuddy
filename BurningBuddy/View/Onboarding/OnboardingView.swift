@@ -17,7 +17,7 @@ struct OnboardingView: View {
                 OnboardingPageView(imageName: "Onboarding1", title: "하루 운동 목표를 설정하세요!", explain: "하루에 태울 칼로리를 선택하세요!\n나에게 맞는 난이도 설정으로\n운동강도를 조절할 수 있어요.")
                 OnboardingPageView(imageName: "Onboarding2", title: "애플워치를 착용해주세요!", explain: "애플워치의 운동 기록과 연동이 되어,\n내가 소모한 칼로리와 운동시간을\n간편하게 체크해줘요!")
                 OnboardingPageView(imageName: "Onboarding3", title: "함께 운동하는 즐거움을", explain: "매일 함께 운동하고 싶은 파트너와\n디바이스를 연결한 후,\n같이 운동하며 버닝해봐요!")
-                OnboardingPageView(imageName: "Bunny_4_side", title: "목표를 달성하면 캐릭터가 성장해요!", explain: "100일 동안 핑크덤벨을 모으면\n모은 개수에 따라 버니가 성장해요!\n66개의 핑크덤벨을 모아 최종 단계의\n버니까지 성장시켜보아요!")
+                OnboardingPageView(imageName: "Onboarding4", title: "목표를 달성하면 캐릭터가 성장해요!", explain: "100일 동안 핑크덤벨을 모으면\n모은 개수에 따라 버니가 성장해요!\n66개의 핑크덤벨을 모아 최종 단계의\n버니까지 성장시켜보아요!")
             }
             .tabViewStyle(PageTabViewStyle())
             .onAppear {
@@ -30,6 +30,7 @@ struct OnboardingView: View {
         }
         .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
         .background(Color.backgroundColor)
+        
     }
     private func setupAppearance() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(Color.bunnyColor)
@@ -55,7 +56,7 @@ struct OnboardingPageView: View {
                     .scaledToFit()
                     .scaleEffect(x: 0.8, y: 0.8)
             }
-            .frame(width: UIScreen.main.bounds.width / 1.3, height: UIScreen.main.bounds.height / 2.4)
+            .frame(width: UIScreen.main.bounds.width / 0.9, height: UIScreen.main.bounds.height / 2.4)
             Text(title)
                 .padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -74,6 +75,7 @@ struct OnboardingPageView: View {
         
         
     }
+        
 }
 
 struct OnboardingView_Preview: PreviewProvider {

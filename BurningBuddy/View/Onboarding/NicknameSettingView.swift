@@ -56,7 +56,7 @@ struct NicknameSettingView: View {
                     .font(.system(size: 17, weight: .bold))
             }
             Spacer()
-            Button("다음", action: {
+            Button("확인", action: {
                 saveNickname()
             })
             .buttonStyle(RedButtonStyle())
@@ -70,9 +70,14 @@ struct NicknameSettingView: View {
         if settings.nickName.count == 0 || settings.nickName.count == 1{
             self.isInputText = true
         } else {
+            CoreDataManager.coreDM.readAllUser()[0].userName = nicknameLimiter.value
+            CoreDataManager.coreDM.update()
             self.isInputText = false
+            
             withAnimation(.easeInOut(duration: 0.5)){
-                settings.pageNum += 1
+                if settings.pageNum != 4 { // SettingView에서 재사용하기 위해
+                    settings.pageNum += 1
+                }
             }
         }
     }

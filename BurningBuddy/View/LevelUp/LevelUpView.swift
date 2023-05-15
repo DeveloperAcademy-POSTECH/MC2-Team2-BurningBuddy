@@ -35,7 +35,7 @@ struct LevelUpView: View {
                 Image("Bunny_\(settings.level)_front")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 450)
+                    .frame(width: 350)
                 
             }
             Spacer()

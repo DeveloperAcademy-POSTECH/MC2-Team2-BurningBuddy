@@ -21,15 +21,16 @@ class CoreDataManager {
                 fatalError("Core Data Store failed \(error.localizedDescription)")
             }
         }
+        
     }
     
-    func createUser(userName: String, goalCalories: Int16) {
+    func createUser() {
         
         let user = User(context: persistentContainer.viewContext)
-        user.userName = userName
-        user.goalCalories = goalCalories
+        user.userName = "김예은"
+        user.goalCalories = 200
         user.todayCalories = 0
-        user.todayWorkoutHours = "00:00"
+        user.todayWorkoutHours = "00h 00m"
         user.totalDumbbell = 0
         user.userID = UUID() // 유저 통신시 같은 partner인지 확인하기 위한 UUID
         
@@ -40,10 +41,10 @@ class CoreDataManager {
         }
     }
     
-    func createBunny(characterName: String) {
+    func createBunny() {
         
         let bunny = Bunny(context: persistentContainer.viewContext)
-        bunny.characterName = characterName
+        bunny.characterName = "이동재"
         bunny.level = 1
         
         do {

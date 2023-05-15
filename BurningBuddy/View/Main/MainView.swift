@@ -18,6 +18,7 @@ struct MainView: View {
     @State var daysleft: Int = 0
     @State var showEvolution = false // 진화과정 모달에 관련된 상태
     @State var mainViewNavLinkActive: Bool = false
+    @State private var showOnboarding: Bool = UserDefaults.standard.bool(forKey: "showOnboarding")
     
     //앱이 종료될 때 현재 날짜를 기록하고, 다음에 앱이 실행될 때 해당 날짜와 비교하여 데이터를 초기화하는 방법
     private let lastLaunchDateKey = "lastLaunchDate" // 마지막으로 앱을 종료했을때의 날짜
@@ -152,7 +153,7 @@ struct MainView: View {
                             
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                             
-                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ?  String(CoreDataManager.coreDM.readAllUser()[0].todayCalories) : "00:00")
+                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ?  String(CoreDataManager.coreDM.readAllUser()[0].todayCalories) : "00h 00m")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
                             
@@ -228,13 +229,9 @@ struct MainView: View {
         UserDefaults.standard.set("", forKey: "partnerID")
         
         CoreDataManager.coreDM.readAllUser()[0].todayCalories = 0
-        CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00:00"
-        
+        CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00h 00m"
+        CoreDataManager.coreDM.update()
         settings.isDoneTogetherWorkout = false
-        
-        print(CoreDataManager.coreDM.readAllUser()[0].todayCalories)
-        print(CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours)
-        
     }
 }
 
