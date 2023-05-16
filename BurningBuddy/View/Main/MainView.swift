@@ -74,7 +74,10 @@ struct MainView: View {
                         .padding(EdgeInsets(top: 5, leading: 0, bottom: -5, trailing: 0))
                 }
                 
-                ProgressView(value: Double(settings.totalDumbbell), total: 66)
+                ProgressView(
+                    value: Double(progressbarGetDumbbell(presentDumbbell: Int(settings.totalDumbbell))),
+                    total: Double(progressbarRemain(presentDumbbell: settings.totalDumbbell))
+                )
                     .scaleEffect(x: 1, y: 2, anchor: .center)
                     .progressViewStyle(LinearProgressViewStyle(tint: Color(red: 255/255, green: 45/255, blue: 85/255)))
                     .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
@@ -226,6 +229,40 @@ struct MainView: View {
             remainDumbbell = 66 - self.settings.totalDumbbell
         }
         return remainDumbbell
+    }
+    
+    private func progressbarRemain(presentDumbbell: Int16) -> Int {
+        switch presentDumbbell {
+        case ..<3:
+            return 3
+        case ..<7:
+            return 4
+        case ..<21:
+            return 14
+        case ..<30:
+            return 9
+        case ..<45:
+            return 15
+        default:
+            return 22
+        }
+    }
+    
+    private func progressbarGetDumbbell(presentDumbbell: Int) -> Int {
+        switch presentDumbbell {
+        case ..<3:
+            return presentDumbbell
+        case ..<7:
+            return presentDumbbell - 3
+        case ..<21:
+            return presentDumbbell - 7
+        case ..<30:
+            return presentDumbbell - 21
+        case ..<45:
+            return presentDumbbell - 30
+        default:
+            return presentDumbbell - 45
+        }
     }
     
     // 날짜(년, 월, 일)가 같은지 check
