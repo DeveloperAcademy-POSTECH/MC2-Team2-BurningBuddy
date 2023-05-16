@@ -39,10 +39,10 @@ struct LevelUpView: View {
                 
             }
             Spacer()
-            Button("메인으로 가기", action: {
-                
-            })
-            .buttonStyle(RedButtonStyle())
+//            Button("메인으로 가기", action: {
+//
+//            })
+//            .buttonStyle(RedButtonStyle())
         }
         .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color.backgroundColor) // 고급진 까만것이 필요할 듯

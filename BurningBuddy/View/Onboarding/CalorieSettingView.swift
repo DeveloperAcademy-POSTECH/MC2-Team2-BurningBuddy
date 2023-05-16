@@ -33,9 +33,9 @@ struct CalorieSettingView: View {
             }
             Text("목표 칼로리를 \n설정해주세요")
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(Color.mainTextColor)
+                .foregroundColor(Color.mainTextColor)   
                 .font(.system(size: 28, weight: .bold))
-            Text(settings.pageNum == 4 ? "본인의 운동 수행 능력에 맞게\n 조절해주세요!" : "운동 목표량을 설정해주세요\n나중에도 변경가능해요")
+            Text(settings.pageNum == 4 ? "본인의 운동 수행 능력에 맞게\n조절해주세요!" : "운동 목표량을 설정해주세요\n나중에도 변경가능해요")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(Color.subTextColor)
                 .padding(EdgeInsets(top: 1, leading: 0, bottom: 90, trailing: 0))
@@ -43,10 +43,10 @@ struct CalorieSettingView: View {
             Spacer()
             Spacer()
             VStack {
-                Text(sliderValue >= 150 && sliderValue <= 300 ? "초급자" : sliderValue > 300 && sliderValue <= 500 ? "중급자" : "상급자")
+                Text(sliderValue >= 5 && sliderValue <= 300 ? "초급자" : sliderValue > 300 && sliderValue <= 500 ? "중급자" : "상급자")
                     .font(.system(size: 24, weight: .bold))
                 
-                Slider(value: $sliderValue, in: 150...800, step: 1)
+                Slider(value: $sliderValue, in: 5...800, step: 1)
                     .padding()
                     .tint(Color.bunnyColor)
                 
@@ -54,7 +54,7 @@ struct CalorieSettingView: View {
                     .font(.system(size: 28, weight: .bold))
                 Spacer()
                 
-                Text(sliderValue >= 150 && sliderValue <= 300 ? "부담없이 운동하고 싶어요" : sliderValue > 300 && sliderValue <= 500 ? "어느 정도는 움직이고 싶어요" : "빡세게 운동해볼래요")
+                Text(sliderValue >= 5 && sliderValue <= 300 ? "부담없이 운동하고 싶어요" : sliderValue > 300 && sliderValue <= 500 ? "어느 정도는 움직이고 싶어요" : "빡세게 운동해볼래요")
                     .font(.system(size: 17, weight: .medium))
                     .foregroundColor(Color.subTextColor)
                 Spacer()

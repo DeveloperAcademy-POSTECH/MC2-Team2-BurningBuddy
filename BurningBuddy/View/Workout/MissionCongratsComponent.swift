@@ -20,6 +20,7 @@ struct MissionCongratsComponent: View {
     @State var buttonName: String
     @State var imageTiltValue: Int
     @Binding var mainViewNavLinkActive: Bool
+    @State var levelupViewPresent: Bool = false
     /**
      운동을 성공적으로 종료한 것을 감지하는 변수 필요
      */
@@ -48,19 +49,30 @@ struct MissionCongratsComponent: View {
             
             Spacer()
             Button(buttonName, action: {
+                /* 테스트용 */
+                let templevel = settings.level
+                
                 if settings.isDoneTogetherWorkout {
                     settings.level += 1
                     CoreDataManager.coreDM.readAllBunny()[0].level += 1
                     CoreDataManager.coreDM.update()
+                }
+                if templevel != settings.level {
+                    self.levelupViewPresent = true
                 }
                 mainViewNavLinkActive = false
                 UserDefaults.standard.set("", forKey: "partnerID")
             })
             .buttonStyle(RedButtonStyle())
         }
+        .sheet(isPresented: self.$levelupViewPresent) {
+               LevelUpView()
+                    .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+        }
         .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color.backgroundColor)
         .navigationBarHidden(true)
+        
     }
 }
 
