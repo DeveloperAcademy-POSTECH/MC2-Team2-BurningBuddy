@@ -30,13 +30,13 @@ class WorkoutData: ObservableObject{
     
     // 운동 시작 시간을 기록합니다. (파트너와 운동 시작 전 태그할 때 사용)
     func setWorkoutStartTime() {
-//        self.workoutStartTime = Date()
+        self.workoutStartTime = Date()
         
         // 테스트용 (시작하는 하루)
-                let calendar = NSCalendar.current
-                let now = Date()
-                let components = calendar.dateComponents([.year, .month, .day], from: now)
-                self.workoutStartTime = calendar.date(from: components)!
+//                let calendar = NSCalendar.current
+//                let now = Date()
+//                let components = calendar.dateComponents([.year, .month, .day], from: now)
+//                self.workoutStartTime = calendar.date(from: components)!
     }
     
     // 운동 끝났을 때 운동기록(칼로리번, 운동시간)을 가져옵니다.
