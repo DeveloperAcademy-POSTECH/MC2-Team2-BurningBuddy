@@ -113,29 +113,29 @@ struct WorkoutDoneView: View {
                     }
                     .buttonStyle(RedButtonStyle())
                 case .finding, .found:
-//
-                        Button("파트너 연결 취소하기") {
-                            // NIObject 통신 시작
-                            switch niObject.findingPartnerState {
-                            case .ready:
-                                niObject.start()
-                                niObject.findingPartnerState = .finding
-                                if isLaunched {
-                                    localNetAuth.requestAuthorization { auth in
-                                        isLocalNetworkPermissionDenied = !auth
-                                    }
-                                    isLaunched = false
+                    //
+                    Button("파트너 연결 취소하기") {
+                        // NIObject 통신 시작
+                        switch niObject.findingPartnerState {
+                        case .ready:
+                            niObject.start()
+                            niObject.findingPartnerState = .finding
+                            if isLaunched {
+                                localNetAuth.requestAuthorization { auth in
+                                    isLocalNetworkPermissionDenied = !auth
                                 }
-                            case .finding:
-                                niObject.stop()
-                                niObject.findingPartnerState = .ready
-                            case .found:
-                                niObject.stop()
-                                niObject.findingPartnerState = .ready
+                                isLaunched = false
                             }
+                        case .finding:
+                            niObject.stop()
+                            niObject.findingPartnerState = .ready
+                        case .found:
+                            niObject.stop()
+                            niObject.findingPartnerState = .ready
                         }
-                        .buttonStyle(RedButtonStyle())
-
+                    }
+                    .buttonStyle(RedButtonStyle())
+                    
                 }
             } // switch 끝
         }

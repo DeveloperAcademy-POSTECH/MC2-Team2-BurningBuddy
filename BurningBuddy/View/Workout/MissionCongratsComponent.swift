@@ -45,7 +45,7 @@ struct MissionCongratsComponent: View {
                 .padding(EdgeInsets(top: 30, leading: 30, bottom: 30, trailing: 30))
                 .foregroundColor(Color.bunnyColor)
                 .rotationEffect(Angle(degrees: Double(imageTiltValue)))
-                
+            
             
             Spacer()
             Button(buttonName, action: {
@@ -53,8 +53,10 @@ struct MissionCongratsComponent: View {
                 let templevel = settings.level
                 
                 if settings.isDoneTogetherWorkout {
-                    settings.level += 1
-                    CoreDataManager.coreDM.readAllBunny()[0].level += 1
+                    settings.totalDumbbell += 1
+                    CoreDataManager.coreDM.readAllUser()[0].totalDumbbell += 1
+                    settings.level += checkLevelUp(presentLevel: settings.totalDumbbell) ? 1 : 0
+                    CoreDataManager.coreDM.readAllBunny()[0].level += checkLevelUp(presentLevel: settings.totalDumbbell) ? 1 : 0
                     CoreDataManager.coreDM.update()
                 }
                 if templevel != settings.level {
@@ -66,13 +68,32 @@ struct MissionCongratsComponent: View {
             .buttonStyle(RedButtonStyle())
         }
         .sheet(isPresented: self.$levelupViewPresent) {
-               LevelUpView()
-                    .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+            LevelUpView()
+                .background(Color(red: 30/255, green: 28/255, blue: 29/255))
         }
         .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color.backgroundColor)
         .navigationBarHidden(true)
         
+    }
+    
+    private func checkLevelUp(presentLevel: Int16) -> Bool {
+        switch presentLevel {
+        case 3:
+            return true
+        case 7:
+            return true
+        case 21:
+            return true
+        case 30:
+            return true
+        case 45:
+            return true
+        case 66:
+            return true
+        default:
+            return false
+        }
     }
 }
 
