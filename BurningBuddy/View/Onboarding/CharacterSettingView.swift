@@ -12,21 +12,22 @@ struct CharacterSettingView: View {
     @ObservedObject var characterName = TextLimiter(limit: 8)
     @EnvironmentObject var settings: UserSettings
     @State private var isInputText: Bool = false
+    @State var isTopButtonHidden: Bool = false // 세팅뷰에서 재사용을 위한 변수
     
     var body: some View {
         VStack {
-            
-            Button(action: {
-                settings.pageNum -= 1
-            }, label: {
-                Image(systemName: "chevron.left")
-                    .resizable()
-                    .frame(width: 10, height: 19)
-            })
-            .foregroundColor(Color.mainTextColor)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-            
+            if !isTopButtonHidden {
+                Button(action: {
+                    settings.pageNum -= 1
+                }, label: {
+                    Image(systemName: "chevron.left")
+                        .resizable()
+                        .frame(width: 10, height: 19)
+                })
+                .foregroundColor(Color.mainTextColor)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+            }
             Text("캐릭터 이름을\n설정해주세요")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(.white)

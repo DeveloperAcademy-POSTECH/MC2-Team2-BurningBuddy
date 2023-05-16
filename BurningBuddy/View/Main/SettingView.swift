@@ -73,7 +73,7 @@ struct SettingView: View {
                     }
                 }
                 NavigationLink{
-                    NicknameSettingView()
+                    NicknameSettingView(isTopButtonHidden: true)
                 } label: {
                     Image(systemName: "person.crop.circle.fill")
                         .resizable()
@@ -86,7 +86,7 @@ struct SettingView: View {
                     Text("닉네임 변경하기")
                 }
                 NavigationLink{
-                    CharacterSettingView()
+                    CharacterSettingView(isTopButtonHidden: true)
                 } label: {
                     Image(systemName: "person.crop.circle.fill")
                         .resizable()

@@ -63,22 +63,28 @@ struct WorkoutView: View {
                     print("Navi link 안")
                     // 운동 데이터 가져오기
                     settings.workoutData.fetchAfterWorkoutTime()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         // 나의 데이터를 CoreData에 저장
+                        print(settings.workoutData.workoutCalorie)
+                        print(settings.workoutData.workoutDuration)
                         CoreDataManager.coreDM.readAllUser()[0].todayCalories = Int16(settings.workoutData.workoutCalorie)
                         CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = settings.workoutData.workoutDuration
                         CoreDataManager.coreDM.update()
                         // 운동완료 테스트를 위해 소모 칼로리 1000 늘리는 코드--------------------------
                         CoreDataManager.coreDM.readAllUser()[0].todayCalories += 1000
                         CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "30h 04m"
+                        CoreDataManager.coreDM.update()
                         // ------------------------------------------------------------------
                         print("workoutData 테스트 칼로리 : \(CoreDataManager.coreDM.readAllUser()[0].todayCalories)")
                         print("workoutData 테스트 시간 : \(CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours)")
                         // TODO: - 목표치 채웠는지 확인하고, 채웠으면 연결, 못 채웠으면 모달창 뜨게 하기
                         // 운동한 칼로리가 목표치를 넘었는지
-                        print("목표 칼로리 = \(settings.goalCalories)")
+                        print("목표 칼로리 = \(CoreDataManager.coreDM.readAllUser()[0].goalCalories)")
+                        // 내가 목표 칼로리를 다 채웠으면
                         if CoreDataManager.coreDM.readAllUser()[0].goalCalories <= CoreDataManager.coreDM.readAllUser()[0].todayCalories {
-                            // 넘었다면 불값 변경해주고, 칼로리 기록(코어데이터?)?하고 파트너와 재연결(수고하셨어요) 뷰로 넘어가기
+                            print("if문 - workoutData 테스트 목표 칼로리: \(CoreDataManager.coreDM.readAllUser()[0].goalCalories)")
+                            print("if문 - workoutData 테스트 오늘의 칼로리 : \(CoreDataManager.coreDM.readAllUser()[0].todayCalories)")
+                            // 파트너와 재연결(수고하셨어요) 뷰로 넘어가기
                             UserDefaults.standard.set(true, forKey: "isDoneWorkout")
                             UserDefaults.standard.set(false, forKey: "isWorkouting")
                             
@@ -87,6 +93,8 @@ struct WorkoutView: View {
                         else {
                             // 넘지 못하면 모달 뷰 띄우기
                             self.isNotDoneWorkout = true
+                            UserDefaults.standard.set(false, forKey: "isDoneWorkout")
+                            UserDefaults.standard.set(false, forKey: "isWorkouting")
                         }
                     }
                 }.buttonStyle(RedButtonStyle())
