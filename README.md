@@ -12,7 +12,12 @@
 <br><br>
 
 ### 📱 Screenshots
-이미지 추가 예정
+|Onboarding|Initial Setting|Setting|
+|:-:|:-:|:-:|
+|![1](https://github.com/DeveloperAcademy-POSTECH/MC2-Team2-BurningBuddy/assets/70744494/9ed3be2b-5694-4c48-8f70-315d099cd84a)|![닉네임:캐릭터이름:칼로리설정](https://github.com/DeveloperAcademy-POSTECH/MC2-Team2-BurningBuddy/assets/70744494/1733bc6e-8282-4bdd-8760-966c649b9ce5)|![세팅](https://github.com/DeveloperAcademy-POSTECH/MC2-Team2-BurningBuddy/assets/70744494/c513a6d9-3a87-4823-ab0a-a41178ecafca)|
+|Character Roadmap|NI Interaction|Workout Done|
+|:-:|:-:|:-:|
+|![인포](https://github.com/DeveloperAcademy-POSTECH/MC2-Team2-BurningBuddy/assets/70744494/e0a9fbfe-6c9f-4054-8c7e-f4bda4d3454c)|![운동중](https://github.com/DeveloperAcademy-POSTECH/MC2-Team2-BurningBuddy/assets/70744494/5df063b6-2870-417e-b9e6-2818aa4b2ed1)|![운동완료](https://github.com/DeveloperAcademy-POSTECH/MC2-Team2-BurningBuddy/assets/70744494/28f48bab-50d0-4533-8e0a-d42d83703828)|
 <br><br>
 
 
