@@ -55,8 +55,11 @@ struct MissionCongratsComponent: View {
                 if settings.isDoneTogetherWorkout {
                     settings.totalDumbbell += 1
                     CoreDataManager.coreDM.readAllUser()[0].totalDumbbell += 1
-                    settings.level += checkLevelUp(presentLevel: settings.totalDumbbell) ? 1 : 0
-                    CoreDataManager.coreDM.readAllBunny()[0].level += checkLevelUp(presentLevel: settings.totalDumbbell) ? 1 : 0
+                    // 레벨 7 미만일 때만 레벨 올리기 (문제될 시 삭제)
+                    if settings.level < 7 {
+                        settings.level += checkLevelUp(presentLevel: settings.totalDumbbell) ? 1 : 0
+                        CoreDataManager.coreDM.readAllBunny()[0].level += checkLevelUp(presentLevel: settings.totalDumbbell) ? 1 : 0
+                    }
                     CoreDataManager.coreDM.update()
                 }
                 if templevel != settings.level {

@@ -71,9 +71,9 @@ struct WorkoutView: View {
                         CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = settings.workoutData.workoutDuration
                         CoreDataManager.coreDM.update()
                         // 운동완료 테스트를 위해 소모 칼로리 1000 늘리는 코드--------------------------
-                        CoreDataManager.coreDM.readAllUser()[0].todayCalories += 1000
-                        CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "30h 04m"
-                        CoreDataManager.coreDM.update()
+//                        CoreDataManager.coreDM.readAllUser()[0].todayCalories += 754
+//                        CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "01h 04m"
+//                        CoreDataManager.coreDM.update()
                         // ------------------------------------------------------------------
                         print("workoutData 테스트 칼로리 : \(CoreDataManager.coreDM.readAllUser()[0].todayCalories)")
                         print("workoutData 테스트 시간 : \(CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours)")
