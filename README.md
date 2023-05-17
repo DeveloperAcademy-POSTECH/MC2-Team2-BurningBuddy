@@ -62,7 +62,26 @@ import HealthKit
 <br>
 
 ### 🗂 Folder Structure
-작성 예정
+```swift
+BurningBuddy
+├── Info.plist
+├── Model
+│   └── CoreData
+│       ├── Bunny
+│       └── User
+├── Resources
+│   └── Assets
+├── Utils
+│   └── NIUtils
+│       └── MPCUtils
+└── View/
+    ├── Component
+    ├── LevelUp
+    ├── Main
+    ├── Onboarding
+    ├── Partner
+    └── Workout
+```
 <br>
  
 ### 🔀 Git branch & Git Flow
