@@ -158,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				C90BA0192A14C2FF005659A6 /* ContentView.swift */,
+				C90BA0692A14C7F1005659A6 /* Launch Screen.storyboard */,
 				C90BA0392A14C4E8005659A6 /* Component */,
 				C90BA0382A14C4E6005659A6 /* Onboarding */,
 				C90BA0372A14C4E3005659A6 /* LevelUp */,
@@ -174,7 +175,6 @@
 				C90BA0622A14C786005659A6 /* CoreData */,
 				C90BA0652A14C7D2005659A6 /* FindingPartnerState.swift */,
 				C90BA0672A14C7DF005659A6 /* WorkoutData.swift */,
-				C90BA0692A14C7F1005659A6 /* Launch Screen.storyboard */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -523,7 +523,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BurningBuddy/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "버닝버디";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "HealthKit 사용 권한 허용";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HealthKit 사용 권한 허용";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "네트워크 사용 권한 허용";
@@ -534,8 +535,6 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -563,7 +562,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BurningBuddy/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "버닝버디";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "HealthKit 사용 권한 허용";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HealthKit 사용 권한 허용";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "네트워크 사용 권한 허용";
@@ -574,8 +574,6 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
