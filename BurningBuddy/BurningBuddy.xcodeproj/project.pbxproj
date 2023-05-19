@@ -525,10 +525,10 @@
 				INFOPLIST_FILE = BurningBuddy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "버닝버디";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "HealthKit 사용 권한 허용";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "사용자의 운동 정보를 받아와 소모한 칼로리를 측정하기 위해 건강정보를 사용합니다.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HealthKit 사용 권한 허용";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "네트워크 사용 권한 허용";
-				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "NI 사용 권한 허용";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "근처에 있는 운동 파트너의 닉네임 정보, 목표 칼로리 달성 여부를 받아오기 위해 네트워크를 사용합니다.";
+				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "근처에 있는 운동 파트너의 디바이스 위치를 파악하기 위해 근처 상호작용을 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -567,10 +567,10 @@
 				INFOPLIST_FILE = BurningBuddy/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "버닝버디";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "HealthKit 사용 권한 허용";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "사용자의 운동 정보를 받아와 소모한 칼로리를 측정하기 위해 건강정보를 사용합니다.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "HealthKit 사용 권한 허용";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "네트워크 사용 권한 허용";
-				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "NI 사용 권한 허용";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "근처에 있는 운동 파트너의 닉네임 정보, 목표 칼로리 달성 여부를 받아오기 위해 네트워크를 사용합니다.";
+				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "근처에 있는 운동 파트너의 디바이스 위치를 파악하기 위해 근처 상호작용을 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
