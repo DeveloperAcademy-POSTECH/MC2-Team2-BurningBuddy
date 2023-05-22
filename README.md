@@ -24,7 +24,8 @@
 
 |[<img src="https://github.com/kpk0616.png" width="100px">](https://github.com/kpk0616)|[<img src="https://github.com/jay1261.png" width="100px">](https://github.com/jay1261)|[<img src="https://github.com/bokoo14.png" width="100px">](https://github.com/bokoo14)|[<img src="https://github.com/DhKimy.png" width="100px">](https://github.com/DhKimy)|[<img src="https://github.com/yeeun223.png" width="100px">](https://github.com/yeeun223)|[<img src="https://github.com/Hanyeonggyun.png" width="100px">](https://github.com/Hanyeonggyun)|  
 |:----:|:----:|:----:|:----:|:----:|:----:|
-|[West](https://github.com/kpk0616)|[Jay](https://github.com/jay1261)|[Luna](https://github.com/bokoo14)|[Bazzi](https://github.com/DhKimy)|[Yena](https://github.com/yeeun223)|[Muho](https://github.com/Hanyeonggyun)|  
+|[West](https://github.com/kpk0616)|[Jay](https://github.com/jay1261)|[Luna](https://github.com/bokoo14)|[Bazzi](https://github.com/DhKimy)|[Yena](https://github.com/yeeun223)|[Muho](https://github.com/Hanyeonggyun)|
+| • NearBy Interaction,<br> • MultiPeer Connectivity<br> • Network<br> • CoreData| • HealthKit<br> • Animation<br> • CoreData| • NearBy Interaction,<br> • MultiPeer Connectivity<br> • Network<br> • CoreData| • View<br> • CoreData| • UI Design| • View<br> • CoreData|
 <br>
 
  ### 📱 Screenshots
@@ -74,7 +75,7 @@ BurningBuddy
 ├── Utils
 │   └── NIUtils
 │       └── MPCUtils
-└── View/
+└── View
     ├── Component
     ├── LevelUp
     ├── Main
