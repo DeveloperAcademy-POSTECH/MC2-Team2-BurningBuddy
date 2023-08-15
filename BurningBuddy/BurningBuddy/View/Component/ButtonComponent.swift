@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/**
+ 컬러, 폰트 등의 수정이 필요. 일부 코드만 수정하면 컴포넌트로 활용할 수 있음.
+ */
 struct RedButtonStyle: ButtonStyle {
     @State var fontSize: CGFloat = 17
     @State private var pressed = false
@@ -24,8 +27,6 @@ struct RedButtonStyle: ButtonStyle {
     }
 }
 
-
-
 struct GrayButtonStyle: ButtonStyle {
     @State var fontSize: CGFloat = 17
     @State private var pressed = false
@@ -40,7 +41,6 @@ struct GrayButtonStyle: ButtonStyle {
             )
     }
 }
-
 
 struct XbuttonStyle: ButtonStyle {
     @State private var pressed = false
@@ -69,7 +69,6 @@ struct TwoRedButtonStyle: ButtonStyle {
     }
 }
 
-
 struct TwoGrayButtonStyle: ButtonStyle {
     @State var fontSize: CGFloat = 17
     @State private var pressed = false
@@ -84,6 +83,3 @@ struct TwoGrayButtonStyle: ButtonStyle {
             )
     }
 }
-
-
-
