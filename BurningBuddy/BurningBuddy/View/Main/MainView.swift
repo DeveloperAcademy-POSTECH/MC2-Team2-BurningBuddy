@@ -180,7 +180,9 @@ struct MainView: View {
                 // TODO: -
                 /**
                  isactive 인자로 하는 것 말고, 다른 것으로 변경
-                 isWorkouting도 AppStorage 또는 다른 것으로 변경하여야 함.
+                 isWorkouting도 AppStorage 또는 다른 것으로 변경하여야 함.\
+                 또한 운동화면 보기, 파트너와 연결하기 이외에, 운동이 끝나고 나서 종료했을 경우 또는 앱 오류로 인해 종료되는 것을 고려하여
+                 "파트너와 운동 기록 공유하기" 버튼을 두어야 함.
                  */
                 if UserDefaults.standard.bool(forKey: "isWorkouting") {
                     NavigationLink(

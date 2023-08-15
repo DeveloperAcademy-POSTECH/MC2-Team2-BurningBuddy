@@ -13,6 +13,12 @@ import SwiftUI
  연결하기를 누를 때, 파트너의 이름을 저장하는 것이 필요하다.
  토큰이 계속 남아있을 수 있는가?의 문제도 있다. 다시 연결되어 데이터를 전송할 때, 문제가 되지 않을까? 하는 궁금함이 있다.
  */
+//TODO: -
+/**
+ 8/15
+ 앱이 왜 이 뷰로 넘어오고 메인으로 다시 돌아가고 하는 과정에서
+ 왜 터질까를 잡아야 함.
+ */
 struct SearchPartnerView: View {
     @EnvironmentObject var settings: UserSettings
     @Environment(\.presentationMode) var presentationMode
