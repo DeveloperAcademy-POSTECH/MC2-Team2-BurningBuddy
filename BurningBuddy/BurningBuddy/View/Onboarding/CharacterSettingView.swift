@@ -8,6 +8,11 @@
 import Foundation
 import SwiftUI
 
+//TODO: -
+/**
+ NicknameSettingView와 동일한 구조를 가지고 있음.
+ 하나의 파일로 재사용할 수 있는 방법을 생각해 보아야 함.
+ */
 struct CharacterSettingView: View {
     @ObservedObject var characterName = TextLimiter(limit: 8)
     @EnvironmentObject var settings: UserSettings

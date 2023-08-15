@@ -14,6 +14,10 @@ struct NicknameSettingView: View {
     @State private var isInputText: Bool = false
     @State var isTopButtonHidden: Bool = false // 세팅뷰에서 상단 크기를 맞추기 위한 버튼
     
+    /**
+     레이아웃 수정 필요. EdgeInsets 제거 등
+     컬러 익스텐션 적용 안된 코드 있음. 수정 필요.
+     */
     var body: some View {
         VStack {
             if !isTopButtonHidden {
@@ -64,6 +68,11 @@ struct NicknameSettingView: View {
         .background(Color.backgroundColor) // 고급진 까만것이 필요할 듯
     }
     
+    // TODO: -
+    /**
+     settings 제거하고, DataModel에 저장하는 방식으로 변경 필요.
+     메서드를 DataModel을 만들어 거기에서 활용해야 함.
+     */
     private func saveNickname() {
         settings.nickName = nicknameLimiter.value
         if settings.nickName.count == 0 || settings.nickName.count == 1{

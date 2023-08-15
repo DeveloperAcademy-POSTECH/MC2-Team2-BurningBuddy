@@ -70,7 +70,13 @@ struct CalorieSettingView: View {
         .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30))
         .background(Color.backgroundColor)
     }
-    
+  
+    //TODO: -
+    /**
+     settingView에서 save메서드가 여러번 나오고 있는데, Onboarding, SettingView를 모두 감쌀 수 있는
+     구조체를 만들어서 거기에서 마지막에 한 번 저장하는 것이 바람직하다.
+     온보딩 재구조화를 통해 바꾸어야 함.
+     */
     private func saveCalorie() {
         // 유저 정보 Core데이터에 생성
         if settings.pageNum != 4 { // SettingView에서 재사용하기 위해
@@ -88,6 +94,10 @@ struct CalorieSettingView: View {
     }
 }
 
+//TODO: -
+/**
+ TextLimiter와 같이 다른 파일로 분리시킬 필요가 있음.
+ */
 struct TextUtil {
     func calculateLineSpacing(_ fontsize: Int, _ percent: Double) -> CGFloat {
         return CGFloat(Double(fontsize) * (percent / Double(100)) - Double(fontsize))

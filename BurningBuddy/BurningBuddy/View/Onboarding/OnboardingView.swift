@@ -8,6 +8,11 @@
 import SwiftUI
 import UIKit
 
+/**
+ 크기, 폰트, padding 등을 수정해야 함.
+ VStack spacing: 0 을 기준으로 해서 컴포넌트 재배치 해야 함.
+ EdgeInsets 제거 필요하며, Stack 그룹핑을 다시 해서 재정렬 해야 함.
+ */
 struct OnboardingView: View {
     @EnvironmentObject var settings: UserSettings
     
@@ -43,6 +48,11 @@ struct OnboardingView: View {
     }
 }
 
+/**
+ 크기, 폰트, padding 등을 수정해야 함.
+ VStack spacing: 0 을 기준으로 해서 컴포넌트 재배치 해야 함.
+ EdgeInsets 제거 필요하며, Stack 그룹핑을 다시 해서 재정렬 해야 함.
+ */
 struct OnboardingPageView: View {
     var imageName: String
     var title: String
@@ -72,8 +82,6 @@ struct OnboardingPageView: View {
             Spacer()
             
         }
-        
-        
     }
         
 }
@@ -82,6 +90,4 @@ struct OnboardingView_Preview: PreviewProvider {
     static var previews: some View {
         OnboardingView()
     }
-    
-    
 }
