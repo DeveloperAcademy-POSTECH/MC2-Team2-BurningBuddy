@@ -12,6 +12,12 @@ import SwiftUI
  일단 settings에 데이터를 저장하고 상대방에게 settings 또는 만들어진 데이터모델을 전달하는 것이 중요.
  동시에 만들어진 데이터모델을 받아서 settings 내부에 저장하는 것이 필요.
  */
+//TODO: -
+/**
+ settings, CoreData 관련 메서드, 코드라인 정리 필요.
+ DataModel 활용하는 싱글턴 도입필요.
+ 
+ */
 struct WorkoutView: View {
     @EnvironmentObject var settings: UserSettings
     

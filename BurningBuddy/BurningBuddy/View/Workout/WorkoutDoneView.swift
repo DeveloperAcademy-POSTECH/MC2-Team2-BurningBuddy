@@ -56,7 +56,11 @@ struct WorkoutDoneView: View {
             }
             Spacer()
             switch(niObject.isBumped) {
-                
+            //TODO: -
+            /**
+             이 부분의 기능 정의와 예외 처리들이 필요함.
+             무한 로딩, 파트너를 찾지 못할 때를 고려하고, 성능을 향상시켜주어야 함.
+             */
             case true:
                 NavigationLink(isActive: $isSuccessNext, destination: {
                     
