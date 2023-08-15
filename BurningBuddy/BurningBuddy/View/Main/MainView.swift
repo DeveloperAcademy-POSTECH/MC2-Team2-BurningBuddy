@@ -179,7 +179,7 @@ struct MainView: View {
                 
                 // TODO: -
                 /**
-                 destination 인자로 하는 것 말고, 다른 것으로 변경
+                 isactive 인자로 하는 것 말고, 다른 것으로 변경
                  isWorkouting도 AppStorage 또는 다른 것으로 변경하여야 함.
                  */
                 if UserDefaults.standard.bool(forKey: "isWorkouting") {
