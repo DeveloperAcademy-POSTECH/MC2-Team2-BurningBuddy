@@ -7,23 +7,35 @@
 
 import Foundation
 import SwiftUI
-/**
- settings에 있는 것을 그대로 보여주기만 하면 된다.
- progress 바 안의 변수를 조금 수정해주긴 해야 한다.
- Color asset 처리가 필요.
- 중복되는 Text 컴포넌트, 메서드 처리할까?
- */
+
+
 struct MainView: View {
     @EnvironmentObject var settings: UserSettings
     @State var showEvolution = false // 진화과정 모달에 관련된 상태
     @State var mainViewNavLinkActive: Bool = false
     @State private var showOnboarding: Bool = UserDefaults.standard.bool(forKey: "showOnboarding")
     
+    //TODO: -
+    /**
+     8/15
+     마지막으로 앱을 종료했을 때 날짜를 기준으로 기록할 필요가 없음.
+     CoreData에서 Column 관리를 해주면 됨.
+     또한 운동 기록을 계속 쌓는 방식으로 CoreData 구조를 변경해야 함.
+     settings를 걷어내고, DataModel 방식으로 데이터를 불러오는 구조 필요.
+     showOnboarding도 AppStorage 활용하여 변경하는 것 필요.
+     */
     //앱이 종료될 때 현재 날짜를 기록하고, 다음에 앱이 실행될 때 해당 날짜와 비교하여 데이터를 초기화하는 방법
     private let lastLaunchDateKey = "lastLaunchDate" // 마지막으로 앱을 종료했을때의 날짜
     let formatter = DateFormatter()
     
     var body: some View {
+        
+        //TODO: -
+        /**
+         8/15
+         레이아웃 변경 필요. (EdgeInsets 제거, stack에 spacing: 0 추가 등)
+         extension 메서드로 코드 분할하는 것도 생각해보기.
+         */
         NavigationView {
             VStack {
                 VStack {
@@ -128,7 +140,6 @@ struct MainView: View {
                                 .font(.system(size: 20, design: .default))
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                             Text("소모 칼로리")
-                            
                                 .font(.system(size: 15, weight: .semibold))
                                 .foregroundColor(Color.subTextColor)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
@@ -143,18 +154,14 @@ struct MainView: View {
                         VStack {
                             Text("⏱️")
                                 .font(.system(size: 20, design: .default))
-                            
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
                             Text("운동 시간")
                                 .font(.system(size: 15, weight: .semibold))
                                 .foregroundColor(Color.subTextColor)
-                            
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-                            
                             Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours : "00h 00m")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
-                            
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                         .background(Color.mainSection2)
@@ -169,6 +176,12 @@ struct MainView: View {
                 //여기가 오늘의 운동량 크기 조절할 수 있는 코드
                 Spacer()
                 Spacer()
+                
+                // TODO: -
+                /**
+                 destination 인자로 하는 것 말고, 다른 것으로 변경
+                 isWorkouting도 AppStorage 또는 다른 것으로 변경하여야 함.
+                 */
                 if UserDefaults.standard.bool(forKey: "isWorkouting") {
                     NavigationLink(
                         destination: WorkoutView(mainViewNavLinkActive: $mainViewNavLinkActive).environmentObject(settings),
@@ -211,6 +224,11 @@ struct MainView: View {
         
     } // body End
     
+    // TODO: -
+    /**
+     이하의 메서드들은 MainView에 있어야 할 메서드가 아님.
+     Util 역할을 하는 메서드들로, Util 클래스를 두는 방식으로 분리하는 것이 필요.
+     */
     private func countRemainDumbbell(presentLevel: Int16) -> Int16 {
         let targetLevel: Int16 = presentLevel + 1
         var remainDumbbell: Int16 = 0

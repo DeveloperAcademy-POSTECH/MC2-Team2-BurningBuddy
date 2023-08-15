@@ -5,11 +5,13 @@
 //  Created by 김동현 on 2023/05/02.
 //
 
-import Foundation
 import SwiftUI
+
 /**
- settings에 있는 변수들의 값들을 그냥 보여주면 된다.
- 단, update 할 수 있는 변수가,,, 칼로리가 있기 때문에, 그것만 업데이트 시키는 코드를 만들어서 넣어주어야 한다.
+ Image 관련된 modifier만 수정해주면 됨.
+ 중복 코드가 많기 때문에 줄이기만 하면됨.
+ 다만, Onboarding의 파일들을 재사용하고 있는데, 이것을 리팩토링함에 따라 생기는 side effect 대처 필요.
+ settings 관련한 문제도 해결해야 함.
  */
 struct SettingView: View {
     @EnvironmentObject var settings: UserSettings
@@ -107,9 +109,6 @@ struct SettingView: View {
         .scrollContentBackground(.hidden)
     } // body End
 }
-
-
-
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
