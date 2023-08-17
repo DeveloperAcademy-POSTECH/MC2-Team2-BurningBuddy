@@ -10,19 +10,17 @@ import UIKit
 
 class CoreDataManager {
     
-    static let coreDM = CoreDataManager()
-    
-    let persistentContainer: NSPersistentContainer
-    
-    init() {
-        persistentContainer = NSPersistentContainer(name:"UserDataModel")
-        persistentContainer.loadPersistentStores {(description, error) in
+    static let shared = CoreDataManager()
+
+    private lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "UserInfo")
+        container.loadPersistentStores { _, error in
             if let error = error {
-                fatalError("Core Data Store failed \(error.localizedDescription)")
+                fatalError("Failed to load Core Data stack: \(error)")
             }
         }
-        
-    }
+        return container
+    }()
     
     func createUser() {
         

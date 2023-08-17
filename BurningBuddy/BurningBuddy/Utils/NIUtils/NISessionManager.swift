@@ -60,7 +60,7 @@ class NISessionManager: NSObject, ObservableObject {
     @Published var myNickname : String = ""
     @Published var isDoneTargetCalories: Bool = false
     //@Published var isDoneTargetCalories: Bool = CoreDataManager.coreDM.readAllUser()[0].goalCalories <= CoreDataManager.coreDM.readAllUser()[0].todayCalories
-    @Published var myUUID: UUID = CoreDataManager.coreDM.readAllUser()[0].userID
+    @Published var myUUID: UUID = CoreDataManager.shared.readAllUser()[0].userID
     
     // 범프된 상대 정보
     @Published var bumpedName = ""
@@ -80,7 +80,7 @@ class NISessionManager: NSObject, ObservableObject {
     
     func start() {
         print("start")
-        myNickname = CoreDataManager.coreDM.readAllUser()[0].userName ?? "예시닉네임"
+        myNickname = CoreDataManager.shared.readAllUser()[0].userName ?? "예시닉네임"
         //isDoneTargetCalories = CoreDataManager.coreDM.readAllUser()[0].goalCalories <= CoreDataManager.coreDM.readAllUser()[0].todayCalories
         startup()
     }
@@ -218,7 +218,7 @@ class NISessionManager: NSObject, ObservableObject {
     }
     
     func shareMyData(token: NIDiscoveryToken, peer: MCPeerID) {
-        var isDoneTargetCaloriesCheck: Bool = CoreDataManager.coreDM.readAllUser()[0].goalCalories <= CoreDataManager.coreDM.readAllUser()[0].todayCalories
+        var isDoneTargetCaloriesCheck: Bool = CoreDataManager.shared.readAllUser()[0].goalCalories <= CoreDataManager.shared.readAllUser()[0].todayCalories
         let tranData = TranData(token: token, isBumped: true, nickname: myNickname, isDoneTargetCalories: isDoneTargetCaloriesCheck, uuid: myUUID) // TODO: - TranData의 UUID가 Nil - 후보 2.
         
         guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: tranData, requiringSecureCoding: false) else {

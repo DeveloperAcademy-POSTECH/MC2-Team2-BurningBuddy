@@ -78,8 +78,8 @@ struct NicknameSettingView: View {
         if settings.nickName.count == 0 || settings.nickName.count == 1{
             self.isInputText = true
         } else {
-            CoreDataManager.coreDM.readAllUser()[0].userName = nicknameLimiter.value
-            CoreDataManager.coreDM.update()
+            CoreDataManager.shared.readAllUser()[0].userName = nicknameLimiter.value
+            CoreDataManager.shared.update()
             self.isInputText = false
             
             withAnimation(.easeInOut(duration: 0.5)){

@@ -78,23 +78,23 @@ struct ContentView: View {
              */
             if !showOnboarding {
 
-                let test2 = CoreDataManager.coreDM.readAllBunny()
-                let test = CoreDataManager.coreDM.readAllUser()
+                let test2 = CoreDataManager.shared.readAllBunny()
+                let test = CoreDataManager.shared.readAllUser()
                 if test2.isEmpty {
-                    CoreDataManager.coreDM.createBunny()
+                    CoreDataManager.shared.createBunny()
                 }
                 if test.isEmpty  {
-                    CoreDataManager.coreDM.createUser()
+                    CoreDataManager.shared.createUser()
                 }
                 
                  // published로 해야될 수도 있음
                 
             } else {
-                settings.characterName = CoreDataManager.coreDM.readAllBunny()[0].characterName ?? "캐릭터 이름"
-                settings.level = CoreDataManager.coreDM.readAllBunny()[0].level
-                settings.nickName = (CoreDataManager.coreDM.readAllUser()[0].userName ?? "사람 이름")
-                settings.totalDumbbell  = CoreDataManager.coreDM.readAllUser()[0].totalDumbbell
-                settings.goalCalories = CoreDataManager.coreDM.readAllUser()[0].goalCalories
+                settings.characterName = CoreDataManager.shared.readAllBunny()[0].characterName ?? "캐릭터 이름"
+                settings.level = CoreDataManager.shared.readAllBunny()[0].level
+                settings.nickName = (CoreDataManager.shared.readAllUser()[0].userName ?? "사람 이름")
+                settings.totalDumbbell  = CoreDataManager.shared.readAllUser()[0].totalDumbbell
+                settings.goalCalories = CoreDataManager.shared.readAllUser()[0].goalCalories
                 settings.isDoneTogetherWorkout = false // 둘 다 운동을 했는지 check
                 settings.workoutData = WorkoutData()
             }
