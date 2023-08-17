@@ -140,7 +140,6 @@
 		C90BA0252A14C3A9005659A6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				C90BA02A2A14C447005659A6 /* CoreDataManager.swift */,
 				C90BA02C2A14C458005659A6 /* NIUtils */,
 			);
 			path = Utils;
@@ -262,6 +261,7 @@
 		C90BA0622A14C786005659A6 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				C90BA02A2A14C447005659A6 /* CoreDataManager.swift */,
 				C90BA0732A14C87E005659A6 /* UserDataModel.xcdatamodeld */,
 				C90BA0632A14C794005659A6 /* Bunny */,
 				C90BA0642A14C79A005659A6 /* User */,
