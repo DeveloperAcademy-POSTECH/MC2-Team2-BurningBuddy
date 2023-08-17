@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+
+//TODO: -
+/**
+ SearchPartnerView와 MainView를 왔다 갔다 여러번 하면 오류가 생김.
+ DispatchQueue로 일어나는 문제로 보임.
+ Lottie 이미지로 대체하는 것이 성능상 더 좋을 것 같음.
+ */
 struct LoadingAnimationView: View {
     @State var showLoadingIndicator = [false, false, false]
     var body: some View {

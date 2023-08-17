@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
+//TODO: -
 /**
- 특별한 로직은 필요 없을 것 같다.
- 왜냐하면, 특정한 조건에 나오는 뷰이기 때문이다.
- 단순히 진화하는 캐릭터만 보여주면 족하다.
+ settings 변수만 수정해주면 된다.
+ EdgeInsets 등 레이아웃만 수정하면 됨.
  */
 struct LevelUpView: View {
     @EnvironmentObject var settings: UserSettings
@@ -39,10 +39,6 @@ struct LevelUpView: View {
                 
             }
             Spacer()
-//            Button("메인으로 가기", action: {
-//
-//            })
-//            .buttonStyle(RedButtonStyle())
         }
         .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color.backgroundColor) // 고급진 까만것이 필요할 듯

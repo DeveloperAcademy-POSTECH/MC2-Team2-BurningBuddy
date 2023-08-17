@@ -8,7 +8,10 @@
 import Foundation
 import SwiftUI
 
-
+/**
+ settings 변수만 수정해주면 된다.
+ EdgeInsets 등 레이아웃만 수정하면 됨.
+ */
 struct LevelUpModalView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var settings: UserSettings
@@ -26,10 +29,11 @@ struct LevelUpModalView: View {
                     .foregroundColor(Color.bunnyColor)
                 Spacer()
                 Button(action: {
-                    presentationMode.wrappedValue.dismiss()                       }) {
-                           Image("Close")
-                           .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
-                       }
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image("Close")
+                        .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                }
             }
             .padding(EdgeInsets(top: 30, leading: 0, bottom: 0, trailing: 0))
             
