@@ -22,6 +22,67 @@ class CoreDataManager {
         return container
     }()
     
+    private var context: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
+    
+    // MARK: - CRUD 메서드
+    /**
+     각각의 Entity에 해당하는 메서드들을 CoreDataManager 내부에서 제어하는 것이 아니라,
+     DataModel에서 제어하기 위해 CoreDataManager에서 사용하는 메서드는
+     UserDataModel 그 자체에 접근하기 위한 메서드만 남겨놓음.
+     */
+    
+    func create(entityName: String, attributes: [String: Any]) -> NSManagedObject? {
+        guard let entity = NSEntityDescription.entity(forEntityName: entityName, in: context) else {
+            return nil
+        }
+        
+        let object = NSManagedObject(entity: entity, insertInto: context)
+        object.setValuesForKeys(attributes)
+        
+        do {
+            try context.save()
+            return object
+        } catch {
+            print("Failed to create object(CoreDataManager): \(error)")
+            return nil
+        }
+    }
+    
+    func fetch(entityName: String, predicate: NSPredicate? = nil) -> [NSManagedObject] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            return result as? [NSManagedObject] ?? []
+        } catch {
+            print("Failed to fetch objects(CoreDataManager): \(error)")
+            return []
+        }
+    }
+    
+    func update(object: NSManagedObject) {
+        do {
+            try context.save()
+        } catch {
+            print("Failed to update object(CoreDataManager): \(error)")
+        }
+    }
+    
+    func delete(object: NSManagedObject) {
+        context.delete(object)
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed to delete object(CoreDataManager): \(error)")
+        }
+    }
+    
+    
+    /**
     func createUser() {
         
         let user = User(context: persistentContainer.viewContext)
@@ -94,5 +155,6 @@ class CoreDataManager {
             print("Failed to save context \(error)")
         }
     }
+    */
 }
 
