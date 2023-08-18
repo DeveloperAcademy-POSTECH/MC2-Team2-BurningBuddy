@@ -40,11 +40,11 @@
 		C90BA06A2A14C7F1005659A6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C90BA0692A14C7F1005659A6 /* Launch Screen.storyboard */; };
 		C90BA06C2A14C817005659A6 /* Bunny+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA06B2A14C817005659A6 /* Bunny+CoreDataClass.swift */; };
 		C90BA06E2A14C828005659A6 /* Bunny+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA06D2A14C828005659A6 /* Bunny+CoreDataProperties.swift */; };
-		C90BA0702A14C83F005659A6 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA06F2A14C83F005659A6 /* User+CoreDataClass.swift */; };
-		C90BA0722A14C85B005659A6 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0712A14C85B005659A6 /* User+CoreDataProperties.swift */; };
 		C90BA0752A14C87E005659A6 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0732A14C87E005659A6 /* UserDataModel.xcdatamodeld */; };
 		C9EE2EAE2A8E324400EE6557 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EAD2A8E324400EE6557 /* UserModel.swift */; };
 		C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */; };
+		C9EE2EB42A8EFEDA00EE6557 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */; };
+		C9EE2EB52A8EFEDA00EE6557 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB32A8EFEDA00EE6557 /* User+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,13 +82,13 @@
 		C90BA0692A14C7F1005659A6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C90BA06B2A14C817005659A6 /* Bunny+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bunny+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C90BA06D2A14C828005659A6 /* Bunny+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bunny+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C90BA06F2A14C83F005659A6 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C90BA0712A14C85B005659A6 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C90BA0742A14C87E005659A6 /* UserDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserDataModel.xcdatamodel; sourceTree = "<group>"; };
 		C90BA0762A14CA34005659A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C90BA0772A14CADB005659A6 /* BurningBuddyRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BurningBuddyRelease.entitlements; sourceTree = "<group>"; };
 		C9EE2EAD2A8E324400EE6557 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunnyModel.swift; sourceTree = "<group>"; };
+		C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C9EE2EB32A8EFEDA00EE6557 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,8 +286,8 @@
 		C90BA0642A14C79A005659A6 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				C90BA06F2A14C83F005659A6 /* User+CoreDataClass.swift */,
-				C90BA0712A14C85B005659A6 /* User+CoreDataProperties.swift */,
+				C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */,
+				C9EE2EB32A8EFEDA00EE6557 /* User+CoreDataProperties.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -386,15 +386,15 @@
 				C90BA0512A14C67E005659A6 /* LoadingAnimationView.swift in Sources */,
 				C90BA06C2A14C817005659A6 /* Bunny+CoreDataClass.swift in Sources */,
 				C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */,
+				C9EE2EB42A8EFEDA00EE6557 /* User+CoreDataClass.swift in Sources */,
 				C90BA0412A14C57A005659A6 /* NicknameSettingView.swift in Sources */,
 				C90BA0302A14C486005659A6 /* LocalNetworkAuthorization.swift in Sources */,
 				C90BA0572A14C6CA005659A6 /* WorkoutDoneView.swift in Sources */,
 				C90BA03B2A14C520005659A6 /* ButtonComponent.swift in Sources */,
 				C90BA02E2A14C475005659A6 /* NISessionManager.swift in Sources */,
 				C90BA03F2A14C56F005659A6 /* OnboardingView.swift in Sources */,
-				C90BA0722A14C85B005659A6 /* User+CoreDataProperties.swift in Sources */,
+				C9EE2EB52A8EFEDA00EE6557 /* User+CoreDataProperties.swift in Sources */,
 				C90BA06E2A14C828005659A6 /* Bunny+CoreDataProperties.swift in Sources */,
-				C90BA0702A14C83F005659A6 /* User+CoreDataClass.swift in Sources */,
 				C90BA0492A14C5E2005659A6 /* LevelUpModalView.swift in Sources */,
 				C90BA0612A14C709005659A6 /* DataReceiveView.swift in Sources */,
 				C90BA0472A14C5D6005659A6 /* LevelUpView.swift in Sources */,

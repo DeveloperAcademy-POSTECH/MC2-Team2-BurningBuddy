@@ -29,6 +29,13 @@ class UserModel: ObservableObject {
             print("유저 데이터를 가져오는데 실패했습니다.(UserModel)")
             return
         }
+        
+        userName = userData.userName ?? ""
+        todayCalories = Int(userData.todayCalories)
+        todayWorkoutHours = userData.todayWorkoutHours
+        totalDumbbell = Int(userData.totalDumbbell)
+        goalCalories = Int(userData.goalCalories)
+        
     }
     
 }
