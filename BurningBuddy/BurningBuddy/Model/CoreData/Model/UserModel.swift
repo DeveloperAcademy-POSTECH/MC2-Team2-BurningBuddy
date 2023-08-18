@@ -32,10 +32,34 @@ class UserModel: ObservableObject {
         
         userName = userData.userName ?? ""
         todayCalories = Int(userData.todayCalories)
-        todayWorkoutHours = userData.todayWorkoutHours
+        todayWorkoutHours = Int(userData.todayWorkoutHours)
         totalDumbbell = Int(userData.totalDumbbell)
         goalCalories = Int(userData.goalCalories)
-        
+        userID = userData.userID ?? UUID()
     }
     
+    func saveUserData() {
+        var userData: User?
+        
+        let fetchResult = coreDataManager.fetch(entityName: entityName)
+        if let existingUserData = fetchResult.first as? User {
+            userData = existingUserData
+        } else if let newUserData = coreDataManager.create(entityName: entityName, attributes: [:]) as? User {
+            userData = newUserData
+        }
+        
+        guard let user = userData else {
+            print("유저 데이터 생성 또는 찾기에 실패했습니다.")
+            return
+        }
+        
+        userName = user.userName ?? ""
+        todayCalories = Int(user.todayCalories)
+        todayWorkoutHours = Int(user.todayWorkoutHours)
+        totalDumbbell = Int(user.totalDumbbell)
+        goalCalories = Int(user.goalCalories)
+        userID = user.userID ?? UUID()
+        
+        coreDataManager.update(object: user)
+    }
 }
