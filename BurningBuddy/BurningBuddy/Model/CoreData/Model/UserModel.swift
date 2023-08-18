@@ -22,6 +22,23 @@ class UserModel: ObservableObject {
         fetchUserData()
     }
     
+    func createUserData() {
+        if let newUserData = coreDataManager.create(entityName: entityName, attributes: [:]) as? User {
+            
+            let fetchReslut = coreDataManager.fetch(entityName: entityName)
+            if let currentUserData = fetchReslut.first as? User {
+                currentUserData.userName = userName
+                currentUserData.todayCalories = Int16(todayCalories)
+                currentUserData.todayWorkoutHours = Int16(todayWorkoutHours)
+                currentUserData.totalDumbbell = Int16(totalDumbbell)
+                currentUserData.goalCalories = Int16(goalCalories)
+                currentUserData.userID = userID
+            }
+            
+            coreDataManager.update(object: newUserData)
+        }
+    }
+    
     func fetchUserData() {
         let fetchResult = coreDataManager.fetch(entityName: entityName)
         

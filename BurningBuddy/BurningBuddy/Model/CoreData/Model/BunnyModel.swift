@@ -18,6 +18,19 @@ class BunnyModel: ObservableObject {
         fetchUserData()
     }
     
+    func createBunnyData() {
+        if let newBunnyData = coreDataManager.create(entityName: entityName, attributes: [:]) as? Bunny {
+        
+            let fetchReslut = coreDataManager.fetch(entityName: entityName)
+            if let currentUserData = fetchReslut.first as? Bunny {
+                currentUserData.characterName = bunnyName
+                currentUserData.level = Int16(bunnyLevel)
+            }
+            
+            coreDataManager.update(object: newBunnyData)
+        }
+    }
+    
     func fetchUserData() {
         let fetchResult = coreDataManager.fetch(entityName: entityName)
         
