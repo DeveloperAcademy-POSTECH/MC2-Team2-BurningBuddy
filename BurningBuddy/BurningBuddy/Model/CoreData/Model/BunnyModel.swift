@@ -14,7 +14,7 @@ class BunnyModel: ObservableObject {
     @Published var bunnyName = ""
     @Published var bunnyLevel = 0
     
-    private init() {
+    init() {
         fetchUserData()
     }
     

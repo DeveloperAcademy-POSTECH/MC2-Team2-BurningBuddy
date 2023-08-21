@@ -17,7 +17,7 @@ class WorkoutModel: ObservableObject {
     @Published var workoutTime = 0
     @Published var calorieBurn = 0
     
-    private init() {
+    init() {
         fetchWorkoutData()
     }
     

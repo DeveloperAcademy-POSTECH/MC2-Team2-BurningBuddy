@@ -18,7 +18,7 @@ class UserModel: ObservableObject {
     @Published var goalCalories = 0
     @Published var userID: UUID = UUID()
     
-    private init() {
+    init() {
         fetchUserData()
     }
     
