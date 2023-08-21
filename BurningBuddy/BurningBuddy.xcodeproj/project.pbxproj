@@ -42,9 +42,9 @@
 		C90BA06E2A14C828005659A6 /* Bunny+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA06D2A14C828005659A6 /* Bunny+CoreDataProperties.swift */; };
 		C90BA0752A14C87E005659A6 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0732A14C87E005659A6 /* UserDataModel.xcdatamodeld */; };
 		C979C3122A93113600A071F6 /* OnboardingRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3112A93113600A071F6 /* OnboardingRoot.swift */; };
-		C979C3152A93310700A071F6 /* WorkoutRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3132A93310700A071F6 /* WorkoutRecord+CoreDataClass.swift */; };
-		C979C3162A93310700A071F6 /* WorkoutRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3142A93310700A071F6 /* WorkoutRecord+CoreDataProperties.swift */; };
 		C979C3182A93322A00A071F6 /* TextUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3172A93322A00A071F6 /* TextUtil.swift */; };
+		C979C31B2A93507500A071F6 /* BurningRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3192A93507500A071F6 /* BurningRecord+CoreDataClass.swift */; };
+		C979C31C2A93507500A071F6 /* BurningRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C31A2A93507500A071F6 /* BurningRecord+CoreDataProperties.swift */; };
 		C9EE2EAE2A8E324400EE6557 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EAD2A8E324400EE6557 /* UserModel.swift */; };
 		C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */; };
 		C9EE2EB42A8EFEDA00EE6557 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */; };
@@ -91,9 +91,9 @@
 		C90BA0762A14CA34005659A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C90BA0772A14CADB005659A6 /* BurningBuddyRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BurningBuddyRelease.entitlements; sourceTree = "<group>"; };
 		C979C3112A93113600A071F6 /* OnboardingRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoot.swift; sourceTree = "<group>"; };
-		C979C3132A93310700A071F6 /* WorkoutRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C979C3142A93310700A071F6 /* WorkoutRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkoutRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C979C3172A93322A00A071F6 /* TextUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUtil.swift; sourceTree = "<group>"; };
+		C979C3192A93507500A071F6 /* BurningRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BurningRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C979C31A2A93507500A071F6 /* BurningRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BurningRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C9EE2EAD2A8E324400EE6557 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunnyModel.swift; sourceTree = "<group>"; };
 		C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -318,8 +318,8 @@
 		C9FF519C2A92F24A005FC3F6 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
-				C979C3132A93310700A071F6 /* WorkoutRecord+CoreDataClass.swift */,
-				C979C3142A93310700A071F6 /* WorkoutRecord+CoreDataProperties.swift */,
+				C979C3192A93507500A071F6 /* BurningRecord+CoreDataClass.swift */,
+				C979C31A2A93507500A071F6 /* BurningRecord+CoreDataProperties.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -414,12 +414,11 @@
 				C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */,
 				C9EE2EB42A8EFEDA00EE6557 /* User+CoreDataClass.swift in Sources */,
 				C90BA0412A14C57A005659A6 /* NicknameSettingView.swift in Sources */,
-				C979C3152A93310700A071F6 /* WorkoutRecord+CoreDataClass.swift in Sources */,
 				C90BA0302A14C486005659A6 /* LocalNetworkAuthorization.swift in Sources */,
 				C90BA0572A14C6CA005659A6 /* WorkoutDoneView.swift in Sources */,
+				C979C31C2A93507500A071F6 /* BurningRecord+CoreDataProperties.swift in Sources */,
 				C90BA03B2A14C520005659A6 /* ButtonComponent.swift in Sources */,
 				C90BA02E2A14C475005659A6 /* NISessionManager.swift in Sources */,
-				C979C3162A93310700A071F6 /* WorkoutRecord+CoreDataProperties.swift in Sources */,
 				C90BA03F2A14C56F005659A6 /* OnboardingView.swift in Sources */,
 				C9EE2EB52A8EFEDA00EE6557 /* User+CoreDataProperties.swift in Sources */,
 				C90BA06E2A14C828005659A6 /* Bunny+CoreDataProperties.swift in Sources */,
@@ -431,6 +430,7 @@
 				C90BA0532A14C688005659A6 /* NotFoundPartnerView.swift in Sources */,
 				C90BA0752A14C87E005659A6 /* UserDataModel.xcdatamodeld in Sources */,
 				C90BA0662A14C7D2005659A6 /* FindingPartnerState.swift in Sources */,
+				C979C31B2A93507500A071F6 /* BurningRecord+CoreDataClass.swift in Sources */,
 				C90BA04B2A14C61D005659A6 /* MainView.swift in Sources */,
 				C90BA0682A14C7DF005659A6 /* HealthData.swift in Sources */,
 				C90BA04F2A14C670005659A6 /* SearchPartnerView.swift in Sources */,

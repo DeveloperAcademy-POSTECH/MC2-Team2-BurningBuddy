@@ -196,7 +196,7 @@ struct MainView: View {
                     .buttonStyle(RedButtonStyle())
                 } else {
                     NavigationLink(
-                        destination: SearchPartnerView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive),
+                        destination: SearchPartnerView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, healthData: healthData, mainViewNavLinkActive: $mainViewNavLinkActive),
                         isActive: $mainViewNavLinkActive,
                         label: {
                             Text("파트너와 연결하기")

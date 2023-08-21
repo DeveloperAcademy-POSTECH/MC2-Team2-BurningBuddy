@@ -50,7 +50,6 @@ struct MissionResultModalView: View {
 //                Spacer()// TODO: - 버튼 간격 조정
 //                Spacer()
                 Button(action: { // right Button
-                    //settings.isWorkouting = false // 운동중 변수를 false로 만들어준다.
                     UserDefaults.standard.set(false, forKey: "isWorkouting")
                     wantQuitWorkout = true
                     presentationMode.wrappedValue.dismiss()

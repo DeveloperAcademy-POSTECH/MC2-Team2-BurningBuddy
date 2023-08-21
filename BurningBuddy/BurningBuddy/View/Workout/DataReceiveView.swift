@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DataReceiveView: View {
-    @EnvironmentObject var settings: UserSettings
     @State var isSearchedPartner: Bool = false // 화면 전환용
     @State var notFoundPartner: Bool = false // 모달용
     

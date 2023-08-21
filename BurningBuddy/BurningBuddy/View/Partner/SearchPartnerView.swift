@@ -23,6 +23,7 @@ struct SearchPartnerView: View {
     @ObservedObject var userModel: UserModel
     @ObservedObject var bunnyModel: BunnyModel
     @ObservedObject var workoutModel: WorkoutModel
+    @ObservedObject var healthData: HealthData
     
     @Environment(\.presentationMode) var presentationMode
     @State var isSearchedPartner: Bool = false // 화면 전환용
@@ -96,7 +97,7 @@ struct SearchPartnerView: View {
                     })
                     .buttonStyle(TwoGrayButtonStyle())
                     NavigationLink(isActive: $isNextButtonTapped, destination: {
-                        WorkoutView(mainViewNavLinkActive: $mainViewNavLinkActive)
+                        WorkoutView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, healthData: healthData, mainViewNavLinkActive: $mainViewNavLinkActive)
                     }, label: {
                         Button("운동 시작하기") {
                             self.beforeStart = true
@@ -149,7 +150,7 @@ struct SearchPartnerView: View {
                     UserDefaults.standard.set(true, forKey: "isWorkouting") // 사용자가 운동 중인지 userdefault에 저장
                     self.beforeStart = false
                     self.isNextButtonTapped = true
-                    settings.workoutData.setWorkoutStartTime()  // 영구 저장이 안됨. CoreData에 저장해야 함.
+                    UserDefaults.standard.set(Date(), forKey: "workoutStartTime") // 영구 저장이 안됨. CoreData에 저장해야 함.
                 }
             )
         }
@@ -161,9 +162,13 @@ struct SearchPartnerView: View {
 
 
 struct SearchPartnerView_Previews: PreviewProvider {
+    @ObservedObject static var userModel = UserModel()
+    @ObservedObject static var bunnyModel = BunnyModel()
+    @ObservedObject static var workoutModel = WorkoutModel()
+    @ObservedObject static var healthData = HealthData()
+    
     @State static var value: Bool = true
     static var previews: some View {
-        SearchPartnerView(mainViewNavLinkActive: $value)
-            .environmentObject(UserSettings())
+        SearchPartnerView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, healthData: healthData, mainViewNavLinkActive: $value)
     }
 }

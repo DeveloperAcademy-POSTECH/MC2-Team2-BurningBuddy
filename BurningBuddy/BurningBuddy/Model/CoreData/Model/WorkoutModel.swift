@@ -22,10 +22,10 @@ class WorkoutModel: ObservableObject {
     }
     
     func createWorkoutData() {
-        if let newWorkoutData = coreDataManager.create(entityName: entityName, attributes: [:]) as? WorkoutRecord {
+        if let newWorkoutData = coreDataManager.create(entityName: entityName, attributes: [:]) as? BurningRecord {
         
             let fetchReslut = coreDataManager.fetch(entityName: entityName)
-            if let currentWorkoutData = fetchReslut.first as? WorkoutRecord {
+            if let currentWorkoutData = fetchReslut.first as? BurningRecord {
             }
             
             coreDataManager.update(object: newWorkoutData)
@@ -35,7 +35,7 @@ class WorkoutModel: ObservableObject {
     func fetchWorkoutData() {
         let fetchResult = coreDataManager.fetch(entityName: entityName)
         
-        guard let workoutData = fetchResult.first as? WorkoutRecord else {
+        guard let workoutData = fetchResult.first as? BurningRecord else {
             print("유저 데이터를 가져오는데 실패했습니다.(WorkoutModel)")
             return
         }
@@ -48,12 +48,12 @@ class WorkoutModel: ObservableObject {
     }
     
     func saveWorkoutData() {
-        var workoutData: WorkoutRecord?
+        var workoutData: BurningRecord?
         
         let fetchResult = coreDataManager.fetch(entityName: entityName)
-        if let existingUserData = fetchResult.first as? WorkoutRecord {
+        if let existingUserData = fetchResult.first as? BurningRecord {
             workoutData = existingUserData
-        } else if let newWorkoutData = coreDataManager.create(entityName: entityName, attributes: [:]) as? WorkoutRecord {
+        } else if let newWorkoutData = coreDataManager.create(entityName: entityName, attributes: [:]) as? BurningRecord {
             workoutData = newWorkoutData
         }
         

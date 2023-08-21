@@ -17,7 +17,6 @@ import SwiftUI
  
  */
 struct WorkoutDoneView: View {
-    @EnvironmentObject var settings: UserSettings
     @State var isNotDoneWorkoutPopup = false
     @State private var isSuccessNext: Bool = false
     @Binding var mainViewNavLinkActive: Bool
