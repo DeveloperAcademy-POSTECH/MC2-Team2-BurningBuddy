@@ -45,6 +45,8 @@
 		C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */; };
 		C9EE2EB42A8EFEDA00EE6557 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */; };
 		C9EE2EB52A8EFEDA00EE6557 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB32A8EFEDA00EE6557 /* User+CoreDataProperties.swift */; };
+		C9FF519A2A92F245005FC3F6 /* Workout+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF51982A92F245005FC3F6 /* Workout+CoreDataClass.swift */; };
+		C9FF519B2A92F245005FC3F6 /* Workout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF51992A92F245005FC3F6 /* Workout+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunnyModel.swift; sourceTree = "<group>"; };
 		C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C9EE2EB32A8EFEDA00EE6557 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C9FF51982A92F245005FC3F6 /* Workout+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C9FF51992A92F245005FC3F6 /* Workout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +274,7 @@
 				C90BA0732A14C87E005659A6 /* UserDataModel.xcdatamodeld */,
 				C90BA0632A14C794005659A6 /* Bunny */,
 				C90BA0642A14C79A005659A6 /* User */,
+				C9FF519C2A92F24A005FC3F6 /* Workout */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -299,6 +304,15 @@
 				C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C9FF519C2A92F24A005FC3F6 /* Workout */ = {
+			isa = PBXGroup;
+			children = (
+				C9FF51982A92F245005FC3F6 /* Workout+CoreDataClass.swift */,
+				C9FF51992A92F245005FC3F6 /* Workout+CoreDataProperties.swift */,
+			);
+			path = Workout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,8 +399,10 @@
 				C90BA04D2A14C62C005659A6 /* SettingView.swift in Sources */,
 				C90BA0512A14C67E005659A6 /* LoadingAnimationView.swift in Sources */,
 				C90BA06C2A14C817005659A6 /* Bunny+CoreDataClass.swift in Sources */,
+				C9FF519A2A92F245005FC3F6 /* Workout+CoreDataClass.swift in Sources */,
 				C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */,
 				C9EE2EB42A8EFEDA00EE6557 /* User+CoreDataClass.swift in Sources */,
+				C9FF519B2A92F245005FC3F6 /* Workout+CoreDataProperties.swift in Sources */,
 				C90BA0412A14C57A005659A6 /* NicknameSettingView.swift in Sources */,
 				C90BA0302A14C486005659A6 /* LocalNetworkAuthorization.swift in Sources */,
 				C90BA0572A14C6CA005659A6 /* WorkoutDoneView.swift in Sources */,

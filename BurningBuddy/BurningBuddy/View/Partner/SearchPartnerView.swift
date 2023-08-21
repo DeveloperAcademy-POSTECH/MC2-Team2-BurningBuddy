@@ -146,7 +146,7 @@ struct SearchPartnerView: View {
                     UserDefaults.standard.set(true, forKey: "isWorkouting") // 사용자가 운동 중인지 userdefault에 저장
                     self.beforeStart = false
                     self.isNextButtonTapped = true
-                    settings.workoutData.setWorkoutStartTime()
+                    settings.workoutData.setWorkoutStartTime()  // 영구 저장이 안됨. CoreData에 저장해야 함.
                 }
             )
         }
