@@ -95,18 +95,6 @@ struct CalorieSettingView: View {
     }
 }
 
-//TODO: -
-/**
- TextLimiter와 같이 다른 파일로 분리시킬 필요가 있음.
- */
-struct TextUtil {
-    func calculateLineSpacing(_ fontsize: Int, _ percent: Double) -> CGFloat {
-        return CGFloat(Double(fontsize) * (percent / Double(100)) - Double(fontsize))
-    }
-}
-
-
-
 struct CalorieSettingView_Previews: PreviewProvider {
     @State static var isMember: Bool = true
     @State static var pageNum = 3

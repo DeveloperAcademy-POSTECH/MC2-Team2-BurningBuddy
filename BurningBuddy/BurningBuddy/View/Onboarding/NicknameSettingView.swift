@@ -97,28 +97,6 @@ struct NicknameSettingView: View {
     }
 }
 
-
-
-class TextLimiter: ObservableObject {
-    private let limit: Int
-    init(limit: Int) {
-        self.limit = limit
-    }
-    
-    @Published var value = "" {
-        didSet {
-            if value.count > self.limit {
-                value = String(value.prefix(self.limit))
-                self.hasReachedLimit = true
-            } else {
-                self.hasReachedLimit = false
-            }
-        }
-    }
-    @Published var hasReachedLimit = false
-}
-
-
 struct NicknameSettingView_Previews: PreviewProvider {
     @ObservedObject static var userModel = UserModel()
     @State static var pageNum = 1
