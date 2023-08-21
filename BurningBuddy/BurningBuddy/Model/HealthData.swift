@@ -1,5 +1,5 @@
 //
-//  WorkoutData.swift
+//  HealthData.swift
 //  BurningBuddy
 //
 //  Created by Jay on 2023/05/08.
