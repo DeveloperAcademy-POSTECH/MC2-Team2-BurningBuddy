@@ -69,16 +69,18 @@ struct CharacterSettingView: View {
         .background(Color.backgroundColor)
     }
     
-    private func saveCharacterName() {
-        settings.characterName = characterName.value
-        if settings.characterName.count == 0 || settings.characterName.count == 1 {
+    private func checkBlackTextField() {
+        if characterName.value.count == 0 || characterName.value.count == 1 {
             self.isInputText = true
         } else {
             self.isInputText = false
-            
-            CoreDataManager.shared.readAllBunny()[0].characterName = characterName.value
-            CoreDataManager.shared.update()
-            settings.characterName = characterName.value // 임시 데이터
+        }
+    }
+    
+    private func saveCharacterName() {
+        bunnyModel.bunnyName = characterName.value
+        if !isInputText {
+            bunnyModel.saveBunnyData()
             withAnimation(.easeIn(duration: 0.5)){
                 if pageNum != 4 { // SettingView에서 재사용하기 위해
                     pageNum += 1
@@ -89,7 +91,9 @@ struct CharacterSettingView: View {
 }
 
 struct CharacterSettingView_Previews: PreviewProvider {
+    @ObservedObject static var bunnyModel = BunnyModel()
+    @State static var pageNum = 2
     static var previews: some View {
-        CharacterSettingView()
+        CharacterSettingView(bunnyModel: bunnyModel, pageNum: $pageNum)
     }
 }

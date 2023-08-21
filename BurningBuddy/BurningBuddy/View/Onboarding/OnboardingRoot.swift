@@ -28,5 +28,9 @@ struct OnboardingRoot: View {
                 Spacer()
             }
         }
+        .onAppear {
+            userModel.createUserData()
+            bunnyModel.createBunnyData()
+        }
     }
 }
