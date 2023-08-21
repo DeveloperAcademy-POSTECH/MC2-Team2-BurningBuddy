@@ -84,8 +84,8 @@ struct CalorieSettingView: View {
         }
         settings.goalCalories = Int16(sliderValue)
         
-        CoreDataManager.coreDM.readAllUser()[0].goalCalories = Int16(self.sliderValue)
-        CoreDataManager.coreDM.update()
+        CoreDataManager.shared.readAllUser()[0].goalCalories = Int16(self.sliderValue)
+        CoreDataManager.shared.update()
         toggleShowOnboarding()
     }
     

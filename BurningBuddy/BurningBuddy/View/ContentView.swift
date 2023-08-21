@@ -13,21 +13,25 @@ import CoreData
  가장 루트 뷰인 ContentView에서 settings라는 ObservedObject 변수로 관리하여 모든 뷰들에게 값을 넘겨준다.
  environmentObject로 넘겨줌.
  */
-class UserSettings: ObservableObject {
-    @Published var pageNum: Int = 0
-    @Published var characterName: String = ""
-    @Published var level: Int16 = 1
-    @Published var nickName: String = ""
-    @Published var totalDumbbell: Int16 = 0
-    @Published var goalCalories: Int16 = 0
-    var isDoneTogetherWorkout: Bool = false // 둘 다 운동을 했는지 check
-    var workoutData = WorkoutData() // published로 해야될 수도 있음
-}
+//class UserSettings: ObservableObject {
+//    @Published var pageNum: Int = 0
+//    @Published var characterName: String = ""
+//    @Published var level: Int16 = 1
+//    @Published var nickName: String = ""
+//    @Published var totalDumbbell: Int16 = 0
+//    @Published var goalCalories: Int16 = 0
+//    var isDoneTogetherWorkout: Bool = false // 둘 다 운동을 했는지 check
+//    var workoutData = HealthData() // published로 해야될 수도 있음
+//}
 
 struct ContentView: View {
     // TODO: - showOnboarding은 @AppStorage로 관리하면 충분함.
     @State private var showOnboarding: Bool = UserDefaults.standard.bool(forKey: "showOnboarding")
-    @ObservedObject var settings = UserSettings()
+//    @ObservedObject var settings = UserSettings()
+    
+    @ObservedObject var userModel = UserModel()
+    @ObservedObject var bunnyModel = BunnyModel()
+    @ObservedObject var workoutModel = WorkoutModel()
     
     var body: some View {
         ZStack {
@@ -78,25 +82,25 @@ struct ContentView: View {
              */
             if !showOnboarding {
 
-                let test2 = CoreDataManager.coreDM.readAllBunny()
-                let test = CoreDataManager.coreDM.readAllUser()
+                let test2 = CoreDataManager.shared.readAllBunny()
+                let test = CoreDataManager.shared.readAllUser()
                 if test2.isEmpty {
-                    CoreDataManager.coreDM.createBunny()
+                    CoreDataManager.shared.createBunny()
                 }
                 if test.isEmpty  {
-                    CoreDataManager.coreDM.createUser()
+                    CoreDataManager.shared.createUser()
                 }
                 
                  // published로 해야될 수도 있음
                 
             } else {
-                settings.characterName = CoreDataManager.coreDM.readAllBunny()[0].characterName ?? "캐릭터 이름"
-                settings.level = CoreDataManager.coreDM.readAllBunny()[0].level
-                settings.nickName = (CoreDataManager.coreDM.readAllUser()[0].userName ?? "사람 이름")
-                settings.totalDumbbell  = CoreDataManager.coreDM.readAllUser()[0].totalDumbbell
-                settings.goalCalories = CoreDataManager.coreDM.readAllUser()[0].goalCalories
+                settings.characterName = CoreDataManager.shared.readAllBunny()[0].characterName ?? "캐릭터 이름"
+                settings.level = CoreDataManager.shared.readAllBunny()[0].level
+                settings.nickName = (CoreDataManager.shared.readAllUser()[0].userName ?? "사람 이름")
+                settings.totalDumbbell  = CoreDataManager.shared.readAllUser()[0].totalDumbbell
+                settings.goalCalories = CoreDataManager.shared.readAllUser()[0].goalCalories
                 settings.isDoneTogetherWorkout = false // 둘 다 운동을 했는지 check
-                settings.workoutData = WorkoutData()
+                settings.workoutData = HealthData()
             }
             
         }

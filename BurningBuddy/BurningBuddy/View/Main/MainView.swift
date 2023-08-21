@@ -143,7 +143,7 @@ struct MainView: View {
                                 .font(.system(size: 15, weight: .semibold))
                                 .foregroundColor(Color.subTextColor)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? "\(CoreDataManager.coreDM.readAllUser()[0].todayCalories)kcal" : "0kcal")
+                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? "\(CoreDataManager.shared.readAllUser()[0].todayCalories)kcal" : "0kcal")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
                         }
@@ -159,7 +159,7 @@ struct MainView: View {
                                 .font(.system(size: 15, weight: .semibold))
                                 .foregroundColor(Color.subTextColor)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours : "00h 00m")
+                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? CoreDataManager.shared.readAllUser()[0].todayWorkoutHours : "00h 00m")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
                         }
@@ -300,9 +300,9 @@ struct MainView: View {
         UserDefaults.standard.set(false, forKey: "isDoneWorkout")
         UserDefaults.standard.set("", forKey: "partnerID")
         
-        CoreDataManager.coreDM.readAllUser()[0].todayCalories = 0
-        CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "00h 00m"
-        CoreDataManager.coreDM.update()
+        CoreDataManager.shared.readAllUser()[0].todayCalories = 0
+        CoreDataManager.shared.readAllUser()[0].todayWorkoutHours = "00h 00m"
+        CoreDataManager.shared.update()
         settings.isDoneTogetherWorkout = false
     }
 }

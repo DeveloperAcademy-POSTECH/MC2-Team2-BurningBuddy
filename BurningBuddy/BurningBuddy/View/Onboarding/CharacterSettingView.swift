@@ -75,8 +75,8 @@ struct CharacterSettingView: View {
         } else {
             self.isInputText = false
             
-            CoreDataManager.coreDM.readAllBunny()[0].characterName = characterName.value
-            CoreDataManager.coreDM.update()
+            CoreDataManager.shared.readAllBunny()[0].characterName = characterName.value
+            CoreDataManager.shared.update()
             settings.characterName = characterName.value // 임시 데이터
             withAnimation(.easeIn(duration: 0.5)){
                 if settings.pageNum != 4 { // SettingView에서 재사용하기 위해
