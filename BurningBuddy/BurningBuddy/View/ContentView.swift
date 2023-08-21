@@ -21,7 +21,7 @@ class UserSettings: ObservableObject {
     @Published var totalDumbbell: Int16 = 0
     @Published var goalCalories: Int16 = 0
     var isDoneTogetherWorkout: Bool = false // 둘 다 운동을 했는지 check
-    var workoutData = WorkoutData() // published로 해야될 수도 있음
+    var workoutData = HealthData() // published로 해야될 수도 있음
 }
 
 struct ContentView: View {
@@ -96,7 +96,7 @@ struct ContentView: View {
                 settings.totalDumbbell  = CoreDataManager.shared.readAllUser()[0].totalDumbbell
                 settings.goalCalories = CoreDataManager.shared.readAllUser()[0].goalCalories
                 settings.isDoneTogetherWorkout = false // 둘 다 운동을 했는지 check
-                settings.workoutData = WorkoutData()
+                settings.workoutData = HealthData()
             }
             
         }

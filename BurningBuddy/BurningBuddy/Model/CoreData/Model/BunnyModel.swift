@@ -58,8 +58,9 @@ class BunnyModel: ObservableObject {
             return
         }
         
-        bunnyName = bunny.characterName ?? "버닝버디"
-        bunnyLevel = Int(bunny.level)
+        bunny.characterName = bunnyName
+        bunny.level = Int16(bunnyLevel)
+        
         coreDataManager.update(object: bunny)
     }
 }

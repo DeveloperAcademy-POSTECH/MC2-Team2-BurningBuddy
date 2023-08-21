@@ -7,7 +7,7 @@
 
 import HealthKit
 
-class WorkoutData: ObservableObject{
+class HealthData: ObservableObject{
     let healthStore = HKHealthStore()
     var workoutStartTime = Date()
     // Property workoutDuration: 총 운동 시간

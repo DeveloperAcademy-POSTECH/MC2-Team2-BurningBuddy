@@ -16,11 +16,11 @@ extension Workout {
         return NSFetchRequest<Workout>(entityName: "Workout")
     }
 
-    @NSManaged public var startTime: Date?
-    @NSManaged public var endTime: Date?
-    @NSManaged public var workoutTime: Int16
-    @NSManaged public var workoutDay: Date?
     @NSManaged public var calorieBurn: Int16
+    @NSManaged public var endTime: Date?
+    @NSManaged public var startTime: Date?
+    @NSManaged public var workoutDay: Date?
+    @NSManaged public var workoutTime: Int16
 
 }
 
