@@ -13,6 +13,7 @@ import SwiftUI
  실패한 캐릭터만 보여주면 족하다. 메인으로 가는 이동 액션만 잘 넣어주면 되겠다.
  */
 struct MissionCongratsComponent: View {
+    
     @State var title: String
     @State var article: String
     @State var imageName: String
@@ -51,7 +52,7 @@ struct MissionCongratsComponent: View {
                 /* 테스트용 */
                 let templevel = settings.level
                 
-                if settings.isDoneTogetherWorkout {
+                if UserDefaults.standard.value(forKey: "isDoneTogetherWorkout") {
                     settings.totalDumbbell += 1
                     CoreDataManager.shared.readAllUser()[0].totalDumbbell += 1
                     // 레벨 7 미만일 때만 레벨 올리기 (문제될 시 삭제)
