@@ -8,7 +8,7 @@
 import Foundation
 
 class WorkoutModel: ObservableObject {
-    final let entityName = "Workout"
+    final let entityName = "WorkoutRecord"
     static let shared = WorkoutModel()
     private let coreDataManager = CoreDataManager.shared
     @Published var startTime = Date()
@@ -22,10 +22,10 @@ class WorkoutModel: ObservableObject {
     }
     
     func createWorkoutData() {
-        if let newWorkoutData = coreDataManager.create(entityName: entityName, attributes: [:]) as? Workout {
+        if let newWorkoutData = coreDataManager.create(entityName: entityName, attributes: [:]) as? WorkoutRecord {
         
             let fetchReslut = coreDataManager.fetch(entityName: entityName)
-            if let currentWorkoutData = fetchReslut.first as? Workout {
+            if let currentWorkoutData = fetchReslut.first as? WorkoutRecord {
             }
             
             coreDataManager.update(object: newWorkoutData)
@@ -35,7 +35,7 @@ class WorkoutModel: ObservableObject {
     func fetchWorkoutData() {
         let fetchResult = coreDataManager.fetch(entityName: entityName)
         
-        guard let workoutData = fetchResult.first as? Workout else {
+        guard let workoutData = fetchResult.first as? WorkoutRecord else {
             print("유저 데이터를 가져오는데 실패했습니다.(WorkoutModel)")
             return
         }
@@ -48,12 +48,12 @@ class WorkoutModel: ObservableObject {
     }
     
     func saveWorkoutData() {
-        var workoutData: Workout?
+        var workoutData: WorkoutRecord?
         
         let fetchResult = coreDataManager.fetch(entityName: entityName)
-        if let existingUserData = fetchResult.first as? Workout {
+        if let existingUserData = fetchResult.first as? WorkoutRecord {
             workoutData = existingUserData
-        } else if let newWorkoutData = coreDataManager.create(entityName: entityName, attributes: [:]) as? Workout {
+        } else if let newWorkoutData = coreDataManager.create(entityName: entityName, attributes: [:]) as? WorkoutRecord {
             workoutData = newWorkoutData
         }
         

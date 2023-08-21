@@ -10,7 +10,7 @@ import SwiftUI
 
 struct NicknameSettingView: View {
     @ObservedObject var userModel: UserModel
-    @ObservedObject var nicknameLimiter = TextLimiter(limit: 8)
+    @ObservedObject var nicknameLimitter = TextLimiter(limit: 8)
     @State private var isInputText: Bool = false
     @State var isTopButtonHidden: Bool = false // 세팅뷰에서 상단 크기를 맞추기 위한 버튼
     @Binding var pageNum: Int
@@ -44,7 +44,7 @@ struct NicknameSettingView: View {
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
             Spacer()
  
-            TextField("", text: $nicknameLimiter.value, prompt: Text("닉네임은 한글 2~8자로 설정할 수 있어요!")
+            TextField("", text: $nicknameLimitter.value, prompt: Text("닉네임은 한글 2~8자로 설정할 수 있어요!")
                 .foregroundColor(Color.subTextColor))
                 .font(.system(size: 17, weight: .regular))
             .foregroundColor(Color.mainTextColor)
@@ -73,14 +73,20 @@ struct NicknameSettingView: View {
      settings 제거하고, DataModel에 저장하는 방식으로 변경 필요.
      메서드를 DataModel을 만들어 거기에서 활용해야 함.
      */
-    private func saveNickname() {
-        settings.nickName = nicknameLimiter.value
-        if settings.nickName.count == 0 || settings.nickName.count == 1{
+    
+    private func checkBlackTextField() {
+        if nicknameLimitter.value.count == 0 || nicknameLimitter.value.count == 1 {
             self.isInputText = true
         } else {
-            CoreDataManager.shared.readAllUser()[0].userName = nicknameLimiter.value
-            CoreDataManager.shared.update()
             self.isInputText = false
+        }
+    }
+    
+    private func saveNickname() {
+        userModel.userName = nicknameLimitter.value
+        
+        if !isInputText {
+            userModel.saveUserData()
             
             withAnimation(.easeInOut(duration: 0.5)){
                 if pageNum != 4 { // SettingView에서 재사용하기 위해
@@ -114,10 +120,11 @@ class TextLimiter: ObservableObject {
 
 
 struct NicknameSettingView_Previews: PreviewProvider {
-    @State var isMember: Bool = true
+    @ObservedObject static var userModel = UserModel()
+    @State static var pageNum = 1
     
     static var previews: some View {
-        NicknameSettingView()
+        NicknameSettingView(userModel: userModel, pageNum: $pageNum)
     }
 }
 

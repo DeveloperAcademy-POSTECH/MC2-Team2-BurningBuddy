@@ -12,7 +12,7 @@ class BunnyModel: ObservableObject {
     static let shared = BunnyModel()
     private let coreDataManager = CoreDataManager.shared
     @Published var bunnyName = ""
-    @Published var bunnyLevel = 0
+    @Published var bunnyLevel = 1
     
     init() {
         fetchUserData()

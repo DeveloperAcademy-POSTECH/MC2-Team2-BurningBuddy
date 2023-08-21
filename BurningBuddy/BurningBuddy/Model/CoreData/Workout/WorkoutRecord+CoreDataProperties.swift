@@ -1,5 +1,5 @@
 //
-//  Workout+CoreDataProperties.swift
+//  WorkoutRecord+CoreDataProperties.swift
 //  BurningBuddy
 //
 //  Created by 김동현 on 2023/08/21.
@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 
-extension Workout {
+extension WorkoutRecord {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Workout> {
-        return NSFetchRequest<Workout>(entityName: "Workout")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<WorkoutRecord> {
+        return NSFetchRequest<WorkoutRecord>(entityName: "WorkoutRecord")
     }
 
     @NSManaged public var calorieBurn: Int16
@@ -24,6 +24,6 @@ extension Workout {
 
 }
 
-extension Workout : Identifiable {
+extension WorkoutRecord : Identifiable {
 
 }
