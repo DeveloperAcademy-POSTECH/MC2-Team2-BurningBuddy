@@ -31,7 +31,7 @@ struct SearchPartnerView: View {
     @State var partnerData: String = "상대방 닉네임" // TODO: - 데이터 타입 지정 필요
     
     @State private var beforeStart: Bool = false
-    @StateObject private var niObject = NISessionManager()
+    @StateObject var niObject: NISessionManager
     @State private var isLaunched = true
     @State var isLocalNetworkPermissionDenied = false
     @State private var startWorkout: Bool = false
@@ -40,6 +40,10 @@ struct SearchPartnerView: View {
     @Binding var mainViewNavLinkActive: Bool
     
     private let localNetAuth = LocalNetworkAuthorization() // MPC를 위한 객체생성
+    
+    init() {
+        self.niObject = NISessionManager(userModel: userModel)
+    }
     
     var body: some View {
         
@@ -161,14 +165,14 @@ struct SearchPartnerView: View {
 
 
 
-struct SearchPartnerView_Previews: PreviewProvider {
-    @ObservedObject static var userModel = UserModel()
-    @ObservedObject static var bunnyModel = BunnyModel()
-    @ObservedObject static var workoutModel = WorkoutModel()
-    @ObservedObject static var healthData = HealthData()
-    
-    @State static var value: Bool = true
-    static var previews: some View {
-        SearchPartnerView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, healthData: healthData, mainViewNavLinkActive: $value)
-    }
-}
+//struct SearchPartnerView_Previews: PreviewProvider {
+//    @ObservedObject static var userModel = UserModel()
+//    @ObservedObject static var bunnyModel = BunnyModel()
+//    @ObservedObject static var workoutModel = WorkoutModel()
+//    @ObservedObject static var healthData = HealthData()
+//    
+//    @State static var value: Bool = true
+//    static var previews: some View {
+//        SearchPartnerView
+//    }
+//}

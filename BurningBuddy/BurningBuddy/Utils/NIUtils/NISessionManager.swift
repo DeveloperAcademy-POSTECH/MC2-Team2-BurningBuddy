@@ -43,7 +43,7 @@ class TranData: NSObject, NSCoding {
 }
 
 class NISessionManager: NSObject, ObservableObject {
-    
+    @Published var userModel: UserModel
     @Published var connectedPeers = [MCPeerID]()
     @Published var matchedObject: TranData? // 매치된 오브젝트
     @Published var findingPartnerState : FindingPartnerState = .ready
@@ -60,15 +60,17 @@ class NISessionManager: NSObject, ObservableObject {
     @Published var myNickname : String = ""
     @Published var isDoneTargetCalories: Bool = false
     //@Published var isDoneTargetCalories: Bool = CoreDataManager.coreDM.readAllUser()[0].goalCalories <= CoreDataManager.coreDM.readAllUser()[0].todayCalories
-    @Published var myUUID: UUID = CoreDataManager.shared.readAllUser()[0].userID
+    @Published var myUUID: UUID
     
     // 범프된 상대 정보
     @Published var bumpedName = ""
     @Published var bumpedID: UUID?
     @Published var bumpedIsDoneTargetCalories: Bool = false
     
-    override init() {
+    init(userModel: UserModel) {
         print("init called")
+        self.userModel = userModel
+        self.myUUID = userModel.userID
         super.init()
     }
     
@@ -80,7 +82,7 @@ class NISessionManager: NSObject, ObservableObject {
     
     func start() {
         print("start")
-        myNickname = CoreDataManager.shared.readAllUser()[0].userName ?? "예시닉네임"
+        myNickname = userModel.userName
         //isDoneTargetCalories = CoreDataManager.coreDM.readAllUser()[0].goalCalories <= CoreDataManager.coreDM.readAllUser()[0].todayCalories
         startup()
     }
@@ -218,7 +220,7 @@ class NISessionManager: NSObject, ObservableObject {
     }
     
     func shareMyData(token: NIDiscoveryToken, peer: MCPeerID) {
-        var isDoneTargetCaloriesCheck: Bool = CoreDataManager.shared.readAllUser()[0].goalCalories <= CoreDataManager.shared.readAllUser()[0].todayCalories
+        var isDoneTargetCaloriesCheck: Bool = userModel.goalCalories <= userModel.todayCalories
         let tranData = TranData(token: token, isBumped: true, nickname: myNickname, isDoneTargetCalories: isDoneTargetCaloriesCheck, uuid: myUUID) // TODO: - TranData의 UUID가 Nil - 후보 2.
         
         guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: tranData, requiringSecureCoding: false) else {

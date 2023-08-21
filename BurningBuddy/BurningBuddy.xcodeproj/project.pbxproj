@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C904004F2A93690E00803EFE /* Workout+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C904004D2A93690E00803EFE /* Workout+CoreDataClass.swift */; };
+		C90400502A93690E00803EFE /* Workout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C904004E2A93690E00803EFE /* Workout+CoreDataProperties.swift */; };
 		C90BA0182A14C2FF005659A6 /* BurningBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0172A14C2FF005659A6 /* BurningBuddyApp.swift */; };
 		C90BA01A2A14C2FF005659A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0192A14C2FF005659A6 /* ContentView.swift */; };
 		C90BA01C2A14C300005659A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C90BA01B2A14C300005659A6 /* Assets.xcassets */; };
@@ -43,8 +45,6 @@
 		C90BA0752A14C87E005659A6 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0732A14C87E005659A6 /* UserDataModel.xcdatamodeld */; };
 		C979C3122A93113600A071F6 /* OnboardingRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3112A93113600A071F6 /* OnboardingRoot.swift */; };
 		C979C3182A93322A00A071F6 /* TextUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3172A93322A00A071F6 /* TextUtil.swift */; };
-		C979C31B2A93507500A071F6 /* BurningRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3192A93507500A071F6 /* BurningRecord+CoreDataClass.swift */; };
-		C979C31C2A93507500A071F6 /* BurningRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C31A2A93507500A071F6 /* BurningRecord+CoreDataProperties.swift */; };
 		C9EE2EAE2A8E324400EE6557 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EAD2A8E324400EE6557 /* UserModel.swift */; };
 		C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */; };
 		C9EE2EB42A8EFEDA00EE6557 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */; };
@@ -53,6 +53,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C904004D2A93690E00803EFE /* Workout+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C904004E2A93690E00803EFE /* Workout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C90BA0142A14C2FF005659A6 /* BurningBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BurningBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90BA0172A14C2FF005659A6 /* BurningBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurningBuddyApp.swift; sourceTree = "<group>"; };
 		C90BA0192A14C2FF005659A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,8 +94,6 @@
 		C90BA0772A14CADB005659A6 /* BurningBuddyRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BurningBuddyRelease.entitlements; sourceTree = "<group>"; };
 		C979C3112A93113600A071F6 /* OnboardingRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoot.swift; sourceTree = "<group>"; };
 		C979C3172A93322A00A071F6 /* TextUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUtil.swift; sourceTree = "<group>"; };
-		C979C3192A93507500A071F6 /* BurningRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BurningRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C979C31A2A93507500A071F6 /* BurningRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BurningRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C9EE2EAD2A8E324400EE6557 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunnyModel.swift; sourceTree = "<group>"; };
 		C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -318,8 +318,8 @@
 		C9FF519C2A92F24A005FC3F6 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
-				C979C3192A93507500A071F6 /* BurningRecord+CoreDataClass.swift */,
-				C979C31A2A93507500A071F6 /* BurningRecord+CoreDataProperties.swift */,
+				C904004D2A93690E00803EFE /* Workout+CoreDataClass.swift */,
+				C904004E2A93690E00803EFE /* Workout+CoreDataProperties.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -416,21 +416,21 @@
 				C90BA0412A14C57A005659A6 /* NicknameSettingView.swift in Sources */,
 				C90BA0302A14C486005659A6 /* LocalNetworkAuthorization.swift in Sources */,
 				C90BA0572A14C6CA005659A6 /* WorkoutDoneView.swift in Sources */,
-				C979C31C2A93507500A071F6 /* BurningRecord+CoreDataProperties.swift in Sources */,
 				C90BA03B2A14C520005659A6 /* ButtonComponent.swift in Sources */,
 				C90BA02E2A14C475005659A6 /* NISessionManager.swift in Sources */,
 				C90BA03F2A14C56F005659A6 /* OnboardingView.swift in Sources */,
 				C9EE2EB52A8EFEDA00EE6557 /* User+CoreDataProperties.swift in Sources */,
 				C90BA06E2A14C828005659A6 /* Bunny+CoreDataProperties.swift in Sources */,
+				C90400502A93690E00803EFE /* Workout+CoreDataProperties.swift in Sources */,
 				C90BA0492A14C5E2005659A6 /* LevelUpModalView.swift in Sources */,
 				C90BA0612A14C709005659A6 /* DataReceiveView.swift in Sources */,
 				C90BA0472A14C5D6005659A6 /* LevelUpView.swift in Sources */,
 				C90BA0552A14C6BC005659A6 /* WorkoutView.swift in Sources */,
 				C90BA0332A14C4BA005659A6 /* MPCSession.swift in Sources */,
+				C904004F2A93690E00803EFE /* Workout+CoreDataClass.swift in Sources */,
 				C90BA0532A14C688005659A6 /* NotFoundPartnerView.swift in Sources */,
 				C90BA0752A14C87E005659A6 /* UserDataModel.xcdatamodeld in Sources */,
 				C90BA0662A14C7D2005659A6 /* FindingPartnerState.swift in Sources */,
-				C979C31B2A93507500A071F6 /* BurningRecord+CoreDataClass.swift in Sources */,
 				C90BA04B2A14C61D005659A6 /* MainView.swift in Sources */,
 				C90BA0682A14C7DF005659A6 /* HealthData.swift in Sources */,
 				C90BA04F2A14C670005659A6 /* SearchPartnerView.swift in Sources */,
