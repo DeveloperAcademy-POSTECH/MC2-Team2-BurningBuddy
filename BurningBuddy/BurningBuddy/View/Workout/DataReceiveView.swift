@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DataReceiveView: View {
+    
+    
+    
     @State var isSearchedPartner: Bool = false // 화면 전환용
     @State var notFoundPartner: Bool = false // 모달용
     
@@ -97,9 +100,9 @@ struct DataReceiveView: View {
                 print("UserDefaults.standard.bool(forKey: isDoneWorkout): \(UserDefaults.standard.bool(forKey: "isDoneWorkout"))")
                 // ==================================================
                 if niObject.bumpedIsDoneTargetCalories && UserDefaults.standard.bool(forKey: "isDoneWorkout") {
-                    self.settings.isDoneTogetherWorkout = true
+                    UserDefaults.standard.set(true, forKey: "isDoneTogetherWorkout")
                 } else {
-                    self.settings.isDoneTogetherWorkout = false
+                    UserDefaults.standard.set(false, forKey: "isDoneTogetherWorkout")
                 }
                 
             } else { // 상대방이 아니면
