@@ -18,6 +18,9 @@ import SwiftUI
  */
 struct WorkoutDoneView: View {
     @ObservedObject var userModel: UserModel
+    @ObservedObject var bunnyModel: BunnyModel
+    @ObservedObject var workoutModel: WorkoutModel
+    
     @State var isNotDoneWorkoutPopup = false
     @State private var isSuccessNext: Bool = false
     @Binding var mainViewNavLinkActive: Bool
@@ -64,9 +67,9 @@ struct WorkoutDoneView: View {
             case true:
                 NavigationLink(isActive: $isSuccessNext, destination: {
                     if niObject.bumpedIsDoneTargetCalories && UserDefaults.standard.bool(forKey: "isDoneWorkout") {
-                        WorkoutSuccessView(mainViewNavLinkActive: $mainViewNavLinkActive)
+                        WorkoutSuccessView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive)
                     } else {
-                        WorkoutFailView(mainViewNavLinkActive: $mainViewNavLinkActive)
+                        WorkoutFailView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive)
                     }
                     
                 }, label: {

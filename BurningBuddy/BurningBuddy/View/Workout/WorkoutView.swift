@@ -64,7 +64,7 @@ struct WorkoutView: View {
             }
             Spacer()
             NavigationLink(isActive: $isNextButtonTapped, destination: {
-                WorkoutDoneView(userModel: userModel, mainViewNavLinkActive: $mainViewNavLinkActive)
+                WorkoutDoneView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive)
             }, label: {
                 Button("운동 종료하기") {
                     // 목표량 달성 여부 확인
