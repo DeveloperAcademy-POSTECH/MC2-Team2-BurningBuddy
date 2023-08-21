@@ -14,7 +14,8 @@ import SwiftUI
  settings 관련한 문제도 해결해야 함.
  */
 struct SettingView: View {
-    @EnvironmentObject var settings: UserSettings
+    @ObservedObject var userModel: UserModel
+    @ObservedObject var bunnyModel: BunnyModel
     
     var body: some View {
         List {

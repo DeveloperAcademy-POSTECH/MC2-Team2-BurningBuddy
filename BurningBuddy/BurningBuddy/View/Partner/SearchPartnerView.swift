@@ -20,7 +20,10 @@ import SwiftUI
  왜 터질까를 잡아야 함.
  */
 struct SearchPartnerView: View {
-    @EnvironmentObject var settings: UserSettings
+    @ObservedObject var userModel: UserModel
+    @ObservedObject var bunnyModel: BunnyModel
+    @ObservedObject var workoutModel: WorkoutModel
+    
     @Environment(\.presentationMode) var presentationMode
     @State var isSearchedPartner: Bool = false // 화면 전환용
     @State var notFoundPartner: Bool = false // 모달용

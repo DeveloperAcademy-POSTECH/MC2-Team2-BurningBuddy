@@ -13,8 +13,9 @@ import SwiftUI
  EdgeInsets 등 레이아웃만 수정하면 됨.
  */
 struct LevelUpModalView: View {
+    @ObservedObject var userModel: UserModel
+    @ObservedObject var bunnyModel: BunnyModel
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var settings: UserSettings
     
     var body: some View {
         VStack {

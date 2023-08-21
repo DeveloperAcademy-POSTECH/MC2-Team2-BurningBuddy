@@ -79,4 +79,27 @@ class UserModel: ObservableObject {
         
         coreDataManager.update(object: user)
     }
+    
+    func calculateTime(second: TimeInterval) -> String {
+        let hour = Int(second / 3600)
+        let minute = Int(second.truncatingRemainder(dividingBy: 3600) / 60)
+        /*
+            01h 01m
+            01h 11m
+            11h 01m
+            11h 11m
+         */
+        if hour < 10 && minute < 10 {
+            return String("0\(hour)h 0\(minute)m")
+        }
+        else if hour < 10 && minute > 9 {
+            return String("0\(hour)h \(minute)m")
+        }
+        else if hour > 9 && minute < 10 {
+            return String("\(hour)h 0\(minute)m")
+        }
+        else {
+            return String("\(hour)h \(minute)m")
+        }
+    }
 }

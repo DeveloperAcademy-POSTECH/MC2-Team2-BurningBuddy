@@ -19,7 +19,9 @@ import SwiftUI
  
  */
 struct WorkoutView: View {
-    @EnvironmentObject var settings: UserSettings
+    @ObservedObject var userModel: UserModel
+    @ObservedObject var bunnyModel: BunnyModel
+    @ObservedObject var workoutModel: WorkoutModel
     
     @State private var isNotDoneWorkout: Bool = false
     @State var isNextButtonTapped: Bool = false

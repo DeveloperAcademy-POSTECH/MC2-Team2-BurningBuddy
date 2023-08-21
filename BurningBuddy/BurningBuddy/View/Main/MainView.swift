@@ -13,6 +13,7 @@ struct MainView: View {
     @ObservedObject var userModel: UserModel
     @ObservedObject var bunnyModel: BunnyModel
     @ObservedObject var workoutModel: WorkoutModel
+    @ObservedObject var healthData = HealthData()
     
     @State var showEvolution = false // 진화과정 모달에 관련된 상태
     @State var mainViewNavLinkActive: Bool = false
@@ -21,7 +22,7 @@ struct MainView: View {
     //TODO: -
     /**
      8/15
-     마지막으로 앱을 종료했을 때 날짜를 기준으로 기록할 필요가 없음.
+     마지막으로 앱을 종료했을 때 날짜를 기준으로 기록할 필요가 현재는 있음(8/21일 수정)
      CoreData에서 Column 관리를 해주면 됨.
      또한 운동 기록을 계속 쌓는 방식으로 CoreData 구조를 변경해야 함.
      settings를 걷어내고, DataModel 방식으로 데이터를 불러오는 구조 필요.
@@ -43,15 +44,14 @@ struct MainView: View {
             VStack {
                 VStack {
                     HStack {
-                        Text(settings.nickName)
+                        Text(userModel.userName)
                             .font(.system(size: 22, weight: .bold, design: .default))
                         Text("님의")
                             .font(.system(size: 22, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         Spacer()
                         NavigationLink(destination: {
-                            SettingView()
-                                .environmentObject(settings)
+                            SettingView(userModel: userModel, bunnyModel: bunnyModel)
                         }) {
                             Image(systemName: "person.circle")
                                 .resizable()
@@ -63,7 +63,7 @@ struct MainView: View {
                     .foregroundColor(Color.mainTextColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     
-                    Text(settings.characterName)
+                    Text(bunnyModel.bunnyName)
                         .foregroundColor(Color.mainTextColor)
                         .font(.system(size: 30, weight: .bold, design: .default))
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -79,7 +79,7 @@ struct MainView: View {
                         Text("다음 성장까지")
                             .font(.system(size: 18, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: -3))
-                        Text("\(countRemainDumbbell(presentLevel: settings.level))번")
+                        Text("\(countRemainDumbbell(presentLevel: Int16(bunnyModel.bunnyLevel)))번")
                             .font(.system(size: 18, weight: .bold, design: .default))
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -3))
                         Text("남았어요!")
@@ -90,8 +90,8 @@ struct MainView: View {
                 }
                 
                 ProgressView(
-                    value: Double(progressbarGetDumbbell(presentDumbbell: Int(settings.totalDumbbell))),
-                    total: Double(progressbarRemain(presentDumbbell: settings.totalDumbbell))
+                    value: Double(progressbarGetDumbbell(presentDumbbell: Int(userModel.totalDumbbell))),
+                    total: Double(progressbarRemain(presentDumbbell: Int16(userModel.totalDumbbell)))
                 )
                     .scaleEffect(x: 1, y: 2, anchor: .center)
                     .progressViewStyle(LinearProgressViewStyle(tint: Color(red: 255/255, green: 45/255, blue: 85/255)))
@@ -112,15 +112,14 @@ struct MainView: View {
                                 .frame(width: 20, height: 20)
                         })
                         .fullScreenCover(isPresented: self.$showEvolution, content: {
-                            LevelUpModalView()
-                                .environmentObject(settings)
+                            LevelUpModalView(userModel: userModel, bunnyModel: bunnyModel)
                         })
                         .foregroundColor(Color.iconColor)
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 20))
                     
-                    Image("Bunny_\(settings.level)_front")
+                    Image("Bunny_\(bunnyModel.bunnyLevel)_front")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 300)
@@ -146,7 +145,7 @@ struct MainView: View {
                                 .font(.system(size: 15, weight: .semibold))
                                 .foregroundColor(Color.subTextColor)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? "\(CoreDataManager.shared.readAllUser()[0].todayCalories)kcal" : "0kcal")
+                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? "\(userModel.todayCalories)kcal" : "0kcal")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
                         }
@@ -162,7 +161,7 @@ struct MainView: View {
                                 .font(.system(size: 15, weight: .semibold))
                                 .foregroundColor(Color.subTextColor)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
-                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? CoreDataManager.shared.readAllUser()[0].todayWorkoutHours : "00h 00m")
+                            Text(UserDefaults.standard.bool(forKey: "isDoneWorkout") ? userModel.calculateTime(second: TimeInterval(userModel.todayWorkoutHours)) : "00h 00m")
                                 .font(.system(size: 24, weight: .bold, design: .default))
                                 .foregroundColor(Color.mainTextColor)
                         }
@@ -189,7 +188,7 @@ struct MainView: View {
                  */
                 if UserDefaults.standard.bool(forKey: "isWorkouting") {
                     NavigationLink(
-                        destination: WorkoutView(mainViewNavLinkActive: $mainViewNavLinkActive).environmentObject(settings),
+                        destination: WorkoutView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive),
                         isActive: $mainViewNavLinkActive,
                         label: {
                             Text("운동화면 보기")
@@ -197,7 +196,7 @@ struct MainView: View {
                     .buttonStyle(RedButtonStyle())
                 } else {
                     NavigationLink(
-                        destination: SearchPartnerView(mainViewNavLinkActive: $mainViewNavLinkActive).environmentObject(settings),
+                        destination: SearchPartnerView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive),
                         isActive: $mainViewNavLinkActive,
                         label: {
                             Text("파트너와 연결하기")
@@ -211,7 +210,7 @@ struct MainView: View {
             
         }
         .onAppear{
-            settings.workoutData.requestAuthorization()
+            healthData.requestAuthorization()
             // 날이 바꼈으면 userdefault의 값 초기화하기 & CoreData의 todayWorkoutHours, todayWorkoutHours 초기화
             if let lastLaunchDate = UserDefaults.standard.object(forKey: lastLaunchDateKey) as? Date {
                 // 앱을 마지막으로 종료한 날짜와 오늘 켠 날짜가 같은 날이 아니라면? 데이터들을 초기화
@@ -239,17 +238,17 @@ struct MainView: View {
         var remainDumbbell: Int16 = 0
         switch targetLevel {
         case 2:
-            remainDumbbell = 3 - self.settings.totalDumbbell
+            remainDumbbell = Int16(3 - self.userModel.totalDumbbell)
         case 3:
-            remainDumbbell = 7 - self.settings.totalDumbbell
+            remainDumbbell = Int16(7 - self.userModel.totalDumbbell)
         case 4:
-            remainDumbbell = 21 - self.settings.totalDumbbell
+            remainDumbbell = Int16(21 - self.userModel.totalDumbbell)
         case 5:
-            remainDumbbell = 30 - self.settings.totalDumbbell
+            remainDumbbell = Int16(30 - self.userModel.totalDumbbell)
         case 6:
-            remainDumbbell = 45 - self.settings.totalDumbbell
+            remainDumbbell = Int16(45 - self.userModel.totalDumbbell)
         default:
-            remainDumbbell = 66 - self.settings.totalDumbbell
+            remainDumbbell = Int16(66 - self.userModel.totalDumbbell)
         }
         return remainDumbbell
     }
@@ -302,19 +301,24 @@ struct MainView: View {
         UserDefaults.standard.set(false, forKey: "isWorkouting")
         UserDefaults.standard.set(false, forKey: "isDoneWorkout")
         UserDefaults.standard.set("", forKey: "partnerID")
+        UserDefaults.standard.set(false, forKey: "isDoneTogetherWorkout")
         
-        CoreDataManager.shared.readAllUser()[0].todayCalories = 0
-        CoreDataManager.shared.readAllUser()[0].todayWorkoutHours = "00h 00m"
-        CoreDataManager.shared.update()
-        settings.isDoneTogetherWorkout = false
+        userModel.todayCalories = 0
+        userModel.todayWorkoutHours = 0
+        userModel.saveUserData()
+        
+//        settings.isDoneTogetherWorkout = false (삭제 해야 함. UserDefaluts로 변경)
     }
 }
 
 
 struct MainView_Previews: PreviewProvider {
+    @ObservedObject static var userModel = UserModel()
+    @ObservedObject static var bunnyModel = BunnyModel()
+    @ObservedObject static var workoutModel = WorkoutModel()
+    
     static var previews: some View {
-        MainView()
-            .environmentObject(UserSettings())
+        MainView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel)
             .preferredColorScheme(.dark)
     }
 }
