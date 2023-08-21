@@ -10,7 +10,10 @@ import SwiftUI
 
 
 struct MainView: View {
-    @EnvironmentObject var settings: UserSettings
+    @ObservedObject var userModel: UserModel
+    @ObservedObject var bunnyModel: BunnyModel
+    @ObservedObject var workoutModel: WorkoutModel
+    
     @State var showEvolution = false // 진화과정 모달에 관련된 상태
     @State var mainViewNavLinkActive: Bool = false
     @State private var showOnboarding: Bool = UserDefaults.standard.bool(forKey: "showOnboarding")
