@@ -28,7 +28,7 @@ struct ContentView: View {
     // TODO: - showOnboarding은 @AppStorage로 관리하면 충분함.
     @State private var showOnboarding: Bool = UserDefaults.standard.bool(forKey: "showOnboarding")
 //    @ObservedObject var settings = UserSettings()
-    
+    @AppStorage("_isFirstLaunch") var isFirst: Bool = true
     @ObservedObject var userModel = UserModel()
     @ObservedObject var bunnyModel = BunnyModel()
     @ObservedObject var workoutModel = WorkoutModel()
@@ -42,34 +42,37 @@ struct ContentView: View {
              싱글턴 패턴을 활용하여 DataModel을 두는 방식으로 CoreData를 활용하면 됨.
              만약 서버를 도입한다면, 데이터를 관리하는 방법을 달리 생각해볼 필요도 있음.
              */
-            if !showOnboarding { // CoreData / UserDefault 값으로 판단
-                switch(settings.pageNum) {
-                case 0:
-                    OnboardingView()
-                        .environmentObject(settings)
-                case 1:
-                    NicknameSettingView()
-                        .environmentObject(settings)
-                        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
-                case 2:
-                    CharacterSettingView()
-                        .environmentObject(settings)
-                        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
-                case 3:
-                    CalorieSettingView()
-                        .environmentObject(settings)
-                        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
-                case 4:
-                    MainView()
-                        .environmentObject(settings)
-                        .background(Color(red: 30/255, green: 28/255, blue: 29/255))
-                default:
-                    Text("온보딩 Default")
-                }
-            } else { // 온보딩 필요 없는 경우
-                MainView()
-                    .environmentObject(settings)
-                    .background(Color.backgroundColor)
+//            if !showOnboarding { // CoreData / UserDefault 값으로 판단
+//                switch(settings.pageNum) {
+//                case 0:
+//                    OnboardingView()
+//                        .environmentObject(settings)
+//                case 1:
+//                    NicknameSettingView()
+//                        .environmentObject(settings)
+//                        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+//                case 2:
+//                    CharacterSettingView()
+//                        .environmentObject(settings)
+//                        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+//                case 3:
+//                    CalorieSettingView()
+//                        .environmentObject(settings)
+//                        .background(Color(red: 30/255, green: 28/255, blue: 29/255)) // 고급진 까만것이 필요할 듯
+//                case 4:
+//                    MainView()
+//                        .environmentObject(settings)
+//                        .background(Color(red: 30/255, green: 28/255, blue: 29/255))
+//                default:
+//                    Text("온보딩 Default")
+//                }
+//            } else { // 온보딩 필요 없는 경우
+//                MainView()
+//                    .environmentObject(settings)
+//                    .background(Color.backgroundColor)
+//            }
+            if isFirst {
+                OnboardingRoot(isFirst: $isFirst, userModel: userModel, bunnyModel: bunnyModel)
             }
         }
         .onAppear {

@@ -43,7 +43,7 @@ class BunnyModel: ObservableObject {
         bunnyLevel = Int(bunnyData.level)
     }
     
-    func saveUserData() {
+    func saveBunnyData() {
         var bunnyData: Bunny?
         
         let fetchResult = coreDataManager.fetch(entityName: entityName)

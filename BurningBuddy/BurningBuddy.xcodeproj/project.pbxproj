@@ -43,6 +43,7 @@
 		C90BA0752A14C87E005659A6 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0732A14C87E005659A6 /* UserDataModel.xcdatamodeld */; };
 		C979C30F2A92FA2100A071F6 /* Workout+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C30D2A92FA2100A071F6 /* Workout+CoreDataClass.swift */; };
 		C979C3102A92FA2100A071F6 /* Workout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C30E2A92FA2100A071F6 /* Workout+CoreDataProperties.swift */; };
+		C979C3122A93113600A071F6 /* OnboardingRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3112A93113600A071F6 /* OnboardingRoot.swift */; };
 		C9EE2EAE2A8E324400EE6557 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EAD2A8E324400EE6557 /* UserModel.swift */; };
 		C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */; };
 		C9EE2EB42A8EFEDA00EE6557 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */; };
@@ -90,6 +91,7 @@
 		C90BA0772A14CADB005659A6 /* BurningBuddyRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BurningBuddyRelease.entitlements; sourceTree = "<group>"; };
 		C979C30D2A92FA2100A071F6 /* Workout+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C979C30E2A92FA2100A071F6 /* Workout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C979C3112A93113600A071F6 /* OnboardingRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoot.swift; sourceTree = "<group>"; };
 		C9EE2EAD2A8E324400EE6557 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunnyModel.swift; sourceTree = "<group>"; };
 		C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 		C90BA0382A14C4E6005659A6 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				C979C3112A93113600A071F6 /* OnboardingRoot.swift */,
 				C90BA03E2A14C56F005659A6 /* OnboardingView.swift */,
 				C90BA0402A14C57A005659A6 /* NicknameSettingView.swift */,
 				C90BA0422A14C599005659A6 /* CharacterSettingView.swift */,
@@ -391,6 +394,7 @@
 			files = (
 				C90BA0592A14C6D4005659A6 /* MissionResultModalView.swift in Sources */,
 				C90BA02B2A14C447005659A6 /* CoreDataManager.swift in Sources */,
+				C979C3122A93113600A071F6 /* OnboardingRoot.swift in Sources */,
 				C90BA05D2A14C6F1005659A6 /* WorkoutSuccessView.swift in Sources */,
 				C90BA05B2A14C6E0005659A6 /* MissionCongratsComponent.swift in Sources */,
 				C90BA05F2A14C6FE005659A6 /* WorkoutFailView.swift in Sources */,

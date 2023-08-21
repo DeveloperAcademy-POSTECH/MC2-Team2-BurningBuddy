@@ -9,11 +9,11 @@ import Foundation
 import SwiftUI
 
 struct NicknameSettingView: View {
+    @ObservedObject var userModel: UserModel
     @ObservedObject var nicknameLimiter = TextLimiter(limit: 8)
-    @EnvironmentObject var settings: UserSettings
     @State private var isInputText: Bool = false
     @State var isTopButtonHidden: Bool = false // 세팅뷰에서 상단 크기를 맞추기 위한 버튼
-    
+    @Binding var pageNum: Int
     /**
      레이아웃 수정 필요. EdgeInsets 제거 등
      컬러 익스텐션 적용 안된 코드 있음. 수정 필요.
@@ -83,8 +83,8 @@ struct NicknameSettingView: View {
             self.isInputText = false
             
             withAnimation(.easeInOut(duration: 0.5)){
-                if settings.pageNum != 4 { // SettingView에서 재사용하기 위해
-                    settings.pageNum += 1
+                if pageNum != 4 { // SettingView에서 재사용하기 위해
+                    pageNum += 1
                 }
             }
         }

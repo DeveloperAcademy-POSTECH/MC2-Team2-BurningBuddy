@@ -14,16 +14,17 @@ import SwiftUI
  하나의 파일로 재사용할 수 있는 방법을 생각해 보아야 함.
  */
 struct CharacterSettingView: View {
+    @ObservedObject var bunnyModel: BunnyModel
     @ObservedObject var characterName = TextLimiter(limit: 8)
-    @EnvironmentObject var settings: UserSettings
     @State private var isInputText: Bool = false
     @State var isTopButtonHidden: Bool = false // 세팅뷰에서 재사용을 위한 변수
+    @Binding var pageNum: Int
     
     var body: some View {
         VStack {
             if !isTopButtonHidden {
                 Button(action: {
-                    settings.pageNum -= 1
+                    pageNum -= 1
                 }, label: {
                     Image(systemName: "chevron.left")
                         .resizable()
@@ -79,8 +80,8 @@ struct CharacterSettingView: View {
             CoreDataManager.shared.update()
             settings.characterName = characterName.value // 임시 데이터
             withAnimation(.easeIn(duration: 0.5)){
-                if settings.pageNum != 4 { // SettingView에서 재사용하기 위해
-                    settings.pageNum += 1
+                if pageNum != 4 { // SettingView에서 재사용하기 위해
+                    pageNum += 1
                 }
             }
         }
