@@ -188,7 +188,7 @@ struct MainView: View {
                  */
                 if UserDefaults.standard.bool(forKey: "isWorkouting") {
                     NavigationLink(
-                        destination: WorkoutView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive),
+                        destination: WorkoutView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, healthData: healthData, mainViewNavLinkActive: $mainViewNavLinkActive),
                         isActive: $mainViewNavLinkActive,
                         label: {
                             Text("운동화면 보기")

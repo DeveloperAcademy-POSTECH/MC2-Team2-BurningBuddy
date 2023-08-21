@@ -12,7 +12,7 @@ class HealthData: ObservableObject{
     var workoutStartTime = Date()
     // Property workoutDuration: 총 운동 시간
     // Property workoutCalorie: 운동중 소모한 칼로리
-    @Published var workoutDuration = "00h 00m"
+    @Published var workoutDuration = 0
     @Published var workoutCalorie = 0
     
     // 권한 요청 함수
@@ -60,7 +60,7 @@ class HealthData: ObservableObject{
                 }
                 
                 DispatchQueue.main.async {
-                    self.workoutDuration = self.calculateTime(second: totalTime)
+                    self.workoutDuration = Int(totalTime)
                     self.workoutCalorie = Int(totalCalories.rounded())
                 }
             } else {

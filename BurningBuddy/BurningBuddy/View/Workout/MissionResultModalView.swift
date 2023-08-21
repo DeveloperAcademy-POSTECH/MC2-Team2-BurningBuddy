@@ -11,7 +11,6 @@ import SwiftUI
  단, 됐어,,, 난 글렀어,,,를 탭했을 때, 덤벨 수를 증가시키지 않고 운동을 종료하는 것이 필요하다.
  */
 struct MissionResultModalView: View {
-    @EnvironmentObject var settings: UserSettings
     @Environment(\.presentationMode) var presentationMode
     @State var title: String = "title"
     @State var article: String = "article"
