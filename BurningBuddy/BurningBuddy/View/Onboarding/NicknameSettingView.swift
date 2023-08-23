@@ -43,12 +43,10 @@ struct NicknameSettingView: View {
                 .font(.system(size: 17, weight: .medium))
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
             Spacer()
- 
             TextField("", text: $nicknameLimitter.value, prompt: Text("닉네임은 한글 2~8자로 설정할 수 있어요!")
                 .foregroundColor(Color.subTextColor))
                 .font(.system(size: 17, weight: .regular))
-            .foregroundColor(Color.mainTextColor)
-            
+                .foregroundColor(Color.mainTextColor)
             Divider()
                 .overlay(Color.mainTextColor)
             if isInputText {
@@ -84,16 +82,17 @@ struct NicknameSettingView: View {
     
     private func saveNickname() {
         userModel.userName = nicknameLimitter.value
-        
+        checkBlackTextField()
         if !isInputText {
             userModel.saveUserData()
-            
+            print(userModel.userName)
             withAnimation(.easeInOut(duration: 0.5)){
                 if pageNum != 4 { // SettingView에서 재사용하기 위해
                     pageNum += 1
                 }
             }
         }
+        
     }
 }
 

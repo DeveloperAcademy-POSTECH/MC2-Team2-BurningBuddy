@@ -70,12 +70,12 @@ class UserModel: ObservableObject {
             return
         }
         
-        userName = user.userName ?? ""
-        todayCalories = Int(user.todayCalories)
-        todayWorkoutHours = Int(user.todayWorkoutHours)
-        totalDumbbell = Int(user.totalDumbbell)
-        goalCalories = Int(user.goalCalories)
-        userID = user.userID ?? UUID()
+        user.userName = userName
+        user.todayCalories = Int16(todayCalories)
+        user.todayWorkoutHours = Int16(todayWorkoutHours)
+        user.totalDumbbell = Int16(totalDumbbell)
+        user.goalCalories = Int16(goalCalories)
+        user.userID = userID
         
         coreDataManager.update(object: user)
     }
