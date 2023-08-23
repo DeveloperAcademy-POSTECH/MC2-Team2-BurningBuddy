@@ -25,12 +25,13 @@ struct WorkoutDoneView: View {
     @State private var isSuccessNext: Bool = false
     @Binding var mainViewNavLinkActive: Bool
     
-    @StateObject private var niObject = NISessionManager(userModel: userModel)
+    @StateObject private var niObject = NISessionManager()
     @State private var isLaunched = true
     @State var isLocalNetworkPermissionDenied = false
     @State private var checkPartner: Bool = false
     @State var isDataReceived: Bool = false
     private let localNetAuth = LocalNetworkAuthorization()
+    
     
     var body: some View {
         VStack {

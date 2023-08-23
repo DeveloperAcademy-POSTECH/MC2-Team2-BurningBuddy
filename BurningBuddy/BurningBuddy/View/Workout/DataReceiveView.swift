@@ -11,7 +11,7 @@ struct DataReceiveView: View {
     @State var isSearchedPartner: Bool = false // 화면 전환용
     @State var notFoundPartner: Bool = false // 모달용
     @State private var beforeStart: Bool = false
-    @StateObject var niObject: NISessionManager
+    @StateObject var niObject: NISessionManager = NISessionManager()
     @State private var isLaunched = true
     @State var isLocalNetworkPermissionDenied = false
     @State private var startWorkout: Bool = false

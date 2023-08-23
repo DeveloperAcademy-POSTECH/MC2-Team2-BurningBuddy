@@ -40,7 +40,7 @@ class UserModel: ObservableObject {
     }
     
     func fetchUserData() {
-        let fetchResult = coreDataManager.fetch(entityName: entityName)
+        let fetchResult = coreDataManager.fetch(entityName: self.entityName)
         
         guard let userData = fetchResult.first as? User else {
             print("유저 데이터를 가져오는데 실패했습니다.(UserModel)")

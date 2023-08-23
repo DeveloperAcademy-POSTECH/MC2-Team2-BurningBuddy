@@ -43,7 +43,6 @@ class TranData: NSObject, NSCoding {
 }
 
 class NISessionManager: NSObject, ObservableObject {
-    @Published var userModel: UserModel
     @Published var connectedPeers = [MCPeerID]()
     @Published var matchedObject: TranData? // 매치된 오브젝트
     @Published var findingPartnerState : FindingPartnerState = .ready
@@ -60,17 +59,15 @@ class NISessionManager: NSObject, ObservableObject {
     @Published var myNickname : String = ""
     @Published var isDoneTargetCalories: Bool = false
     //@Published var isDoneTargetCalories: Bool = CoreDataManager.coreDM.readAllUser()[0].goalCalories <= CoreDataManager.coreDM.readAllUser()[0].todayCalories
-    @Published var myUUID: UUID
+    @Published var myUUID: UUID = UserModel.shared.userID
     
     // 범프된 상대 정보
     @Published var bumpedName = ""
     @Published var bumpedID: UUID?
     @Published var bumpedIsDoneTargetCalories: Bool = false
     
-    init(userModel: UserModel) {
+    override init() {
         print("init called")
-        self.userModel = userModel
-        self.myUUID = userModel.userID
         super.init()
     }
     
@@ -82,7 +79,7 @@ class NISessionManager: NSObject, ObservableObject {
     
     func start() {
         print("start")
-        myNickname = userModel.userName
+        myNickname = UserModel.shared.userName
         //isDoneTargetCalories = CoreDataManager.coreDM.readAllUser()[0].goalCalories <= CoreDataManager.coreDM.readAllUser()[0].todayCalories
         startup()
     }
@@ -220,7 +217,7 @@ class NISessionManager: NSObject, ObservableObject {
     }
     
     func shareMyData(token: NIDiscoveryToken, peer: MCPeerID) {
-        var isDoneTargetCaloriesCheck: Bool = userModel.goalCalories <= userModel.todayCalories
+        var isDoneTargetCaloriesCheck: Bool = UserModel.shared.goalCalories <= UserModel.shared.todayCalories
         let tranData = TranData(token: token, isBumped: true, nickname: myNickname, isDoneTargetCalories: isDoneTargetCaloriesCheck, uuid: myUUID) // TODO: - TranData의 UUID가 Nil - 후보 2.
         
         guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: tranData, requiringSecureCoding: false) else {
