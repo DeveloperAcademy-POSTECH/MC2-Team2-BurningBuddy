@@ -19,7 +19,10 @@ import SwiftUI
  
  */
 struct WorkoutView: View {
-    @EnvironmentObject var settings: UserSettings
+    @ObservedObject var userModel: UserModel
+    @ObservedObject var bunnyModel: BunnyModel
+    @ObservedObject var workoutModel: WorkoutModel
+    @ObservedObject var healthData: HealthData
     
     @State private var isNotDoneWorkout: Bool = false
     @State var isNextButtonTapped: Bool = false
@@ -28,7 +31,7 @@ struct WorkoutView: View {
     var body: some View {
         VStack {
             HStack {
-                Text(settings.nickName)
+                Text(userModel.userName)
                     .font(.system(size: 21, weight: .bold, design: .default))
                 Text("님은")
                     .font(.system(size: 21, weight: .medium))
@@ -61,39 +64,25 @@ struct WorkoutView: View {
             }
             Spacer()
             NavigationLink(isActive: $isNextButtonTapped, destination: {
-                WorkoutDoneView(mainViewNavLinkActive: $mainViewNavLinkActive)
+                WorkoutDoneView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive)
             }, label: {
                 Button("운동 종료하기") {
-                    // 목표량 달성 여부 확인 메서드 필요한 곳
+                    // 목표량 달성 여부 확인
                     
-                    print("Navi link 안")
                     // 운동 데이터 가져오기
-                    settings.workoutData.fetchAfterWorkoutTime()
+                    healthData.fetchAfterWorkoutTime()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         // 나의 데이터를 CoreData에 저장
-                        print(settings.workoutData.workoutCalorie)
-                        print(settings.workoutData.workoutDuration)
-                        CoreDataManager.shared.readAllUser()[0].todayCalories = Int16(settings.workoutData.workoutCalorie)
-                        CoreDataManager.shared.readAllUser()[0].todayWorkoutHours = settings.workoutData.workoutDuration
-                        CoreDataManager.shared.update()
-                        // 운동완료 테스트를 위해 소모 칼로리 1000 늘리는 코드--------------------------
-//                        CoreDataManager.coreDM.readAllUser()[0].todayCalories += 754
-//                        CoreDataManager.coreDM.readAllUser()[0].todayWorkoutHours = "01h 04m"
-//                        CoreDataManager.coreDM.update()
-                        // ------------------------------------------------------------------
-                        print("workoutData 테스트 칼로리 : \(CoreDataManager.shared.readAllUser()[0].todayCalories)")
-                        print("workoutData 테스트 시간 : \(CoreDataManager.shared.readAllUser()[0].todayWorkoutHours)")
-                        // TODO: - 목표치 채웠는지 확인하고, 채웠으면 연결, 못 채웠으면 모달창 뜨게 하기
-                        // 운동한 칼로리가 목표치를 넘었는지
-                        print("목표 칼로리 = \(CoreDataManager.shared.readAllUser()[0].goalCalories)")
+                        userModel.todayWorkoutHours = healthData.workoutDuration
+                        userModel.todayCalories = healthData.workoutCalorie
+                        userModel.saveUserData()
+                        
+                        // MARK: - 목표치 채웠는지 확인하고, 채웠으면 연결, 못 채웠으면 모달창 뜨게 하기
                         // 내가 목표 칼로리를 다 채웠으면
-                        if CoreDataManager.shared.readAllUser()[0].goalCalories <= CoreDataManager.shared.readAllUser()[0].todayCalories {
-                            print("if문 - workoutData 테스트 목표 칼로리: \(CoreDataManager.shared.readAllUser()[0].goalCalories)")
-                            print("if문 - workoutData 테스트 오늘의 칼로리 : \(CoreDataManager.shared.readAllUser()[0].todayCalories)")
+                        if userModel.goalCalories <= userModel.todayCalories {
                             // 파트너와 재연결(수고하셨어요) 뷰로 넘어가기
                             UserDefaults.standard.set(true, forKey: "isDoneWorkout")
                             UserDefaults.standard.set(false, forKey: "isWorkouting")
-                            
                             isNextButtonTapped = true
                         }
                         else {
@@ -114,7 +103,6 @@ struct WorkoutView: View {
                 MissionResultModalView(title: "아직 목표량을 채우지 못했어요!", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼게요", rightButtonName: "그만할래요", wantQuitWorkout: $isNextButtonTapped)
                     .presentationDetents([.fraction(0.4)])
                     .background(Color.backgroundColor)
-                    .environmentObject(settings)
             }
         }
     }
@@ -122,8 +110,13 @@ struct WorkoutView: View {
 
 
 struct WorkoutView_Previews: PreviewProvider {
+    @ObservedObject static var userModel = UserModel()
+    @ObservedObject static var bunnyModel = BunnyModel()
+    @ObservedObject static var workoutModel = WorkoutModel()
+    @ObservedObject static var healthData = HealthData()
     @State static var value: Bool = true
+    
     static var previews: some View {
-        WorkoutView(mainViewNavLinkActive: $value).environmentObject(UserSettings())
+        WorkoutView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, healthData: healthData, mainViewNavLinkActive: $value)
     }
 }

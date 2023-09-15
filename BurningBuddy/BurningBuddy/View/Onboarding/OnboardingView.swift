@@ -14,7 +14,7 @@ import UIKit
  EdgeInsets 제거 필요하며, Stack 그룹핑을 다시 해서 재정렬 해야 함.
  */
 struct OnboardingView: View {
-    @EnvironmentObject var settings: UserSettings
+    @Binding var pageNum: Int
     
     var body: some View {
         VStack {
@@ -43,7 +43,7 @@ struct OnboardingView: View {
     
     private func skipAction() {
         withAnimation(.easeInOut(duration: 0.5)){
-            settings.pageNum += 1
+            pageNum += 1
         }
     }
 }
@@ -87,7 +87,9 @@ struct OnboardingPageView: View {
 }
 
 struct OnboardingView_Preview: PreviewProvider {
+    @State static var pageNum = 0
+    
     static var previews: some View {
-        OnboardingView()
+        OnboardingView(pageNum: $pageNum)
     }
 }

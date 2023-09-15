@@ -11,7 +11,6 @@ import SwiftUI
  단, 됐어,,, 난 글렀어,,,를 탭했을 때, 덤벨 수를 증가시키지 않고 운동을 종료하는 것이 필요하다.
  */
 struct MissionResultModalView: View {
-    @EnvironmentObject var settings: UserSettings
     @Environment(\.presentationMode) var presentationMode
     @State var title: String = "title"
     @State var article: String = "article"
@@ -51,7 +50,6 @@ struct MissionResultModalView: View {
 //                Spacer()// TODO: - 버튼 간격 조정
 //                Spacer()
                 Button(action: { // right Button
-                    //settings.isWorkouting = false // 운동중 변수를 false로 만들어준다.
                     UserDefaults.standard.set(false, forKey: "isWorkouting")
                     wantQuitWorkout = true
                     presentationMode.wrappedValue.dismiss()

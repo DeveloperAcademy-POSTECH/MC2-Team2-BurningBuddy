@@ -17,7 +17,10 @@ import SwiftUI
  
  */
 struct WorkoutDoneView: View {
-    @EnvironmentObject var settings: UserSettings
+    @ObservedObject var userModel: UserModel
+    @ObservedObject var bunnyModel: BunnyModel
+    @ObservedObject var workoutModel: WorkoutModel
+    
     @State var isNotDoneWorkoutPopup = false
     @State private var isSuccessNext: Bool = false
     @Binding var mainViewNavLinkActive: Bool
@@ -28,6 +31,7 @@ struct WorkoutDoneView: View {
     @State private var checkPartner: Bool = false
     @State var isDataReceived: Bool = false
     private let localNetAuth = LocalNetworkAuthorization()
+    
     
     var body: some View {
         VStack {
@@ -63,26 +67,23 @@ struct WorkoutDoneView: View {
              */
             case true:
                 NavigationLink(isActive: $isSuccessNext, destination: {
-                    
-                    
                     if niObject.bumpedIsDoneTargetCalories && UserDefaults.standard.bool(forKey: "isDoneWorkout") {
-                        WorkoutSuccessView(mainViewNavLinkActive: $mainViewNavLinkActive)
+                        WorkoutSuccessView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive)
                     } else {
-                        WorkoutFailView(mainViewNavLinkActive: $mainViewNavLinkActive)
+                        WorkoutFailView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive)
                     }
                     
                 }, label: {
                     Button("목표달성 확인하기") {
                         if niObject.bumpedIsDoneTargetCalories && UserDefaults.standard.bool(forKey: "isDoneWorkout") {
-                            self.settings.isDoneTogetherWorkout = true
+                            UserDefaults.standard.set(true, forKey: "isDoneTogetherWorkout")
                             print("상대방이 목표를 달성했어요!")
                             isNotDoneWorkoutPopup = false
                             isSuccessNext = true // TODO: 다음 페이지로 넘어가야 함
                             
                         } else {
-                            self.settings.isDoneTogetherWorkout = false
+                            UserDefaults.standard.set(false, forKey: "isDoneTogetherWorkout")
                             isNotDoneWorkoutPopup = true
-                            
                         }
                         print("상대방의 목표 달성 확인하기: \(niObject.bumpedIsDoneTargetCalories)")
                         // 데이터 통신부분은 해결-> 상대방이 목표칼로리에 도달했는지 안했는지가 반영이 안되어있던거였음
@@ -151,7 +152,6 @@ struct WorkoutDoneView: View {
                 MissionResultModalView(title: "파트너가 아직 운동 중이에요!", article: "운동을 마칠 때까지 응원해주세요!", leftButtonName: "알겠어요", rightButtonName: "그만할래요", wantQuitWorkout: $isSuccessNext )
                     .presentationDetents([.fraction(0.4)])
                     .background(Color(red: 30/255, green: 28/255, blue: 29/255))
-                    .environmentObject(settings)
                     .onDisappear {
                         niObject.isBumped = false
                     }
@@ -168,7 +168,7 @@ extension WorkoutDoneView {
             switch(niObject.findingPartnerState) {
             case .ready:
                 return VStack {
-                    Text("\(settings.nickName)님")
+                    Text("\(userModel.userName)님")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundColor(.white)
                         .font(.system(size: 21, weight: .bold))

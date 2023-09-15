@@ -13,7 +13,10 @@ import SwiftUI
  실패한 캐릭터만 보여주면 족하다. 메인으로 가는 이동 액션만 잘 넣어주면 되겠다.
  */
 struct MissionCongratsComponent: View {
-    @EnvironmentObject var settings: UserSettings
+    @ObservedObject var userModel: UserModel
+    @ObservedObject var bunnyModel: BunnyModel
+    @ObservedObject var workoutModel: WorkoutModel
+    
     @State var title: String
     @State var article: String
     @State var imageName: String
@@ -50,19 +53,18 @@ struct MissionCongratsComponent: View {
             Spacer()
             Button(buttonName, action: {
                 /* 테스트용 */
-                let templevel = settings.level
+                let templevel = bunnyModel.bunnyLevel
                 
-                if settings.isDoneTogetherWorkout {
-                    settings.totalDumbbell += 1
-                    CoreDataManager.shared.readAllUser()[0].totalDumbbell += 1
-                    // 레벨 7 미만일 때만 레벨 올리기 (문제될 시 삭제)
-                    if settings.level < 7 {
-                        settings.level += checkLevelUp(presentLevel: settings.totalDumbbell) ? 1 : 0
-                        CoreDataManager.shared.readAllBunny()[0].level += checkLevelUp(presentLevel: settings.totalDumbbell) ? 1 : 0
+                // 덤벨 획득, 레벨 업 체크
+                if UserDefaults.standard.bool(forKey: "isDoneTogetherWorkout") {
+                    userModel.totalDumbbell += 1
+                    if bunnyModel.bunnyLevel < 7 {
+                        bunnyModel.bunnyLevel += checkLevelUp(presentLevel: Int16(userModel.totalDumbbell)) ? 1 : 0
                     }
-                    CoreDataManager.shared.update()
+                    userModel.saveUserData()
+                    bunnyModel.saveBunnyData()
                 }
-                if templevel != settings.level {
+                if templevel != bunnyModel.bunnyLevel {
                     self.levelupViewPresent = true
                 }
                 mainViewNavLinkActive = false
@@ -71,7 +73,7 @@ struct MissionCongratsComponent: View {
             .buttonStyle(RedButtonStyle())
         }
         .sheet(isPresented: self.$levelupViewPresent) {
-            LevelUpView()
+            LevelUpView(userModel: userModel, bunnyModel: bunnyModel)
                 .background(Color(red: 30/255, green: 28/255, blue: 29/255))
         }
         .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인

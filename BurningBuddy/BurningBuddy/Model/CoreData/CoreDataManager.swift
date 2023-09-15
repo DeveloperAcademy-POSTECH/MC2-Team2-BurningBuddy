@@ -13,7 +13,7 @@ class CoreDataManager {
     static let shared = CoreDataManager()
 
     private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "UserInfo")
+        let container = NSPersistentContainer(name: "UserDataModel")
         container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Failed to load Core Data stack: \(error)")

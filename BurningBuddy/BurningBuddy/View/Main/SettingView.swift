@@ -14,27 +14,31 @@ import SwiftUI
  settings 관련한 문제도 해결해야 함.
  */
 struct SettingView: View {
-    @EnvironmentObject var settings: UserSettings
+    @ObservedObject var userModel: UserModel
+    @ObservedObject var bunnyModel: BunnyModel
+    @State var pageNum = 4 // 세팅뷰들 재사용을 위한 변수
+    @State var isFirst = false // 세팅뷰들 재사용을 위한 변수
     
     var body: some View {
         List {
             Section {
                 HStack{
                     VStack {
-                        Image("Bunny_\(settings.level)_side")
+                        Image("Bunny_\(bunnyModel.bunnyLevel)_side")
                             .resizable()
                             .frame(width: 94, height: 79)
                         
                     }
                     VStack (alignment: .leading){
-                        Text(settings.nickName)
+                        Text(userModel.userName)
                             .foregroundColor(.white)
                             .font(.system(size: 21, weight: .bold))
-                        Text(settings.characterName)
+                        Text(bunnyModel.bunnyName)
                     }.padding(12)
                 }
             }
             .listRowBackground(Color.mainSection2)
+            
             Section {
                 
                 HStack{
@@ -49,17 +53,18 @@ struct SettingView: View {
                         .clipped()
                     Text("모은 핑크 덤벨 개수")
                     Spacer()
-                    Text(String(settings.totalDumbbell)+"개")
+                    Text(String(userModel.totalDumbbell)+"개")
                         .foregroundColor(.gray)
                 }
                 
             }
             .listRowBackground(Color.mainSection2)
+            
             Section {
-                NavigationLink{
-                    CalorieSettingView(sliderValue: Double(settings.goalCalories), isTopButtonHidden: true)
-                } label: {
-                    HStack{
+                NavigationLink(destination: {
+                    CalorieSettingView(userModel: userModel, bunnyModel: bunnyModel, sliderValue: Double(userModel.goalCalories), isTopButtonHidden: true, pageNum: $pageNum, isFirst: $isFirst)
+                }) {
+                    HStack {
                         Image(systemName: "checkmark.seal.fill")
                             .resizable()
                             .scaledToFit()
@@ -70,13 +75,15 @@ struct SettingView: View {
                             .clipped()
                         Text("목표 칼로리")
                         Spacer()
-                        Text(String(settings.goalCalories) + "Kcal")
+                        Text(String(userModel.goalCalories) + "kcal")
                             .foregroundColor(Color.bunnyColor)
                     }
                 }
-                NavigationLink{
-                    NicknameSettingView(isTopButtonHidden: true)
-                } label: {
+                
+                NavigationLink(destination: {
+                    NicknameSettingView(userModel: userModel, isTopButtonHidden: true, pageNum: $pageNum)
+                }) {
+
                     Image(systemName: "person.crop.circle.fill")
                         .resizable()
                         .scaledToFit()
@@ -86,10 +93,13 @@ struct SettingView: View {
                         .cornerRadius(7)
                         .clipped()
                     Text("닉네임 변경하기")
+
                 }
-                NavigationLink{
-                    CharacterSettingView(isTopButtonHidden: true)
-                } label: {
+                
+                NavigationLink(destination: {
+                    CharacterSettingView(bunnyModel: bunnyModel, isTopButtonHidden: true, pageNum: $pageNum)
+                }) {
+                    
                     Image(systemName: "person.crop.circle.fill")
                         .resizable()
                         .scaledToFit()
@@ -99,6 +109,7 @@ struct SettingView: View {
                         .cornerRadius(7)
                         .clipped()
                     Text("캐릭터이름 변경하기")
+                    
                 }
             }
             .listRowBackground(Color.mainSection2)
@@ -111,8 +122,10 @@ struct SettingView: View {
 }
 
 struct SettingView_Previews: PreviewProvider {
+    @ObservedObject static var userModel = UserModel()
+    @ObservedObject static var bunnyModel = BunnyModel()
+    
     static var previews: some View {
-        SettingView()
-            .environmentObject(UserSettings())
+        SettingView(userModel: userModel, bunnyModel: bunnyModel)
     }
 }

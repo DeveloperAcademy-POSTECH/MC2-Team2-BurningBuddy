@@ -13,13 +13,14 @@ import SwiftUI
  EdgeInsets 등 레이아웃만 수정하면 됨.
  */
 struct LevelUpModalView: View {
+    @ObservedObject var userModel: UserModel
+    @ObservedObject var bunnyModel: BunnyModel
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var settings: UserSettings
     
     var body: some View {
         VStack {
             HStack{
-                Text("목표달성 \(settings.totalDumbbell)일 째")
+                Text("목표달성 \(userModel.totalDumbbell)일 째")
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     .foregroundColor(Color.mainTextColor)
                     .font(.system(size: 28, weight: .bold))
@@ -44,7 +45,7 @@ struct LevelUpModalView: View {
                 .foregroundColor(Color.subTextColor)
                 .font(.system(size: 17, weight: .medium))
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
-            Image("roadMapLevel\(settings.level)")
+            Image("roadMapLevel\(bunnyModel.bunnyLevel)")
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             Spacer()
             
@@ -53,11 +54,14 @@ struct LevelUpModalView: View {
         .background(Color.backgroundColor)
     }
   
-    struct LevelUpModalView_Previews: PreviewProvider {
-        static var previews: some View {
-            LevelUpModalView()
-                .environmentObject(UserSettings())
-        }
-    }
+    
 }
 
+struct LevelUpModalView_Previews: PreviewProvider {
+    @ObservedObject static var userModel = UserModel()
+    @ObservedObject static var bunnyModel = BunnyModel()
+    
+    static var previews: some View {
+        LevelUpModalView(userModel: userModel, bunnyModel: bunnyModel)
+    }
+}

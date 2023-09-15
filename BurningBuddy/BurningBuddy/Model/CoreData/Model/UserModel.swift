@@ -40,7 +40,7 @@ class UserModel: ObservableObject {
     }
     
     func fetchUserData() {
-        let fetchResult = coreDataManager.fetch(entityName: entityName)
+        let fetchResult = coreDataManager.fetch(entityName: self.entityName)
         
         guard let userData = fetchResult.first as? User else {
             print("유저 데이터를 가져오는데 실패했습니다.(UserModel)")
@@ -70,13 +70,36 @@ class UserModel: ObservableObject {
             return
         }
         
-        userName = user.userName ?? ""
-        todayCalories = Int(user.todayCalories)
-        todayWorkoutHours = Int(user.todayWorkoutHours)
-        totalDumbbell = Int(user.totalDumbbell)
-        goalCalories = Int(user.goalCalories)
-        userID = user.userID ?? UUID()
+        user.userName = userName
+        user.todayCalories = Int16(todayCalories)
+        user.todayWorkoutHours = Int16(todayWorkoutHours)
+        user.totalDumbbell = Int16(totalDumbbell)
+        user.goalCalories = Int16(goalCalories)
+        user.userID = userID
         
         coreDataManager.update(object: user)
+    }
+    
+    func calculateTime(second: TimeInterval) -> String {
+        let hour = Int(second / 3600)
+        let minute = Int(second.truncatingRemainder(dividingBy: 3600) / 60)
+        /*
+            01h 01m
+            01h 11m
+            11h 01m
+            11h 11m
+         */
+        if hour < 10 && minute < 10 {
+            return String("0\(hour)h 0\(minute)m")
+        }
+        else if hour < 10 && minute > 9 {
+            return String("0\(hour)h \(minute)m")
+        }
+        else if hour > 9 && minute < 10 {
+            return String("\(hour)h 0\(minute)m")
+        }
+        else {
+            return String("\(hour)h \(minute)m")
+        }
     }
 }

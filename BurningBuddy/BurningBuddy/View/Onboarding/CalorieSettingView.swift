@@ -9,19 +9,22 @@ import SwiftUI
  초기 값 설정시 여기에서 한 번 CoreData(or UserDefalut)에 저장해야 한다.
  */
 struct CalorieSettingView: View {
-    @EnvironmentObject var settings: UserSettings
+    @ObservedObject var userModel: UserModel
+    @ObservedObject var bunnyModel: BunnyModel
     @State private var firstSliderDrag: Bool = false
     @State private var sliderMessage: String = "목표 칼로리를 설정해주세요!"
     @State private var userLevel = "초급자"
     @State var sliderValue: Double = 200
     @State var isTopButtonHidden: Bool = false
+    @Binding var pageNum: Int
+    @Binding var isFirst: Bool
     
     var body: some View {
         
         VStack {
             if !isTopButtonHidden {
                 Button(action: {
-                    settings.pageNum -= 1
+                    pageNum -= 1
                 }, label: {
                     Image(systemName: "chevron.left")
                         .resizable()
@@ -35,7 +38,7 @@ struct CalorieSettingView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(Color.mainTextColor)
                 .font(.system(size: 28, weight: .bold))
-            Text(settings.pageNum == 4 ? "본인의 운동 수행 능력에 맞게\n조절해주세요!" : "운동 목표량을 설정해주세요\n나중에도 변경가능해요")
+            Text(pageNum == 4 ? "본인의 운동 수행 능력에 맞게\n조절해주세요!" : "운동 목표량을 설정해주세요\n나중에도 변경가능해요")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(Color.subTextColor)
                 .padding(EdgeInsets(top: 1, leading: 0, bottom: 90, trailing: 0))
@@ -63,7 +66,7 @@ struct CalorieSettingView: View {
             Spacer()
             Button("확인", action: {
                 saveCalorie()
-                toggleShowOnboarding()
+                createUserAndBunnyData()
             })
             .buttonStyle(RedButtonStyle())
         }
@@ -79,39 +82,27 @@ struct CalorieSettingView: View {
      */
     private func saveCalorie() {
         // 유저 정보 Core데이터에 생성
-        if settings.pageNum != 4 { // SettingView에서 재사용하기 위해
-            settings.pageNum += 1
+        if pageNum != 4 { // SettingView에서 재사용하기 위해
+            pageNum += 1
         }
-        settings.goalCalories = Int16(sliderValue)
-        
-        CoreDataManager.shared.readAllUser()[0].goalCalories = Int16(self.sliderValue)
-        CoreDataManager.shared.update()
-        toggleShowOnboarding()
+        userModel.goalCalories = Int(sliderValue)
     }
     
-    private func toggleShowOnboarding() {
-        UserDefaults.standard.set(true, forKey: "showOnboarding")
+    private func createUserAndBunnyData() {
+        userModel.saveUserData()
+        bunnyModel.saveBunnyData()
+        isFirst = false
     }
 }
-
-//TODO: -
-/**
- TextLimiter와 같이 다른 파일로 분리시킬 필요가 있음.
- */
-struct TextUtil {
-    func calculateLineSpacing(_ fontsize: Int, _ percent: Double) -> CGFloat {
-        return CGFloat(Double(fontsize) * (percent / Double(100)) - Double(fontsize))
-    }
-}
-
-
 
 struct CalorieSettingView_Previews: PreviewProvider {
-    @State var isMember: Bool = true
+    @State static var isMember: Bool = true
+    @State static var pageNum = 3
+    @ObservedObject static var bunnyModel = BunnyModel()
+    @ObservedObject static var userModel = UserModel()
     
     static var previews: some View {
-        CalorieSettingView()
-            .environmentObject(UserSettings())
+        CalorieSettingView(userModel: userModel, bunnyModel: bunnyModel, pageNum: $pageNum, isFirst: $isMember)
     }
 }
 

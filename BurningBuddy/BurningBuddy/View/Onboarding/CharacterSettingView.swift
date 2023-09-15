@@ -14,16 +14,17 @@ import SwiftUI
  하나의 파일로 재사용할 수 있는 방법을 생각해 보아야 함.
  */
 struct CharacterSettingView: View {
+    @ObservedObject var bunnyModel: BunnyModel
     @ObservedObject var characterName = TextLimiter(limit: 8)
-    @EnvironmentObject var settings: UserSettings
     @State private var isInputText: Bool = false
     @State var isTopButtonHidden: Bool = false // 세팅뷰에서 재사용을 위한 변수
+    @Binding var pageNum: Int
     
     var body: some View {
         VStack {
             if !isTopButtonHidden {
                 Button(action: {
-                    settings.pageNum -= 1
+                    pageNum -= 1
                 }, label: {
                     Image(systemName: "chevron.left")
                         .resizable()
@@ -45,9 +46,8 @@ struct CharacterSettingView: View {
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
             Spacer()
             TextField("", text: $characterName.value, prompt: Text("캐릭터 이름은 한글 2~8자로 설정할 수 있어요!")
-                .foregroundColor(Color.subTextColor)).font(.system(size: 17, weight: .regular))
-            
-            
+                .foregroundColor(Color.subTextColor))
+                .font(.system(size: 17, weight: .regular))
                 .foregroundColor(.mainTextColor)
             Divider()
                 .overlay(Color.mainTextColor)
@@ -68,19 +68,22 @@ struct CharacterSettingView: View {
         .background(Color.backgroundColor)
     }
     
-    private func saveCharacterName() {
-        settings.characterName = characterName.value
-        if settings.characterName.count == 0 || settings.characterName.count == 1 {
+    private func checkBlackTextField() {
+        if characterName.value.count == 0 || characterName.value.count == 1 {
             self.isInputText = true
         } else {
             self.isInputText = false
-            
-            CoreDataManager.shared.readAllBunny()[0].characterName = characterName.value
-            CoreDataManager.shared.update()
-            settings.characterName = characterName.value // 임시 데이터
+        }
+    }
+    
+    private func saveCharacterName() {
+        bunnyModel.bunnyName = characterName.value
+        checkBlackTextField()
+        if !isInputText {
+            bunnyModel.saveBunnyData()
             withAnimation(.easeIn(duration: 0.5)){
-                if settings.pageNum != 4 { // SettingView에서 재사용하기 위해
-                    settings.pageNum += 1
+                if pageNum != 4 { // SettingView에서 재사용하기 위해
+                    pageNum += 1
                 }
             }
         }
@@ -88,7 +91,9 @@ struct CharacterSettingView: View {
 }
 
 struct CharacterSettingView_Previews: PreviewProvider {
+    @ObservedObject static var bunnyModel = BunnyModel()
+    @State static var pageNum = 2
     static var previews: some View {
-        CharacterSettingView()
+        CharacterSettingView(bunnyModel: bunnyModel, pageNum: $pageNum)
     }
 }

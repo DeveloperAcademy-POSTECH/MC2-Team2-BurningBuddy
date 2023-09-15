@@ -14,7 +14,8 @@ import SwiftUI
  EdgeInsets 등 레이아웃만 수정하면 됨.
  */
 struct LevelUpView: View {
-    @EnvironmentObject var settings: UserSettings
+    @ObservedObject var userModel: UserModel
+    @ObservedObject var bunnyModel: BunnyModel
     
     var body: some View {
         VStack {
@@ -23,7 +24,7 @@ struct LevelUpView: View {
                 .foregroundColor(Color.mainTextColor)
                 .font(.system(size: 30, weight: .bold, design: .default))
             
-            Text("핑크 덤벨 \(settings.totalDumbbell)개를 얻어\n\(settings.characterName)(이)가 진화했어요!")
+            Text("핑크 덤벨 \(userModel.totalDumbbell)개를 얻어\n\(bunnyModel.bunnyName)(이)가 진화했어요!")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.system(size: 17, weight: .regular, design: .default))
                 .padding(EdgeInsets(top: 1, leading: 0, bottom: 0, trailing: 0))
@@ -32,7 +33,7 @@ struct LevelUpView: View {
             
             Spacer()
             ZStack {
-                Image("Bunny_\(settings.level)_front")
+                Image("Bunny_\(bunnyModel.bunnyLevel)_front")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 350)
@@ -47,9 +48,11 @@ struct LevelUpView: View {
 
 
 struct LevelUpView_Previews: PreviewProvider {
+    @ObservedObject static var userModel = UserModel()
+    @ObservedObject static var bunnyModel = BunnyModel()
+    
     static var previews: some View {
-        LevelUpView()
-            .environmentObject(UserSettings())
+        LevelUpView(userModel: userModel, bunnyModel: bunnyModel)
     }
 }
 

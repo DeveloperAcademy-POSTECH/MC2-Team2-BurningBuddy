@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct DataReceiveView: View {
-    @EnvironmentObject var settings: UserSettings
     @State var isSearchedPartner: Bool = false // 화면 전환용
     @State var notFoundPartner: Bool = false // 모달용
-    
     @State private var beforeStart: Bool = false
-    @StateObject var niObject: NISessionManager
+    @StateObject var niObject: NISessionManager = NISessionManager()
     @State private var isLaunched = true
     @State var isLocalNetworkPermissionDenied = false
     @State private var startWorkout: Bool = false
@@ -98,9 +96,9 @@ struct DataReceiveView: View {
                 print("UserDefaults.standard.bool(forKey: isDoneWorkout): \(UserDefaults.standard.bool(forKey: "isDoneWorkout"))")
                 // ==================================================
                 if niObject.bumpedIsDoneTargetCalories && UserDefaults.standard.bool(forKey: "isDoneWorkout") {
-                    self.settings.isDoneTogetherWorkout = true
+                    UserDefaults.standard.set(true, forKey: "isDoneTogetherWorkout")
                 } else {
-                    self.settings.isDoneTogetherWorkout = false
+                    UserDefaults.standard.set(false, forKey: "isDoneTogetherWorkout")
                 }
                 
             } else { // 상대방이 아니면

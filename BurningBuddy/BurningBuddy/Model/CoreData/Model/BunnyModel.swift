@@ -12,7 +12,7 @@ class BunnyModel: ObservableObject {
     static let shared = BunnyModel()
     private let coreDataManager = CoreDataManager.shared
     @Published var bunnyName = ""
-    @Published var bunnyLevel = 0
+    @Published var bunnyLevel = 1
     
     init() {
         fetchUserData()
@@ -35,7 +35,7 @@ class BunnyModel: ObservableObject {
         let fetchResult = coreDataManager.fetch(entityName: entityName)
         
         guard let bunnyData = fetchResult.first as? Bunny else {
-            print("유저 데이터를 가져오는데 실패했습니다.(UserModel)")
+            print("유저 데이터를 가져오는데 실패했습니다.(BunnyModel)")
             return
         }
         
@@ -43,12 +43,12 @@ class BunnyModel: ObservableObject {
         bunnyLevel = Int(bunnyData.level)
     }
     
-    func saveUserData() {
+    func saveBunnyData() {
         var bunnyData: Bunny?
         
         let fetchResult = coreDataManager.fetch(entityName: entityName)
-        if let existingUserData = fetchResult.first as? Bunny {
-            bunnyData = existingUserData
+        if let existingBunnyData = fetchResult.first as? Bunny {
+            bunnyData = existingBunnyData
         } else if let newBunnyData = coreDataManager.create(entityName: entityName, attributes: [:]) as? Bunny {
             bunnyData = newBunnyData
         }
