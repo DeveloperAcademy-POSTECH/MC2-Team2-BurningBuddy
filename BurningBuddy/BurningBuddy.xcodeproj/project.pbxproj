@@ -45,6 +45,7 @@
 		C90BA0752A14C87E005659A6 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0732A14C87E005659A6 /* UserDataModel.xcdatamodeld */; };
 		C979C3122A93113600A071F6 /* OnboardingRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3112A93113600A071F6 /* OnboardingRoot.swift */; };
 		C979C3182A93322A00A071F6 /* TextUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3172A93322A00A071F6 /* TextUtil.swift */; };
+		C9DE7C2E2ABC68C9005AFCC6 /* KaKaoTalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE7C2D2ABC68C9005AFCC6 /* KaKaoTalkView.swift */; };
 		C9EE2EAE2A8E324400EE6557 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EAD2A8E324400EE6557 /* UserModel.swift */; };
 		C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */; };
 		C9EE2EB42A8EFEDA00EE6557 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */; };
@@ -94,6 +95,7 @@
 		C90BA0772A14CADB005659A6 /* BurningBuddyRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BurningBuddyRelease.entitlements; sourceTree = "<group>"; };
 		C979C3112A93113600A071F6 /* OnboardingRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoot.swift; sourceTree = "<group>"; };
 		C979C3172A93322A00A071F6 /* TextUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUtil.swift; sourceTree = "<group>"; };
+		C9DE7C2D2ABC68C9005AFCC6 /* KaKaoTalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaKaoTalkView.swift; sourceTree = "<group>"; };
 		C9EE2EAD2A8E324400EE6557 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunnyModel.swift; sourceTree = "<group>"; };
 		C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 		C9DE7C292ABC64C3005AFCC6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C9DE7C2D2ABC68C9005AFCC6 /* KaKaoTalkView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				C90BA06E2A14C828005659A6 /* Bunny+CoreDataProperties.swift in Sources */,
 				C90400502A93690E00803EFE /* Workout+CoreDataProperties.swift in Sources */,
 				C90BA0492A14C5E2005659A6 /* LevelUpModalView.swift in Sources */,
+				C9DE7C2E2ABC68C9005AFCC6 /* KaKaoTalkView.swift in Sources */,
 				C90BA0612A14C709005659A6 /* DataReceiveView.swift in Sources */,
 				C90BA0472A14C5D6005659A6 /* LevelUpView.swift in Sources */,
 				C90BA0552A14C6BC005659A6 /* WorkoutView.swift in Sources */,
