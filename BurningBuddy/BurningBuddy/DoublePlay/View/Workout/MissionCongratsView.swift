@@ -12,7 +12,7 @@ import SwiftUI
  왜냐하면, 특정한 조건에 나오는 뷰이기 때문이다.
  실패한 캐릭터만 보여주면 족하다. 메인으로 가는 이동 액션만 잘 넣어주면 되겠다.
  */
-struct MissionCongratsComponent: View {
+struct MissionCongratsView: View {
     @ObservedObject var userModel: UserModel
     @ObservedObject var bunnyModel: BunnyModel
     @ObservedObject var workoutModel: WorkoutModel

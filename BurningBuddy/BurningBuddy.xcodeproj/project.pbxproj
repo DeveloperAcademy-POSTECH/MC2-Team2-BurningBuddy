@@ -33,7 +33,7 @@
 		C90BA0552A14C6BC005659A6 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0542A14C6BC005659A6 /* WorkoutView.swift */; };
 		C90BA0572A14C6CA005659A6 /* WorkoutDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0562A14C6CA005659A6 /* WorkoutDoneView.swift */; };
 		C90BA0592A14C6D4005659A6 /* MissionResultModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0582A14C6D4005659A6 /* MissionResultModalView.swift */; };
-		C90BA05B2A14C6E0005659A6 /* MissionCongratsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA05A2A14C6E0005659A6 /* MissionCongratsComponent.swift */; };
+		C90BA05B2A14C6E0005659A6 /* MissionCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA05A2A14C6E0005659A6 /* MissionCongratsView.swift */; };
 		C90BA05D2A14C6F1005659A6 /* WorkoutSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA05C2A14C6F1005659A6 /* WorkoutSuccessView.swift */; };
 		C90BA05F2A14C6FE005659A6 /* WorkoutFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA05E2A14C6FE005659A6 /* WorkoutFailView.swift */; };
 		C90BA0612A14C709005659A6 /* DataReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0602A14C709005659A6 /* DataReceiveView.swift */; };
@@ -80,7 +80,7 @@
 		C90BA0542A14C6BC005659A6 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		C90BA0562A14C6CA005659A6 /* WorkoutDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDoneView.swift; sourceTree = "<group>"; };
 		C90BA0582A14C6D4005659A6 /* MissionResultModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionResultModalView.swift; sourceTree = "<group>"; };
-		C90BA05A2A14C6E0005659A6 /* MissionCongratsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCongratsComponent.swift; sourceTree = "<group>"; };
+		C90BA05A2A14C6E0005659A6 /* MissionCongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCongratsView.swift; sourceTree = "<group>"; };
 		C90BA05C2A14C6F1005659A6 /* WorkoutSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSuccessView.swift; sourceTree = "<group>"; };
 		C90BA05E2A14C6FE005659A6 /* WorkoutFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFailView.swift; sourceTree = "<group>"; };
 		C90BA0602A14C709005659A6 /* DataReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReceiveView.swift; sourceTree = "<group>"; };
@@ -132,13 +132,15 @@
 			isa = PBXGroup;
 			children = (
 				C90BA0772A14CADB005659A6 /* BurningBuddyRelease.entitlements */,
-				C90BA0762A14CA34005659A6 /* Info.plist */,
 				C90BA0172A14C2FF005659A6 /* BurningBuddyApp.swift */,
-				C90BA0272A14C3B0005659A6 /* Resources */,
+				C9DE7C2B2ABC65AB005AFCC6 /* App */,
 				C90BA0252A14C3A9005659A6 /* Utils */,
-				C90BA0282A14C3E8005659A6 /* View */,
+				C90BA0272A14C3B0005659A6 /* Resources */,
+				C9DE7C272ABC6481005AFCC6 /* SinglePlay */,
+				C9DE7C282ABC6489005AFCC6 /* DoublePlay */,
 				C90BA0292A14C3F8005659A6 /* Model */,
 				C90BA01D2A14C300005659A6 /* Preview Content */,
+				C90BA0762A14CA34005659A6 /* Info.plist */,
 			);
 			path = BurningBuddy;
 			sourceTree = "<group>";
@@ -154,8 +156,9 @@
 		C90BA0252A14C3A9005659A6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C90BA0392A14C4E8005659A6 /* Component */,
+				C9DE7C2C2ABC663F005AFCC6 /* TextUtil */,
 				C90BA02C2A14C458005659A6 /* NIUtils */,
-				C979C3172A93322A00A071F6 /* TextUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 		C90BA0272A14C3B0005659A6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C90BA0692A14C7F1005659A6 /* Launch Screen.storyboard */,
 				C90BA01B2A14C300005659A6 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -171,13 +175,7 @@
 		C90BA0282A14C3E8005659A6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C90BA0192A14C2FF005659A6 /* ContentView.swift */,
-				C90BA0692A14C7F1005659A6 /* Launch Screen.storyboard */,
-				C90BA0392A14C4E8005659A6 /* Component */,
-				C90BA0382A14C4E6005659A6 /* Onboarding */,
-				C90BA0372A14C4E3005659A6 /* LevelUp */,
-				C90BA0362A14C4DA005659A6 /* Main */,
-				C90BA0352A14C4D2005659A6 /* Partner */,
+				C90BA0352A14C4D2005659A6 /* PartnerConnect */,
 				C90BA0342A14C4CC005659A6 /* Workout */,
 			);
 			path = View;
@@ -187,8 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				C90BA0622A14C786005659A6 /* CoreData */,
-				C90BA0652A14C7D2005659A6 /* FindingPartnerState.swift */,
 				C90BA0672A14C7DF005659A6 /* HealthData.swift */,
+				C90BA0652A14C7D2005659A6 /* FindingPartnerState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,22 +215,22 @@
 				C90BA0542A14C6BC005659A6 /* WorkoutView.swift */,
 				C90BA0562A14C6CA005659A6 /* WorkoutDoneView.swift */,
 				C90BA0582A14C6D4005659A6 /* MissionResultModalView.swift */,
-				C90BA05A2A14C6E0005659A6 /* MissionCongratsComponent.swift */,
 				C90BA05C2A14C6F1005659A6 /* WorkoutSuccessView.swift */,
 				C90BA05E2A14C6FE005659A6 /* WorkoutFailView.swift */,
+				C90BA05A2A14C6E0005659A6 /* MissionCongratsView.swift */,
 				C90BA0602A14C709005659A6 /* DataReceiveView.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
 		};
-		C90BA0352A14C4D2005659A6 /* Partner */ = {
+		C90BA0352A14C4D2005659A6 /* PartnerConnect */ = {
 			isa = PBXGroup;
 			children = (
 				C90BA04E2A14C670005659A6 /* SearchPartnerView.swift */,
 				C90BA0502A14C67E005659A6 /* LoadingAnimationView.swift */,
 				C90BA0522A14C688005659A6 /* NotFoundPartnerView.swift */,
 			);
-			path = Partner;
+			path = PartnerConnect;
 			sourceTree = "<group>";
 		};
 		C90BA0362A14C4DA005659A6 /* Main */ = {
@@ -240,6 +238,7 @@
 			children = (
 				C90BA04A2A14C61D005659A6 /* MainView.swift */,
 				C90BA04C2A14C62C005659A6 /* SettingView.swift */,
+				C90BA0192A14C2FF005659A6 /* ContentView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -303,6 +302,47 @@
 				C9EE2EB32A8EFEDA00EE6557 /* User+CoreDataProperties.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		C9DE7C272ABC6481005AFCC6 /* SinglePlay */ = {
+			isa = PBXGroup;
+			children = (
+				C9DE7C292ABC64C3005AFCC6 /* View */,
+			);
+			path = SinglePlay;
+			sourceTree = "<group>";
+		};
+		C9DE7C282ABC6489005AFCC6 /* DoublePlay */ = {
+			isa = PBXGroup;
+			children = (
+				C90BA0282A14C3E8005659A6 /* View */,
+			);
+			path = DoublePlay;
+			sourceTree = "<group>";
+		};
+		C9DE7C292ABC64C3005AFCC6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9DE7C2B2ABC65AB005AFCC6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C90BA0382A14C4E6005659A6 /* Onboarding */,
+				C90BA0362A14C4DA005659A6 /* Main */,
+				C90BA0372A14C4E3005659A6 /* LevelUp */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C9DE7C2C2ABC663F005AFCC6 /* TextUtil */ = {
+			isa = PBXGroup;
+			children = (
+				C979C3172A93322A00A071F6 /* TextUtil.swift */,
+			);
+			path = TextUtil;
 			sourceTree = "<group>";
 		};
 		C9EE2EAF2A8E325600EE6557 /* Model */ = {
@@ -399,7 +439,7 @@
 				C90BA02B2A14C447005659A6 /* CoreDataManager.swift in Sources */,
 				C979C3122A93113600A071F6 /* OnboardingRoot.swift in Sources */,
 				C90BA05D2A14C6F1005659A6 /* WorkoutSuccessView.swift in Sources */,
-				C90BA05B2A14C6E0005659A6 /* MissionCongratsComponent.swift in Sources */,
+				C90BA05B2A14C6E0005659A6 /* MissionCongratsView.swift in Sources */,
 				C90BA05F2A14C6FE005659A6 /* WorkoutFailView.swift in Sources */,
 				C9FF519E2A92F361005FC3F6 /* WorkoutModel.swift in Sources */,
 				C90BA01A2A14C2FF005659A6 /* ContentView.swift in Sources */,
