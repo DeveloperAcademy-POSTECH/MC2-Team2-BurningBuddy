@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E0081CC2ABDA65C007F187D /* ModeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0081CB2ABDA65C007F187D /* ModeSelectionView.swift */; };
 		C904004F2A93690E00803EFE /* Workout+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C904004D2A93690E00803EFE /* Workout+CoreDataClass.swift */; };
 		C90400502A93690E00803EFE /* Workout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C904004E2A93690E00803EFE /* Workout+CoreDataProperties.swift */; };
 		C90BA0182A14C2FF005659A6 /* BurningBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0172A14C2FF005659A6 /* BurningBuddyApp.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E0081CB2ABDA65C007F187D /* ModeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectionView.swift; sourceTree = "<group>"; };
 		C904004D2A93690E00803EFE /* Workout+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C904004E2A93690E00803EFE /* Workout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C90BA0142A14C2FF005659A6 /* BurningBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BurningBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,6 +243,7 @@
 				C90BA04A2A14C61D005659A6 /* MainView.swift */,
 				C90BA04C2A14C62C005659A6 /* SettingView.swift */,
 				C90BA0192A14C2FF005659A6 /* ContentView.swift */,
+				3E0081CB2ABDA65C007F187D /* ModeSelectionView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				C90BA06C2A14C817005659A6 /* Bunny+CoreDataClass.swift in Sources */,
 				C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */,
 				C9EE2EB42A8EFEDA00EE6557 /* User+CoreDataClass.swift in Sources */,
+				3E0081CC2ABDA65C007F187D /* ModeSelectionView.swift in Sources */,
 				C90BA0412A14C57A005659A6 /* NicknameSettingView.swift in Sources */,
 				C90BA0302A14C486005659A6 /* LocalNetworkAuthorization.swift in Sources */,
 				C90BA0572A14C6CA005659A6 /* WorkoutDoneView.swift in Sources */,
