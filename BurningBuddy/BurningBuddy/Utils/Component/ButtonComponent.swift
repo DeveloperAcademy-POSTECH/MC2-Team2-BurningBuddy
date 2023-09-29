@@ -27,6 +27,22 @@ struct RedButtonStyle: ButtonStyle {
     }
 }
 
+struct RedButtonStyle2: ButtonStyle {
+    @State var fontSize: CGFloat = 17
+    @Binding var isModeSelected: Bool
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(.system(size: fontSize, weight: .bold))
+            .foregroundColor(isModeSelected ? .white : .white.opacity(0.3))
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(RoundedRectangle(cornerRadius: 12.0).fill(isModeSelected ? Color.bunnyColor : Color.bunnyColor.opacity(0.3)))
+        
+    }
+}
+
+
 struct GrayButtonStyle: ButtonStyle {
     @State var fontSize: CGFloat = 17
     @State private var pressed = false
