@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-
+// 유저 혼자 운동을 할때 운동 중을 보여주는 뷰입니다. 
 struct SingleWorkoutView: View {
     @ObservedObject var userModel: UserModel
     @ObservedObject var bunnyModel: BunnyModel
@@ -54,7 +54,7 @@ struct SingleWorkoutView: View {
             }
             Spacer()
             NavigationLink(isActive: $isNextButtonTapped, destination: {
-                WorkoutDoneView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive)
+                SingleWorkoutDoneView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive)
             }, label: {
                 Button("운동 완료하기") {
                     // 목표량 달성 여부 확인
