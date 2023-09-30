@@ -37,126 +37,37 @@ struct SingleWorkoutDoneView: View {
         VStack {
             AnyView(setTitleText()) // 타이틀, 텍스트
             Spacer()
-            ZStack {
-                if !niObject.isBumped {
-                    switch(niObject.findingPartnerState) {
-                    case .finding, .found:
-                        LoadingAnimationView()
-                    case .ready:
-                        Image(systemName: "hands.sparkles.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 189)
-                            .foregroundColor(Color.bunnyColor)
-                    }
-                }
-                else {
-                    Image(systemName: "hands.sparkles.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 189)
-                        .foregroundColor(Color.bunnyColor)
-                }
-            }
+            Image(systemName: "hands.sparkles.fill")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 189)
+                .foregroundColor(Color.bunnyColor)
             Spacer()
-            switch(niObject.isBumped) {
-            //TODO: -
-            /**
-             이 부분의 기능 정의와 예외 처리들이 필요함.
-             무한 로딩, 파트너를 찾지 못할 때를 고려하고, 성능을 향상시켜주어야 함.
-             */
-            case true:
-                NavigationLink(isActive: $isSuccessNext, destination: {
-                    if niObject.bumpedIsDoneTargetCalories && UserDefaults.standard.bool(forKey: "isDoneWorkout") {
-                        WorkoutSuccessView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive)
-                    } else {
-                        WorkoutFailView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive)
-                    }
-                    
-                }, label: {
-                    Button("목표달성 확인하기") {
-                        if niObject.bumpedIsDoneTargetCalories && UserDefaults.standard.bool(forKey: "isDoneWorkout") {
-                            UserDefaults.standard.set(true, forKey: "isDoneTogetherWorkout")
-                            print("상대방이 목표를 달성했어요!")
-                            isNotDoneWorkoutPopup = false
-                            isSuccessNext = true // TODO: 다음 페이지로 넘어가야 함
-                            
-                        } else {
-                            UserDefaults.standard.set(false, forKey: "isDoneTogetherWorkout")
-                            isNotDoneWorkoutPopup = true
-                        }
-                        print("상대방의 목표 달성 확인하기: \(niObject.bumpedIsDoneTargetCalories)")
-                        // 데이터 통신부분은 해결-> 상대방이 목표칼로리에 도달했는지 안했는지가 반영이 안되어있던거였음
-                        // TODO: 목표달성 확인하기를 누르면 "상대방이 목표를 달성했어요!"는 print 잘되는데 다음 페이지로 안넘어감
-                        
-                    }
-                    .buttonStyle(RedButtonStyle())
-                })
-            case false:
-                switch (niObject.findingPartnerState) {
-                case .ready:
-                    
-                    Button("목표달성 확인하기") {
-                        // NIObject 통신 시작
-                        switch niObject.findingPartnerState {
-                        case .ready:
-                            niObject.start()
-                            niObject.findingPartnerState = .finding
-                            if isLaunched {
-                                localNetAuth.requestAuthorization { auth in
-                                    isLocalNetworkPermissionDenied = !auth
-                                }
-                                isLaunched = false
-                            }
-                        case .finding:
-                            niObject.stop()
-                            niObject.findingPartnerState = .ready
-                        case .found:
-                            niObject.stop()
-                            niObject.findingPartnerState = .ready
-                        }
-                    }
-                    .buttonStyle(RedButtonStyle())
-                case .finding, .found:
-                    //
-                    Button("파트너 연결 취소하기") {
-                        // NIObject 통신 시작
-                        switch niObject.findingPartnerState {
-                        case .ready:
-                            niObject.start()
-                            niObject.findingPartnerState = .finding
-                            if isLaunched {
-                                localNetAuth.requestAuthorization { auth in
-                                    isLocalNetworkPermissionDenied = !auth
-                                }
-                                isLaunched = false
-                            }
-                        case .finding:
-                            niObject.stop()
-                            niObject.findingPartnerState = .ready
-                        case .found:
-                            niObject.stop()
-                            niObject.findingPartnerState = .ready
-                        }
-                    }
-                    .buttonStyle(RedButtonStyle())
-                    
+            
+            NavigationLink(isActive: $isSuccessNext, destination: {
+                if UserDefaults.standard.bool(forKey: "isDoneWorkout") {
+                    WorkoutSuccessView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive)
+                } else {
+                    WorkoutFailView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive)
                 }
-            } // switch 끝
-        }
-        
+            }, label: {
+                Button("목표달성 확인하기") {
+                    if UserDefaults.standard.bool(forKey: "isDoneWorkout") {
+//                        UserDefaults.standard.set(true, forKey: "isDoneTogetherWorkout")
+                        print("1인 기능 - 목표를 달성했어요!")
+                        isNotDoneWorkoutPopup = false
+                        isSuccessNext = true // TODO: 다음 페이지로 넘어가야 함
+                        
+                    } else {
+                        UserDefaults.standard.set(false, forKey: "isDoneTogetherWorkout")
+                        isNotDoneWorkoutPopup = true
+                    }
+                }
+                .buttonStyle(RedButtonStyle())
+            })
+        } // VStack
         .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
         .background(Color(red: 30/255, green: 28/255, blue: 29/255))
-        .sheet(isPresented: self.$isNotDoneWorkoutPopup) {
-            if #available(iOS 16.0, *) {
-                MissionResultModalView(title: "파트너가 아직 운동 중이에요!", article: "운동을 마칠 때까지 응원해주세요!", leftButtonName: "알겠어요", rightButtonName: "그만할래요", wantQuitWorkout: $isSuccessNext )
-                    .presentationDetents([.fraction(0.4)])
-                    .background(Color(red: 30/255, green: 28/255, blue: 29/255))
-                    .onDisappear {
-                        niObject.isBumped = false
-                    }
-            }
-        }
         .navigationBarHidden(true)
     } // body End
 }

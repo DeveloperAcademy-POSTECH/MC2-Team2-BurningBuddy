@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// 유저 혼자 운동을 할때 운동 중을 보여주는 뷰입니다. 
+// 유저 혼자 운동을 할때 운동 중을 보여주는 뷰입니다.
 struct SingleWorkoutView: View {
     @ObservedObject var userModel: UserModel
     @ObservedObject var bunnyModel: BunnyModel
@@ -44,15 +44,15 @@ struct SingleWorkoutView: View {
                 .lineSpacing(TextUtil().calculateLineSpacing(17, 143.5))
             
             Spacer()
-            ZStack {
-                //이미지 들어가기
-                Image(systemName: "figure.strengthtraining.traditional")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 178, height: 180)
-                    .foregroundColor(Color.bunnyColor)
-            }
+            
+            Image(systemName: "figure.strengthtraining.traditional")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 178, height: 180)
+                .foregroundColor(Color.bunnyColor)
+            
             Spacer()
+            
             NavigationLink(isActive: $isNextButtonTapped, destination: {
                 SingleWorkoutDoneView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, mainViewNavLinkActive: $mainViewNavLinkActive)
             }, label: {
@@ -67,27 +67,25 @@ struct SingleWorkoutView: View {
                         userModel.todayCalories = healthData.workoutCalorie
                         userModel.saveUserData()
                         
-                        // MARK: - 목표치 채웠는지 확인하고, 채웠으면 연결, 못 채웠으면 모달창 뜨게 하기
+                        // MARK: - 칼로리 목표치 채웠는지 확인
                         // 내가 목표 칼로리를 다 채웠으면
                         if userModel.goalCalories <= userModel.todayCalories {
-                            // 파트너와 재연결(수고하셨어요) 뷰로 넘어가기
                             UserDefaults.standard.set(true, forKey: "isDoneWorkout")
                             UserDefaults.standard.set(false, forKey: "isWorkouting")
                             isNextButtonTapped = true
                         }
-                        else {
-                            // 넘지 못하면 모달 뷰 띄우기
-                            self.isNotDoneWorkout = true
+                        else { // 목표 칼로리를 다 못채웠을때
+                            self.isNotDoneWorkout = true // 모달뷰
                             UserDefaults.standard.set(false, forKey: "isDoneWorkout")
                             UserDefaults.standard.set(false, forKey: "isWorkouting")
                         }
-                    }
+                    } // DispatchQueue
                 }.buttonStyle(RedButtonStyle())
             })
         }
         .navigationBarHidden(true)
         .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인
-        .background(Color.backgroundColor) // 고급진 까만것이 필요할 듯
+        .background(Color.backgroundColor)
         .sheet(isPresented: self.$isNotDoneWorkout) {
             if #available(iOS 16.0, *) {
                 MissionResultModalView(title: "아직 목표량을 채우지 못했어요!", article: "그래도 운동을 종료하시겠어요?", leftButtonName: "더 해볼게요", rightButtonName: "그만할래요", wantQuitWorkout: $isNextButtonTapped)
@@ -99,7 +97,8 @@ struct SingleWorkoutView: View {
 }
 
 
-
 #Preview {
-    SingleWorkoutView(userModel: UserModel(), bunnyModel: BunnyModel(), workoutModel: WorkoutModel(), healthData: HealthData(), mainViewNavLinkActive: .constant(true))
+    NavigationView {
+        SingleWorkoutView(userModel: UserModel(), bunnyModel: BunnyModel(), workoutModel: WorkoutModel(), healthData: HealthData(), mainViewNavLinkActive: .constant(true))
+    }
 }

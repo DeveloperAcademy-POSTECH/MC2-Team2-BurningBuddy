@@ -10,6 +10,9 @@
 		3E0081CC2ABDA65C007F187D /* ModeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0081CB2ABDA65C007F187D /* ModeSelectionView.swift */; };
 		3EF092EB2AC7307100626510 /* SingleWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF092EA2AC7307100626510 /* SingleWorkoutView.swift */; };
 		3EF092ED2AC7EBE700626510 /* SingleWorkoutDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF092EC2AC7EBE700626510 /* SingleWorkoutDoneView.swift */; };
+		3EF092EF2AC7F8E000626510 /* SingleMissionCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF092EE2AC7F8E000626510 /* SingleMissionCongratsView.swift */; };
+		3EF092F12AC7F91B00626510 /* SingleWorkoutSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF092F02AC7F91B00626510 /* SingleWorkoutSuccessView.swift */; };
+		3EF092F32AC7F92900626510 /* SingleWorkoutFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF092F22AC7F92900626510 /* SingleWorkoutFailView.swift */; };
 		C904004F2A93690E00803EFE /* Workout+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C904004D2A93690E00803EFE /* Workout+CoreDataClass.swift */; };
 		C90400502A93690E00803EFE /* Workout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C904004E2A93690E00803EFE /* Workout+CoreDataProperties.swift */; };
 		C90BA0182A14C2FF005659A6 /* BurningBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0172A14C2FF005659A6 /* BurningBuddyApp.swift */; };
@@ -59,6 +62,9 @@
 		3E0081CB2ABDA65C007F187D /* ModeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectionView.swift; sourceTree = "<group>"; };
 		3EF092EA2AC7307100626510 /* SingleWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleWorkoutView.swift; sourceTree = "<group>"; };
 		3EF092EC2AC7EBE700626510 /* SingleWorkoutDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleWorkoutDoneView.swift; sourceTree = "<group>"; };
+		3EF092EE2AC7F8E000626510 /* SingleMissionCongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMissionCongratsView.swift; sourceTree = "<group>"; };
+		3EF092F02AC7F91B00626510 /* SingleWorkoutSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleWorkoutSuccessView.swift; sourceTree = "<group>"; };
+		3EF092F22AC7F92900626510 /* SingleWorkoutFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleWorkoutFailView.swift; sourceTree = "<group>"; };
 		C904004D2A93690E00803EFE /* Workout+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C904004E2A93690E00803EFE /* Workout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C90BA0142A14C2FF005659A6 /* BurningBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BurningBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -332,6 +338,9 @@
 			children = (
 				3EF092EA2AC7307100626510 /* SingleWorkoutView.swift */,
 				3EF092EC2AC7EBE700626510 /* SingleWorkoutDoneView.swift */,
+				3EF092F02AC7F91B00626510 /* SingleWorkoutSuccessView.swift */,
+				3EF092F22AC7F92900626510 /* SingleWorkoutFailView.swift */,
+				3EF092EE2AC7F8E000626510 /* SingleMissionCongratsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -451,6 +460,7 @@
 				C90BA05B2A14C6E0005659A6 /* MissionCongratsView.swift in Sources */,
 				C90BA05F2A14C6FE005659A6 /* WorkoutFailView.swift in Sources */,
 				C9FF519E2A92F361005FC3F6 /* WorkoutModel.swift in Sources */,
+				3EF092F12AC7F91B00626510 /* SingleWorkoutSuccessView.swift in Sources */,
 				C90BA01A2A14C2FF005659A6 /* ContentView.swift in Sources */,
 				C90BA0432A14C599005659A6 /* CharacterSettingView.swift in Sources */,
 				3EF092ED2AC7EBE700626510 /* SingleWorkoutDoneView.swift in Sources */,
@@ -461,6 +471,7 @@
 				C979C3182A93322A00A071F6 /* TextUtil.swift in Sources */,
 				C90BA04D2A14C62C005659A6 /* SettingView.swift in Sources */,
 				C90BA0512A14C67E005659A6 /* LoadingAnimationView.swift in Sources */,
+				3EF092F32AC7F92900626510 /* SingleWorkoutFailView.swift in Sources */,
 				C90BA06C2A14C817005659A6 /* Bunny+CoreDataClass.swift in Sources */,
 				C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */,
 				C9EE2EB42A8EFEDA00EE6557 /* User+CoreDataClass.swift in Sources */,
@@ -486,6 +497,7 @@
 				C90BA04B2A14C61D005659A6 /* MainView.swift in Sources */,
 				C90BA0682A14C7DF005659A6 /* HealthData.swift in Sources */,
 				C90BA04F2A14C670005659A6 /* SearchPartnerView.swift in Sources */,
+				3EF092EF2AC7F8E000626510 /* SingleMissionCongratsView.swift in Sources */,
 				C90BA0452A14C5A5005659A6 /* CalorieSettingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
