@@ -1,0 +1,11 @@
+disabled_rules:
+  - todo
+  - unneeded_override
+  - function_parameter_count
+  - file_length
+
+# 한 줄 길이 160자 이하로 제한 (기존 120자)
+line_length: 160
+
+# 함수 길이 100줄로 제한 (기존 50줄)
+function_body_length: 100
