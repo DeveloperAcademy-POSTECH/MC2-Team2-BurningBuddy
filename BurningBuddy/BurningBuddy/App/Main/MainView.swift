@@ -195,18 +195,11 @@ struct MainView: View {
                         })
                     .buttonStyle(RedButtonStyle())
                 } else {
-//                    NavigationLink(
-//                        destination: SearchPartnerView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, healthData: healthData, mainViewNavLinkActive: $mainViewNavLinkActive),
-//                        isActive: $mainViewNavLinkActive,
-//                        label: {
-//                            Text("파트너와 연결하기")
-//                        })
-//                    .buttonStyle(RedButtonStyle())
                     NavigationLink(
-                        destination: ModeSelectionView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel),
+                        destination: SearchPartnerView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, healthData: healthData, mainViewNavLinkActive: $mainViewNavLinkActive),
                         isActive: $mainViewNavLinkActive,
                         label: {
-                            Text("운동 시작하기")
+                            Text("파트너와 연결하기")
                         })
                     .buttonStyle(RedButtonStyle())
                 }

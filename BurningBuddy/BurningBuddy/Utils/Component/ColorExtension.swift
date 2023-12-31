@@ -47,7 +47,6 @@ extension Color {
     static let subGray = Color("subGray")
     static let mainSection = Color("mainSection")
     static let mainSection2 = Color("mainSection2")
-    static let mainSection3 = Color("mainSection3")
     static let iconColor = Color("iconColor")
     static let bunnyColor = Color("bunnyColor")
     static let bunnyColorSub = Color("bunnyColorSub")
