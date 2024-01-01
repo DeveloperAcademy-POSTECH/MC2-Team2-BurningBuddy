@@ -49,6 +49,7 @@
 		C90BA06C2A14C817005659A6 /* Bunny+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA06B2A14C817005659A6 /* Bunny+CoreDataClass.swift */; };
 		C90BA06E2A14C828005659A6 /* Bunny+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA06D2A14C828005659A6 /* Bunny+CoreDataProperties.swift */; };
 		C90BA0752A14C87E005659A6 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0732A14C87E005659A6 /* UserDataModel.xcdatamodeld */; };
+		C95AC3BB2B4166C40035BB86 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C95AC3BA2B4166C40035BB86 /* .swiftlint.yml */; };
 		C979C3122A93113600A071F6 /* OnboardingRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3112A93113600A071F6 /* OnboardingRoot.swift */; };
 		C979C3182A93322A00A071F6 /* TextUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3172A93322A00A071F6 /* TextUtil.swift */; };
 		C9EE2EAE2A8E324400EE6557 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EAD2A8E324400EE6557 /* UserModel.swift */; };
@@ -104,6 +105,7 @@
 		C90BA0742A14C87E005659A6 /* UserDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserDataModel.xcdatamodel; sourceTree = "<group>"; };
 		C90BA0762A14CA34005659A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C90BA0772A14CADB005659A6 /* BurningBuddyRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BurningBuddyRelease.entitlements; sourceTree = "<group>"; };
+		C95AC3BA2B4166C40035BB86 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = BurningBuddy/.swiftlint.yml; sourceTree = "<group>"; };
 		C979C3112A93113600A071F6 /* OnboardingRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoot.swift; sourceTree = "<group>"; };
 		C979C3172A93322A00A071F6 /* TextUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUtil.swift; sourceTree = "<group>"; };
 		C9EE2EAD2A8E324400EE6557 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		C90BA00B2A14C2FF005659A6 = {
 			isa = PBXGroup;
 			children = (
+				C95AC3BA2B4166C40035BB86 /* .swiftlint.yml */,
 				C90BA0162A14C2FF005659A6 /* BurningBuddy */,
 				C90BA0152A14C2FF005659A6 /* Products */,
 			);
@@ -389,6 +392,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C90BA0222A14C300005659A6 /* Build configuration list for PBXNativeTarget "BurningBuddy" */;
 			buildPhases = (
+				C95AC3B72B4164C90035BB86 /* SwiftLint */,
 				C90BA0102A14C2FF005659A6 /* Sources */,
 				C90BA0112A14C2FF005659A6 /* Frameworks */,
 				C90BA0122A14C2FF005659A6 /* Resources */,
@@ -440,6 +444,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C95AC3BB2B4166C40035BB86 /* .swiftlint.yml in Resources */,
 				C90BA06A2A14C7F1005659A6 /* Launch Screen.storyboard in Resources */,
 				C90BA01F2A14C300005659A6 /* Preview Assets.xcassets in Resources */,
 				C90BA01C2A14C300005659A6 /* Assets.xcassets in Resources */,
@@ -447,6 +452,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C95AC3B72B4164C90035BB86 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C90BA0102A14C2FF005659A6 /* Sources */ = {
@@ -627,7 +654,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BurningBuddy/Preview Content\"";
-				DEVELOPMENT_TEAM = GZMCL5Q7N2;
+				DEVELOPMENT_TEAM = UULN4L9KLP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BurningBuddy/Info.plist;
@@ -649,7 +676,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bokyung.BurningBuddy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoi.BurningBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
