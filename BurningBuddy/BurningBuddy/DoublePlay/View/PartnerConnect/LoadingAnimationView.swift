@@ -32,9 +32,9 @@ struct LoadingAnimationView: View {
             }
         }
         .onAppear {
-            for i in 0...2 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4 * Double(i)){
-                    showLoadingIndicator[i].toggle()
+            for index in 0...2 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4 * Double(index)){
+                    showLoadingIndicator[index].toggle()
                 }
             }
         }

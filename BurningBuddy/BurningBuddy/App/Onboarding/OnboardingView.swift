@@ -86,7 +86,7 @@ struct OnboardingPageView: View {
         
 }
 
-struct OnboardingView_Preview: PreviewProvider {
+struct OnboardingViewPreview: PreviewProvider {
     @State static var pageNum = 0
     
     static var previews: some View {

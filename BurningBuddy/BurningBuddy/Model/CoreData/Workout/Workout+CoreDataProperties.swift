@@ -24,6 +24,6 @@ extension Workout {
 
 }
 
-extension Workout : Identifiable {
+extension Workout: Identifiable {
 
 }

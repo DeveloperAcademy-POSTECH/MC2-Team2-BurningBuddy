@@ -106,6 +106,7 @@
 		C90BA0762A14CA34005659A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C90BA0772A14CADB005659A6 /* BurningBuddyRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BurningBuddyRelease.entitlements; sourceTree = "<group>"; };
 		C95AC3BA2B4166C40035BB86 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = BurningBuddy/.swiftlint.yml; sourceTree = "<group>"; };
+		C95AC3BC2B444F460035BB86 /* UserDataModel v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UserDataModel v2.xcdatamodel"; sourceTree = "<group>"; };
 		C979C3112A93113600A071F6 /* OnboardingRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoot.swift; sourceTree = "<group>"; };
 		C979C3172A93322A00A071F6 /* TextUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUtil.swift; sourceTree = "<group>"; };
 		C9EE2EAD2A8E324400EE6557 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -757,9 +758,10 @@
 		C90BA0732A14C87E005659A6 /* UserDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				C95AC3BC2B444F460035BB86 /* UserDataModel v2.xcdatamodel */,
 				C90BA0742A14C87E005659A6 /* UserDataModel.xcdatamodel */,
 			);
-			currentVersion = C90BA0742A14C87E005659A6 /* UserDataModel.xcdatamodel */;
+			currentVersion = C95AC3BC2B444F460035BB86 /* UserDataModel v2.xcdatamodel */;
 			path = UserDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
