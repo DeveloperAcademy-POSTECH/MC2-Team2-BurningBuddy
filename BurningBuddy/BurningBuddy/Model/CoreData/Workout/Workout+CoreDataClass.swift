@@ -2,14 +2,14 @@
 //  Workout+CoreDataClass.swift
 //  BurningBuddy
 //
-//  Created by 김동현 on 2023/08/21.
+//  Created by 김동현 on 1/2/24.
 //
 //
 
 import Foundation
 import CoreData
 
-@objc(Workout)
+
 public class Workout: NSManagedObject {
 
 }

@@ -13,8 +13,6 @@
 		3EF092EF2AC7F8E000626510 /* SingleMissionCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF092EE2AC7F8E000626510 /* SingleMissionCongratsView.swift */; };
 		3EF092F12AC7F91B00626510 /* SingleWorkoutSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF092F02AC7F91B00626510 /* SingleWorkoutSuccessView.swift */; };
 		3EF092F32AC7F92900626510 /* SingleWorkoutFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF092F22AC7F92900626510 /* SingleWorkoutFailView.swift */; };
-		C904004F2A93690E00803EFE /* Workout+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C904004D2A93690E00803EFE /* Workout+CoreDataClass.swift */; };
-		C90400502A93690E00803EFE /* Workout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C904004E2A93690E00803EFE /* Workout+CoreDataProperties.swift */; };
 		C90BA0182A14C2FF005659A6 /* BurningBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0172A14C2FF005659A6 /* BurningBuddyApp.swift */; };
 		C90BA01A2A14C2FF005659A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0192A14C2FF005659A6 /* ContentView.swift */; };
 		C90BA01C2A14C300005659A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C90BA01B2A14C300005659A6 /* Assets.xcassets */; };
@@ -46,16 +44,19 @@
 		C90BA0662A14C7D2005659A6 /* FindingPartnerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0652A14C7D2005659A6 /* FindingPartnerState.swift */; };
 		C90BA0682A14C7DF005659A6 /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0672A14C7DF005659A6 /* HealthData.swift */; };
 		C90BA06A2A14C7F1005659A6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C90BA0692A14C7F1005659A6 /* Launch Screen.storyboard */; };
-		C90BA06C2A14C817005659A6 /* Bunny+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA06B2A14C817005659A6 /* Bunny+CoreDataClass.swift */; };
-		C90BA06E2A14C828005659A6 /* Bunny+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA06D2A14C828005659A6 /* Bunny+CoreDataProperties.swift */; };
 		C90BA0752A14C87E005659A6 /* UserDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0732A14C87E005659A6 /* UserDataModel.xcdatamodeld */; };
 		C95AC3BB2B4166C40035BB86 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C95AC3BA2B4166C40035BB86 /* .swiftlint.yml */; };
+		C95AC3C32B4451830035BB86 /* Bunny+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3BD2B4451830035BB86 /* Bunny+CoreDataClass.swift */; };
+		C95AC3C42B4451830035BB86 /* Bunny+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3BE2B4451830035BB86 /* Bunny+CoreDataProperties.swift */; };
+		C95AC3C52B4451830035BB86 /* Workout+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3BF2B4451830035BB86 /* Workout+CoreDataClass.swift */; };
+		C95AC3C62B4451830035BB86 /* Workout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3C02B4451830035BB86 /* Workout+CoreDataProperties.swift */; };
+		C95AC3C72B4451830035BB86 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3C12B4451830035BB86 /* User+CoreDataClass.swift */; };
+		C95AC3C82B4451830035BB86 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3C22B4451830035BB86 /* User+CoreDataProperties.swift */; };
+		C95AC3CA2B4452110035BB86 /* UserDataMapingModel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3C92B4452110035BB86 /* UserDataMapingModel.xcmappingmodel */; };
 		C979C3122A93113600A071F6 /* OnboardingRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3112A93113600A071F6 /* OnboardingRoot.swift */; };
 		C979C3182A93322A00A071F6 /* TextUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3172A93322A00A071F6 /* TextUtil.swift */; };
 		C9EE2EAE2A8E324400EE6557 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EAD2A8E324400EE6557 /* UserModel.swift */; };
 		C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */; };
-		C9EE2EB42A8EFEDA00EE6557 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */; };
-		C9EE2EB52A8EFEDA00EE6557 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB32A8EFEDA00EE6557 /* User+CoreDataProperties.swift */; };
 		C9FF519E2A92F361005FC3F6 /* WorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF519D2A92F361005FC3F6 /* WorkoutModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,8 +67,6 @@
 		3EF092EE2AC7F8E000626510 /* SingleMissionCongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMissionCongratsView.swift; sourceTree = "<group>"; };
 		3EF092F02AC7F91B00626510 /* SingleWorkoutSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleWorkoutSuccessView.swift; sourceTree = "<group>"; };
 		3EF092F22AC7F92900626510 /* SingleWorkoutFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleWorkoutFailView.swift; sourceTree = "<group>"; };
-		C904004D2A93690E00803EFE /* Workout+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C904004E2A93690E00803EFE /* Workout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C90BA0142A14C2FF005659A6 /* BurningBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BurningBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90BA0172A14C2FF005659A6 /* BurningBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurningBuddyApp.swift; sourceTree = "<group>"; };
 		C90BA0192A14C2FF005659A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,19 +99,22 @@
 		C90BA0652A14C7D2005659A6 /* FindingPartnerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingPartnerState.swift; sourceTree = "<group>"; };
 		C90BA0672A14C7DF005659A6 /* HealthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthData.swift; sourceTree = "<group>"; };
 		C90BA0692A14C7F1005659A6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		C90BA06B2A14C817005659A6 /* Bunny+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bunny+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C90BA06D2A14C828005659A6 /* Bunny+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bunny+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C90BA0742A14C87E005659A6 /* UserDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserDataModel.xcdatamodel; sourceTree = "<group>"; };
 		C90BA0762A14CA34005659A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C90BA0772A14CADB005659A6 /* BurningBuddyRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BurningBuddyRelease.entitlements; sourceTree = "<group>"; };
 		C95AC3BA2B4166C40035BB86 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = BurningBuddy/.swiftlint.yml; sourceTree = "<group>"; };
 		C95AC3BC2B444F460035BB86 /* UserDataModel v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UserDataModel v2.xcdatamodel"; sourceTree = "<group>"; };
+		C95AC3BD2B4451830035BB86 /* Bunny+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bunny+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C95AC3BE2B4451830035BB86 /* Bunny+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bunny+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C95AC3BF2B4451830035BB86 /* Workout+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C95AC3C02B4451830035BB86 /* Workout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C95AC3C12B4451830035BB86 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C95AC3C22B4451830035BB86 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C95AC3C92B4452110035BB86 /* UserDataMapingModel.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = UserDataMapingModel.xcmappingmodel; path = BurningBuddy/Model/CoreData/UserDataMapingModel.xcmappingmodel; sourceTree = SOURCE_ROOT; };
 		C979C3112A93113600A071F6 /* OnboardingRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoot.swift; sourceTree = "<group>"; };
 		C979C3172A93322A00A071F6 /* TextUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUtil.swift; sourceTree = "<group>"; };
 		C9EE2EAD2A8E324400EE6557 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunnyModel.swift; sourceTree = "<group>"; };
-		C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C9EE2EB32A8EFEDA00EE6557 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C9FF519D2A92F361005FC3F6 /* WorkoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -296,6 +298,7 @@
 				C9EE2EAF2A8E325600EE6557 /* Model */,
 				C90BA02A2A14C447005659A6 /* CoreDataManager.swift */,
 				C90BA0732A14C87E005659A6 /* UserDataModel.xcdatamodeld */,
+				C95AC3C92B4452110035BB86 /* UserDataMapingModel.xcmappingmodel */,
 				C90BA0632A14C794005659A6 /* Bunny */,
 				C90BA0642A14C79A005659A6 /* User */,
 				C9FF519C2A92F24A005FC3F6 /* Workout */,
@@ -306,8 +309,8 @@
 		C90BA0632A14C794005659A6 /* Bunny */ = {
 			isa = PBXGroup;
 			children = (
-				C90BA06B2A14C817005659A6 /* Bunny+CoreDataClass.swift */,
-				C90BA06D2A14C828005659A6 /* Bunny+CoreDataProperties.swift */,
+				C95AC3BD2B4451830035BB86 /* Bunny+CoreDataClass.swift */,
+				C95AC3BE2B4451830035BB86 /* Bunny+CoreDataProperties.swift */,
 			);
 			path = Bunny;
 			sourceTree = "<group>";
@@ -315,8 +318,8 @@
 		C90BA0642A14C79A005659A6 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				C9EE2EB22A8EFEDA00EE6557 /* User+CoreDataClass.swift */,
-				C9EE2EB32A8EFEDA00EE6557 /* User+CoreDataProperties.swift */,
+				C95AC3C12B4451830035BB86 /* User+CoreDataClass.swift */,
+				C95AC3C22B4451830035BB86 /* User+CoreDataProperties.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -380,8 +383,8 @@
 		C9FF519C2A92F24A005FC3F6 /* Workout */ = {
 			isa = PBXGroup;
 			children = (
-				C904004D2A93690E00803EFE /* Workout+CoreDataClass.swift */,
-				C904004E2A93690E00803EFE /* Workout+CoreDataProperties.swift */,
+				C95AC3BF2B4451830035BB86 /* Workout+CoreDataClass.swift */,
+				C95AC3C02B4451830035BB86 /* Workout+CoreDataProperties.swift */,
 			);
 			path = Workout;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C95AC3C42B4451830035BB86 /* Bunny+CoreDataProperties.swift in Sources */,
 				C90BA0592A14C6D4005659A6 /* MissionResultModalView.swift in Sources */,
 				C90BA02B2A14C447005659A6 /* CoreDataManager.swift in Sources */,
 				C979C3122A93113600A071F6 /* OnboardingRoot.swift in Sources */,
@@ -488,21 +492,24 @@
 				C90BA05B2A14C6E0005659A6 /* MissionCongratsView.swift in Sources */,
 				C90BA05F2A14C6FE005659A6 /* WorkoutFailView.swift in Sources */,
 				C9FF519E2A92F361005FC3F6 /* WorkoutModel.swift in Sources */,
+				C95AC3C72B4451830035BB86 /* User+CoreDataClass.swift in Sources */,
 				3EF092F12AC7F91B00626510 /* SingleWorkoutSuccessView.swift in Sources */,
+				C95AC3C82B4451830035BB86 /* User+CoreDataProperties.swift in Sources */,
 				C90BA01A2A14C2FF005659A6 /* ContentView.swift in Sources */,
 				C90BA0432A14C599005659A6 /* CharacterSettingView.swift in Sources */,
 				3EF092ED2AC7EBE700626510 /* SingleWorkoutDoneView.swift in Sources */,
 				3EF092EB2AC7307100626510 /* SingleWorkoutView.swift in Sources */,
 				C90BA0182A14C2FF005659A6 /* BurningBuddyApp.swift in Sources */,
+				C95AC3C52B4451830035BB86 /* Workout+CoreDataClass.swift in Sources */,
 				C9EE2EAE2A8E324400EE6557 /* UserModel.swift in Sources */,
 				C90BA03D2A14C552005659A6 /* ColorExtension.swift in Sources */,
 				C979C3182A93322A00A071F6 /* TextUtil.swift in Sources */,
 				C90BA04D2A14C62C005659A6 /* SettingView.swift in Sources */,
 				C90BA0512A14C67E005659A6 /* LoadingAnimationView.swift in Sources */,
+				C95AC3CA2B4452110035BB86 /* UserDataMapingModel.xcmappingmodel in Sources */,
+				C95AC3C32B4451830035BB86 /* Bunny+CoreDataClass.swift in Sources */,
 				3EF092F32AC7F92900626510 /* SingleWorkoutFailView.swift in Sources */,
-				C90BA06C2A14C817005659A6 /* Bunny+CoreDataClass.swift in Sources */,
 				C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */,
-				C9EE2EB42A8EFEDA00EE6557 /* User+CoreDataClass.swift in Sources */,
 				3E0081CC2ABDA65C007F187D /* ModeSelectionView.swift in Sources */,
 				C90BA0412A14C57A005659A6 /* NicknameSettingView.swift in Sources */,
 				C90BA0302A14C486005659A6 /* LocalNetworkAuthorization.swift in Sources */,
@@ -510,20 +517,17 @@
 				C90BA03B2A14C520005659A6 /* ButtonComponent.swift in Sources */,
 				C90BA02E2A14C475005659A6 /* NISessionManager.swift in Sources */,
 				C90BA03F2A14C56F005659A6 /* OnboardingView.swift in Sources */,
-				C9EE2EB52A8EFEDA00EE6557 /* User+CoreDataProperties.swift in Sources */,
-				C90BA06E2A14C828005659A6 /* Bunny+CoreDataProperties.swift in Sources */,
-				C90400502A93690E00803EFE /* Workout+CoreDataProperties.swift in Sources */,
 				C90BA0492A14C5E2005659A6 /* LevelUpModalView.swift in Sources */,
 				C90BA0612A14C709005659A6 /* DataReceiveView.swift in Sources */,
 				C90BA0472A14C5D6005659A6 /* LevelUpView.swift in Sources */,
 				C90BA0552A14C6BC005659A6 /* WorkoutView.swift in Sources */,
 				C90BA0332A14C4BA005659A6 /* MPCSession.swift in Sources */,
-				C904004F2A93690E00803EFE /* Workout+CoreDataClass.swift in Sources */,
 				C90BA0532A14C688005659A6 /* NotFoundPartnerView.swift in Sources */,
 				C90BA0752A14C87E005659A6 /* UserDataModel.xcdatamodeld in Sources */,
 				C90BA0662A14C7D2005659A6 /* FindingPartnerState.swift in Sources */,
 				C90BA04B2A14C61D005659A6 /* MainView.swift in Sources */,
 				C90BA0682A14C7DF005659A6 /* HealthData.swift in Sources */,
+				C95AC3C62B4451830035BB86 /* Workout+CoreDataProperties.swift in Sources */,
 				C90BA04F2A14C670005659A6 /* SearchPartnerView.swift in Sources */,
 				3EF092EF2AC7F8E000626510 /* SingleMissionCongratsView.swift in Sources */,
 				C90BA0452A14C5A5005659A6 /* CalorieSettingView.swift in Sources */,
