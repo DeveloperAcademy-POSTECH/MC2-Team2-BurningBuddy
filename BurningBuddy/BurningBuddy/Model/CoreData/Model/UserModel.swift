@@ -46,10 +46,26 @@ class UserModel: ObservableObject {
             print("유저 데이터를 가져오는데 실패했습니다.(UserModel)")
             return
         }
-        
+
+        // 기존 workoutHours가 String(ex. 00h 00m)으로 되어 있어 새로운 coreData와 형식을 맞춰주기 위한 코드
+        var workoutHours = userData.todayWorkoutHours
+        if String(workoutHours).split(separator: " ").count == 2 {
+            // 시간과 분을 추출하여 NSNumber로 변환
+            let components = String(workoutHours).components(separatedBy: " ")
+            if components.count == 2,
+               let hours = Int(components[0].replacingOccurrences(of: "h", with: "")),
+               let minutes = Int(components[1].replacingOccurrences(of: "m", with: "")) {
+
+                workoutHours = Int16(hours * 60 + minutes)
+            } else {
+                print("Invalid format for workoutHours")
+                // workoutHours 형식이 올바르지 않을 경우 처리
+            }
+        }
+
         userName = userData.userName ?? ""
         todayCalories = Int(userData.todayCalories)
-        todayWorkoutHours = Int(userData.todayWorkoutHours)
+        todayWorkoutHours = Int(workoutHours)
         totalDumbbell = Int(userData.totalDumbbell)
         goalCalories = Int(userData.goalCalories)
         userID = userData.userID ?? UUID()

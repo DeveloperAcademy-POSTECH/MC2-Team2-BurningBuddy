@@ -52,9 +52,9 @@
 		C95AC3C62B4451830035BB86 /* Workout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3C02B4451830035BB86 /* Workout+CoreDataProperties.swift */; };
 		C95AC3C72B4451830035BB86 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3C12B4451830035BB86 /* User+CoreDataClass.swift */; };
 		C95AC3C82B4451830035BB86 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3C22B4451830035BB86 /* User+CoreDataProperties.swift */; };
-		C95AC3CA2B4452110035BB86 /* UserDataMapingModel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3C92B4452110035BB86 /* UserDataMapingModel.xcmappingmodel */; };
 		C979C3122A93113600A071F6 /* OnboardingRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3112A93113600A071F6 /* OnboardingRoot.swift */; };
 		C979C3182A93322A00A071F6 /* TextUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3172A93322A00A071F6 /* TextUtil.swift */; };
+		C99FF7502B45AB5D007FEF08 /* UserDataMappingModel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = C99FF74F2B45AB5D007FEF08 /* UserDataMappingModel.xcmappingmodel */; };
 		C9EE2EAE2A8E324400EE6557 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EAD2A8E324400EE6557 /* UserModel.swift */; };
 		C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */; };
 		C9FF519E2A92F361005FC3F6 /* WorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FF519D2A92F361005FC3F6 /* WorkoutModel.swift */; };
@@ -110,9 +110,9 @@
 		C95AC3C02B4451830035BB86 /* Workout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C95AC3C12B4451830035BB86 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C95AC3C22B4451830035BB86 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C95AC3C92B4452110035BB86 /* UserDataMapingModel.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = UserDataMapingModel.xcmappingmodel; path = BurningBuddy/Model/CoreData/UserDataMapingModel.xcmappingmodel; sourceTree = SOURCE_ROOT; };
 		C979C3112A93113600A071F6 /* OnboardingRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoot.swift; sourceTree = "<group>"; };
 		C979C3172A93322A00A071F6 /* TextUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUtil.swift; sourceTree = "<group>"; };
+		C99FF74F2B45AB5D007FEF08 /* UserDataMappingModel.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = UserDataMappingModel.xcmappingmodel; sourceTree = "<group>"; };
 		C9EE2EAD2A8E324400EE6557 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunnyModel.swift; sourceTree = "<group>"; };
 		C9FF519D2A92F361005FC3F6 /* WorkoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutModel.swift; sourceTree = "<group>"; };
@@ -298,7 +298,7 @@
 				C9EE2EAF2A8E325600EE6557 /* Model */,
 				C90BA02A2A14C447005659A6 /* CoreDataManager.swift */,
 				C90BA0732A14C87E005659A6 /* UserDataModel.xcdatamodeld */,
-				C95AC3C92B4452110035BB86 /* UserDataMapingModel.xcmappingmodel */,
+				C99FF74F2B45AB5D007FEF08 /* UserDataMappingModel.xcmappingmodel */,
 				C90BA0632A14C794005659A6 /* Bunny */,
 				C90BA0642A14C79A005659A6 /* User */,
 				C9FF519C2A92F24A005FC3F6 /* Workout */,
@@ -506,11 +506,11 @@
 				C979C3182A93322A00A071F6 /* TextUtil.swift in Sources */,
 				C90BA04D2A14C62C005659A6 /* SettingView.swift in Sources */,
 				C90BA0512A14C67E005659A6 /* LoadingAnimationView.swift in Sources */,
-				C95AC3CA2B4452110035BB86 /* UserDataMapingModel.xcmappingmodel in Sources */,
 				C95AC3C32B4451830035BB86 /* Bunny+CoreDataClass.swift in Sources */,
 				3EF092F32AC7F92900626510 /* SingleWorkoutFailView.swift in Sources */,
 				C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */,
 				3E0081CC2ABDA65C007F187D /* ModeSelectionView.swift in Sources */,
+				C99FF7502B45AB5D007FEF08 /* UserDataMappingModel.xcmappingmodel in Sources */,
 				C90BA0412A14C57A005659A6 /* NicknameSettingView.swift in Sources */,
 				C90BA0302A14C486005659A6 /* LocalNetworkAuthorization.swift in Sources */,
 				C90BA0572A14C6CA005659A6 /* WorkoutDoneView.swift in Sources */,

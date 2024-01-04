@@ -80,8 +80,7 @@ class CoreDataManager {
             print("Failed to delete object(CoreDataManager): \(error)")
         }
     }
-    
-    
+
     /**
     func createUser() {
         
