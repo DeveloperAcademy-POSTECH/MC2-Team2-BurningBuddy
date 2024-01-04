@@ -11,20 +11,28 @@ import MultipeerConnectivity
 import UIKit
 
 class TranData: NSObject, NSCoding {
-    let token : NIDiscoveryToken
-    let isBumped : Bool
-    let nickname : String
+    let token: NIDiscoveryToken
+    let isBumped: Bool
+    let nickname: String
     let isDoneTargetCalories: Bool// 내가 운동을 성공했는지 여부 - 목표 칼로리를 채웠는지 여부
     let uuid: UUID
-    
-  init(token : NIDiscoveryToken, isBumped : Bool = false, nickname : String = "", isDoneTargetCalories: Bool = false, uuid: UUID) {
+
+    init(token: NIDiscoveryToken, isBumped: Bool = false, nickname: String = "", isDoneTargetCalories: Bool = false, uuid: UUID) {
         self.token = token
         self.isBumped = isBumped
         self.nickname = nickname
         self.isDoneTargetCalories = isDoneTargetCalories
         self.uuid = uuid
     }
-    
+
+    required init?(coder: NSCoder) {
+        self.token = (coder.decodeObject(forKey: "token") as? NIDiscoveryToken)!
+        self.isBumped = coder.decodeBool(forKey: "isMatched")
+        self.nickname = coder.decodeObject(forKey: "nickname") as? String ?? ""
+        self.isDoneTargetCalories = coder.decodeBool(forKey: "isDoneTargetCalories")
+        self.uuid = coder.decodeObject(forKey: "uuid") as? UUID ?? UUID()
+    }
+
     func encode(with coder: NSCoder) {
         coder.encode(self.token, forKey: "token")
         coder.encode(self.isBumped, forKey: "isMatched")
@@ -32,31 +40,23 @@ class TranData: NSObject, NSCoding {
         coder.encode(self.isDoneTargetCalories, forKey: "isDoneTargetCalories")
         coder.encode(self.uuid, forKey: "uuid")
     }
-    
-    required init?(coder: NSCoder) {
-        self.token = coder.decodeObject(forKey: "token") as! NIDiscoveryToken
-        self.isBumped = coder.decodeBool(forKey: "isMatched")
-        self.nickname = coder.decodeObject(forKey: "nickname") as! String
-        self.isDoneTargetCalories = coder.decodeBool(forKey: "isDoneTargetCalories")
-        self.uuid = coder.decodeObject(forKey: "uuid") as! UUID
-    }
 }
 
 class NISessionManager: NSObject, ObservableObject {
     @Published var connectedPeers = [MCPeerID]()
     @Published var matchedObject: TranData? // 매치된 오브젝트
-    @Published var findingPartnerState : FindingPartnerState = .ready
+    @Published var findingPartnerState: FindingPartnerState = .ready
     @Published var isBumped: Bool = false
     @Published var isPermissionDenied = false
     
     var mpc: MPCSession?
-    var sessions = [MCPeerID:NISession]()
-    var peerTokensMapping = [NIDiscoveryToken:MCPeerID]()
+    var sessions = [MCPeerID: NISession]()
+    var peerTokensMapping = [NIDiscoveryToken: MCPeerID]()
     // TODO: - 거리 조정
     let nearbyDistanceThreshold: Float = 0.08 // 범프 한계 거리 (m단위 -> 8cm)
     
     // 나의 정보
-    @Published var myNickname : String = ""
+    @Published var myNickname: String = ""
     @Published var isDoneTargetCalories: Bool = false
     //@Published var isDoneTargetCalories: Bool = CoreDataManager.coreDM.readAllUser()[0].goalCalories <= CoreDataManager.coreDM.readAllUser()[0].todayCalories
     @Published var myUUID: UUID = UserModel.shared.userID
@@ -187,7 +187,7 @@ class NISessionManager: NSObject, ObservableObject {
                 bumpedIsDoneTargetCalories = receivedData.isDoneTargetCalories
                 
                 print("after bumped: \(bumpedIsDoneTargetCalories)")
-              // bumpedIsDoneTargetCalories = true
+                // bumpedIsDoneTargetCalories = true
                 DispatchQueue.global(qos: .userInitiated).async {
                     self.shareMyData(token: receivedData.token, peer: peer)
                 }
@@ -207,7 +207,7 @@ class NISessionManager: NSObject, ObservableObject {
     }
     
     func shareMyDiscoveryToken(token: NIDiscoveryToken, peer: MCPeerID) {
-      let tranData = TranData(token: token, uuid: myUUID) // TODO: - TranData의 UUID가 Nil - 후보 1. (uuid 들어가야하는 거 맞나?)
+        let tranData = TranData(token: token, uuid: myUUID) // TODO: - TranData의 UUID가 Nil - 후보 1. (uuid 들어가야하는 거 맞나?)
         
         guard let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: tranData, requiringSecureCoding: false) else {
             return
