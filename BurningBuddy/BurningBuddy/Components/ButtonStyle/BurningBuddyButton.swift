@@ -26,7 +26,7 @@ struct BurningBuddyButton: ButtonStyle {
         self.style = style
         setStyle()
     }
-    
+
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.system(size: fontSize, weight: .bold))
@@ -35,7 +35,7 @@ struct BurningBuddyButton: ButtonStyle {
             .frame(minWidth: 0, maxWidth: .infinity)
             .background(RoundedRectangle(cornerRadius: cornerRadius).fill(color))
     }
-    
+
     func setStyle() {
         switch self.style {
         case .red:

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct XbuttonStyle: ButtonStyle {
+struct XButtonStyle: ButtonStyle {
     @State private var pressed = false
 
     func makeBody(configuration: Configuration) -> some View {
