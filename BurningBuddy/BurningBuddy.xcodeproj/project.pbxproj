@@ -167,6 +167,9 @@
 		B8060D5E2B480B8100407205 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C90BA0382A14C4E6005659A6 /* Onboarding */,
+				C90BA0362A14C4DA005659A6 /* Main */,
+				C90BA0372A14C4E3005659A6 /* LevelUp */,
 				C9DE7C272ABC6481005AFCC6 /* SinglePlay */,
 				C9DE7C282ABC6489005AFCC6 /* DoublePlay */,
 			);
@@ -391,13 +394,10 @@
 		C9DE7C2B2ABC65AB005AFCC6 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				C90BA01D2A14C300005659A6 /* Preview Content */,
 				C90BA0772A14CADB005659A6 /* BurningBuddyRelease.entitlements */,
 				C90BA0172A14C2FF005659A6 /* BurningBuddyApp.swift */,
-				C90BA01D2A14C300005659A6 /* Preview Content */,
 				C90BA0762A14CA34005659A6 /* Info.plist */,
-				C90BA0382A14C4E6005659A6 /* Onboarding */,
-				C90BA0362A14C4DA005659A6 /* Main */,
-				C90BA0372A14C4E3005659A6 /* LevelUp */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -696,13 +696,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BurningBuddy/Preview Content\"";
-				DEVELOPMENT_TEAM = UULN4L9KLP;
+				DEVELOPMENT_ASSET_PATHS = "\"BurningBuddy/App/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = UULN4L9KLP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BurningBuddy/Info.plist;
+				INFOPLIST_FILE = BurningBuddy/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "버닝버디";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "사용자의 운동 정보를 받아와 소모한 칼로리를 측정하기 위해 건강정보를 사용합니다.";
@@ -723,6 +725,8 @@
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hoi.BurningBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = BurningBuddy_Development;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -738,13 +742,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BurningBuddy/BurningBuddyRelease.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BurningBuddy/Preview Content\"";
-				DEVELOPMENT_TEAM = UULN4L9KLP;
+				DEVELOPMENT_ASSET_PATHS = "\"BurningBuddy/App/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = UULN4L9KLP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BurningBuddy/Info.plist;
+				INFOPLIST_FILE = BurningBuddy/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "버닝버디";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "사용자의 운동 정보를 받아와 소모한 칼로리를 측정하기 위해 건강정보를 사용합니다.";
@@ -766,6 +772,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hoi.BurningBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = BurningBuddy_Distribution;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
