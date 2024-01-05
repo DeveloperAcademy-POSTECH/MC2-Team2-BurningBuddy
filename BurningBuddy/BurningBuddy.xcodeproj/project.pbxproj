@@ -22,7 +22,7 @@
 		C90BA0302A14C486005659A6 /* LocalNetworkAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA02F2A14C486005659A6 /* LocalNetworkAuthorization.swift */; };
 		C90BA0332A14C4BA005659A6 /* MPCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0322A14C4BA005659A6 /* MPCSession.swift */; };
 		C90BA03B2A14C520005659A6 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA03A2A14C520005659A6 /* ButtonComponent.swift */; };
-		C90BA03D2A14C552005659A6 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA03C2A14C552005659A6 /* ColorExtension.swift */; };
+		C90BA03D2A14C552005659A6 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA03C2A14C552005659A6 /* Color+Extension.swift */; };
 		C90BA03F2A14C56F005659A6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA03E2A14C56F005659A6 /* OnboardingView.swift */; };
 		C90BA0412A14C57A005659A6 /* NicknameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0402A14C57A005659A6 /* NicknameSettingView.swift */; };
 		C90BA0432A14C599005659A6 /* CharacterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0422A14C599005659A6 /* CharacterSettingView.swift */; };
@@ -53,7 +53,7 @@
 		C95AC3C72B4451830035BB86 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3C12B4451830035BB86 /* User+CoreDataClass.swift */; };
 		C95AC3C82B4451830035BB86 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3C22B4451830035BB86 /* User+CoreDataProperties.swift */; };
 		C979C3122A93113600A071F6 /* OnboardingRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3112A93113600A071F6 /* OnboardingRoot.swift */; };
-		C979C3182A93322A00A071F6 /* TextUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3172A93322A00A071F6 /* TextUtil.swift */; };
+		C979C3182A93322A00A071F6 /* TextLimitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3172A93322A00A071F6 /* TextLimitter.swift */; };
 		C99FF7502B45AB5D007FEF08 /* UserDataMappingModel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = C99FF74F2B45AB5D007FEF08 /* UserDataMappingModel.xcmappingmodel */; };
 		C9EE2EAE2A8E324400EE6557 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EAD2A8E324400EE6557 /* UserModel.swift */; };
 		C9EE2EB12A8E326E00EE6557 /* BunnyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */; };
@@ -77,7 +77,7 @@
 		C90BA02F2A14C486005659A6 /* LocalNetworkAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkAuthorization.swift; sourceTree = "<group>"; };
 		C90BA0322A14C4BA005659A6 /* MPCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSession.swift; sourceTree = "<group>"; };
 		C90BA03A2A14C520005659A6 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
-		C90BA03C2A14C552005659A6 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		C90BA03C2A14C552005659A6 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		C90BA03E2A14C56F005659A6 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C90BA0402A14C57A005659A6 /* NicknameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSettingView.swift; sourceTree = "<group>"; };
 		C90BA0422A14C599005659A6 /* CharacterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSettingView.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		C90BA0672A14C7DF005659A6 /* HealthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthData.swift; sourceTree = "<group>"; };
 		C90BA0692A14C7F1005659A6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C90BA0742A14C87E005659A6 /* UserDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserDataModel.xcdatamodel; sourceTree = "<group>"; };
-		C90BA0762A14CA34005659A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C90BA0762A14CA34005659A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C90BA0772A14CADB005659A6 /* BurningBuddyRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BurningBuddyRelease.entitlements; sourceTree = "<group>"; };
 		C95AC3BA2B4166C40035BB86 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = .swiftlint.yml; path = BurningBuddy/.swiftlint.yml; sourceTree = "<group>"; };
 		C95AC3BC2B444F460035BB86 /* UserDataModel v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UserDataModel v2.xcdatamodel"; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		C95AC3C12B4451830035BB86 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C95AC3C22B4451830035BB86 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C979C3112A93113600A071F6 /* OnboardingRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoot.swift; sourceTree = "<group>"; };
-		C979C3172A93322A00A071F6 /* TextUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextUtil.swift; sourceTree = "<group>"; };
+		C979C3172A93322A00A071F6 /* TextLimitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLimitter.swift; sourceTree = "<group>"; };
 		C99FF74F2B45AB5D007FEF08 /* UserDataMappingModel.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = UserDataMappingModel.xcmappingmodel; sourceTree = "<group>"; };
 		C9EE2EAD2A8E324400EE6557 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C9EE2EB02A8E326E00EE6557 /* BunnyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BunnyModel.swift; sourceTree = "<group>"; };
@@ -129,6 +129,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8060D5A2B480A5A00407205 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C90BA03C2A14C552005659A6 /* Color+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		B8060D5B2B480A8200407205 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				C90BA0652A14C7D2005659A6 /* FindingPartnerState.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		B8060D5C2B480AAF00407205 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B8060D5D2B480B2500407205 /* CoreData */,
+				C90BA0312A14C495005659A6 /* MPC */,
+				C90BA02C2A14C458005659A6 /* NearByInteraction */,
+				C9DE7C2C2ABC663F005AFCC6 /* Text */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B8060D5D2B480B2500407205 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C90BA02A2A14C447005659A6 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B8060D5E2B480B8100407205 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				C9DE7C272ABC6481005AFCC6 /* SinglePlay */,
+				C9DE7C282ABC6489005AFCC6 /* DoublePlay */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		C90BA00B2A14C2FF005659A6 = {
 			isa = PBXGroup;
 			children = (
@@ -149,16 +193,12 @@
 		C90BA0162A14C2FF005659A6 /* BurningBuddy */ = {
 			isa = PBXGroup;
 			children = (
-				C90BA0772A14CADB005659A6 /* BurningBuddyRelease.entitlements */,
-				C90BA0172A14C2FF005659A6 /* BurningBuddyApp.swift */,
 				C9DE7C2B2ABC65AB005AFCC6 /* App */,
-				C90BA0252A14C3A9005659A6 /* Utils */,
 				C90BA0272A14C3B0005659A6 /* Resources */,
-				C9DE7C272ABC6481005AFCC6 /* SinglePlay */,
-				C9DE7C282ABC6489005AFCC6 /* DoublePlay */,
-				C90BA0292A14C3F8005659A6 /* Model */,
-				C90BA01D2A14C300005659A6 /* Preview Content */,
-				C90BA0762A14CA34005659A6 /* Info.plist */,
+				C90BA0392A14C4E8005659A6 /* Components */,
+				C90BA0252A14C3A9005659A6 /* Utility */,
+				B8060D5E2B480B8100407205 /* Presentation */,
+				C90BA0292A14C3F8005659A6 /* Domain */,
 			);
 			path = BurningBuddy;
 			sourceTree = "<group>";
@@ -171,14 +211,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C90BA0252A14C3A9005659A6 /* Utils */ = {
+		C90BA0252A14C3A9005659A6 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				C90BA0392A14C4E8005659A6 /* Component */,
-				C9DE7C2C2ABC663F005AFCC6 /* TextUtil */,
-				C90BA02C2A14C458005659A6 /* NIUtils */,
+				B8060D5A2B480A5A00407205 /* Extension */,
+				B8060D5B2B480A8200407205 /* Enum */,
+				B8060D5C2B480AAF00407205 /* Utils */,
 			);
-			path = Utils;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		C90BA0272A14C3B0005659A6 /* Resources */ = {
@@ -199,32 +239,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		C90BA0292A14C3F8005659A6 /* Model */ = {
+		C90BA0292A14C3F8005659A6 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
 				C90BA0622A14C786005659A6 /* CoreData */,
 				C90BA0672A14C7DF005659A6 /* HealthData.swift */,
-				C90BA0652A14C7D2005659A6 /* FindingPartnerState.swift */,
 			);
-			path = Model;
+			path = Domain;
 			sourceTree = "<group>";
 		};
-		C90BA02C2A14C458005659A6 /* NIUtils */ = {
+		C90BA02C2A14C458005659A6 /* NearByInteraction */ = {
 			isa = PBXGroup;
 			children = (
 				C90BA02D2A14C475005659A6 /* NISessionManager.swift */,
 				C90BA02F2A14C486005659A6 /* LocalNetworkAuthorization.swift */,
-				C90BA0312A14C495005659A6 /* MPCUtils */,
 			);
-			path = NIUtils;
+			path = NearByInteraction;
 			sourceTree = "<group>";
 		};
-		C90BA0312A14C495005659A6 /* MPCUtils */ = {
+		C90BA0312A14C495005659A6 /* MPC */ = {
 			isa = PBXGroup;
 			children = (
 				C90BA0322A14C4BA005659A6 /* MPCSession.swift */,
 			);
-			path = MPCUtils;
+			path = MPC;
 			sourceTree = "<group>";
 		};
 		C90BA0342A14C4CC005659A6 /* Workout */ = {
@@ -283,20 +321,18 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		C90BA0392A14C4E8005659A6 /* Component */ = {
+		C90BA0392A14C4E8005659A6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				C90BA03A2A14C520005659A6 /* ButtonComponent.swift */,
-				C90BA03C2A14C552005659A6 /* ColorExtension.swift */,
 			);
-			path = Component;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		C90BA0622A14C786005659A6 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				C9EE2EAF2A8E325600EE6557 /* Model */,
-				C90BA02A2A14C447005659A6 /* CoreDataManager.swift */,
 				C90BA0732A14C87E005659A6 /* UserDataModel.xcdatamodeld */,
 				C99FF74F2B45AB5D007FEF08 /* UserDataMappingModel.xcmappingmodel */,
 				C90BA0632A14C794005659A6 /* Bunny */,
@@ -355,6 +391,10 @@
 		C9DE7C2B2ABC65AB005AFCC6 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				C90BA0772A14CADB005659A6 /* BurningBuddyRelease.entitlements */,
+				C90BA0172A14C2FF005659A6 /* BurningBuddyApp.swift */,
+				C90BA01D2A14C300005659A6 /* Preview Content */,
+				C90BA0762A14CA34005659A6 /* Info.plist */,
 				C90BA0382A14C4E6005659A6 /* Onboarding */,
 				C90BA0362A14C4DA005659A6 /* Main */,
 				C90BA0372A14C4E3005659A6 /* LevelUp */,
@@ -362,12 +402,12 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		C9DE7C2C2ABC663F005AFCC6 /* TextUtil */ = {
+		C9DE7C2C2ABC663F005AFCC6 /* Text */ = {
 			isa = PBXGroup;
 			children = (
-				C979C3172A93322A00A071F6 /* TextUtil.swift */,
+				C979C3172A93322A00A071F6 /* TextLimitter.swift */,
 			);
-			path = TextUtil;
+			path = Text;
 			sourceTree = "<group>";
 		};
 		C9EE2EAF2A8E325600EE6557 /* Model */ = {
@@ -502,8 +542,8 @@
 				C90BA0182A14C2FF005659A6 /* BurningBuddyApp.swift in Sources */,
 				C95AC3C52B4451830035BB86 /* Workout+CoreDataClass.swift in Sources */,
 				C9EE2EAE2A8E324400EE6557 /* UserModel.swift in Sources */,
-				C90BA03D2A14C552005659A6 /* ColorExtension.swift in Sources */,
-				C979C3182A93322A00A071F6 /* TextUtil.swift in Sources */,
+				C90BA03D2A14C552005659A6 /* Color+Extension.swift in Sources */,
+				C979C3182A93322A00A071F6 /* TextLimitter.swift in Sources */,
 				C90BA04D2A14C62C005659A6 /* SettingView.swift in Sources */,
 				C90BA0512A14C67E005659A6 /* LoadingAnimationView.swift in Sources */,
 				C95AC3C32B4451830035BB86 /* Bunny+CoreDataClass.swift in Sources */,
