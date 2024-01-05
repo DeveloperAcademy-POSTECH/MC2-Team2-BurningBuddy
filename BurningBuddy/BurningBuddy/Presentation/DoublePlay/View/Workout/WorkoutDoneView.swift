@@ -90,7 +90,7 @@ struct WorkoutDoneView: View {
                         // TODO: 목표달성 확인하기를 누르면 "상대방이 목표를 달성했어요!"는 print 잘되는데 다음 페이지로 안넘어감
                         
                     }
-                    .buttonStyle(RedButtonStyle())
+                    .buttonStyle(BurningBuddyButton(style: .red))
                 })
             case false:
                 switch (niObject.findingPartnerState) {
@@ -116,7 +116,7 @@ struct WorkoutDoneView: View {
                             niObject.findingPartnerState = .ready
                         }
                     }
-                    .buttonStyle(RedButtonStyle())
+                    .buttonStyle(BurningBuddyButton(style: .red))
                 case .finding, .found:
                     //
                     Button("파트너 연결 취소하기") {
@@ -139,7 +139,7 @@ struct WorkoutDoneView: View {
                             niObject.findingPartnerState = .ready
                         }
                     }
-                    .buttonStyle(RedButtonStyle())
+                    .buttonStyle(BurningBuddyButton(style: .red))
                     
                 }
             } // switch 끝

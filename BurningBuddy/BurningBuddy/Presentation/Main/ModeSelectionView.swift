@@ -98,7 +98,7 @@ struct ModeSelectionView: View {
                     Text("운동 시작하기")
                 }
             )
-            .buttonStyle(RedButtonStyle2(fontSize: 18, isModeSelected: $isModeSelected))
+            .buttonStyle(BurningBuddyButton(style: .redOpacity))
             .disabled(!isModeSelected) // 버튼을 비활성화
             
         } // VStack

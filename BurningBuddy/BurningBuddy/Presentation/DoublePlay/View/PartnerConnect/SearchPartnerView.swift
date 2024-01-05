@@ -99,7 +99,7 @@ struct SearchPartnerView: View {
                         niObject.isBumped = false
                         niObject.findingPartnerState = .finding
                     })
-                    .buttonStyle(TwoGrayButtonStyle())
+                    .buttonStyle(BurningBuddyButton(style: .greyShort))
                     NavigationLink(isActive: $isNextButtonTapped, destination: {
                         WorkoutView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, healthData: healthData, mainViewNavLinkActive: $mainViewNavLinkActive)
                     }, label: {
@@ -108,14 +108,14 @@ struct SearchPartnerView: View {
                             UserDefaults.standard.set(true, forKey: "isWorkouting")
                             UserDefaults.standard.set(niObject.bumpedID?.uuidString, forKey: "partnerID") // 파트너의 UUID값을 user default에 저장
                             print("Navi link 안")
-                        }.buttonStyle(TwoRedButtonStyle())
+                        }.buttonStyle(BurningBuddyButton(style: .redShort))
                     })
                 }
             case false:
                 Text("")
             }
         }
-        .onAppear{
+        .onAppear {
             switch niObject.findingPartnerState {
             case .ready:
                 niObject.start()

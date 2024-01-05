@@ -12,12 +12,12 @@ struct OnboardingRoot: View {
     @Binding var isFirst: Bool
     @ObservedObject var userModel: UserModel
     @ObservedObject var bunnyModel: BunnyModel
-    
+
     var body: some View {
         VStack(spacing: 0) {
             switch onboardingPage {
             case 0:
-                OnboardingView(pageNum: $onboardingPage)
+                OnboardingSwipeView(pageNum: $onboardingPage)
             case 1:
                 NicknameSettingView(userModel: userModel, pageNum: $onboardingPage)
             case 2:

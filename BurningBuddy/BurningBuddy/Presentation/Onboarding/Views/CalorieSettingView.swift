@@ -18,9 +18,9 @@ struct CalorieSettingView: View {
     @State var isTopButtonHidden: Bool = false
     @Binding var pageNum: Int
     @Binding var isFirst: Bool
-    
+
     var body: some View {
-        
+
         VStack {
             if !isTopButtonHidden {
                 Button(action: {
@@ -48,33 +48,34 @@ struct CalorieSettingView: View {
             VStack {
                 Text(sliderValue >= 150 && sliderValue <= 300 ? "초급자" : sliderValue > 300 && sliderValue <= 500 ? "중급자" : "상급자")
                     .font(.system(size: 24, weight: .bold))
-                
+
                 Slider(value: $sliderValue, in: 150...800, step: 1)
                     .padding()
                     .tint(Color.bunnyColor)
-                
+
                 Text("\(sliderValue, specifier: "%.0f")Kcal")
                     .font(.system(size: 28, weight: .bold))
                 Spacer()
-                
+
                 Text(sliderValue >= 150 && sliderValue <= 300 ? "부담없이 운동하고 싶어요" : sliderValue > 300 && sliderValue <= 500 ? "어느 정도는 움직이고 싶어요" : "빡세게 운동해볼래요")
                     .font(.system(size: 17, weight: .medium))
                     .foregroundColor(Color.subTextColor)
                 Spacer()
             }
-            
+
             Spacer()
             Button("확인", action: {
                 saveCalorie()
                 createUserAndBunnyData()
             })
-            .buttonStyle(RedButtonStyle())
+            .buttonStyle(BurningBuddyButton(style: .red))
         }
         .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30))
         .background(Color.backgroundColor)
     }
-  
-    //TODO: -
+}
+
+extension CalorieSettingView {
     /**
      settingView에서 save메서드가 여러번 나오고 있는데, Onboarding, SettingView를 모두 감쌀 수 있는
      구조체를 만들어서 거기에서 마지막에 한 번 저장하는 것이 바람직하다.
@@ -87,7 +88,7 @@ struct CalorieSettingView: View {
         }
         userModel.goalCalories = Int(sliderValue)
     }
-    
+
     private func createUserAndBunnyData() {
         userModel.saveUserData()
         bunnyModel.saveBunnyData()

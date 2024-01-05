@@ -193,7 +193,7 @@ struct MainView: View {
                         label: {
                             Text("운동화면 보기")
                         })
-                    .buttonStyle(RedButtonStyle())
+                    .buttonStyle(BurningBuddyButton(style: .red))
                 } else {
 //                    NavigationLink(
 //                        destination: SearchPartnerView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel, healthData: healthData, mainViewNavLinkActive: $mainViewNavLinkActive),
@@ -201,14 +201,14 @@ struct MainView: View {
 //                        label: {
 //                            Text("파트너와 연결하기")
 //                        })
-//                    .buttonStyle(RedButtonStyle())
+//                    .buttonStyle(BurningBuddyButton(style: .red))
                     NavigationLink(
                         destination: ModeSelectionView(userModel: userModel, bunnyModel: bunnyModel, workoutModel: workoutModel),
                         isActive: $mainViewNavLinkActive,
                         label: {
                             Text("운동 시작하기")
                         })
-                    .buttonStyle(RedButtonStyle())
+                    .buttonStyle(BurningBuddyButton(style: .red))
                 }
             }
             .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))

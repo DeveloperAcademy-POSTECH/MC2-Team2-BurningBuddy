@@ -81,7 +81,7 @@ struct SettingView: View {
                 }
                 
                 NavigationLink(destination: {
-                    NicknameSettingView(userModel: userModel, isTopButtonHidden: true, pageNum: $pageNum)
+                    NicknameSettingView(userModel: userModel, pageNum: $pageNum)
                 }) {
 
                     Image(systemName: "person.crop.circle.fill")

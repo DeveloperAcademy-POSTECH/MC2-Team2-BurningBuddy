@@ -63,7 +63,7 @@ struct SingleWorkoutDoneView: View {
                         isNotDoneWorkoutPopup = true
                     }
                 }
-                .buttonStyle(RedButtonStyle())
+                .buttonStyle(BurningBuddyButton(style: .red))
             })
         } // VStack
         .padding(EdgeInsets(top: 50, leading: 30, bottom: 15, trailing: 30)) // 전체 아웃라인

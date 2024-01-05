@@ -92,7 +92,7 @@ struct WorkoutView: View {
                             UserDefaults.standard.set(false, forKey: "isWorkouting")
                         }
                     }
-                }.buttonStyle(RedButtonStyle())
+                }.buttonStyle(BurningBuddyButton(style: .red))
             })
         }
         .navigationBarHidden(true)

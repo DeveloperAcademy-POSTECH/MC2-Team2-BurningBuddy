@@ -41,7 +41,7 @@ struct NotFoundPartnerView: View {
             }, label: {
                 Text("다시 찾을래요")
             })
-            .buttonStyle(RedButtonStyle())
+            .buttonStyle(BurningBuddyButton(style: .red))
         }
         .padding(EdgeInsets(top: 20, leading: 30, bottom: 15, trailing: 30))
         

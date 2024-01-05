@@ -80,7 +80,7 @@ struct SingleWorkoutView: View {
                             UserDefaults.standard.set(false, forKey: "isWorkouting")
                         }
                     } // DispatchQueue
-                }.buttonStyle(RedButtonStyle())
+                }.buttonStyle(BurningBuddyButton(style: .red))
             })
         }
         .navigationBarHidden(true)

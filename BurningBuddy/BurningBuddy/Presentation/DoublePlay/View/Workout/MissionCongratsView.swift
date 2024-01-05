@@ -70,7 +70,7 @@ struct MissionCongratsView: View {
                 mainViewNavLinkActive = false
                 UserDefaults.standard.set("", forKey: "partnerID")
             })
-            .buttonStyle(RedButtonStyle())
+            .buttonStyle(BurningBuddyButton(style: .red))
         }
         .sheet(isPresented: self.$levelupViewPresent) {
             LevelUpView(userModel: userModel, bunnyModel: bunnyModel)

@@ -46,7 +46,7 @@ struct MissionResultModalView: View {
                 }, label: {
                     Text(leftButtonName)
                 })
-                .buttonStyle(TwoGrayButtonStyle())
+                .buttonStyle(BurningBuddyButton(style: .greyShort))
 //                Spacer()// TODO: - 버튼 간격 조정
 //                Spacer()
                 Button(action: { // right Button
@@ -56,7 +56,7 @@ struct MissionResultModalView: View {
                 }, label: {
                     Text(rightButtonName)
                 })
-                .buttonStyle(TwoRedButtonStyle())
+                .buttonStyle(BurningBuddyButton(style: .redShort))
             }
         }
         .padding(EdgeInsets(top: 30, leading: 30, bottom: 15, trailing: 30))

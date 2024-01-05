@@ -13,6 +13,8 @@
 		3EF092EF2AC7F8E000626510 /* SingleMissionCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF092EE2AC7F8E000626510 /* SingleMissionCongratsView.swift */; };
 		3EF092F12AC7F91B00626510 /* SingleWorkoutSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF092F02AC7F91B00626510 /* SingleWorkoutSuccessView.swift */; };
 		3EF092F32AC7F92900626510 /* SingleWorkoutFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF092F22AC7F92900626510 /* SingleWorkoutFailView.swift */; };
+		B8060D612B4813AF00407205 /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8060D602B4813AF00407205 /* OnboardingPageView.swift */; };
+		B8060D642B48250700407205 /* XButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8060D632B48250700407205 /* XButtonStyle.swift */; };
 		C90BA0182A14C2FF005659A6 /* BurningBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0172A14C2FF005659A6 /* BurningBuddyApp.swift */; };
 		C90BA01A2A14C2FF005659A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0192A14C2FF005659A6 /* ContentView.swift */; };
 		C90BA01C2A14C300005659A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C90BA01B2A14C300005659A6 /* Assets.xcassets */; };
@@ -21,9 +23,9 @@
 		C90BA02E2A14C475005659A6 /* NISessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA02D2A14C475005659A6 /* NISessionManager.swift */; };
 		C90BA0302A14C486005659A6 /* LocalNetworkAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA02F2A14C486005659A6 /* LocalNetworkAuthorization.swift */; };
 		C90BA0332A14C4BA005659A6 /* MPCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0322A14C4BA005659A6 /* MPCSession.swift */; };
-		C90BA03B2A14C520005659A6 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA03A2A14C520005659A6 /* ButtonComponent.swift */; };
+		C90BA03B2A14C520005659A6 /* BurningBuddyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA03A2A14C520005659A6 /* BurningBuddyButton.swift */; };
 		C90BA03D2A14C552005659A6 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA03C2A14C552005659A6 /* Color+Extension.swift */; };
-		C90BA03F2A14C56F005659A6 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA03E2A14C56F005659A6 /* OnboardingView.swift */; };
+		C90BA03F2A14C56F005659A6 /* OnboardingSwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA03E2A14C56F005659A6 /* OnboardingSwipeView.swift */; };
 		C90BA0412A14C57A005659A6 /* NicknameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0402A14C57A005659A6 /* NicknameSettingView.swift */; };
 		C90BA0432A14C599005659A6 /* CharacterSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0422A14C599005659A6 /* CharacterSettingView.swift */; };
 		C90BA0452A14C5A5005659A6 /* CalorieSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0442A14C5A5005659A6 /* CalorieSettingView.swift */; };
@@ -52,7 +54,7 @@
 		C95AC3C62B4451830035BB86 /* Workout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3C02B4451830035BB86 /* Workout+CoreDataProperties.swift */; };
 		C95AC3C72B4451830035BB86 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3C12B4451830035BB86 /* User+CoreDataClass.swift */; };
 		C95AC3C82B4451830035BB86 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95AC3C22B4451830035BB86 /* User+CoreDataProperties.swift */; };
-		C979C3122A93113600A071F6 /* OnboardingRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3112A93113600A071F6 /* OnboardingRoot.swift */; };
+		C979C3122A93113600A071F6 /* OnboardingRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3112A93113600A071F6 /* OnboardingRootView.swift */; };
 		C979C3182A93322A00A071F6 /* TextLimitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C979C3172A93322A00A071F6 /* TextLimitter.swift */; };
 		C99FF7502B45AB5D007FEF08 /* UserDataMappingModel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = C99FF74F2B45AB5D007FEF08 /* UserDataMappingModel.xcmappingmodel */; };
 		C9EE2EAE2A8E324400EE6557 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE2EAD2A8E324400EE6557 /* UserModel.swift */; };
@@ -67,6 +69,8 @@
 		3EF092EE2AC7F8E000626510 /* SingleMissionCongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMissionCongratsView.swift; sourceTree = "<group>"; };
 		3EF092F02AC7F91B00626510 /* SingleWorkoutSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleWorkoutSuccessView.swift; sourceTree = "<group>"; };
 		3EF092F22AC7F92900626510 /* SingleWorkoutFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleWorkoutFailView.swift; sourceTree = "<group>"; };
+		B8060D602B4813AF00407205 /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
+		B8060D632B48250700407205 /* XButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XButtonStyle.swift; sourceTree = "<group>"; };
 		C90BA0142A14C2FF005659A6 /* BurningBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BurningBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90BA0172A14C2FF005659A6 /* BurningBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurningBuddyApp.swift; sourceTree = "<group>"; };
 		C90BA0192A14C2FF005659A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,9 +80,9 @@
 		C90BA02D2A14C475005659A6 /* NISessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NISessionManager.swift; sourceTree = "<group>"; };
 		C90BA02F2A14C486005659A6 /* LocalNetworkAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNetworkAuthorization.swift; sourceTree = "<group>"; };
 		C90BA0322A14C4BA005659A6 /* MPCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPCSession.swift; sourceTree = "<group>"; };
-		C90BA03A2A14C520005659A6 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
+		C90BA03A2A14C520005659A6 /* BurningBuddyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurningBuddyButton.swift; sourceTree = "<group>"; };
 		C90BA03C2A14C552005659A6 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		C90BA03E2A14C56F005659A6 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		C90BA03E2A14C56F005659A6 /* OnboardingSwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSwipeView.swift; sourceTree = "<group>"; };
 		C90BA0402A14C57A005659A6 /* NicknameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameSettingView.swift; sourceTree = "<group>"; };
 		C90BA0422A14C599005659A6 /* CharacterSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSettingView.swift; sourceTree = "<group>"; };
 		C90BA0442A14C5A5005659A6 /* CalorieSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieSettingView.swift; sourceTree = "<group>"; };
@@ -110,7 +114,7 @@
 		C95AC3C02B4451830035BB86 /* Workout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C95AC3C12B4451830035BB86 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C95AC3C22B4451830035BB86 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C979C3112A93113600A071F6 /* OnboardingRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRoot.swift; sourceTree = "<group>"; };
+		C979C3112A93113600A071F6 /* OnboardingRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRootView.swift; sourceTree = "<group>"; };
 		C979C3172A93322A00A071F6 /* TextLimitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLimitter.swift; sourceTree = "<group>"; };
 		C99FF74F2B45AB5D007FEF08 /* UserDataMappingModel.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = UserDataMappingModel.xcmappingmodel; sourceTree = "<group>"; };
 		C9EE2EAD2A8E324400EE6557 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -174,6 +178,28 @@
 				C9DE7C282ABC6489005AFCC6 /* DoublePlay */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		B8060D5F2B48112A00407205 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C979C3112A93113600A071F6 /* OnboardingRootView.swift */,
+				B8060D602B4813AF00407205 /* OnboardingPageView.swift */,
+				C90BA03E2A14C56F005659A6 /* OnboardingSwipeView.swift */,
+				C90BA0402A14C57A005659A6 /* NicknameSettingView.swift */,
+				C90BA0422A14C599005659A6 /* CharacterSettingView.swift */,
+				C90BA0442A14C5A5005659A6 /* CalorieSettingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B8060D622B481C6000407205 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				C90BA03A2A14C520005659A6 /* BurningBuddyButton.swift */,
+				B8060D632B48250700407205 /* XButtonStyle.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		C90BA00B2A14C2FF005659A6 = {
@@ -315,11 +341,7 @@
 		C90BA0382A14C4E6005659A6 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				C979C3112A93113600A071F6 /* OnboardingRoot.swift */,
-				C90BA03E2A14C56F005659A6 /* OnboardingView.swift */,
-				C90BA0402A14C57A005659A6 /* NicknameSettingView.swift */,
-				C90BA0422A14C599005659A6 /* CharacterSettingView.swift */,
-				C90BA0442A14C5A5005659A6 /* CalorieSettingView.swift */,
+				B8060D5F2B48112A00407205 /* Views */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -327,7 +349,7 @@
 		C90BA0392A14C4E8005659A6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				C90BA03A2A14C520005659A6 /* ButtonComponent.swift */,
+				B8060D622B481C6000407205 /* Button */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -527,8 +549,9 @@
 				C95AC3C42B4451830035BB86 /* Bunny+CoreDataProperties.swift in Sources */,
 				C90BA0592A14C6D4005659A6 /* MissionResultModalView.swift in Sources */,
 				C90BA02B2A14C447005659A6 /* CoreDataManager.swift in Sources */,
-				C979C3122A93113600A071F6 /* OnboardingRoot.swift in Sources */,
+				C979C3122A93113600A071F6 /* OnboardingRootView.swift in Sources */,
 				C90BA05D2A14C6F1005659A6 /* WorkoutSuccessView.swift in Sources */,
+				B8060D642B48250700407205 /* XButtonStyle.swift in Sources */,
 				C90BA05B2A14C6E0005659A6 /* MissionCongratsView.swift in Sources */,
 				C90BA05F2A14C6FE005659A6 /* WorkoutFailView.swift in Sources */,
 				C9FF519E2A92F361005FC3F6 /* WorkoutModel.swift in Sources */,
@@ -554,9 +577,10 @@
 				C90BA0412A14C57A005659A6 /* NicknameSettingView.swift in Sources */,
 				C90BA0302A14C486005659A6 /* LocalNetworkAuthorization.swift in Sources */,
 				C90BA0572A14C6CA005659A6 /* WorkoutDoneView.swift in Sources */,
-				C90BA03B2A14C520005659A6 /* ButtonComponent.swift in Sources */,
+				B8060D612B4813AF00407205 /* OnboardingPageView.swift in Sources */,
+				C90BA03B2A14C520005659A6 /* BurningBuddyButton.swift in Sources */,
 				C90BA02E2A14C475005659A6 /* NISessionManager.swift in Sources */,
-				C90BA03F2A14C56F005659A6 /* OnboardingView.swift in Sources */,
+				C90BA03F2A14C56F005659A6 /* OnboardingSwipeView.swift in Sources */,
 				C90BA0492A14C5E2005659A6 /* LevelUpModalView.swift in Sources */,
 				C90BA0612A14C709005659A6 /* DataReceiveView.swift in Sources */,
 				C90BA0472A14C5D6005659A6 /* LevelUpView.swift in Sources */,

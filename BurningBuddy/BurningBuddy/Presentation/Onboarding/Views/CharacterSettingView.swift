@@ -19,7 +19,7 @@ struct CharacterSettingView: View {
     @State private var isInputText: Bool = false
     @State var isTopButtonHidden: Bool = false // 세팅뷰에서 재사용을 위한 변수
     @Binding var pageNum: Int
-    
+
     var body: some View {
         VStack {
             if !isTopButtonHidden {
@@ -62,12 +62,14 @@ struct CharacterSettingView: View {
             Button("확인", action: {
                 saveCharacterName()
             })
-            .buttonStyle(RedButtonStyle())
+            .buttonStyle(BurningBuddyButton(style: .red))
         }
         .padding(EdgeInsets(top: 10, leading: 30, bottom: 15, trailing: 30))
         .background(Color.backgroundColor)
     }
-    
+}
+
+extension CharacterSettingView {
     private func checkBlackTextField() {
         if characterName.value.count == 0 || characterName.value.count == 1 {
             self.isInputText = true
@@ -75,13 +77,13 @@ struct CharacterSettingView: View {
             self.isInputText = false
         }
     }
-    
+
     private func saveCharacterName() {
         bunnyModel.bunnyName = characterName.value
         checkBlackTextField()
         if !isInputText {
             bunnyModel.saveBunnyData()
-            withAnimation(.easeIn(duration: 0.5)){
+            withAnimation(.easeIn(duration: 0.5)) {
                 if pageNum != 4 { // SettingView에서 재사용하기 위해
                     pageNum += 1
                 }
