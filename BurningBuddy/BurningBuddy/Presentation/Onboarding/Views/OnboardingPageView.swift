@@ -13,7 +13,7 @@ import SwiftUI
  EdgeInsets 제거 필요하며, Stack 그룹핑을 다시 해서 재정렬 해야 함.
  */
 struct OnboardingPageView: View {
-    @Binding var pageNum: Int
+    @State var pageNum: Int
     @State var topImage: String = "Onboarding1"
     @State var title: String = ""
     @State var explain: String = ""
@@ -73,6 +73,6 @@ struct OnboardingPageViewPreview: PreviewProvider {
     @State static var pageNum = 0
 
     static var previews: some View {
-        OnboardingPageView(pageNum: $pageNum)
+        OnboardingPageView(pageNum: pageNum)
     }
 }

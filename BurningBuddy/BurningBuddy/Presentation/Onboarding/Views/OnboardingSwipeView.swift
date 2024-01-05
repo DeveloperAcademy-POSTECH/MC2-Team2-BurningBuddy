@@ -18,10 +18,9 @@ struct OnboardingSwipeView: View {
     var body: some View {
         VStack(spacing: 0) {
             TabView {
-                OnboardingPageView(pageNum: $pageNum)
-                OnboardingPageView(pageNum: $pageNum)
-                OnboardingPageView(pageNum: $pageNum)
-                OnboardingPageView(pageNum: $pageNum)
+                ForEach(0..<4) { number in
+                    OnboardingPageView(pageNum: number)
+                }
             }
             .tabViewStyle(PageTabViewStyle())
             .onAppear {

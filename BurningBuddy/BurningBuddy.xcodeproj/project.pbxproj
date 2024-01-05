@@ -15,6 +15,7 @@
 		3EF092F32AC7F92900626510 /* SingleWorkoutFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF092F22AC7F92900626510 /* SingleWorkoutFailView.swift */; };
 		B8060D612B4813AF00407205 /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8060D602B4813AF00407205 /* OnboardingPageView.swift */; };
 		B8060D642B48250700407205 /* XButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8060D632B48250700407205 /* XButton.swift */; };
+		B8060D672B482A3100407205 /* legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8060D662B482A3100407205 /* legacy.swift */; };
 		C90BA0182A14C2FF005659A6 /* BurningBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0172A14C2FF005659A6 /* BurningBuddyApp.swift */; };
 		C90BA01A2A14C2FF005659A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90BA0192A14C2FF005659A6 /* ContentView.swift */; };
 		C90BA01C2A14C300005659A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C90BA01B2A14C300005659A6 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		3EF092F22AC7F92900626510 /* SingleWorkoutFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleWorkoutFailView.swift; sourceTree = "<group>"; };
 		B8060D602B4813AF00407205 /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
 		B8060D632B48250700407205 /* XButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XButton.swift; sourceTree = "<group>"; };
+		B8060D662B482A3100407205 /* legacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = legacy.swift; sourceTree = "<group>"; };
 		C90BA0142A14C2FF005659A6 /* BurningBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BurningBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C90BA0172A14C2FF005659A6 /* BurningBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurningBuddyApp.swift; sourceTree = "<group>"; };
 		C90BA0192A14C2FF005659A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -202,6 +204,14 @@
 			path = ButtonStyle;
 			sourceTree = "<group>";
 		};
+		B8060D652B482A2100407205 /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				B8060D662B482A3100407205 /* legacy.swift */,
+			);
+			path = Legacy;
+			sourceTree = "<group>";
+		};
 		C90BA00B2A14C2FF005659A6 = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +232,7 @@
 		C90BA0162A14C2FF005659A6 /* BurningBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				B8060D652B482A2100407205 /* Legacy */,
 				C9DE7C2B2ABC65AB005AFCC6 /* App */,
 				C90BA0272A14C3B0005659A6 /* Resources */,
 				C90BA0392A14C4E8005659A6 /* Components */,
@@ -550,6 +561,7 @@
 				C90BA0592A14C6D4005659A6 /* MissionResultModalView.swift in Sources */,
 				C90BA02B2A14C447005659A6 /* CoreDataManager.swift in Sources */,
 				C979C3122A93113600A071F6 /* OnboardingRootView.swift in Sources */,
+				B8060D672B482A3100407205 /* legacy.swift in Sources */,
 				C90BA05D2A14C6F1005659A6 /* WorkoutSuccessView.swift in Sources */,
 				B8060D642B48250700407205 /* XButton.swift in Sources */,
 				C90BA05B2A14C6E0005659A6 /* MissionCongratsView.swift in Sources */,
